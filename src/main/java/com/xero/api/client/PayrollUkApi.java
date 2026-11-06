@@ -12,93 +12,23 @@
 
 package com.xero.api.client;
 
-import com.fasterxml.jackson.core.type.TypeReference;
+import tools.jackson.core.type.TypeReference;
 import com.google.api.client.auth.oauth2.BearerToken;
 import com.google.api.client.auth.oauth2.Credential;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpContent;
-import com.google.api.client.http.HttpHeaders;
-import com.google.api.client.http.HttpMethods;
-import com.google.api.client.http.HttpRequestFactory;
-import com.google.api.client.http.HttpResponse;
-import com.google.api.client.http.HttpResponseException;
-import com.google.api.client.http.HttpTransport;
+import com.google.api.client.http.*;
 import com.xero.api.ApiClient;
 import com.xero.api.XeroApiExceptionHandler;
-import com.xero.models.payrolluk.Benefit;
-import com.xero.models.payrolluk.BenefitObject;
-import com.xero.models.payrolluk.Benefits;
-import com.xero.models.payrolluk.Deduction;
-import com.xero.models.payrolluk.DeductionObject;
-import com.xero.models.payrolluk.Deductions;
-import com.xero.models.payrolluk.EarningsOrderObject;
-import com.xero.models.payrolluk.EarningsOrders;
-import com.xero.models.payrolluk.EarningsRate;
-import com.xero.models.payrolluk.EarningsRateObject;
-import com.xero.models.payrolluk.EarningsRates;
-import com.xero.models.payrolluk.EarningsTemplate;
-import com.xero.models.payrolluk.EarningsTemplateObject;
-import com.xero.models.payrolluk.Employee;
-import com.xero.models.payrolluk.EmployeeLeave;
-import com.xero.models.payrolluk.EmployeeLeaveBalances;
-import com.xero.models.payrolluk.EmployeeLeaveObject;
-import com.xero.models.payrolluk.EmployeeLeaveType;
-import com.xero.models.payrolluk.EmployeeLeaveTypeObject;
-import com.xero.models.payrolluk.EmployeeLeaveTypes;
-import com.xero.models.payrolluk.EmployeeLeaves;
-import com.xero.models.payrolluk.EmployeeObject;
-import com.xero.models.payrolluk.EmployeeOpeningBalances;
-import com.xero.models.payrolluk.EmployeeOpeningBalancesObject;
-import com.xero.models.payrolluk.EmployeePayTemplateObject;
-import com.xero.models.payrolluk.EmployeePayTemplates;
-import com.xero.models.payrolluk.EmployeeStatutoryLeaveBalanceObject;
-import com.xero.models.payrolluk.EmployeeStatutoryLeavesSummaries;
-import com.xero.models.payrolluk.EmployeeStatutorySickLeave;
-import com.xero.models.payrolluk.EmployeeStatutorySickLeaveObject;
-import com.xero.models.payrolluk.EmployeeTaxObject;
-import com.xero.models.payrolluk.Employees;
-import com.xero.models.payrolluk.Employment;
-import com.xero.models.payrolluk.EmploymentObject;
-import com.xero.models.payrolluk.LeavePeriods;
-import com.xero.models.payrolluk.LeaveType;
-import com.xero.models.payrolluk.LeaveTypeObject;
-import com.xero.models.payrolluk.LeaveTypes;
-import com.xero.models.payrolluk.PayRunCalendar;
-import com.xero.models.payrolluk.PayRunCalendarObject;
-import com.xero.models.payrolluk.PayRunCalendars;
-import com.xero.models.payrolluk.PayRunObject;
-import com.xero.models.payrolluk.PayRuns;
-import com.xero.models.payrolluk.PaymentMethod;
-import com.xero.models.payrolluk.PaymentMethodObject;
-import com.xero.models.payrolluk.PayslipObject;
-import com.xero.models.payrolluk.Payslips;
-import com.xero.models.payrolluk.Reimbursement;
-import com.xero.models.payrolluk.ReimbursementObject;
-import com.xero.models.payrolluk.Reimbursements;
-import com.xero.models.payrolluk.SalaryAndWage;
-import com.xero.models.payrolluk.SalaryAndWageObject;
-import com.xero.models.payrolluk.SalaryAndWages;
-import com.xero.models.payrolluk.Settings;
-import com.xero.models.payrolluk.Timesheet;
-import com.xero.models.payrolluk.TimesheetLine;
-import com.xero.models.payrolluk.TimesheetLineObject;
-import com.xero.models.payrolluk.TimesheetObject;
-import com.xero.models.payrolluk.Timesheets;
-import com.xero.models.payrolluk.TrackingCategories;
+import com.xero.models.payrolluk.*;
 import jakarta.ws.rs.core.UriBuilder;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.threeten.bp.LocalDate;
+import java.time.LocalDate;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.*;
 
 /** PayrollUkApi has methods for interacting with all endpoints in the API set */
 public class PayrollUkApi {
@@ -3038,7 +2968,7 @@ public class PayrollUkApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -3240,7 +3170,7 @@ public class PayrollUkApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -3442,7 +3372,7 @@ public class PayrollUkApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -3645,7 +3575,7 @@ public class PayrollUkApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -4073,7 +4003,7 @@ public class PayrollUkApi {
       Object value = startDate;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -4093,7 +4023,7 @@ public class PayrollUkApi {
       Object value = endDate;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -4823,7 +4753,7 @@ public class PayrollUkApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -4963,7 +4893,7 @@ public class PayrollUkApi {
       Object value = leaveType;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -4983,7 +4913,7 @@ public class PayrollUkApi {
       Object value = asOfDate;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -5295,7 +5225,7 @@ public class PayrollUkApi {
       Object value = filter;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -5315,7 +5245,7 @@ public class PayrollUkApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -5524,7 +5454,7 @@ public class PayrollUkApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -5544,7 +5474,7 @@ public class PayrollUkApi {
       Object value = activeOnly;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -5842,7 +5772,7 @@ public class PayrollUkApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -5955,7 +5885,7 @@ public class PayrollUkApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -5975,7 +5905,7 @@ public class PayrollUkApi {
       Object value = status;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -6183,7 +6113,7 @@ public class PayrollUkApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -6203,7 +6133,7 @@ public class PayrollUkApi {
       Object value = payRunID;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -6407,7 +6337,7 @@ public class PayrollUkApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -6615,7 +6545,7 @@ public class PayrollUkApi {
       Object value = activeOnly;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -6851,7 +6781,7 @@ public class PayrollUkApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -6871,7 +6801,7 @@ public class PayrollUkApi {
       Object value = filter;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -6891,7 +6821,7 @@ public class PayrollUkApi {
       Object value = status;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -6911,7 +6841,7 @@ public class PayrollUkApi {
       Object value = startDate;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -6931,7 +6861,7 @@ public class PayrollUkApi {
       Object value = endDate;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -6951,7 +6881,7 @@ public class PayrollUkApi {
       Object value = sort;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());

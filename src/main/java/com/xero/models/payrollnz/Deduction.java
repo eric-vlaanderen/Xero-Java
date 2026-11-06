@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -113,7 +113,7 @@ public class Deduction {
    *
    * @return deductionId
    */
-  @ApiModelProperty(value = "The Xero identifier for Deduction")
+  @Schema(description = "The Xero identifier for Deduction")
   /**
    * The Xero identifier for Deduction
    *
@@ -148,7 +148,7 @@ public class Deduction {
    *
    * @return deductionName
    */
-  @ApiModelProperty(required = true, value = "Name of the deduction")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Name of the deduction")
   /**
    * Name of the deduction
    *
@@ -183,7 +183,7 @@ public class Deduction {
    *
    * @return deductionCategory
    */
-  @ApiModelProperty(required = true, value = "Deduction Category type")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Deduction Category type")
   /**
    * Deduction Category type
    *
@@ -218,7 +218,7 @@ public class Deduction {
    *
    * @return liabilityAccountId
    */
-  @ApiModelProperty(required = true, value = "Xero identifier for Liability Account")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Xero identifier for Liability Account")
   /**
    * Xero identifier for Liability Account
    *
@@ -253,7 +253,7 @@ public class Deduction {
    *
    * @return currentRecord
    */
-  @ApiModelProperty(value = "Identifier of a record is active or not.")
+  @Schema(description = "Identifier of a record is active or not.")
   /**
    * Identifier of a record is active or not.
    *
@@ -288,7 +288,7 @@ public class Deduction {
    *
    * @return standardAmount
    */
-  @ApiModelProperty(value = "Standard amount of the deduction.")
+  @Schema(description = "Standard amount of the deduction.")
   /**
    * Standard amount of the deduction.
    *

@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -44,7 +44,7 @@ public class PnlAccountClass {
    *
    * @return total
    */
-  @ApiModelProperty(value = "Total revenue/expense value")
+  @Schema(description = "Total revenue/expense value")
   /**
    * Total revenue/expense value
    *
@@ -99,8 +99,8 @@ public class PnlAccountClass {
    *
    * @return accountTypes
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Contains trading income and other income for revenue section / operating expenses and"
               + " direct cost for expense section if the data is available for each section. Refer"
               + " to the account type element below")

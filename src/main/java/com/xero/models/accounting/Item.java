@@ -13,13 +13,14 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** Item */
 public class Item {
@@ -95,7 +96,7 @@ public class Item {
    *
    * @return code
    */
-  @ApiModelProperty(required = true, value = "User defined item code (max length = 30)")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "User defined item code (max length = 30)")
   /**
    * User defined item code (max length &#x3D; 30)
    *
@@ -132,8 +133,8 @@ public class Item {
    *
    * @return inventoryAssetAccountCode
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The inventory asset account for the item. The account must be of type INVENTORY. The "
               + " COGSAccountCode in PurchaseDetails is also required to create a tracked item")
   /**
@@ -172,7 +173,7 @@ public class Item {
    *
    * @return name
    */
-  @ApiModelProperty(value = "The name of the item (max length = 50)")
+  @Schema(description = "The name of the item (max length = 50)")
   /**
    * The name of the item (max length &#x3D; 50)
    *
@@ -211,8 +212,8 @@ public class Item {
    *
    * @return isSold
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Boolean value, defaults to true. When IsSold is true the item will be available on sales"
               + " transactions in the Xero UI. If IsSold is updated to false then Description and"
               + " SalesDetails values will be nulled.")
@@ -258,8 +259,8 @@ public class Item {
    *
    * @return isPurchased
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Boolean value, defaults to true. When IsPurchased is true the item is available for"
               + " purchase transactions in the Xero UI. If IsPurchased is updated to false then"
               + " PurchaseDescription and PurchaseDetails values will be nulled.")
@@ -301,7 +302,7 @@ public class Item {
    *
    * @return description
    */
-  @ApiModelProperty(value = "The sales description of the item (max length = 4000)")
+  @Schema(description = "The sales description of the item (max length = 4000)")
   /**
    * The sales description of the item (max length &#x3D; 4000)
    *
@@ -336,7 +337,7 @@ public class Item {
    *
    * @return purchaseDescription
    */
-  @ApiModelProperty(value = "The purchase description of the item (max length = 4000)")
+  @Schema(description = "The purchase description of the item (max length = 4000)")
   /**
    * The purchase description of the item (max length &#x3D; 4000)
    *
@@ -371,7 +372,7 @@ public class Item {
    *
    * @return purchaseDetails
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * purchaseDetails
    *
@@ -406,7 +407,7 @@ public class Item {
    *
    * @return salesDetails
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * salesDetails
    *
@@ -443,8 +444,8 @@ public class Item {
    *
    * @return isTrackedAsInventory
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "True for items that are tracked as inventory. An item will be tracked as inventory if"
               + " the InventoryAssetAccountCode and COGSAccountCode are set.")
   /**
@@ -483,8 +484,8 @@ public class Item {
    *
    * @return totalCostPool
    */
-  @ApiModelProperty(
-      value = "The value of the item on hand. Calculated using average cost accounting.")
+  @Schema(
+      description = "The value of the item on hand. Calculated using average cost accounting.")
   /**
    * The value of the item on hand. Calculated using average cost accounting.
    *
@@ -521,8 +522,8 @@ public class Item {
    *
    * @return quantityOnHand
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The quantity of the item on hand. This will be 0 if `QuantityOnBackOrder` is greater"
               + " than 0.")
   /**
@@ -552,8 +553,8 @@ public class Item {
    *
    * @return quantityAvailable
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The quantity of the item available. This is equal to `QuantityOnHand` -"
               + " `QuantityOnBackOrder`. This value will be negative if `QuantityOnBackOrder` is"
               + " greater than 0.")
@@ -574,8 +575,8 @@ public class Item {
    *
    * @return quantityOnBackOrder
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The quantity of the item on backorder. This will be 0 if `QuantityOnHand` is greater"
               + " than 0.")
   /**
@@ -593,7 +594,7 @@ public class Item {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1573755038314)/", value = "Last modified date in UTC format")
+  @Schema(example = "/Date(1573755038314)/", description = "Last modified date in UTC format")
   /**
    * Last modified date in UTC format
    *
@@ -635,7 +636,7 @@ public class Item {
    *
    * @return itemID
    */
-  @ApiModelProperty(value = "The Xero identifier for an Item")
+  @Schema(description = "The Xero identifier for an Item")
   /**
    * The Xero identifier for an Item
    *
@@ -670,7 +671,7 @@ public class Item {
    *
    * @return statusAttributeString
    */
-  @ApiModelProperty(value = "Status of object")
+  @Schema(description = "Status of object")
   /**
    * Status of object
    *
@@ -719,7 +720,7 @@ public class Item {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *

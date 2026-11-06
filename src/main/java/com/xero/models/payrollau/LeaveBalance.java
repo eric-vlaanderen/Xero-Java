@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** LeaveBalance */
@@ -48,7 +48,7 @@ public class LeaveBalance {
    *
    * @return leaveName
    */
-  @ApiModelProperty(example = "Annual Leave", value = "The name of the leave type")
+  @Schema(example = "Annual Leave", description = "The name of the leave type")
   /**
    * The name of the leave type
    *
@@ -83,9 +83,9 @@ public class LeaveBalance {
    *
    * @return leaveTypeID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "544d9292-4329-4512-bfff-a9f15236d776",
-      value = "Identifier of the leave type (see PayItems)")
+      description = "Identifier of the leave type (see PayItems)")
   /**
    * Identifier of the leave type (see PayItems)
    *
@@ -120,7 +120,7 @@ public class LeaveBalance {
    *
    * @return numberOfUnits
    */
-  @ApiModelProperty(example = "81.2602", value = "The balance of the leave available")
+  @Schema(example = "81.2602", description = "The balance of the leave available")
   /**
    * The balance of the leave available
    *
@@ -155,9 +155,9 @@ public class LeaveBalance {
    *
    * @return typeOfUnits
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Hours",
-      value = "The type of units as specified by the LeaveType (see PayItems)")
+      description = "The type of units as specified by the LeaveType (see PayItems)")
   /**
    * The type of units as specified by the LeaveType (see PayItems)
    *

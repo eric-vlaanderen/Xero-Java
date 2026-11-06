@@ -1,15 +1,17 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.project.*;
+import com.xero.models.project.ProjectUsers;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class ProjectsApiProjectUsersTest {
 
@@ -20,7 +22,7 @@ public class ProjectsApiProjectUsersTest {
    
     private static boolean setUpIsDone = false;
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -61,9 +63,9 @@ public class ProjectsApiProjectUsersTest {
         assertThat(response.getPagination().getItemCount(), is(equalTo(2)));
         assertThat(response.getPagination().getPageCount(), is(equalTo(1)));
         assertThat(response.getPagination().getPageSize(), is(equalTo(50)));
-        assertThat(response.getItems().get(0).getUserId(), is(equalTo(UUID.fromString("740add2a-a703-4b8a-a670-1093919c2040"))));
-        assertThat(response.getItems().get(0).getName(), is(equalTo("Test User")));
-        assertThat(response.getItems().get(0).getEmail(), is(equalTo("test@xero.com")));
+        assertThat(response.getItems().getFirst().getUserId(), is(equalTo(UUID.fromString("740add2a-a703-4b8a-a670-1093919c2040"))));
+        assertThat(response.getItems().getFirst().getName(), is(equalTo("Test User")));
+        assertThat(response.getItems().getFirst().getEmail(), is(equalTo("test@xero.com")));
 
        // System.out.println(response.toString());
     }

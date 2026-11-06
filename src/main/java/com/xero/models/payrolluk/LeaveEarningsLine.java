@@ -13,7 +13,7 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -55,7 +55,7 @@ public class LeaveEarningsLine {
    *
    * @return earningsRateID
    */
-  @ApiModelProperty(value = "Xero identifier for payroll leave earnings rate")
+  @Schema(description = "Xero identifier for payroll leave earnings rate")
   /**
    * Xero identifier for payroll leave earnings rate
    *
@@ -90,7 +90,7 @@ public class LeaveEarningsLine {
    *
    * @return ratePerUnit
    */
-  @ApiModelProperty(value = "Rate per unit for leave earnings line")
+  @Schema(description = "Rate per unit for leave earnings line")
   /**
    * Rate per unit for leave earnings line
    *
@@ -125,7 +125,7 @@ public class LeaveEarningsLine {
    *
    * @return numberOfUnits
    */
-  @ApiModelProperty(value = "Leave earnings number of units")
+  @Schema(description = "Leave earnings number of units")
   /**
    * Leave earnings number of units
    *
@@ -160,8 +160,8 @@ public class LeaveEarningsLine {
    *
    * @return fixedAmount
    */
-  @ApiModelProperty(
-      value = "Leave earnings fixed amount. Only applicable if the EarningsRate RateType is Fixed")
+  @Schema(
+      description = "Leave earnings fixed amount. Only applicable if the EarningsRate RateType is Fixed")
   /**
    * Leave earnings fixed amount. Only applicable if the EarningsRate RateType is Fixed
    *
@@ -196,7 +196,7 @@ public class LeaveEarningsLine {
    *
    * @return amount
    */
-  @ApiModelProperty(value = "The amount of the earnings line.")
+  @Schema(description = "The amount of the earnings line.")
   /**
    * The amount of the earnings line.
    *
@@ -231,8 +231,8 @@ public class LeaveEarningsLine {
    *
    * @return isLinkedToTimesheet
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Identifies if the leave earnings is taken from the timesheet. False for leave earnings"
               + " line")
   /**

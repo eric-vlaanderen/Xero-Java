@@ -1,15 +1,18 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrollnz.*;
+import com.xero.models.payrollnz.StatutoryDeductionObject;
+import com.xero.models.payrollnz.StatutoryDeductions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollNzApiStatutoryDeductionsTest {
 
@@ -19,7 +22,7 @@ public class PayrollNzApiStatutoryDeductionsTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -41,11 +44,11 @@ public class PayrollNzApiStatutoryDeductionsTest {
         int page = 1;
         StatutoryDeductions response = payrollNzApi.getStatutoryDeductions(accessToken, xeroTenantId, page);
         
-        assertThat(response.getStatutoryDeductions().get(0).getId(), is(equalTo(UUID.fromString("e3731829-9801-4809-a1a1-bbe40cd18b7e"))));
-        assertThat(response.getStatutoryDeductions().get(0).getLiabilityAccountId(), is(equalTo(UUID.fromString("fa5cdc43-643b-4ad8-b4ac-3ffe0d0f4488"))));
-        assertThat(response.getStatutoryDeductions().get(0).getName(), is(equalTo("Child Support")));
-        assertThat(response.getStatutoryDeductions().get(0).getStatutoryDeductionCategory(), is(equalTo(com.xero.models.payrollnz.StatutoryDeductionCategory.CHILDSUPPORT)));
-        assertThat(response.getStatutoryDeductions().get(0).getCurrentRecord(), is(equalTo(true)));
+        assertThat(response.getStatutoryDeductions().getFirst().getId(), is(equalTo(UUID.fromString("e3731829-9801-4809-a1a1-bbe40cd18b7e"))));
+        assertThat(response.getStatutoryDeductions().getFirst().getLiabilityAccountId(), is(equalTo(UUID.fromString("fa5cdc43-643b-4ad8-b4ac-3ffe0d0f4488"))));
+        assertThat(response.getStatutoryDeductions().getFirst().getName(), is(equalTo("Child Support")));
+        assertThat(response.getStatutoryDeductions().getFirst().getStatutoryDeductionCategory(), is(equalTo(com.xero.models.payrollnz.StatutoryDeductionCategory.CHILDSUPPORT)));
+        assertThat(response.getStatutoryDeductions().getFirst().getCurrentRecord(), is(equalTo(true)));
 
         //System.out.println(response.toString());
     }

@@ -13,7 +13,7 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -55,7 +55,7 @@ public class SuperannuationLine {
    *
    * @return superannuationTypeID
    */
-  @ApiModelProperty(value = "Xero identifier for payroll superannuation type")
+  @Schema(description = "Xero identifier for payroll superannuation type")
   /**
    * Xero identifier for payroll superannuation type
    *
@@ -90,7 +90,7 @@ public class SuperannuationLine {
    *
    * @return displayName
    */
-  @ApiModelProperty(value = "Benefit display name")
+  @Schema(description = "Benefit display name")
   /**
    * Benefit display name
    *
@@ -125,7 +125,7 @@ public class SuperannuationLine {
    *
    * @return amount
    */
-  @ApiModelProperty(value = "The amount of the superannuation line")
+  @Schema(description = "The amount of the superannuation line")
   /**
    * The amount of the superannuation line
    *
@@ -160,7 +160,7 @@ public class SuperannuationLine {
    *
    * @return fixedAmount
    */
-  @ApiModelProperty(value = "Superannuation fixed amount")
+  @Schema(description = "Superannuation fixed amount")
   /**
    * Superannuation fixed amount
    *
@@ -195,7 +195,7 @@ public class SuperannuationLine {
    *
    * @return percentage
    */
-  @ApiModelProperty(value = "Superannuation rate percentage")
+  @Schema(description = "Superannuation rate percentage")
   /**
    * Superannuation rate percentage
    *
@@ -230,7 +230,7 @@ public class SuperannuationLine {
    *
    * @return manualAdjustment
    */
-  @ApiModelProperty(value = "manual adjustment made")
+  @Schema(description = "manual adjustment made")
   /**
    * manual adjustment made
    *

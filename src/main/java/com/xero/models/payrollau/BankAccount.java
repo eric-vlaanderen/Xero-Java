@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** BankAccount */
@@ -54,9 +54,9 @@ public class BankAccount {
    *
    * @return statementText
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Salary",
-      value =
+      description =
           "The text that will appear on your employee's bank statement when they receive payment")
   /**
    * The text that will appear on your employee&#39;s bank statement when they receive payment
@@ -92,7 +92,7 @@ public class BankAccount {
    *
    * @return accountName
    */
-  @ApiModelProperty(example = "James Lebron Savings", value = "The name of the account")
+  @Schema(example = "James Lebron Savings", description = "The name of the account")
   /**
    * The name of the account
    *
@@ -127,7 +127,7 @@ public class BankAccount {
    *
    * @return BSB
    */
-  @ApiModelProperty(example = "122344", value = "The BSB number of the account")
+  @Schema(example = "122344", description = "The BSB number of the account")
   /**
    * The BSB number of the account
    *
@@ -162,7 +162,7 @@ public class BankAccount {
    *
    * @return accountNumber
    */
-  @ApiModelProperty(example = "345678", value = "The account number")
+  @Schema(example = "345678", description = "The account number")
   /**
    * The account number
    *
@@ -197,7 +197,7 @@ public class BankAccount {
    *
    * @return remainder
    */
-  @ApiModelProperty(example = "false", value = "If this account is the Remaining bank account")
+  @Schema(example = "false", description = "If this account is the Remaining bank account")
   /**
    * If this account is the Remaining bank account
    *
@@ -234,9 +234,9 @@ public class BankAccount {
    *
    * @return amount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "200.0",
-      value =
+      description =
           "Fixed amounts (for example, if an employee wants to have $100 of their salary"
               + " transferred to one account, and the remaining amount to another)")
   /**

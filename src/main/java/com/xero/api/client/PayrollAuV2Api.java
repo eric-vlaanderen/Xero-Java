@@ -12,37 +12,22 @@
 
 package com.xero.api.client;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.auth.oauth2.BearerToken;
 import com.google.api.client.auth.oauth2.Credential;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpContent;
-import com.google.api.client.http.HttpHeaders;
-import com.google.api.client.http.HttpMethods;
-import com.google.api.client.http.HttpRequestFactory;
-import com.google.api.client.http.HttpResponse;
-import com.google.api.client.http.HttpResponseException;
-import com.google.api.client.http.HttpTransport;
+import com.google.api.client.http.*;
 import com.xero.api.ApiClient;
 import com.xero.api.XeroApiExceptionHandler;
-import com.xero.models.payrollauv2.Timesheet;
-import com.xero.models.payrollauv2.TimesheetLine;
-import com.xero.models.payrollauv2.TimesheetLineObject;
-import com.xero.models.payrollauv2.TimesheetObject;
-import com.xero.models.payrollauv2.Timesheets;
+import com.xero.models.payrollauv2.*;
 import jakarta.ws.rs.core.UriBuilder;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tools.jackson.core.type.TypeReference;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.*;
 
 /** PayrollAuV2Api has methods for interacting with all endpoints in the API set */
 public class PayrollAuV2Api {
@@ -850,7 +835,7 @@ public class PayrollAuV2Api {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -870,7 +855,7 @@ public class PayrollAuV2Api {
       Object value = filter;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -890,7 +875,7 @@ public class PayrollAuV2Api {
       Object value = status;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -910,7 +895,7 @@ public class PayrollAuV2Api {
       Object value = startDate;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -930,7 +915,7 @@ public class PayrollAuV2Api {
       Object value = endDate;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -950,7 +935,7 @@ public class PayrollAuV2Api {
       Object value = sort;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());

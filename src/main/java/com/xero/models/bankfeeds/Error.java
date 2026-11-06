@@ -15,15 +15,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /**
  * On error, the API consumer will receive an HTTP response with a HTTP Status Code of 4xx or 5xx
  * and a Content-Type of application/problem+json.
  */
-@ApiModel(
+@Schema(
     description =
         "On error, the API consumer will receive an HTTP response with a HTTP Status Code of 4xx or"
             + " 5xx and a Content-Type of application/problem+json.")
@@ -167,9 +167,9 @@ public class Error {
    *
    * @return title
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Invalid Application",
-      value = "Human readable high level error description.")
+      description = "Human readable high level error description.")
   /**
    * Human readable high level error description.
    *
@@ -204,7 +204,7 @@ public class Error {
    *
    * @return status
    */
-  @ApiModelProperty(example = "403", value = "The numeric HTTP Status Code, e.g. 404")
+  @Schema(example = "403", description = "The numeric HTTP Status Code, e.g. 404")
   /**
    * The numeric HTTP Status Code, e.g. 404
    *
@@ -239,9 +239,9 @@ public class Error {
    *
    * @return detail
    */
-  @ApiModelProperty(
+  @Schema(
       example = "The application has not been configured to use these API endpoints.",
-      value = "Human readable detailed error description.")
+      description = "Human readable detailed error description.")
   /**
    * Human readable detailed error description.
    *
@@ -276,7 +276,7 @@ public class Error {
    *
    * @return type
    */
-  @ApiModelProperty(example = "invalid-application", value = "Identifies the type of error.")
+  @Schema(example = "invalid-application", description = "Identifies the type of error.")
   /**
    * Identifies the type of error.
    *

@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -64,10 +64,10 @@ public class EarningsLine {
    *
    * @return earningsRateID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "72e962d1-fcac-4083-8a71-742bb3e7ae14",
-      required = true,
-      value = "Xero unique id for earnings rate")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Xero unique id for earnings rate")
   /**
    * Xero unique id for earnings rate
    *
@@ -102,7 +102,7 @@ public class EarningsLine {
    *
    * @return calculationType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * calculationType
    *
@@ -137,7 +137,7 @@ public class EarningsLine {
    *
    * @return annualSalary
    */
-  @ApiModelProperty(example = "40000.0", value = "Annual salary for earnings line")
+  @Schema(example = "40000.0", description = "Annual salary for earnings line")
   /**
    * Annual salary for earnings line
    *
@@ -172,7 +172,7 @@ public class EarningsLine {
    *
    * @return numberOfUnitsPerWeek
    */
-  @ApiModelProperty(example = "38.0", value = "number of units for earning line")
+  @Schema(example = "38.0", description = "number of units for earning line")
   /**
    * number of units for earning line
    *
@@ -207,7 +207,7 @@ public class EarningsLine {
    *
    * @return ratePerUnit
    */
-  @ApiModelProperty(example = "38.0", value = "Rate per unit of the EarningsLine.")
+  @Schema(example = "38.0", description = "Rate per unit of the EarningsLine.")
   /**
    * Rate per unit of the EarningsLine.
    *
@@ -242,9 +242,9 @@ public class EarningsLine {
    *
    * @return normalNumberOfUnits
    */
-  @ApiModelProperty(
+  @Schema(
       example = "38.0",
-      value = "Normal number of units for EarningsLine. Applicable when RateType is \"MULTIPLE\"")
+      description = "Normal number of units for EarningsLine. Applicable when RateType is \"MULTIPLE\"")
   /**
    * Normal number of units for EarningsLine. Applicable when RateType is \&quot;MULTIPLE\&quot;
    *
@@ -279,7 +279,7 @@ public class EarningsLine {
    *
    * @return amount
    */
-  @ApiModelProperty(example = "38.0", value = "Earnings rate amount")
+  @Schema(example = "38.0", description = "Earnings rate amount")
   /**
    * Earnings rate amount
    *
@@ -314,7 +314,7 @@ public class EarningsLine {
    *
    * @return numberOfUnits
    */
-  @ApiModelProperty(example = "2.5", value = "Earnings rate number of units.")
+  @Schema(example = "2.5", description = "Earnings rate number of units.")
   /**
    * Earnings rate number of units.
    *
@@ -349,9 +349,9 @@ public class EarningsLine {
    *
    * @return fixedAmount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "2.5",
-      value = "Earnings rate amount. Only applicable if the EarningsRate RateType is Fixed")
+      description = "Earnings rate amount. Only applicable if the EarningsRate RateType is Fixed")
   /**
    * Earnings rate amount. Only applicable if the EarningsRate RateType is Fixed
    *

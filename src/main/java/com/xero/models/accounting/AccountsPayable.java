@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** AccountsPayable */
@@ -42,7 +42,7 @@ public class AccountsPayable {
    *
    * @return outstanding
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * outstanding
    *
@@ -77,7 +77,7 @@ public class AccountsPayable {
    *
    * @return overdue
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * overdue
    *

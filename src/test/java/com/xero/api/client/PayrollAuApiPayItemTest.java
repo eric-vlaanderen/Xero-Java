@@ -1,16 +1,19 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrollau.*;
+import com.xero.models.payrollau.PayItem;
+import com.xero.models.payrollau.PayItems;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.time.OffsetDateTime;
 
-import org.threeten.bp.*;
 import java.io.IOException;
 import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollAuApiPayItemTest {
 
@@ -20,7 +23,7 @@ public class PayrollAuApiPayItemTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -41,41 +44,41 @@ public class PayrollAuApiPayItemTest {
         
         PayItems response = payrollAuApi.getPayItems(accessToken, xeroTenantId, null, null, null, null);
 
-        assertThat(response.getPayItems().getEarningsRates().get(0).getName(), is(equalTo("Ordinary Hours")));
-        assertThat(response.getPayItems().getEarningsRates().get(0).getAccountCode(), is(equalTo("477")));
-        assertThat(response.getPayItems().getEarningsRates().get(0).getTypeOfUnits()  , is(equalTo("Hours")));
-        assertThat(response.getPayItems().getEarningsRates().get(0).getIsExemptFromTax() , is(equalTo(false)));
-        assertThat(response.getPayItems().getEarningsRates().get(0).getIsExemptFromSuper() , is(equalTo(false)));
-        assertThat(response.getPayItems().getEarningsRates().get(0).getIsReportableAsW1() , is(equalTo(false)));        
-        assertThat(response.getPayItems().getEarningsRates().get(0).getEarningsType(), is(equalTo(com.xero.models.payrollau.EarningsType.ORDINARYTIMEEARNINGS)));
-        assertThat(response.getPayItems().getEarningsRates().get(0).getEarningsRateID(), is(equalTo(UUID.fromString("ab874dfb-ab09-4c91-954e-43acf6fc23b4"))));
-        assertThat(response.getPayItems().getEarningsRates().get(0).getRatePerUnit() , is(equalTo("3")));        
-        assertThat(response.getPayItems().getEarningsRates().get(0).getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-11-13T04:53:41Z"))));  
-        assertThat(response.getPayItems().getEarningsRates().get(0).getRateType(), is(equalTo(com.xero.models.payrollau.RateType.RATEPERUNIT)));
-        assertThat(response.getPayItems().getEarningsRates().get(0).getCurrentRecord() , is(equalTo(true))); 
-        assertThat(response.getPayItems().getDeductionTypes().get(0).getDeductionTypeID(), is(equalTo(UUID.fromString("727af5e8-b347-4ae7-85fc-9b82266d0aec"))));
-        assertThat(response.getPayItems().getDeductionTypes().get(0).getName(), is(equalTo("Union Fees/Subscriptions")));        
-        assertThat(response.getPayItems().getDeductionTypes().get(0).getAccountCode(), is(equalTo("850")));        
-        assertThat(response.getPayItems().getDeductionTypes().get(0).getReducesTax(), is(equalTo(false)));        
-        assertThat(response.getPayItems().getDeductionTypes().get(0).getReducesSuper(), is(equalTo(false)));        
-        assertThat(response.getPayItems().getDeductionTypes().get(0).getIsExemptFromW1(), is(equalTo(false)));        
-        assertThat(response.getPayItems().getDeductionTypes().get(0).getDeductionCategory(), is(equalTo(com.xero.models.payrollau.DeductionType.DeductionCategoryEnum.UNIONFEES)));  
-        assertThat(response.getPayItems().getDeductionTypes().get(0).getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-01-14T21:12:10Z"))));       
-        assertThat(response.getPayItems().getDeductionTypes().get(0).getCurrentRecord(), is(equalTo(true)));      
-        assertThat(response.getPayItems().getReimbursementTypes().get(0).getReimbursementTypeID(), is(equalTo(UUID.fromString("98ba33b2-db5b-4204-bcac-5ddd98d63524"))));
-        assertThat(response.getPayItems().getReimbursementTypes().get(0).getName(), is(equalTo("Travel Costs")));        
-        assertThat(response.getPayItems().getReimbursementTypes().get(0).getAccountCode(), is(equalTo("850")));        
-        assertThat(response.getPayItems().getReimbursementTypes().get(0).getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-01-14T21:12:10Z"))));
-        assertThat(response.getPayItems().getReimbursementTypes().get(0).getCurrentRecord(), is(equalTo(true)));      
-        assertThat(response.getPayItems().getLeaveTypes().get(0).getLeaveTypeID(), is(equalTo(UUID.fromString("fbcc9dab-6238-43d9-a3f4-d768423fdcfa"))));
-        assertThat(response.getPayItems().getLeaveTypes().get(0).getName(), is(equalTo("Annual Leave")));        
-        assertThat(response.getPayItems().getLeaveTypes().get(0).getTypeOfUnits(), is(equalTo("Hours")));
-        assertThat(response.getPayItems().getLeaveTypes().get(0).getNormalEntitlement(), is(equalTo(152.00)));
-        assertThat(response.getPayItems().getLeaveTypes().get(0).getLeaveLoadingRate(),  is(equalTo(1.0)));
-        assertThat(response.getPayItems().getLeaveTypes().get(0).getIsPaidLeave(), is(equalTo(true)));
-        assertThat(response.getPayItems().getLeaveTypes().get(0).getShowOnPayslip(), is(equalTo(true)));
-        assertThat(response.getPayItems().getLeaveTypes().get(0).getCurrentRecord(), is(equalTo(true)));
-        assertThat(response.getPayItems().getLeaveTypes().get(0).getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-11-13T04:54:13Z"))));
+        assertThat(response.getPayItems().getEarningsRates().getFirst().getName(), is(equalTo("Ordinary Hours")));
+        assertThat(response.getPayItems().getEarningsRates().getFirst().getAccountCode(), is(equalTo("477")));
+        assertThat(response.getPayItems().getEarningsRates().getFirst().getTypeOfUnits()  , is(equalTo("Hours")));
+        assertThat(response.getPayItems().getEarningsRates().getFirst().getIsExemptFromTax() , is(equalTo(false)));
+        assertThat(response.getPayItems().getEarningsRates().getFirst().getIsExemptFromSuper() , is(equalTo(false)));
+        assertThat(response.getPayItems().getEarningsRates().getFirst().getIsReportableAsW1() , is(equalTo(false)));        
+        assertThat(response.getPayItems().getEarningsRates().getFirst().getEarningsType(), is(equalTo(com.xero.models.payrollau.EarningsType.ORDINARYTIMEEARNINGS)));
+        assertThat(response.getPayItems().getEarningsRates().getFirst().getEarningsRateID(), is(equalTo(UUID.fromString("ab874dfb-ab09-4c91-954e-43acf6fc23b4"))));
+        assertThat(response.getPayItems().getEarningsRates().getFirst().getRatePerUnit() , is(equalTo("3")));        
+        assertThat(response.getPayItems().getEarningsRates().getFirst().getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-11-13T04:53:41Z"))));  
+        assertThat(response.getPayItems().getEarningsRates().getFirst().getRateType(), is(equalTo(com.xero.models.payrollau.RateType.RATEPERUNIT)));
+        assertThat(response.getPayItems().getEarningsRates().getFirst().getCurrentRecord() , is(equalTo(true))); 
+        assertThat(response.getPayItems().getDeductionTypes().getFirst().getDeductionTypeID(), is(equalTo(UUID.fromString("727af5e8-b347-4ae7-85fc-9b82266d0aec"))));
+        assertThat(response.getPayItems().getDeductionTypes().getFirst().getName(), is(equalTo("Union Fees/Subscriptions")));        
+        assertThat(response.getPayItems().getDeductionTypes().getFirst().getAccountCode(), is(equalTo("850")));        
+        assertThat(response.getPayItems().getDeductionTypes().getFirst().getReducesTax(), is(equalTo(false)));        
+        assertThat(response.getPayItems().getDeductionTypes().getFirst().getReducesSuper(), is(equalTo(false)));        
+        assertThat(response.getPayItems().getDeductionTypes().getFirst().getIsExemptFromW1(), is(equalTo(false)));        
+        assertThat(response.getPayItems().getDeductionTypes().getFirst().getDeductionCategory(), is(equalTo(com.xero.models.payrollau.DeductionType.DeductionCategoryEnum.UNIONFEES)));  
+        assertThat(response.getPayItems().getDeductionTypes().getFirst().getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-01-14T21:12:10Z"))));       
+        assertThat(response.getPayItems().getDeductionTypes().getFirst().getCurrentRecord(), is(equalTo(true)));      
+        assertThat(response.getPayItems().getReimbursementTypes().getFirst().getReimbursementTypeID(), is(equalTo(UUID.fromString("98ba33b2-db5b-4204-bcac-5ddd98d63524"))));
+        assertThat(response.getPayItems().getReimbursementTypes().getFirst().getName(), is(equalTo("Travel Costs")));        
+        assertThat(response.getPayItems().getReimbursementTypes().getFirst().getAccountCode(), is(equalTo("850")));        
+        assertThat(response.getPayItems().getReimbursementTypes().getFirst().getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-01-14T21:12:10Z"))));
+        assertThat(response.getPayItems().getReimbursementTypes().getFirst().getCurrentRecord(), is(equalTo(true)));      
+        assertThat(response.getPayItems().getLeaveTypes().getFirst().getLeaveTypeID(), is(equalTo(UUID.fromString("fbcc9dab-6238-43d9-a3f4-d768423fdcfa"))));
+        assertThat(response.getPayItems().getLeaveTypes().getFirst().getName(), is(equalTo("Annual Leave")));        
+        assertThat(response.getPayItems().getLeaveTypes().getFirst().getTypeOfUnits(), is(equalTo("Hours")));
+        assertThat(response.getPayItems().getLeaveTypes().getFirst().getNormalEntitlement(), is(equalTo(152.00)));
+        assertThat(response.getPayItems().getLeaveTypes().getFirst().getLeaveLoadingRate(),  is(equalTo(1.0)));
+        assertThat(response.getPayItems().getLeaveTypes().getFirst().getIsPaidLeave(), is(equalTo(true)));
+        assertThat(response.getPayItems().getLeaveTypes().getFirst().getShowOnPayslip(), is(equalTo(true)));
+        assertThat(response.getPayItems().getLeaveTypes().getFirst().getCurrentRecord(), is(equalTo(true)));
+        assertThat(response.getPayItems().getLeaveTypes().getFirst().getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-11-13T04:54:13Z"))));
         // System.out.println(response.toString());
     }
 

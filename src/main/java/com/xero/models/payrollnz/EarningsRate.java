@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -211,7 +211,7 @@ public class EarningsRate {
    *
    * @return earningsRateID
    */
-  @ApiModelProperty(value = "Xero unique identifier for an earning rate")
+  @Schema(description = "Xero unique identifier for an earning rate")
   /**
    * Xero unique identifier for an earning rate
    *
@@ -246,7 +246,7 @@ public class EarningsRate {
    *
    * @return name
    */
-  @ApiModelProperty(required = true, value = "Name of the earning rate")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Name of the earning rate")
   /**
    * Name of the earning rate
    *
@@ -281,9 +281,9 @@ public class EarningsRate {
    *
    * @return earningsType
    */
-  @ApiModelProperty(
-      required = true,
-      value = "Indicates how an employee will be paid when taking this type of earning")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Indicates how an employee will be paid when taking this type of earning")
   /**
    * Indicates how an employee will be paid when taking this type of earning
    *
@@ -318,7 +318,7 @@ public class EarningsRate {
    *
    * @return rateType
    */
-  @ApiModelProperty(required = true, value = "Indicates the type of the earning rate")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Indicates the type of the earning rate")
   /**
    * Indicates the type of the earning rate
    *
@@ -353,7 +353,7 @@ public class EarningsRate {
    *
    * @return typeOfUnits
    */
-  @ApiModelProperty(required = true, value = "The type of units used to record earnings")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The type of units used to record earnings")
   /**
    * The type of units used to record earnings
    *
@@ -388,7 +388,7 @@ public class EarningsRate {
    *
    * @return currentRecord
    */
-  @ApiModelProperty(value = "Indicates whether an earning type is active")
+  @Schema(description = "Indicates whether an earning type is active")
   /**
    * Indicates whether an earning type is active
    *
@@ -423,7 +423,7 @@ public class EarningsRate {
    *
    * @return expenseAccountID
    */
-  @ApiModelProperty(required = true, value = "The account that will be used for the earnings rate")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The account that will be used for the earnings rate")
   /**
    * The account that will be used for the earnings rate
    *
@@ -458,8 +458,8 @@ public class EarningsRate {
    *
    * @return ratePerUnit
    */
-  @ApiModelProperty(
-      value = "Default rate per unit (optional). Only applicable if RateType is RatePerUnit")
+  @Schema(
+      description = "Default rate per unit (optional). Only applicable if RateType is RatePerUnit")
   /**
    * Default rate per unit (optional). Only applicable if RateType is RatePerUnit
    *
@@ -498,8 +498,8 @@ public class EarningsRate {
    *
    * @return multipleOfOrdinaryEarningsRate
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "This is the multiplier used to calculate the rate per unit, based on the employee’s"
               + " ordinary earnings rate. For example, for time and a half enter 1.5. Only"
               + " applicable if RateType is MultipleOfOrdinaryEarningsRate")
@@ -541,7 +541,7 @@ public class EarningsRate {
    *
    * @return fixedAmount
    */
-  @ApiModelProperty(value = "Optional Fixed Rate Amount. Applicable for FixedAmount Rate")
+  @Schema(description = "Optional Fixed Rate Amount. Applicable for FixedAmount Rate")
   /**
    * Optional Fixed Rate Amount. Applicable for FixedAmount Rate
    *

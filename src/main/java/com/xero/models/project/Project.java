@@ -13,10 +13,11 @@ package com.xero.models.project;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** Project */
 public class Project {
@@ -104,9 +105,9 @@ public class Project {
    *
    * @return projectId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "254553fa-2be8-4991-bd5e-70a97ea12ef8",
-      value = "Identifier of the project.")
+      description = "Identifier of the project.")
   /**
    * Identifier of the project.
    *
@@ -141,9 +142,9 @@ public class Project {
    *
    * @return contactId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "01234567-89ab-cdef-0123-456789abcdef",
-      value = "Identifier of the contact this project was created for.")
+      description = "Identifier of the contact this project was created for.")
   /**
    * Identifier of the contact this project was created for.
    *
@@ -178,7 +179,7 @@ public class Project {
    *
    * @return name
    */
-  @ApiModelProperty(example = "New Kitchen", required = true, value = "Name of the project.")
+  @Schema(example = "New Kitchen", requiredMode = Schema.RequiredMode.REQUIRED, description = "Name of the project.")
   /**
    * Name of the project.
    *
@@ -213,7 +214,7 @@ public class Project {
    *
    * @return currencyCode
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * currencyCode
    *
@@ -248,9 +249,9 @@ public class Project {
    *
    * @return minutesLogged
    */
-  @ApiModelProperty(
+  @Schema(
       example = "0",
-      value = "A total of minutes logged against all tasks on the Project.")
+      description = "A total of minutes logged against all tasks on the Project.")
   /**
    * A total of minutes logged against all tasks on the Project.
    *
@@ -285,7 +286,7 @@ public class Project {
    *
    * @return totalTaskAmount
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * totalTaskAmount
    *
@@ -320,7 +321,7 @@ public class Project {
    *
    * @return totalExpenseAmount
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * totalExpenseAmount
    *
@@ -355,7 +356,7 @@ public class Project {
    *
    * @return estimateAmount
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * estimateAmount
    *
@@ -390,9 +391,9 @@ public class Project {
    *
    * @return minutesToBeInvoiced
    */
-  @ApiModelProperty(
+  @Schema(
       example = "0",
-      value = "Minutes which have not been invoiced across all chargeable tasks in the project.")
+      description = "Minutes which have not been invoiced across all chargeable tasks in the project.")
   /**
    * Minutes which have not been invoiced across all chargeable tasks in the project.
    *
@@ -427,7 +428,7 @@ public class Project {
    *
    * @return taskAmountToBeInvoiced
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * taskAmountToBeInvoiced
    *
@@ -462,7 +463,7 @@ public class Project {
    *
    * @return taskAmountInvoiced
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * taskAmountInvoiced
    *
@@ -497,7 +498,7 @@ public class Project {
    *
    * @return expenseAmountToBeInvoiced
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * expenseAmountToBeInvoiced
    *
@@ -532,7 +533,7 @@ public class Project {
    *
    * @return expenseAmountInvoiced
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * expenseAmountInvoiced
    *
@@ -567,7 +568,7 @@ public class Project {
    *
    * @return projectAmountInvoiced
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * projectAmountInvoiced
    *
@@ -602,7 +603,7 @@ public class Project {
    *
    * @return deposit
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * deposit
    *
@@ -637,7 +638,7 @@ public class Project {
    *
    * @return depositApplied
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * depositApplied
    *
@@ -672,7 +673,7 @@ public class Project {
    *
    * @return creditNoteAmount
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * creditNoteAmount
    *
@@ -707,9 +708,9 @@ public class Project {
    *
    * @return deadlineUtc
    */
-  @ApiModelProperty(
+  @Schema(
       example = "2019-12-10T12:59:59Z",
-      value = "Deadline for the project. UTC Date Time in ISO-8601 format.")
+      description = "Deadline for the project. UTC Date Time in ISO-8601 format.")
   /**
    * Deadline for the project. UTC Date Time in ISO-8601 format.
    *
@@ -744,7 +745,7 @@ public class Project {
    *
    * @return totalInvoiced
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * totalInvoiced
    *
@@ -779,7 +780,7 @@ public class Project {
    *
    * @return totalToBeInvoiced
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * totalToBeInvoiced
    *
@@ -814,7 +815,7 @@ public class Project {
    *
    * @return estimate
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * estimate
    *
@@ -849,7 +850,7 @@ public class Project {
    *
    * @return status
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * status
    *

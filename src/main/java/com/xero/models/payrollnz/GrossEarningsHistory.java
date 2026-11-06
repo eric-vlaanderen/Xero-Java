@@ -13,7 +13,7 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** GrossEarningsHistory */
@@ -42,7 +42,7 @@ public class GrossEarningsHistory {
    *
    * @return daysPaid
    */
-  @ApiModelProperty(value = "Number of days the employee worked in the pay period (0 - 365)")
+  @Schema(description = "Number of days the employee worked in the pay period (0 - 365)")
   /**
    * Number of days the employee worked in the pay period (0 - 365)
    *
@@ -77,8 +77,8 @@ public class GrossEarningsHistory {
    *
    * @return unpaidWeeks
    */
-  @ApiModelProperty(
-      value = "Number of full weeks the employee didn't work in the pay period (0 - 52)")
+  @Schema(
+      description = "Number of full weeks the employee didn't work in the pay period (0 - 52)")
   /**
    * Number of full weeks the employee didn&#39;t work in the pay period (0 - 52)
    *

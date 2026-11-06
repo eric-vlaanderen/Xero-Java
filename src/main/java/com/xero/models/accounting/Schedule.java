@@ -15,12 +15,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.Objects;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.ZoneId;
 
 /** Schedule */
 public class Schedule {
@@ -175,7 +176,7 @@ public class Schedule {
    *
    * @return period
    */
-  @ApiModelProperty(value = "Integer used with the unit e.g. 1 (every 1 week), 2 (every 2 months)")
+  @Schema(description = "Integer used with the unit e.g. 1 (every 1 week), 2 (every 2 months)")
   /**
    * Integer used with the unit e.g. 1 (every 1 week), 2 (every 2 months)
    *
@@ -210,7 +211,7 @@ public class Schedule {
    *
    * @return unit
    */
-  @ApiModelProperty(value = "One of the following - WEEKLY or MONTHLY")
+  @Schema(description = "One of the following - WEEKLY or MONTHLY")
   /**
    * One of the following - WEEKLY or MONTHLY
    *
@@ -245,8 +246,8 @@ public class Schedule {
    *
    * @return dueDate
    */
-  @ApiModelProperty(
-      value = "Integer used with due date type e.g 20 (of following month), 31 (of current month)")
+  @Schema(
+      description = "Integer used with due date type e.g 20 (of following month), 31 (of current month)")
   /**
    * Integer used with due date type e.g 20 (of following month), 31 (of current month)
    *
@@ -281,7 +282,7 @@ public class Schedule {
    *
    * @return dueDateType
    */
-  @ApiModelProperty(value = "the payment terms")
+  @Schema(description = "the payment terms")
   /**
    * the payment terms
    *
@@ -318,8 +319,8 @@ public class Schedule {
    *
    * @return startDate
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Date the first invoice of the current version of the repeating schedule was generated"
               + " (changes when repeating invoice is edited)")
   /**
@@ -389,7 +390,7 @@ public class Schedule {
    *
    * @return nextScheduledDate
    */
-  @ApiModelProperty(value = "The calendar date of the next invoice in the schedule to be generated")
+  @Schema(description = "The calendar date of the next invoice in the schedule to be generated")
   /**
    * The calendar date of the next invoice in the schedule to be generated
    *
@@ -453,7 +454,7 @@ public class Schedule {
    *
    * @return endDate
    */
-  @ApiModelProperty(value = "Invoice end date – only returned if the template has an end date set")
+  @Schema(description = "Invoice end date – only returned if the template has an end date set")
   /**
    * Invoice end date – only returned if the template has an end date set
    *

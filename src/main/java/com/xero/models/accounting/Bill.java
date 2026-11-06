@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** Bill */
@@ -42,7 +42,7 @@ public class Bill {
    *
    * @return day
    */
-  @ApiModelProperty(value = "Day of Month (0-31)")
+  @Schema(description = "Day of Month (0-31)")
   /**
    * Day of Month (0-31)
    *
@@ -77,7 +77,7 @@ public class Bill {
    *
    * @return type
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * type
    *

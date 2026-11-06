@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -61,9 +61,9 @@ public class SuperLine {
    *
    * @return superMembershipID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "4333d5cd-53a5-4c31-98e5-a8b4e5676b0b",
-      value = "Xero super membership ID")
+      description = "Xero super membership ID")
   /**
    * Xero super membership ID
    *
@@ -98,7 +98,7 @@ public class SuperLine {
    *
    * @return contributionType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * contributionType
    *
@@ -133,7 +133,7 @@ public class SuperLine {
    *
    * @return calculationType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * calculationType
    *
@@ -168,7 +168,7 @@ public class SuperLine {
    *
    * @return minimumMonthlyEarnings
    */
-  @ApiModelProperty(example = "450.0", value = "amount of minimum earnings")
+  @Schema(example = "450.0", description = "amount of minimum earnings")
   /**
    * amount of minimum earnings
    *
@@ -203,7 +203,7 @@ public class SuperLine {
    *
    * @return expenseAccountCode
    */
-  @ApiModelProperty(example = "478", value = "expense account code")
+  @Schema(example = "478", description = "expense account code")
   /**
    * expense account code
    *
@@ -238,7 +238,7 @@ public class SuperLine {
    *
    * @return liabilityAccountCode
    */
-  @ApiModelProperty(example = "826", value = "liabilty account code")
+  @Schema(example = "826", description = "liabilty account code")
   /**
    * liabilty account code
    *
@@ -273,7 +273,7 @@ public class SuperLine {
    *
    * @return percentage
    */
-  @ApiModelProperty(example = "9.0", value = "percentage for super line")
+  @Schema(example = "9.0", description = "percentage for super line")
   /**
    * percentage for super line
    *
@@ -308,7 +308,7 @@ public class SuperLine {
    *
    * @return amount
    */
-  @ApiModelProperty(example = "10.0", value = "Super membership amount")
+  @Schema(example = "10.0", description = "Super membership amount")
   /**
    * Super membership amount
    *

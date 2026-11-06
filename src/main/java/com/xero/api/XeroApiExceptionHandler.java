@@ -1,16 +1,14 @@
 package com.xero.api;
 
-import java.io.IOException;
-
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonMappingException;
+import tools.jackson.core.type.TypeReference;
 import com.google.api.client.http.HttpResponseException;
 import com.xero.models.accounting.Element;
 import com.xero.models.accounting.Error;
 import com.xero.models.accounting.ValidationError;
 import com.xero.models.bankfeeds.FeedConnections;
 import com.xero.models.bankfeeds.Statements;
+
+import java.io.IOException;
 
 /** XeroApiExceptionHandler main method for handling and throwing errors returned by Xero API */
 public class XeroApiExceptionHandler {
@@ -239,12 +237,10 @@ public class XeroApiExceptionHandler {
     /** LEGACY ERROR HANDLER
     * @param e HttpResponseException object with details about the original exception
     * @param apiClient ApiClient class for use in deserializing http response
-    * @throws JsonParseException for parsing errors
-    * @throws JsonMappingException for mapping errors
     * @throws IOException for failed or interrupted I/O operations
     */
     public void execute(HttpResponseException e, ApiClient apiClient)
-            throws JsonParseException, JsonMappingException, IOException {
+            throws IOException {
         Error error = null;
         int statusCode = e.getStatusCode();
         if (statusCode == 400) {

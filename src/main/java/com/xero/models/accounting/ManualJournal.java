@@ -15,16 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** ManualJournal */
 public class ManualJournal {
@@ -147,7 +148,7 @@ public class ManualJournal {
    *
    * @return narration
    */
-  @ApiModelProperty(required = true, value = "Description of journal being posted")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Description of journal being posted")
   /**
    * Description of journal being posted
    *
@@ -196,7 +197,7 @@ public class ManualJournal {
    *
    * @return journalLines
    */
-  @ApiModelProperty(value = "See JournalLines")
+  @Schema(description = "See JournalLines")
   /**
    * See JournalLines
    *
@@ -231,7 +232,7 @@ public class ManualJournal {
    *
    * @return date
    */
-  @ApiModelProperty(value = "Date journal was posted – YYYY-MM-DD")
+  @Schema(description = "Date journal was posted – YYYY-MM-DD")
   /**
    * Date journal was posted – YYYY-MM-DD
    *
@@ -295,7 +296,7 @@ public class ManualJournal {
    *
    * @return lineAmountTypes
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * lineAmountTypes
    *
@@ -330,7 +331,7 @@ public class ManualJournal {
    *
    * @return status
    */
-  @ApiModelProperty(value = "See Manual Journal Status Codes")
+  @Schema(description = "See Manual Journal Status Codes")
   /**
    * See Manual Journal Status Codes
    *
@@ -365,8 +366,8 @@ public class ManualJournal {
    *
    * @return url
    */
-  @ApiModelProperty(
-      value = "Url link to a source document – shown as “Go to [appName]” in the Xero app")
+  @Schema(
+      description = "Url link to a source document – shown as “Go to [appName]” in the Xero app")
   /**
    * Url link to a source document – shown as “Go to [appName]” in the Xero app
    *
@@ -401,7 +402,7 @@ public class ManualJournal {
    *
    * @return showOnCashBasisReports
    */
-  @ApiModelProperty(value = "Boolean – default is true if not specified")
+  @Schema(description = "Boolean – default is true if not specified")
   /**
    * Boolean – default is true if not specified
    *
@@ -425,9 +426,9 @@ public class ManualJournal {
    *
    * @return hasAttachments
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "Boolean to indicate if a manual journal has an attachment")
+      description = "Boolean to indicate if a manual journal has an attachment")
   /**
    * Boolean to indicate if a manual journal has an attachment
    *
@@ -442,7 +443,7 @@ public class ManualJournal {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1573755038314)/", value = "Last modified date UTC format")
+  @Schema(example = "/Date(1573755038314)/", description = "Last modified date UTC format")
   /**
    * Last modified date UTC format
    *
@@ -484,7 +485,7 @@ public class ManualJournal {
    *
    * @return manualJournalID
    */
-  @ApiModelProperty(value = "The Xero identifier for a Manual Journal")
+  @Schema(description = "The Xero identifier for a Manual Journal")
   /**
    * The Xero identifier for a Manual Journal
    *
@@ -519,7 +520,7 @@ public class ManualJournal {
    *
    * @return statusAttributeString
    */
-  @ApiModelProperty(example = "ERROR", value = "A string to indicate if a invoice status")
+  @Schema(example = "ERROR", description = "A string to indicate if a invoice status")
   /**
    * A string to indicate if a invoice status
    *
@@ -568,7 +569,7 @@ public class ManualJournal {
    *
    * @return warnings
    */
-  @ApiModelProperty(value = "Displays array of warning messages from the API")
+  @Schema(description = "Displays array of warning messages from the API")
   /**
    * Displays array of warning messages from the API
    *
@@ -617,7 +618,7 @@ public class ManualJournal {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *
@@ -666,7 +667,7 @@ public class ManualJournal {
    *
    * @return attachments
    */
-  @ApiModelProperty(value = "Displays array of attachments from the API")
+  @Schema(description = "Displays array of attachments from the API")
   /**
    * Displays array of attachments from the API
    *

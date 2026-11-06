@@ -13,7 +13,7 @@ package com.xero.models.project;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -46,9 +46,9 @@ public class ProjectUser {
    *
    * @return userId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "254553fa-2be8-4991-bd5e-70a97ea12ef8",
-      value = "Identifier of the user of the project.")
+      description = "Identifier of the user of the project.")
   /**
    * Identifier of the user of the project.
    *
@@ -83,7 +83,7 @@ public class ProjectUser {
    *
    * @return name
    */
-  @ApiModelProperty(example = "Sidney Allen", value = "Full name of the user.")
+  @Schema(example = "Sidney Allen", description = "Full name of the user.")
   /**
    * Full name of the user.
    *
@@ -118,7 +118,7 @@ public class ProjectUser {
    *
    * @return email
    */
-  @ApiModelProperty(example = "sidneyallen@xero.com", value = "Email address of the user.")
+  @Schema(example = "sidneyallen@xero.com", description = "Email address of the user.")
   /**
    * Email address of the user.
    *

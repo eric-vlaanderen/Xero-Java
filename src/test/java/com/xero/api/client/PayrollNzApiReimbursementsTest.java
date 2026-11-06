@@ -1,15 +1,19 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrollnz.*;
+import com.xero.models.payrollnz.Reimbursement;
+import com.xero.models.payrollnz.ReimbursementObject;
+import com.xero.models.payrollnz.Reimbursements;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollNzApiReimbursementsTest {
 
@@ -19,7 +23,7 @@ public class PayrollNzApiReimbursementsTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -41,14 +45,14 @@ public class PayrollNzApiReimbursementsTest {
         int page = 1;
         Reimbursements response = payrollNzApi.getReimbursements(accessToken, xeroTenantId, page);
         
-        assertThat(response.getReimbursements().get(0).getReimbursementID(),is(equalTo(UUID.fromString("ddf9b572-5861-4f97-a109-9d612df52242"))));
-        assertThat(response.getReimbursements().get(0).getName(), is(equalTo("Mileage")));
-        assertThat(response.getReimbursements().get(0).getAccountID(),is(equalTo(UUID.fromString("36d33c5d-7dea-4911-9ed0-7fccc16f2b5f"))));
-        assertThat(response.getReimbursements().get(0).getCurrentRecord(), is(equalTo(true)));
-        assertThat(response.getReimbursements().get(0).getCalculationType(), is(equalTo(com.xero.models.payrollnz.Reimbursement.CalculationTypeEnum.RATEPERUNIT)));
-        assertThat(response.getReimbursements().get(0).getReimbursementCategory(), is(equalTo(com.xero.models.payrollnz.Reimbursement.ReimbursementCategoryEnum.NOGST)));
-        assertThat(response.getReimbursements().get(0).getStandardTypeOfUnits(), is(equalTo(com.xero.models.payrollnz.Reimbursement.StandardTypeOfUnitsEnum.KM)));
-        assertThat(response.getReimbursements().get(0).getStandardRatePerUnit(), is(equalTo(0.79)));
+        assertThat(response.getReimbursements().getFirst().getReimbursementID(),is(equalTo(UUID.fromString("ddf9b572-5861-4f97-a109-9d612df52242"))));
+        assertThat(response.getReimbursements().getFirst().getName(), is(equalTo("Mileage")));
+        assertThat(response.getReimbursements().getFirst().getAccountID(),is(equalTo(UUID.fromString("36d33c5d-7dea-4911-9ed0-7fccc16f2b5f"))));
+        assertThat(response.getReimbursements().getFirst().getCurrentRecord(), is(equalTo(true)));
+        assertThat(response.getReimbursements().getFirst().getCalculationType(), is(equalTo(com.xero.models.payrollnz.Reimbursement.CalculationTypeEnum.RATEPERUNIT)));
+        assertThat(response.getReimbursements().getFirst().getReimbursementCategory(), is(equalTo(com.xero.models.payrollnz.Reimbursement.ReimbursementCategoryEnum.NOGST)));
+        assertThat(response.getReimbursements().getFirst().getStandardTypeOfUnits(), is(equalTo(com.xero.models.payrollnz.Reimbursement.StandardTypeOfUnitsEnum.KM)));
+        assertThat(response.getReimbursements().getFirst().getStandardRatePerUnit(), is(equalTo(0.79)));
 
         //System.out.println(response.toString());
     }

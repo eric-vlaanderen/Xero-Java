@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -49,7 +49,7 @@ public class LineItemResponse {
    *
    * @return accountId
    */
-  @ApiModelProperty(value = "Xero Identifier of account")
+  @Schema(description = "Xero Identifier of account")
   /**
    * Xero Identifier of account
    *
@@ -84,7 +84,7 @@ public class LineItemResponse {
    *
    * @return reportingCode
    */
-  @ApiModelProperty(value = "Shown if set")
+  @Schema(description = "Shown if set")
   /**
    * Shown if set
    *
@@ -119,7 +119,7 @@ public class LineItemResponse {
    *
    * @return lineAmount
    */
-  @ApiModelProperty(value = "Amount of line item")
+  @Schema(description = "Amount of line item")
   /**
    * Amount of line item
    *
@@ -154,7 +154,7 @@ public class LineItemResponse {
    *
    * @return accountType
    */
-  @ApiModelProperty(value = "Account type")
+  @Schema(description = "Account type")
   /**
    * Account type
    *

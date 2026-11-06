@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -55,9 +55,9 @@ public class TaxLine {
    *
    * @return payslipTaxLineID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "e0eb6747-7c17-4075-b804-989f8d4e5d39",
-      value = "Xero identifier for payslip tax line ID.")
+      description = "Xero identifier for payslip tax line ID.")
   /**
    * Xero identifier for payslip tax line ID.
    *
@@ -92,7 +92,7 @@ public class TaxLine {
    *
    * @return amount
    */
-  @ApiModelProperty(example = "50.0", value = "The tax line amount")
+  @Schema(example = "50.0", description = "The tax line amount")
   /**
    * The tax line amount
    *
@@ -127,7 +127,7 @@ public class TaxLine {
    *
    * @return taxTypeName
    */
-  @ApiModelProperty(example = "Manual Adjustment", value = "Name of the tax type.")
+  @Schema(example = "Manual Adjustment", description = "Name of the tax type.")
   /**
    * Name of the tax type.
    *
@@ -162,7 +162,7 @@ public class TaxLine {
    *
    * @return description
    */
-  @ApiModelProperty(value = "Description of the tax line.")
+  @Schema(description = "Description of the tax line.")
   /**
    * Description of the tax line.
    *
@@ -197,7 +197,7 @@ public class TaxLine {
    *
    * @return manualTaxType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * manualTaxType
    *
@@ -234,9 +234,9 @@ public class TaxLine {
    *
    * @return liabilityAccount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "620",
-      value =
+      description =
           "The tax line liability account code. For posted pay run you should be able to see"
               + " liability account code")
   /**

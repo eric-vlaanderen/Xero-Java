@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -58,7 +58,7 @@ public class CashflowAccount {
    *
    * @return accountId
    */
-  @ApiModelProperty(value = "ID of the account")
+  @Schema(description = "ID of the account")
   /**
    * ID of the account
    *
@@ -97,8 +97,8 @@ public class CashflowAccount {
    *
    * @return accountType
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The type of the account. See <a"
               + " href='https://developer.xero.com/documentation/api/types#AccountTypes'>Account"
               + " Types</a>")
@@ -144,8 +144,8 @@ public class CashflowAccount {
    *
    * @return accountClass
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The class of the account. See <a"
               + " href='https://developer.xero.com/documentation/api/types#AccountClassTypes'>Account"
               + " Class Types</a>")
@@ -187,7 +187,7 @@ public class CashflowAccount {
    *
    * @return code
    */
-  @ApiModelProperty(value = "Account code")
+  @Schema(description = "Account code")
   /**
    * Account code
    *
@@ -222,7 +222,7 @@ public class CashflowAccount {
    *
    * @return name
    */
-  @ApiModelProperty(value = "Account name")
+  @Schema(description = "Account name")
   /**
    * Account name
    *
@@ -257,7 +257,7 @@ public class CashflowAccount {
    *
    * @return reportingCode
    */
-  @ApiModelProperty(value = "Reporting code used for cash flow classification")
+  @Schema(description = "Reporting code used for cash flow classification")
   /**
    * Reporting code used for cash flow classification
    *
@@ -292,7 +292,7 @@ public class CashflowAccount {
    *
    * @return total
    */
-  @ApiModelProperty(value = "Total amount for the account")
+  @Schema(description = "Total amount for the account")
   /**
    * Total amount for the account
    *

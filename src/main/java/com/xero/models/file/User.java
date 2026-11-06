@@ -13,7 +13,7 @@ package com.xero.models.file;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -52,10 +52,10 @@ public class User {
    *
    * @return id
    */
-  @ApiModelProperty(
+  @Schema(
       example = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c",
-      required = true,
-      value = "Xero identifier")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Xero identifier")
   /**
    * Xero identifier
    *
@@ -90,9 +90,9 @@ public class User {
    *
    * @return name
    */
-  @ApiModelProperty(
+  @Schema(
       example = "john.smith@mail.com",
-      value = "Key is Name, but returns Email address of user who created the file")
+      description = "Key is Name, but returns Email address of user who created the file")
   /**
    * Key is Name, but returns Email address of user who created the file
    *
@@ -127,7 +127,7 @@ public class User {
    *
    * @return firstName
    */
-  @ApiModelProperty(example = "John", value = "First name of user")
+  @Schema(example = "John", description = "First name of user")
   /**
    * First name of user
    *
@@ -162,7 +162,7 @@ public class User {
    *
    * @return lastName
    */
-  @ApiModelProperty(example = "Smith", value = "Last name of user")
+  @Schema(example = "Smith", description = "Last name of user")
   /**
    * Last name of user
    *
@@ -197,7 +197,7 @@ public class User {
    *
    * @return fullName
    */
-  @ApiModelProperty(example = "Smith", value = "Last name of user")
+  @Schema(example = "Smith", description = "Last name of user")
   /**
    * Last name of user
    *

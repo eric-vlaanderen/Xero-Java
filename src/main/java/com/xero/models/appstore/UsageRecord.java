@@ -13,10 +13,11 @@ package com.xero.models.appstore;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDateTime;
+
 import java.math.BigDecimal;
 import java.util.Objects;
-import org.threeten.bp.LocalDateTime;
 
 /** UsageRecord */
 public class UsageRecord {
@@ -62,7 +63,7 @@ public class UsageRecord {
    *
    * @return quantity
    */
-  @ApiModelProperty(required = true, value = "The quantity recorded")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The quantity recorded")
   /**
    * The quantity recorded
    *
@@ -97,7 +98,7 @@ public class UsageRecord {
    *
    * @return subscriptionId
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the Subscription.")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The unique identifier of the Subscription.")
   /**
    * The unique identifier of the Subscription.
    *
@@ -132,7 +133,7 @@ public class UsageRecord {
    *
    * @return subscriptionItemId
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the SubscriptionItem.")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The unique identifier of the SubscriptionItem.")
   /**
    * The unique identifier of the SubscriptionItem.
    *
@@ -167,7 +168,7 @@ public class UsageRecord {
    *
    * @return testMode
    */
-  @ApiModelProperty(required = true, value = "If the subscription is a test subscription")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "If the subscription is a test subscription")
   /**
    * If the subscription is a test subscription
    *
@@ -202,7 +203,7 @@ public class UsageRecord {
    *
    * @return recordedAt
    */
-  @ApiModelProperty(required = true, value = "The time when this usage was recorded in UTC")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The time when this usage was recorded in UTC")
   /**
    * The time when this usage was recorded in UTC
    *
@@ -237,7 +238,7 @@ public class UsageRecord {
    *
    * @return usageRecordId
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the usageRecord.")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The unique identifier of the usageRecord.")
   /**
    * The unique identifier of the usageRecord.
    *
@@ -272,7 +273,7 @@ public class UsageRecord {
    *
    * @return pricePerUnit
    */
-  @ApiModelProperty(required = true, value = "The price per unit")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The price per unit")
   /**
    * The price per unit
    *
@@ -307,7 +308,7 @@ public class UsageRecord {
    *
    * @return productId
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the linked Product")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The unique identifier of the linked Product")
   /**
    * The unique identifier of the linked Product
    *

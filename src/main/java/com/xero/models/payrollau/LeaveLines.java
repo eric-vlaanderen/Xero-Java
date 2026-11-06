@@ -13,14 +13,14 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The leave type lines */
-@ApiModel(description = "The leave type lines")
+@Schema(description = "The leave type lines")
 public class LeaveLines {
   StringUtil util = new StringUtil();
 
@@ -57,7 +57,7 @@ public class LeaveLines {
    *
    * @return employee
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * employee
    *

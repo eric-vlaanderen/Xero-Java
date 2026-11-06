@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** TrialBalanceEntry */
@@ -42,7 +42,7 @@ public class TrialBalanceEntry {
    *
    * @return value
    */
-  @ApiModelProperty(value = "Net movement or net balance in the account")
+  @Schema(description = "Net movement or net balance in the account")
   /**
    * Net movement or net balance in the account
    *
@@ -77,7 +77,7 @@ public class TrialBalanceEntry {
    *
    * @return entryType
    */
-  @ApiModelProperty(value = "Sign (Debit/Credit) of the movement of balance in the account")
+  @Schema(description = "Sign (Debit/Credit) of the movement of balance in the account")
   /**
    * Sign (Debit/Credit) of the movement of balance in the account
    *

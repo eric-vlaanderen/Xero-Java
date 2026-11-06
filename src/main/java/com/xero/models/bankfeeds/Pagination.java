@@ -13,7 +13,7 @@ package com.xero.models.bankfeeds;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** Pagination */
@@ -54,9 +54,9 @@ public class Pagination {
    *
    * @return page
    */
-  @ApiModelProperty(
+  @Schema(
       example = "1",
-      value =
+      description =
           "Page number which specifies the set of records to retrieve. Example -"
               + " https://api.xero.com/bankfeeds.xro/1.0/Statements?page=2 to get the second set of"
               + " the records. When page value is not a number or a negative number, by default,"
@@ -105,9 +105,9 @@ public class Pagination {
    *
    * @return pageSize
    */
-  @ApiModelProperty(
+  @Schema(
       example = "10",
-      value =
+      description =
           "Page size which specifies how many records per page will be returned (default 50)."
               + " Example - https://api.xero.com/bankfeeds.xro/1.0/Statements?pageSize=100 to"
               + " specify page size of 100.")
@@ -149,7 +149,7 @@ public class Pagination {
    *
    * @return pageCount
    */
-  @ApiModelProperty(example = "1", value = "Number of pages available")
+  @Schema(example = "1", description = "Number of pages available")
   /**
    * Number of pages available
    *
@@ -184,7 +184,7 @@ public class Pagination {
    *
    * @return itemCount
    */
-  @ApiModelProperty(example = "2", value = "Number of items returned")
+  @Schema(example = "2", description = "Number of items returned")
   /**
    * Number of items returned
    *

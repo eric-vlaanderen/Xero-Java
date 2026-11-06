@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -49,9 +49,9 @@ public class LineItemTracking {
    *
    * @return trackingCategoryID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      value = "The Xero identifier for a tracking category")
+      description = "The Xero identifier for a tracking category")
   /**
    * The Xero identifier for a tracking category
    *
@@ -86,9 +86,9 @@ public class LineItemTracking {
    *
    * @return trackingOptionID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      value = "The Xero identifier for a tracking category option")
+      description = "The Xero identifier for a tracking category option")
   /**
    * The Xero identifier for a tracking category option
    *
@@ -123,7 +123,7 @@ public class LineItemTracking {
    *
    * @return name
    */
-  @ApiModelProperty(example = "Region", value = "The name of the tracking category")
+  @Schema(example = "Region", description = "The name of the tracking category")
   /**
    * The name of the tracking category
    *
@@ -158,7 +158,7 @@ public class LineItemTracking {
    *
    * @return option
    */
-  @ApiModelProperty(example = "North", value = "See Tracking Options")
+  @Schema(example = "North", description = "See Tracking Options")
   /**
    * See Tracking Options
    *

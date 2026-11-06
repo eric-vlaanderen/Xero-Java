@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -46,9 +46,9 @@ public class SuperMembership {
    *
    * @return superMembershipID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "4333d5cd-53a5-4c31-98e5-a8b4e5676b0b",
-      value = "Xero unique identifier for Super membership")
+      description = "Xero unique identifier for Super membership")
   /**
    * Xero unique identifier for Super membership
    *
@@ -83,10 +83,10 @@ public class SuperMembership {
    *
    * @return superFundID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "2187a42b-639a-45cb-9eed-cd4ae488306a",
-      required = true,
-      value = "Xero identifier for super fund")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Xero identifier for super fund")
   /**
    * Xero identifier for super fund
    *
@@ -121,10 +121,10 @@ public class SuperMembership {
    *
    * @return employeeNumber
    */
-  @ApiModelProperty(
+  @Schema(
       example = "1234",
-      required = true,
-      value = "The membership number assigned to the employee by the super fund.")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The membership number assigned to the employee by the super fund.")
   /**
    * The membership number assigned to the employee by the super fund.
    *

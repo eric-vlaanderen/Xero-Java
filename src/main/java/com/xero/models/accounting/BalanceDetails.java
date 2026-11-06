@@ -13,12 +13,12 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** An array to specify multiple currency balances of an account */
-@ApiModel(description = "An array to specify multiple currency balances of an account")
+@Schema(description = "An array to specify multiple currency balances of an account")
 public class BalanceDetails {
   StringUtil util = new StringUtil();
 
@@ -47,8 +47,8 @@ public class BalanceDetails {
    *
    * @return balance
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The opening balances of the account. Debits are positive, credits are negative values")
   /**
    * The opening balances of the account. Debits are positive, credits are negative values
@@ -84,7 +84,7 @@ public class BalanceDetails {
    *
    * @return currencyCode
    */
-  @ApiModelProperty(value = "The currency of the balance (Not required for base currency)")
+  @Schema(description = "The currency of the balance (Not required for base currency)")
   /**
    * The currency of the balance (Not required for base currency)
    *
@@ -121,8 +121,8 @@ public class BalanceDetails {
    *
    * @return currencyRate
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "(Optional) Exchange rate to base currency when money is spent or received. If not"
               + " specified, XE rate for the day is applied")
   /**

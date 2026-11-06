@@ -13,13 +13,14 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
 
 /** StatementResponse */
 public class StatementResponse {
@@ -71,7 +72,7 @@ public class StatementResponse {
    *
    * @return statementId
    */
-  @ApiModelProperty(value = "Xero Identifier of statement")
+  @Schema(description = "Xero Identifier of statement")
   /**
    * Xero Identifier of statement
    *
@@ -106,7 +107,7 @@ public class StatementResponse {
    *
    * @return startDate
    */
-  @ApiModelProperty(value = "Start date of statement")
+  @Schema(description = "Start date of statement")
   /**
    * Start date of statement
    *
@@ -141,7 +142,7 @@ public class StatementResponse {
    *
    * @return endDate
    */
-  @ApiModelProperty(value = "End date of statement")
+  @Schema(description = "End date of statement")
   /**
    * End date of statement
    *
@@ -176,7 +177,7 @@ public class StatementResponse {
    *
    * @return importedDateTimeUtc
    */
-  @ApiModelProperty(value = "Utc date time of when the statement was imported in Xero")
+  @Schema(description = "Utc date time of when the statement was imported in Xero")
   /**
    * Utc date time of when the statement was imported in Xero
    *
@@ -217,8 +218,8 @@ public class StatementResponse {
    *
    * @return importSource
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Identifies where the statement data in Xero was sourced, 1) direct bank feed,"
               + " automatically loaded from the bank (eg STMTIMPORTSRC/CBAFEED); 2) indirect bank"
               + " feed, automatically loaded from a 3rd party provider (eg STMTIMPORTSRC/YODLEE);"
@@ -268,8 +269,8 @@ public class StatementResponse {
    *
    * @return startBalance
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Opening balance sourced from imported bank statements (if supplied). Note, for manually"
               + " uploaded statements, this balance is also manual and usually not supplied. Where"
               + " not supplied, the value will be 0.")
@@ -315,8 +316,8 @@ public class StatementResponse {
    *
    * @return endBalance
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Closing balance sourced from imported bank statements (if supplied). Note, for manually"
               + " uploaded statements, this balance is also manual and usually not supplied. Where"
               + " not supplied, the value will be 0.")
@@ -366,8 +367,8 @@ public class StatementResponse {
    *
    * @return indicativeStartBalance
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Opening statement balance calculated in Xero (= bank account conversion balance plus sum"
               + " of imported bank statement lines). Note: If indicative statement balance doesn't"
               + " match imported statement balance for the same date, either the conversion"
@@ -425,8 +426,8 @@ public class StatementResponse {
    *
    * @return indicativeEndBalance
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Closing statement balance calculated in Xero (= bank account conversion balance plus sum"
               + " of imported bank statement lines). Note: If indicative statement balance doesn't"
               + " match imported statement balance for the same date, either the conversion"
@@ -490,7 +491,7 @@ public class StatementResponse {
    *
    * @return statementLines
    */
-  @ApiModelProperty(value = "List of statement lines")
+  @Schema(description = "List of statement lines")
   /**
    * List of statement lines
    *

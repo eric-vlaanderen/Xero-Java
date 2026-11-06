@@ -13,11 +13,12 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** ReimbursementType */
 public class ReimbursementType {
@@ -54,7 +55,7 @@ public class ReimbursementType {
    *
    * @return name
    */
-  @ApiModelProperty(example = "PTO", value = "Name of the earnings rate (max length = 100)")
+  @Schema(example = "PTO", description = "Name of the earnings rate (max length = 100)")
   /**
    * Name of the earnings rate (max length &#x3D; 100)
    *
@@ -89,7 +90,7 @@ public class ReimbursementType {
    *
    * @return accountCode
    */
-  @ApiModelProperty(example = "720", value = "See Accounts")
+  @Schema(example = "720", description = "See Accounts")
   /**
    * See Accounts
    *
@@ -124,7 +125,7 @@ public class ReimbursementType {
    *
    * @return reimbursementTypeID
    */
-  @ApiModelProperty(example = "e0eb6747-7c17-4075-b804-989f8d4e5d39", value = "Xero identifier")
+  @Schema(example = "e0eb6747-7c17-4075-b804-989f8d4e5d39", description = "Xero identifier")
   /**
    * Xero identifier
    *
@@ -148,7 +149,7 @@ public class ReimbursementType {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1583967733054+0000)/", value = "Last modified timestamp")
+  @Schema(example = "/Date(1583967733054+0000)/", description = "Last modified timestamp")
   /**
    * Last modified timestamp
    *
@@ -190,7 +191,7 @@ public class ReimbursementType {
    *
    * @return currentRecord
    */
-  @ApiModelProperty(example = "true", value = "Is the current record")
+  @Schema(example = "true", description = "Is the current record")
   /**
    * Is the current record
    *

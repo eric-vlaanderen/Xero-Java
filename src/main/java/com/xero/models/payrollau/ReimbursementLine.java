@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -49,9 +49,9 @@ public class ReimbursementLine {
    *
    * @return reimbursementTypeID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "bd246b96-c637-4767-81cf-851ba8fa93c2",
-      value = "Xero reimbursement type identifier")
+      description = "Xero reimbursement type identifier")
   /**
    * Xero reimbursement type identifier
    *
@@ -86,7 +86,7 @@ public class ReimbursementLine {
    *
    * @return amount
    */
-  @ApiModelProperty(example = "10.0", value = "Reimbursement type amount")
+  @Schema(example = "10.0", description = "Reimbursement type amount")
   /**
    * Reimbursement type amount
    *
@@ -121,9 +121,9 @@ public class ReimbursementLine {
    *
    * @return description
    */
-  @ApiModelProperty(
+  @Schema(
       example = "For the taxi",
-      value = "Reimbursement lines description (max length 50)")
+      description = "Reimbursement lines description (max length 50)")
   /**
    * Reimbursement lines description (max length 50)
    *
@@ -160,9 +160,9 @@ public class ReimbursementLine {
    *
    * @return expenseAccount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "420",
-      value =
+      description =
           "Reimbursement expense account. For posted pay run you should be able to see expense"
               + " account code.")
   /**

@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** Address */
@@ -118,7 +118,7 @@ public class Address {
    *
    * @return addressType
    */
-  @ApiModelProperty(value = "define the type of address")
+  @Schema(description = "define the type of address")
   /**
    * define the type of address
    *
@@ -153,7 +153,7 @@ public class Address {
    *
    * @return addressLine1
    */
-  @ApiModelProperty(value = "max length = 500")
+  @Schema(description = "max length = 500")
   /**
    * max length &#x3D; 500
    *
@@ -188,7 +188,7 @@ public class Address {
    *
    * @return addressLine2
    */
-  @ApiModelProperty(value = "max length = 500")
+  @Schema(description = "max length = 500")
   /**
    * max length &#x3D; 500
    *
@@ -223,7 +223,7 @@ public class Address {
    *
    * @return addressLine3
    */
-  @ApiModelProperty(value = "max length = 500")
+  @Schema(description = "max length = 500")
   /**
    * max length &#x3D; 500
    *
@@ -258,7 +258,7 @@ public class Address {
    *
    * @return addressLine4
    */
-  @ApiModelProperty(value = "max length = 500")
+  @Schema(description = "max length = 500")
   /**
    * max length &#x3D; 500
    *
@@ -293,7 +293,7 @@ public class Address {
    *
    * @return city
    */
-  @ApiModelProperty(value = "max length = 255")
+  @Schema(description = "max length = 255")
   /**
    * max length &#x3D; 255
    *
@@ -328,7 +328,7 @@ public class Address {
    *
    * @return region
    */
-  @ApiModelProperty(value = "max length = 255")
+  @Schema(description = "max length = 255")
   /**
    * max length &#x3D; 255
    *
@@ -363,7 +363,7 @@ public class Address {
    *
    * @return postalCode
    */
-  @ApiModelProperty(value = "max length = 50")
+  @Schema(description = "max length = 50")
   /**
    * max length &#x3D; 50
    *
@@ -398,7 +398,7 @@ public class Address {
    *
    * @return country
    */
-  @ApiModelProperty(value = "max length = 50, [A-Z], [a-z] only")
+  @Schema(description = "max length = 50, [A-Z], [a-z] only")
   /**
    * max length &#x3D; 50, [A-Z], [a-z] only
    *
@@ -433,7 +433,7 @@ public class Address {
    *
    * @return attentionTo
    */
-  @ApiModelProperty(value = "max length = 255")
+  @Schema(description = "max length = 255")
   /**
    * max length &#x3D; 255
    *

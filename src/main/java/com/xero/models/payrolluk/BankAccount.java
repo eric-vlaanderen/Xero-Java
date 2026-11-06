@@ -13,7 +13,7 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** BankAccount */
@@ -45,7 +45,7 @@ public class BankAccount {
    *
    * @return accountName
    */
-  @ApiModelProperty(required = true, value = "Bank account name (max length = 32)")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Bank account name (max length = 32)")
   /**
    * Bank account name (max length &#x3D; 32)
    *
@@ -80,7 +80,7 @@ public class BankAccount {
    *
    * @return accountNumber
    */
-  @ApiModelProperty(required = true, value = "Bank account number (digits only; max length = 8)")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Bank account number (digits only; max length = 8)")
   /**
    * Bank account number (digits only; max length &#x3D; 8)
    *
@@ -115,7 +115,7 @@ public class BankAccount {
    *
    * @return sortCode
    */
-  @ApiModelProperty(required = true, value = "Bank account sort code (6 digits)")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Bank account sort code (6 digits)")
   /**
    * Bank account sort code (6 digits)
    *

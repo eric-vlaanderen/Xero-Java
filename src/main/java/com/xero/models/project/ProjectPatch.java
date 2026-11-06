@@ -13,7 +13,7 @@ package com.xero.models.project;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** ProjectPatch */
@@ -39,7 +39,7 @@ public class ProjectPatch {
    *
    * @return status
    */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "")
   /**
    * status
    *

@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -52,10 +52,10 @@ public class PaidLeaveEarningsLine {
    *
    * @return leaveTypeID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "742998cb-7584-4ecf-aa88-d694f59c50f9",
-      required = true,
-      value = "Xero leave type identifier")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Xero leave type identifier")
   /**
    * Xero leave type identifier
    *
@@ -90,7 +90,7 @@ public class PaidLeaveEarningsLine {
    *
    * @return amount
    */
-  @ApiModelProperty(example = "500.0", required = true, value = "Paid leave amount")
+  @Schema(example = "500.0", requiredMode = Schema.RequiredMode.REQUIRED, description = "Paid leave amount")
   /**
    * Paid leave amount
    *
@@ -127,9 +127,9 @@ public class PaidLeaveEarningsLine {
    *
    * @return sgCAppliedLeaveLoadingAmount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "50.0",
-      value =
+      description =
           "The amount of leave loading applied for the leave type that is subject to Superannuation"
               + " Guarantee Contributions. *Only applicable for Leave Types with Annual Leave"
               + " Categories")
@@ -171,9 +171,9 @@ public class PaidLeaveEarningsLine {
    *
    * @return sgCExemptedLeaveLoadingAmount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "60.0",
-      value =
+      description =
           "The amount of leave loading applied for the leave type that is exempt from"
               + " Superannuation Guarantee Contributions. *Only applicable for Leave Types with"
               + " Annual Leave Categories")
@@ -215,9 +215,9 @@ public class PaidLeaveEarningsLine {
    *
    * @return resetSTPCategorisation
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      value =
+      description =
           "Reset the STP categorisations for the leave type. *Only applicable for Leave Types with"
               + " Annual Leave Categories")
   /**

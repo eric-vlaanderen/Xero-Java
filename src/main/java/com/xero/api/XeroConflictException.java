@@ -1,18 +1,16 @@
 package com.xero.api;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.models.accounting.Element;
 import com.xero.models.assets.FieldValidationErrorsElement;
 import com.xero.models.bankfeeds.FeedConnection;
 import com.xero.models.bankfeeds.FeedConnections;
 import com.xero.models.bankfeeds.Statement;
 import com.xero.models.bankfeeds.Statements;
+import io.swagger.v3.oas.annotations.media.Schema;
 
-import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /** handle bank feed conflict exception  */
 public class XeroConflictException extends XeroException {
@@ -112,7 +110,7 @@ public class XeroConflictException extends XeroException {
      * Exception number
      * @return statusCode
     **/
-    @ApiModelProperty(value = "Status Code")
+    @Schema(description = "Status Code")
     public Integer getStatusCode() {
       return statusCode;
     }
@@ -137,7 +135,7 @@ public class XeroConflictException extends XeroException {
      * Exception type
      * @return type
     **/
-    @ApiModelProperty(value = "API set type")
+    @Schema(description = "API set type")
     public String getType() {
       return type;
     }
@@ -162,7 +160,7 @@ public class XeroConflictException extends XeroException {
      * Exception message
      * @return message
     **/
-    @ApiModelProperty(value = "Exception message")
+    @Schema(description = "Exception message")
     public String getMessage() {
       return message;
     }
@@ -199,7 +197,7 @@ public class XeroConflictException extends XeroException {
      * Array of Elements of validation Errors
      * @return elements
     **/
-    @ApiModelProperty(value = "Array of Elements of validation Errors")
+    @Schema(description = "Array of Elements of validation Errors")
     public List<Element> getElements() {
       return elements;
     }
@@ -236,7 +234,7 @@ public class XeroConflictException extends XeroException {
     * Array of Statements Items of Errors Array
     * @return statementItems
     **/
-    @ApiModelProperty(value = "Array of Statement Items with Errors Array")
+    @Schema(description = "Array of Statement Items with Errors Array")
     public List<Statement> getStatementItems() {
       return statementItems;
     }
@@ -273,7 +271,7 @@ public class XeroConflictException extends XeroException {
     * Array of FeedConnection of Errors Array
     * @return statementItems
     **/
-    @ApiModelProperty(value = "Array of FeedConnection Items with Errors Array")
+    @Schema(description = "Array of FeedConnection Items with Errors Array")
     public List<FeedConnection> getFeedConnectionItems() {
       return feedConnectionItems;
     }
@@ -310,7 +308,7 @@ public class XeroConflictException extends XeroException {
     * Array of Assets Errors Array
     * @return statementItems
     **/
-    @ApiModelProperty(value = "Array of FieldValidationErrorElement")
+    @Schema(description = "Array of FieldValidationErrorElement")
     public List<FieldValidationErrorsElement> getFieldValidationErrorsElements() {
       return fieldValidationErrorsElements;
     }
@@ -335,7 +333,7 @@ public class XeroConflictException extends XeroException {
      * Exception type
      * @return com.xero.models.payrolluk.Problem
     **/
-    @ApiModelProperty(value = "NZ Payroll problem")
+    @Schema(description = "NZ Payroll problem")
     public com.xero.models.payrollnz.Problem getPayrollNzProblem() {
       return payrollNzProblem;
     }
@@ -360,7 +358,7 @@ public class XeroConflictException extends XeroException {
      * Exception type
      * @return com.xero.models.payrolluk.Problem
     **/
-    @ApiModelProperty(value = "UK Payroll problem")
+    @Schema(description = "UK Payroll problem")
     public com.xero.models.payrolluk.Problem getPayrollUkProblem() {
       return payrollUkProblem;
     }

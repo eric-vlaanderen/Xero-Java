@@ -12,44 +12,30 @@
 
 package com.xero.api.client;
 
-import com.fasterxml.jackson.core.type.TypeReference;
+
 import com.google.api.client.auth.oauth2.BearerToken;
 import com.google.api.client.auth.oauth2.Credential;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpContent;
-import com.google.api.client.http.HttpHeaders;
-import com.google.api.client.http.HttpMethods;
-import com.google.api.client.http.HttpRequestFactory;
-import com.google.api.client.http.HttpResponse;
-import com.google.api.client.http.HttpResponseException;
-import com.google.api.client.http.HttpTransport;
+import com.google.api.client.http.*;
 import com.xero.api.ApiClient;
 import com.xero.api.XeroApiExceptionHandler;
-import com.xero.models.assets.Asset;
-import com.xero.models.assets.AssetStatusQueryParam;
-import com.xero.models.assets.AssetType;
-import com.xero.models.assets.Assets;
-import com.xero.models.assets.Setting;
+import com.xero.models.assets.*;
 import jakarta.ws.rs.core.UriBuilder;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tools.jackson.core.type.TypeReference;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.*;
 
 /** AssetApi has methods for interacting with all endpoints in the API set */
 public class AssetApi {
   private ApiClient apiClient;
   private static AssetApi instance = null;
   private String userAgent = "Default";
-  private String version = "18.3.0";
+  private final String version = "18.3.0";
   static final Logger logger = LoggerFactory.getLogger(AssetApi.class);
 
   /** AssetApi */
@@ -700,7 +686,7 @@ public class AssetApi {
       Object value = status;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -720,7 +706,7 @@ public class AssetApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -740,7 +726,7 @@ public class AssetApi {
       Object value = pageSize;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -760,7 +746,7 @@ public class AssetApi {
       Object value = orderBy;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -780,7 +766,7 @@ public class AssetApi {
       Object value = sortDirection;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -800,7 +786,7 @@ public class AssetApi {
       Object value = filterBy;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -845,8 +831,7 @@ public class AssetApi {
     byte[] bytes = IOUtils.toByteArray(is);
     try {
       // Process the input stream..
-      ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
-      return byteArrayInputStream;
+        return new ByteArrayInputStream(bytes);
     } finally {
       is.close();
     }

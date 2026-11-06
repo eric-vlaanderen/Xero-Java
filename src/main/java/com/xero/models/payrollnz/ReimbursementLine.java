@@ -13,7 +13,7 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -52,7 +52,7 @@ public class ReimbursementLine {
    *
    * @return reimbursementTypeID
    */
-  @ApiModelProperty(value = "Xero identifier for payroll reimbursement")
+  @Schema(description = "Xero identifier for payroll reimbursement")
   /**
    * Xero identifier for payroll reimbursement
    *
@@ -87,7 +87,7 @@ public class ReimbursementLine {
    *
    * @return description
    */
-  @ApiModelProperty(value = "Reimbursement line description")
+  @Schema(description = "Reimbursement line description")
   /**
    * Reimbursement line description
    *
@@ -122,7 +122,7 @@ public class ReimbursementLine {
    *
    * @return amount
    */
-  @ApiModelProperty(value = "Reimbursement amount")
+  @Schema(description = "Reimbursement amount")
   /**
    * Reimbursement amount
    *
@@ -157,7 +157,7 @@ public class ReimbursementLine {
    *
    * @return ratePerUnit
    */
-  @ApiModelProperty(value = "Rate per unit for leave earnings line")
+  @Schema(description = "Rate per unit for leave earnings line")
   /**
    * Rate per unit for leave earnings line
    *
@@ -192,7 +192,7 @@ public class ReimbursementLine {
    *
    * @return numberOfUnits
    */
-  @ApiModelProperty(value = "Leave earnings number of units")
+  @Schema(description = "Leave earnings number of units")
   /**
    * Leave earnings number of units
    *

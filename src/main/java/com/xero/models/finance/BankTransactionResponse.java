@@ -13,12 +13,13 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** BankTransactionResponse */
 public class BankTransactionResponse {
@@ -58,7 +59,7 @@ public class BankTransactionResponse {
    *
    * @return bankTransactionId
    */
-  @ApiModelProperty(value = "Xero Identifier of transaction")
+  @Schema(description = "Xero Identifier of transaction")
   /**
    * Xero Identifier of transaction
    *
@@ -93,8 +94,8 @@ public class BankTransactionResponse {
    *
    * @return batchPaymentId
    */
-  @ApiModelProperty(
-      value = "Xero Identifier of batch payment. Present if the transaction is part of a batch.")
+  @Schema(
+      description = "Xero Identifier of batch payment. Present if the transaction is part of a batch.")
   /**
    * Xero Identifier of batch payment. Present if the transaction is part of a batch.
    *
@@ -129,7 +130,7 @@ public class BankTransactionResponse {
    *
    * @return contact
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * contact
    *
@@ -164,7 +165,7 @@ public class BankTransactionResponse {
    *
    * @return date
    */
-  @ApiModelProperty(value = "Date of transaction - YYYY-MM-DD")
+  @Schema(description = "Date of transaction - YYYY-MM-DD")
   /**
    * Date of transaction - YYYY-MM-DD
    *
@@ -199,7 +200,7 @@ public class BankTransactionResponse {
    *
    * @return amount
    */
-  @ApiModelProperty(value = "Amount of transaction")
+  @Schema(description = "Amount of transaction")
   /**
    * Amount of transaction
    *
@@ -251,8 +252,8 @@ public class BankTransactionResponse {
    *
    * @return lineItems
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The LineItems element can contain any number of individual LineItem sub-elements. Not"
               + " included in summary mode")
   /**

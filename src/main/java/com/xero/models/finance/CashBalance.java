@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** CashBalance */
@@ -45,7 +45,7 @@ public class CashBalance {
    *
    * @return openingCashBalance
    */
-  @ApiModelProperty(value = "Opening balance of cash and cash equivalents")
+  @Schema(description = "Opening balance of cash and cash equivalents")
   /**
    * Opening balance of cash and cash equivalents
    *
@@ -80,7 +80,7 @@ public class CashBalance {
    *
    * @return closingCashBalance
    */
-  @ApiModelProperty(value = "Closing balance of cash and cash equivalents")
+  @Schema(description = "Closing balance of cash and cash equivalents")
   /**
    * Closing balance of cash and cash equivalents
    *
@@ -104,7 +104,7 @@ public class CashBalance {
    *
    * @return netCashMovement
    */
-  @ApiModelProperty(value = "Net movement of cash and cash equivalents for the period")
+  @Schema(description = "Net movement of cash and cash equivalents for the period")
   /**
    * Net movement of cash and cash equivalents for the period
    *

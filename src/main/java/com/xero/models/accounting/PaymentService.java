@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -57,7 +57,7 @@ public class PaymentService {
    *
    * @return paymentServiceID
    */
-  @ApiModelProperty(value = "Xero identifier")
+  @Schema(description = "Xero identifier")
   /**
    * Xero identifier
    *
@@ -92,7 +92,7 @@ public class PaymentService {
    *
    * @return paymentServiceName
    */
-  @ApiModelProperty(value = "Name of payment service")
+  @Schema(description = "Name of payment service")
   /**
    * Name of payment service
    *
@@ -127,7 +127,7 @@ public class PaymentService {
    *
    * @return paymentServiceUrl
    */
-  @ApiModelProperty(value = "The custom payment URL")
+  @Schema(description = "The custom payment URL")
   /**
    * The custom payment URL
    *
@@ -164,8 +164,8 @@ public class PaymentService {
    *
    * @return payNowText
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The text displayed on the Pay Now button in Xero Online Invoicing. If this is not set it"
               + " will default to Pay by credit card")
   /**
@@ -204,7 +204,7 @@ public class PaymentService {
    *
    * @return paymentServiceType
    */
-  @ApiModelProperty(value = "This will always be CUSTOM for payment services created via the API.")
+  @Schema(description = "This will always be CUSTOM for payment services created via the API.")
   /**
    * This will always be CUSTOM for payment services created via the API.
    *
@@ -253,7 +253,7 @@ public class PaymentService {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *

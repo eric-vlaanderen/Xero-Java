@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -46,9 +46,9 @@ public class LeaveAccrualLine {
    *
    * @return leaveTypeID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "e0eb6747-7c17-4075-b804-989f8d4e5d39",
-      value = "Xero identifier for the Leave type.")
+      description = "Xero identifier for the Leave type.")
   /**
    * Xero identifier for the Leave type.
    *
@@ -83,7 +83,7 @@ public class LeaveAccrualLine {
    *
    * @return numberOfUnits
    */
-  @ApiModelProperty(example = "105.5", value = "Leave Accrual number of units")
+  @Schema(example = "105.5", description = "Leave Accrual number of units")
   /**
    * Leave Accrual number of units
    *
@@ -118,7 +118,7 @@ public class LeaveAccrualLine {
    *
    * @return autoCalculate
    */
-  @ApiModelProperty(example = "true", value = "If you want to auto calculate leave.")
+  @Schema(example = "true", description = "If you want to auto calculate leave.")
   /**
    * If you want to auto calculate leave.
    *

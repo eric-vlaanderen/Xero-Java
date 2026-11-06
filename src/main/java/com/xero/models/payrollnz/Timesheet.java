@@ -15,13 +15,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.LocalDateTime;
 
 /** Timesheet */
 public class Timesheet {
@@ -126,7 +127,7 @@ public class Timesheet {
    *
    * @return timesheetID
    */
-  @ApiModelProperty(value = "The Xero identifier for a Timesheet")
+  @Schema(description = "The Xero identifier for a Timesheet")
   /**
    * The Xero identifier for a Timesheet
    *
@@ -161,9 +162,9 @@ public class Timesheet {
    *
    * @return payrollCalendarID
    */
-  @ApiModelProperty(
-      required = true,
-      value = "The Xero identifier for the Payroll Calendar that the Timesheet applies to")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The Xero identifier for the Payroll Calendar that the Timesheet applies to")
   /**
    * The Xero identifier for the Payroll Calendar that the Timesheet applies to
    *
@@ -198,9 +199,9 @@ public class Timesheet {
    *
    * @return employeeID
    */
-  @ApiModelProperty(
-      required = true,
-      value = "The Xero identifier for the Employee that the Timesheet is for")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The Xero identifier for the Employee that the Timesheet is for")
   /**
    * The Xero identifier for the Employee that the Timesheet is for
    *
@@ -235,7 +236,7 @@ public class Timesheet {
    *
    * @return startDate
    */
-  @ApiModelProperty(required = true, value = "The Start Date of the Timesheet period (YYYY-MM-DD)")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The Start Date of the Timesheet period (YYYY-MM-DD)")
   /**
    * The Start Date of the Timesheet period (YYYY-MM-DD)
    *
@@ -270,7 +271,7 @@ public class Timesheet {
    *
    * @return endDate
    */
-  @ApiModelProperty(required = true, value = "The End Date of the Timesheet period (YYYY-MM-DD)")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The End Date of the Timesheet period (YYYY-MM-DD)")
   /**
    * The End Date of the Timesheet period (YYYY-MM-DD)
    *
@@ -305,7 +306,7 @@ public class Timesheet {
    *
    * @return status
    */
-  @ApiModelProperty(value = "Status of the timesheet")
+  @Schema(description = "Status of the timesheet")
   /**
    * Status of the timesheet
    *
@@ -340,7 +341,7 @@ public class Timesheet {
    *
    * @return totalHours
    */
-  @ApiModelProperty(value = "The Total Hours of the Timesheet")
+  @Schema(description = "The Total Hours of the Timesheet")
   /**
    * The Total Hours of the Timesheet
    *
@@ -375,7 +376,7 @@ public class Timesheet {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(value = "The UTC date time that the Timesheet was last updated")
+  @Schema(description = "The UTC date time that the Timesheet was last updated")
   /**
    * The UTC date time that the Timesheet was last updated
    *
@@ -424,7 +425,7 @@ public class Timesheet {
    *
    * @return timesheetLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * timesheetLines
    *

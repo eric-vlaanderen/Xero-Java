@@ -1,16 +1,18 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.accounting.*;
+import com.xero.models.accounting.Users;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.time.OffsetDateTime;
 
-import org.threeten.bp.*;
 import java.io.IOException;
 import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class AccountingApiUsersTest {
 
@@ -21,7 +23,7 @@ public class AccountingApiUsersTest {
 
     private static boolean setUpIsDone = false;
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -56,14 +58,14 @@ public class AccountingApiUsersTest {
         UUID userID = UUID.fromString("8138a266-fb42-49b2-a104-014b7045753d");  
         Users response = accountingApi.getUser(accessToken,xeroTenantId,userID);
 
-        assertThat(response.getUsers().get(0).getUserID(), is(equalTo(UUID.fromString("3c37ef1d-cd49-4589-9787-3c418ed8b6ac"))));
-        assertThat(response.getUsers().get(0).getEmailAddress(), is(equalTo("test@email.com")));
-        assertThat(response.getUsers().get(0).getFirstName(), is(equalTo("Test")));
-        assertThat(response.getUsers().get(0).getLastName(), is(equalTo("Xero")));
-        assertThat(response.getUsers().get(0).getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2017-10-20T18:14:21.613Z"))));
-        assertThat(response.getUsers().get(0).getIsSubscriber(), is(equalTo(false)));
-        assertThat(response.getUsers().get(0).getOrganisationRole(), is(equalTo(com.xero.models.accounting.User.OrganisationRoleEnum.FINANCIALADVISER)));
-        //System.out.println(response.getUsers().get(0).toString());
+        assertThat(response.getUsers().getFirst().getUserID(), is(equalTo(UUID.fromString("3c37ef1d-cd49-4589-9787-3c418ed8b6ac"))));
+        assertThat(response.getUsers().getFirst().getEmailAddress(), is(equalTo("test@email.com")));
+        assertThat(response.getUsers().getFirst().getFirstName(), is(equalTo("Test")));
+        assertThat(response.getUsers().getFirst().getLastName(), is(equalTo("Xero")));
+        assertThat(response.getUsers().getFirst().getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2017-10-20T18:14:21.613Z"))));
+        assertThat(response.getUsers().getFirst().getIsSubscriber(), is(equalTo(false)));
+        assertThat(response.getUsers().getFirst().getOrganisationRole(), is(equalTo(com.xero.models.accounting.User.OrganisationRoleEnum.FINANCIALADVISER)));
+        //System.out.println(response.getUsers().getFirst().toString());
     }
     
     @Test
@@ -74,13 +76,13 @@ public class AccountingApiUsersTest {
         String order = null;
         Users response = accountingApi.getUsers(accessToken,xeroTenantId,ifModifiedSince, where, order);
 
-        assertThat(response.getUsers().get(0).getUserID(), is(equalTo(UUID.fromString("3c37ef1d-cd49-4589-9787-3c418ed8b6ac"))));
-        assertThat(response.getUsers().get(0).getEmailAddress(), is(equalTo("test@email.com")));
-        assertThat(response.getUsers().get(0).getFirstName(), is(equalTo("Test")));
-        assertThat(response.getUsers().get(0).getLastName(), is(equalTo("Xero")));
-        assertThat(response.getUsers().get(0).getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2017-10-20T18:14:21.613Z"))));
-        assertThat(response.getUsers().get(0).getIsSubscriber(), is(equalTo(false)));
-        assertThat(response.getUsers().get(0).getOrganisationRole(), is(equalTo(com.xero.models.accounting.User.OrganisationRoleEnum.FINANCIALADVISER)));
+        assertThat(response.getUsers().getFirst().getUserID(), is(equalTo(UUID.fromString("3c37ef1d-cd49-4589-9787-3c418ed8b6ac"))));
+        assertThat(response.getUsers().getFirst().getEmailAddress(), is(equalTo("test@email.com")));
+        assertThat(response.getUsers().getFirst().getFirstName(), is(equalTo("Test")));
+        assertThat(response.getUsers().getFirst().getLastName(), is(equalTo("Xero")));
+        assertThat(response.getUsers().getFirst().getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2017-10-20T18:14:21.613Z"))));
+        assertThat(response.getUsers().getFirst().getIsSubscriber(), is(equalTo(false)));
+        assertThat(response.getUsers().getFirst().getOrganisationRole(), is(equalTo(com.xero.models.accounting.User.OrganisationRoleEnum.FINANCIALADVISER)));
         //System.out.println(response.getUsers().toString());
     }
 }

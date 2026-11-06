@@ -13,13 +13,14 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** TimesheetLine */
 public class TimesheetLine {
@@ -53,9 +54,9 @@ public class TimesheetLine {
    *
    * @return earningsRateID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "966c5c77-2ef0-4320-b6a9-6c27b080ecc5",
-      value = "The Xero identifier for an Earnings Rate")
+      description = "The Xero identifier for an Earnings Rate")
   /**
    * The Xero identifier for an Earnings Rate
    *
@@ -92,9 +93,9 @@ public class TimesheetLine {
    *
    * @return trackingItemID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "ae777a87-5ef3-4fa0-a4f0-d10e1f13073a",
-      value =
+      description =
           "The Xero identifier for a Tracking Category. The TrackingOptionID must belong to the"
               + " TrackingCategory selected as TimesheetCategories under Payroll Settings.")
   /**
@@ -147,7 +148,7 @@ public class TimesheetLine {
    *
    * @return numberOfUnits
    */
-  @ApiModelProperty(value = "The number of units on a timesheet line")
+  @Schema(description = "The number of units on a timesheet line")
   /**
    * The number of units on a timesheet line
    *
@@ -171,7 +172,7 @@ public class TimesheetLine {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1583967733054+0000)/", value = "Last modified timestamp")
+  @Schema(example = "/Date(1583967733054+0000)/", description = "Last modified timestamp")
   /**
    * Last modified timestamp
    *

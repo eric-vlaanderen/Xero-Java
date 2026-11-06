@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -67,8 +67,8 @@ public class Settings {
    *
    * @return accounts
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Payroll Account details for SuperExpense, SuperLiabilty, WagesExpense, PAYGLiability &"
               + " WagesPayable.")
   /**
@@ -107,7 +107,7 @@ public class Settings {
    *
    * @return trackingCategories
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * trackingCategories
    *
@@ -142,7 +142,7 @@ public class Settings {
    *
    * @return daysInPayrollYear
    */
-  @ApiModelProperty(example = "365", value = "Number of days in the Payroll year")
+  @Schema(example = "365", description = "Number of days in the Payroll year")
   /**
    * Number of days in the Payroll year
    *
@@ -177,9 +177,9 @@ public class Settings {
    *
    * @return employeesAreSTP2
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      value =
+      description =
           "Indicates if the organisation has been enabled for STP Phase 2 editing of employees.")
   /**
    * Indicates if the organisation has been enabled for STP Phase 2 editing of employees.

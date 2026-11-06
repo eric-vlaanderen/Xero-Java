@@ -15,10 +15,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDateTime;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDateTime;
 
 /** SubscriptionItem */
 public class SubscriptionItem {
@@ -120,7 +121,7 @@ public class SubscriptionItem {
    *
    * @return endDate
    */
-  @ApiModelProperty(value = "Date when the subscription to this product will end")
+  @Schema(description = "Date when the subscription to this product will end")
   /**
    * Date when the subscription to this product will end
    *
@@ -155,7 +156,7 @@ public class SubscriptionItem {
    *
    * @return id
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the subscription item.")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The unique identifier of the subscription item.")
   /**
    * The unique identifier of the subscription item.
    *
@@ -190,7 +191,7 @@ public class SubscriptionItem {
    *
    * @return price
    */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "")
   /**
    * price
    *
@@ -225,7 +226,7 @@ public class SubscriptionItem {
    *
    * @return product
    */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "")
   /**
    * product
    *
@@ -262,8 +263,8 @@ public class SubscriptionItem {
    *
    * @return quantity
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The quantity of the item. For a fixed product, it is 1. For a per-seat product, it is a"
               + " positive integer. For metered products, it is always null.")
   /**
@@ -304,9 +305,9 @@ public class SubscriptionItem {
    *
    * @return startDate
    */
-  @ApiModelProperty(
-      required = true,
-      value =
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description =
           "Date the subscription started, or will start. Note: this could be in the future for"
               + " downgrades or reduced number of seats that haven't taken effect yet. ")
   /**
@@ -347,9 +348,9 @@ public class SubscriptionItem {
    *
    * @return status
    */
-  @ApiModelProperty(
-      required = true,
-      value =
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description =
           "Status of the subscription item. Available statuses are ACTIVE, CANCELED, and"
               + " PENDING_ACTIVATION. ")
   /**
@@ -388,7 +389,7 @@ public class SubscriptionItem {
    *
    * @return testMode
    */
-  @ApiModelProperty(value = "If the subscription is a test subscription")
+  @Schema(description = "If the subscription is a test subscription")
   /**
    * If the subscription is a test subscription
    *

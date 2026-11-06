@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** ImportSummaryObject */
@@ -39,7 +39,7 @@ public class ImportSummaryObject {
    *
    * @return importSummary
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * importSummary
    *

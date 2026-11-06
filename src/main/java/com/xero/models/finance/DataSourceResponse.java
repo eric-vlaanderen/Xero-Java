@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** DataSourceResponse */
@@ -76,8 +76,8 @@ public class DataSourceResponse {
    *
    * @return directBankFeed
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines where the source of the data was a direct bank"
               + " feed in to Xero via an API integration.   This could be from a bank or"
               + " aggregator.   This gives an indication on the certainty of correctness of the"
@@ -122,8 +122,8 @@ public class DataSourceResponse {
    *
    * @return fileUpload
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines where the source of the data was a file"
               + " manually uploaded in to Xero.   This gives an indication on the certainty of"
               + " correctness of the data.")
@@ -165,8 +165,8 @@ public class DataSourceResponse {
    *
    * @return manual
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines where the source of the data was manually"
               + " input in to Xero.   This gives an indication on the certainty of correctness of"
               + " the data.")
@@ -212,8 +212,8 @@ public class DataSourceResponse {
    *
    * @return directBankFeedPos
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines where the source of the data was a direct bank"
               + " feed in to Xero via an API integration.   This could be from a bank or"
               + " aggregator.  This gives an indication on the certainty of correctness of the"
@@ -262,8 +262,8 @@ public class DataSourceResponse {
    *
    * @return fileUploadPos
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines where the source of the data was a file"
               + " manually uploaded in to Xero.   This gives an indication on the certainty of"
               + " correctness of the data. Only positive transactions are included.")
@@ -309,8 +309,8 @@ public class DataSourceResponse {
    *
    * @return manualPos
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines where the source of the data was manually"
               + " input in to Xero.   This gives an indication on the certainty of correctness of"
               + " the data. Only positive transactions are included.")
@@ -358,8 +358,8 @@ public class DataSourceResponse {
    *
    * @return directBankFeedNeg
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines where the source of the data was a direct bank"
               + " feed in to Xero via an API integration.   This could be from a bank or"
               + " aggregator.   This gives an indication on the certainty of correctness of the"
@@ -408,8 +408,8 @@ public class DataSourceResponse {
    *
    * @return fileUploadNeg
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines where the source of the data was a file"
               + " manually uploaded in to Xero.   This gives an indication on the certainty of"
               + " correctness of the data.  Only negative transactions are included.")
@@ -455,8 +455,8 @@ public class DataSourceResponse {
    *
    * @return manualNeg
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines where the source of the data was manually"
               + " input in to Xero.   This gives an indication on the certainty of correctness of"
               + " the data.  Only negative transactions are included.")
@@ -502,8 +502,8 @@ public class DataSourceResponse {
    *
    * @return otherPos
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines where the source of the data was unknown.  "
               + " This gives an indication on the certainty of correctness of the data.  Only"
               + " positive transactions are included.")
@@ -549,8 +549,8 @@ public class DataSourceResponse {
    *
    * @return otherNeg
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines where the source of the data was unknown.  "
               + " This gives an indication on the certainty of correctness of the data.  Only"
               + " negative transactions are included.")
@@ -594,8 +594,8 @@ public class DataSourceResponse {
    *
    * @return other
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines where the source of the data was unknown.  "
               + " This gives an indication on the certainty of correctness of the data.")
   /**

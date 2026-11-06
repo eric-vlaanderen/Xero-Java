@@ -1,16 +1,21 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.project.*;
+import com.xero.models.project.Project;
+import com.xero.models.project.ProjectCreateOrUpdate;
+import com.xero.models.project.Projects;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.time.OffsetDateTime;
 
-import org.threeten.bp.*;
 import java.io.IOException;
-import java.util.*;
+import java.util.List;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class ProjectsApiProjectsTest {
 
@@ -21,7 +26,7 @@ public class ProjectsApiProjectsTest {
    
     private static boolean setUpIsDone = false;
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -64,37 +69,37 @@ public class ProjectsApiProjectsTest {
         assertThat(response.getPagination().getItemCount(), is(equalTo(9)));
         assertThat(response.getPagination().getPageCount(), is(equalTo(1)));
         assertThat(response.getPagination().getPageSize(), is(equalTo(50)));
-        assertThat(response.getItems().get(0).getContactId(), is(equalTo(UUID.fromString("216830cb-9a68-487e-928b-c1a7ccc4fc81"))));
-        assertThat(response.getItems().get(0).getProjectId(), is(equalTo(UUID.fromString("b021e7cb-1903-4292-b48b-5b27b4271e3e"))));
-        assertThat(response.getItems().get(0).getName(), is(equalTo("FooProject28916")));
-        assertThat(response.getItems().get(0).getCurrencyCode(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
-        assertThat(response.getItems().get(0).getMinutesLogged(), is(equalTo(180)));
-        assertThat(response.getItems().get(0).getTotalTaskAmount().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
-        assertThat(response.getItems().get(0).getTotalTaskAmount().getValue(), is(equalTo(60.0)));
-        assertThat(response.getItems().get(0).getTotalExpenseAmount().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
-        assertThat(response.getItems().get(0).getTotalExpenseAmount().getValue(), is(equalTo(499.0)));
-        assertThat(response.getItems().get(0).getMinutesToBeInvoiced(), is(equalTo(180)));
-        assertThat(response.getItems().get(0).getTaskAmountInvoiced().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
-        assertThat(response.getItems().get(0).getTaskAmountInvoiced().getValue(), is(equalTo(0.0)));
-        assertThat(response.getItems().get(0).getExpenseAmountToBeInvoiced().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
-        assertThat(response.getItems().get(0).getExpenseAmountToBeInvoiced().getValue(), is(equalTo(499.0)));
-        assertThat(response.getItems().get(0).getExpenseAmountInvoiced().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
-        assertThat(response.getItems().get(0).getExpenseAmountInvoiced().getValue(), is(equalTo(0.0)));
-        assertThat(response.getItems().get(0).getProjectAmountInvoiced().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
-        assertThat(response.getItems().get(0).getProjectAmountInvoiced().getValue(), is(equalTo(0.0)));
-        assertThat(response.getItems().get(0).getDeposit().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
-        assertThat(response.getItems().get(0).getDeposit().getValue(), is(equalTo(0.0)));
-        assertThat(response.getItems().get(0).getDepositApplied().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
-        assertThat(response.getItems().get(0).getDepositApplied().getValue(), is(equalTo(0.0)));
-        assertThat(response.getItems().get(0).getCreditNoteAmount().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
-        assertThat(response.getItems().get(0).getCreditNoteAmount().getValue(), is(equalTo(0.0)));
-        assertThat(response.getItems().get(0).getTotalInvoiced().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
-        assertThat(response.getItems().get(0).getTotalInvoiced().getValue(), is(equalTo(0.0)));
-        assertThat(response.getItems().get(0).getTotalToBeInvoiced().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
-        assertThat(response.getItems().get(0).getTotalToBeInvoiced().getValue(), is(equalTo(559.0)));
-        assertThat(response.getItems().get(0).getEstimate().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
-        assertThat(response.getItems().get(0).getEstimate().getValue(), is(equalTo(99.99)));        
-        assertThat(response.getItems().get(0).getDeadlineUtc(), is(equalTo(OffsetDateTime.parse("2020-03-03T15:00Z"))));
+        assertThat(response.getItems().getFirst().getContactId(), is(equalTo(UUID.fromString("216830cb-9a68-487e-928b-c1a7ccc4fc81"))));
+        assertThat(response.getItems().getFirst().getProjectId(), is(equalTo(UUID.fromString("b021e7cb-1903-4292-b48b-5b27b4271e3e"))));
+        assertThat(response.getItems().getFirst().getName(), is(equalTo("FooProject28916")));
+        assertThat(response.getItems().getFirst().getCurrencyCode(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
+        assertThat(response.getItems().getFirst().getMinutesLogged(), is(equalTo(180)));
+        assertThat(response.getItems().getFirst().getTotalTaskAmount().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
+        assertThat(response.getItems().getFirst().getTotalTaskAmount().getValue(), is(equalTo(60.0)));
+        assertThat(response.getItems().getFirst().getTotalExpenseAmount().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
+        assertThat(response.getItems().getFirst().getTotalExpenseAmount().getValue(), is(equalTo(499.0)));
+        assertThat(response.getItems().getFirst().getMinutesToBeInvoiced(), is(equalTo(180)));
+        assertThat(response.getItems().getFirst().getTaskAmountInvoiced().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
+        assertThat(response.getItems().getFirst().getTaskAmountInvoiced().getValue(), is(equalTo(0.0)));
+        assertThat(response.getItems().getFirst().getExpenseAmountToBeInvoiced().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
+        assertThat(response.getItems().getFirst().getExpenseAmountToBeInvoiced().getValue(), is(equalTo(499.0)));
+        assertThat(response.getItems().getFirst().getExpenseAmountInvoiced().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
+        assertThat(response.getItems().getFirst().getExpenseAmountInvoiced().getValue(), is(equalTo(0.0)));
+        assertThat(response.getItems().getFirst().getProjectAmountInvoiced().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
+        assertThat(response.getItems().getFirst().getProjectAmountInvoiced().getValue(), is(equalTo(0.0)));
+        assertThat(response.getItems().getFirst().getDeposit().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
+        assertThat(response.getItems().getFirst().getDeposit().getValue(), is(equalTo(0.0)));
+        assertThat(response.getItems().getFirst().getDepositApplied().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
+        assertThat(response.getItems().getFirst().getDepositApplied().getValue(), is(equalTo(0.0)));
+        assertThat(response.getItems().getFirst().getCreditNoteAmount().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
+        assertThat(response.getItems().getFirst().getCreditNoteAmount().getValue(), is(equalTo(0.0)));
+        assertThat(response.getItems().getFirst().getTotalInvoiced().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
+        assertThat(response.getItems().getFirst().getTotalInvoiced().getValue(), is(equalTo(0.0)));
+        assertThat(response.getItems().getFirst().getTotalToBeInvoiced().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
+        assertThat(response.getItems().getFirst().getTotalToBeInvoiced().getValue(), is(equalTo(559.0)));
+        assertThat(response.getItems().getFirst().getEstimate().getCurrency(), is(equalTo(com.xero.models.project.CurrencyCode.AUD)));
+        assertThat(response.getItems().getFirst().getEstimate().getValue(), is(equalTo(99.99)));        
+        assertThat(response.getItems().getFirst().getDeadlineUtc(), is(equalTo(OffsetDateTime.parse("2020-03-03T15:00Z"))));
         
         // System.out.println(response.toString());
     }

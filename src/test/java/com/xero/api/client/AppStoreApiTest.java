@@ -1,15 +1,16 @@
 package com.xero.api.client;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.XeroApiException;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.appstore.*;
+import com.xero.models.appstore.Subscription;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 
 public class AppStoreApiTest {
 
@@ -20,7 +21,7 @@ public class AppStoreApiTest {
 	
 	private static boolean setUpIsDone = false;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";

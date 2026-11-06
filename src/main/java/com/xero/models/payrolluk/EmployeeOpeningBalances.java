@@ -13,7 +13,7 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** EmployeeOpeningBalances */
@@ -56,8 +56,8 @@ public class EmployeeOpeningBalances {
    *
    * @return statutoryAdoptionPay
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The total accumulated statutory adoption pay amount received by the employee for current"
               + " fiscal year to date")
   /**
@@ -98,8 +98,8 @@ public class EmployeeOpeningBalances {
    *
    * @return statutoryMaternityPay
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The total accumulated statutory maternity pay amount received by the employee for"
               + " current fiscal year to date")
   /**
@@ -140,8 +140,8 @@ public class EmployeeOpeningBalances {
    *
    * @return statutoryPaternityPay
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The total accumulated statutory paternity pay amount received by the employee for"
               + " current fiscal year to date")
   /**
@@ -182,8 +182,8 @@ public class EmployeeOpeningBalances {
    *
    * @return statutorySharedParentalPay
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The total accumulated statutory shared parental pay amount received by the employee for"
               + " current fiscal year to date")
   /**
@@ -224,8 +224,8 @@ public class EmployeeOpeningBalances {
    *
    * @return statutorySickPay
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The total accumulated statutory sick pay amount received by the employee for current"
               + " fiscal year to date")
   /**
@@ -264,7 +264,7 @@ public class EmployeeOpeningBalances {
    *
    * @return priorEmployeeNumber
    */
-  @ApiModelProperty(value = "The unique employee number issued by the employee's former employer")
+  @Schema(description = "The unique employee number issued by the employee's former employer")
   /**
    * The unique employee number issued by the employee&#39;s former employer
    *

@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** Problem */
@@ -48,7 +48,7 @@ public class Problem {
    *
    * @return type
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * type
    *
@@ -83,7 +83,7 @@ public class Problem {
    *
    * @return title
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * title
    *
@@ -118,7 +118,7 @@ public class Problem {
    *
    * @return status
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * status
    *
@@ -153,7 +153,7 @@ public class Problem {
    *
    * @return detail
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * detail
    *

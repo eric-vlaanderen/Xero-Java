@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -49,7 +49,7 @@ public class LeaveEarningsLine {
    *
    * @return earningsRateID
    */
-  @ApiModelProperty(example = "e0eb6747-7c17-4075-b804-989f8d4e5d39", value = "Xero identifier")
+  @Schema(example = "e0eb6747-7c17-4075-b804-989f8d4e5d39", description = "Xero identifier")
   /**
    * Xero identifier
    *
@@ -84,7 +84,7 @@ public class LeaveEarningsLine {
    *
    * @return ratePerUnit
    */
-  @ApiModelProperty(example = "38.0", value = "Rate per unit of the EarningsLine.")
+  @Schema(example = "38.0", description = "Rate per unit of the EarningsLine.")
   /**
    * Rate per unit of the EarningsLine.
    *
@@ -119,7 +119,7 @@ public class LeaveEarningsLine {
    *
    * @return numberOfUnits
    */
-  @ApiModelProperty(example = "2.5", value = "Earnings rate number of units.")
+  @Schema(example = "2.5", description = "Earnings rate number of units.")
   /**
    * Earnings rate number of units.
    *
@@ -154,7 +154,7 @@ public class LeaveEarningsLine {
    *
    * @return payOutType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * payOutType
    *

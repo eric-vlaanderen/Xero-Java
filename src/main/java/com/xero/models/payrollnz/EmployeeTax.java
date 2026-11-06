@@ -15,9 +15,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
-import org.threeten.bp.LocalDate;
 
 /** EmployeeTax */
 public class EmployeeTax {
@@ -218,7 +219,7 @@ public class EmployeeTax {
    *
    * @return irdNumber
    */
-  @ApiModelProperty(example = "111111111", value = "The IRD Number.")
+  @Schema(example = "111111111", description = "The IRD Number.")
   /**
    * The IRD Number.
    *
@@ -253,7 +254,7 @@ public class EmployeeTax {
    *
    * @return taxCode
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * taxCode
    *
@@ -288,7 +289,7 @@ public class EmployeeTax {
    *
    * @return specialTaxRatePercentage
    */
-  @ApiModelProperty(example = "17.5", value = "Special tax rate percentage.")
+  @Schema(example = "17.5", description = "Special tax rate percentage.")
   /**
    * Special tax rate percentage.
    *
@@ -323,7 +324,7 @@ public class EmployeeTax {
    *
    * @return hasSpecialStudentLoanRate
    */
-  @ApiModelProperty(example = "true", value = "Does the employee have a special student loan rate?")
+  @Schema(example = "true", description = "Does the employee have a special student loan rate?")
   /**
    * Does the employee have a special student loan rate?
    *
@@ -358,7 +359,7 @@ public class EmployeeTax {
    *
    * @return specialStudentLoanRatePercentage
    */
-  @ApiModelProperty(example = "2.0", value = "The employee student loan rate percentage.")
+  @Schema(example = "2.0", description = "The employee student loan rate percentage.")
   /**
    * The employee student loan rate percentage.
    *
@@ -395,9 +396,9 @@ public class EmployeeTax {
    *
    * @return isEligibleForKiwiSaver
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      value =
+      description =
           "The employee eligibility for KiwiSaver. Deprecated, replaced by kiwiSaverStatus. Omit"
               + " this field from POST requests.")
   /**
@@ -436,7 +437,7 @@ public class EmployeeTax {
    *
    * @return esctRatePercentage
    */
-  @ApiModelProperty(example = "1.0", value = "Employer superannuation contribution tax rate.")
+  @Schema(example = "1.0", description = "Employer superannuation contribution tax rate.")
   /**
    * Employer superannuation contribution tax rate.
    *
@@ -475,9 +476,9 @@ public class EmployeeTax {
    *
    * @return kiwiSaverContributions
    */
-  @ApiModelProperty(
+  @Schema(
       example = "MakeContributions",
-      value =
+      description =
           "Contribution Option which can be 'MakeContributions' 'OptOut',"
               + " 'OnAContributionsHoliday', 'OnASavingsSuspension', 'NotCurrentlyAKiwiSaverMember'"
               + " for employees without a KiwiSaver membership")
@@ -519,9 +520,9 @@ public class EmployeeTax {
    *
    * @return kiwiSaverStatus
    */
-  @ApiModelProperty(
+  @Schema(
       example = "ActiveKiwiSaverMember",
-      value =
+      description =
           "KiwiSaver eligibility. Required in POST requests for all tax codes except WT and NSW.")
   /**
    * KiwiSaver eligibility. Required in POST requests for all tax codes except WT and NSW.
@@ -558,7 +559,7 @@ public class EmployeeTax {
    *
    * @return kiwiSaverEmployeeContributionRatePercentage
    */
-  @ApiModelProperty(example = "4.0", value = "Employee Contribution percentage.")
+  @Schema(example = "4.0", description = "Employee Contribution percentage.")
   /**
    * Employee Contribution percentage.
    *
@@ -595,7 +596,7 @@ public class EmployeeTax {
    *
    * @return kiwiSaverEmployerContributionRatePercentage
    */
-  @ApiModelProperty(example = "10.0", value = "Employer Contribution percentage.")
+  @Schema(example = "10.0", description = "Employer Contribution percentage.")
   /**
    * Employer Contribution percentage.
    *
@@ -633,9 +634,9 @@ public class EmployeeTax {
    *
    * @return kiwiSaverEmployerSalarySacrificeContributionRatePercentage
    */
-  @ApiModelProperty(
+  @Schema(
       example = "2.0",
-      value = "Employer Contribution through Salary Sacrifice percentage.")
+      description = "Employer Contribution through Salary Sacrifice percentage.")
   /**
    * Employer Contribution through Salary Sacrifice percentage.
    *
@@ -672,7 +673,7 @@ public class EmployeeTax {
    *
    * @return kiwiSaverOptOutDate
    */
-  @ApiModelProperty(value = "Opt Out Date.")
+  @Schema(description = "Opt Out Date.")
   /**
    * Opt Out Date.
    *
@@ -708,7 +709,7 @@ public class EmployeeTax {
    *
    * @return kiwiSaverContributionHolidayEndDate
    */
-  @ApiModelProperty(value = "Contribution holiday expiry date or end date.")
+  @Schema(description = "Contribution holiday expiry date or end date.")
   /**
    * Contribution holiday expiry date or end date.
    *
@@ -746,9 +747,9 @@ public class EmployeeTax {
    *
    * @return hasStudentLoanBalance
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value =
+      description =
           "Does the employee have a remaining student loan balance? Set a remaining balance if you"
               + " have received a letter from IR.")
   /**
@@ -787,9 +788,9 @@ public class EmployeeTax {
    *
    * @return studentLoanBalance
    */
-  @ApiModelProperty(
+  @Schema(
       example = "30.0",
-      value = "The employee's student loan balance shown on the letter from IR.")
+      description = "The employee's student loan balance shown on the letter from IR.")
   /**
    * The employee&#39;s student loan balance shown on the letter from IR.
    *
@@ -824,7 +825,7 @@ public class EmployeeTax {
    *
    * @return studentLoanAsAt
    */
-  @ApiModelProperty(value = "The date of the letter from IR.")
+  @Schema(description = "The date of the letter from IR.")
   /**
    * The date of the letter from IR.
    *
@@ -859,9 +860,9 @@ public class EmployeeTax {
    *
    * @return registeredForGST
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      value = "Is the employee registered for GST? Required in POST requests when taxCode is WT.")
+      description = "Is the employee registered for GST? Required in POST requests when taxCode is WT.")
   /**
    * Is the employee registered for GST? Required in POST requests when taxCode is WT.
    *

@@ -13,100 +13,97 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** TaxRates */
+/**
+ * TaxRates
+ */
 public class TaxRates {
-  StringUtil util = new StringUtil();
+    StringUtil util = new StringUtil();
 
-  @JsonProperty("TaxRates")
-  private List<TaxRate> taxRates = new ArrayList<TaxRate>();
+    @JsonProperty("TaxRates")
+    private List<TaxRate> taxRates = new ArrayList<TaxRate>();
 
-  /**
-   * taxRates
-   *
-   * @param taxRates List&lt;TaxRate&gt;
-   * @return TaxRates
-   */
-  public TaxRates taxRates(List<TaxRate> taxRates) {
-    this.taxRates = taxRates;
-    return this;
-  }
-
-  /**
-   * taxRates
-   *
-   * @param taxRatesItem TaxRate
-   * @return TaxRates
-   */
-  public TaxRates addTaxRatesItem(TaxRate taxRatesItem) {
-    if (this.taxRates == null) {
-      this.taxRates = new ArrayList<TaxRate>();
+    /**
+     * taxRates
+     *
+     * @param taxRates List&lt;TaxRate&gt;
+     * @return TaxRates
+     */
+    public TaxRates taxRates(List<TaxRate> taxRates) {
+        this.taxRates = taxRates;
+        return this;
     }
-    this.taxRates.add(taxRatesItem);
-    return this;
-  }
 
-  /**
-   * Get taxRates
-   *
-   * @return taxRates
-   */
-  @ApiModelProperty(value = "")
-  /**
-   * taxRates
-   *
-   * @return taxRates List<TaxRate>
-   */
-  public List<TaxRate> getTaxRates() {
-    return taxRates;
-  }
-
-  /**
-   * taxRates
-   *
-   * @param taxRates List&lt;TaxRate&gt;
-   */
-  public void setTaxRates(List<TaxRate> taxRates) {
-    this.taxRates = taxRates;
-  }
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * taxRates
+     *
+     * @param taxRatesItem TaxRate
+     * @return TaxRates
+     */
+    public TaxRates addTaxRatesItem(TaxRate taxRatesItem) {
+        if (this.taxRates == null) {
+            this.taxRates = new ArrayList<TaxRate>();
+        }
+        this.taxRates.add(taxRatesItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+
+    /**
+     * taxRates
+     *
+     * @return taxRates List<TaxRate>
+     */
+    @Schema(description = "")
+    public List<TaxRate> getTaxRates() {
+        return taxRates;
     }
-    TaxRates taxRates = (TaxRates) o;
-    return Objects.equals(this.taxRates, taxRates.taxRates);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(taxRates);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class TaxRates {\n");
-    sb.append("    taxRates: ").append(toIndentedString(taxRates)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * taxRates
+     *
+     * @param taxRates List&lt;TaxRate&gt;
+     */
+    public void setTaxRates(List<TaxRate> taxRates) {
+        this.taxRates = taxRates;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        TaxRates taxRates = (TaxRates) o;
+        return Objects.equals(this.taxRates, taxRates.taxRates);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(taxRates);
+    }
+
+    @Override
+    public String toString() {
+        return "class TaxRates {\n" +
+            "    taxRates: " + toIndentedString(taxRates) + "\n" +
+            "}";
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

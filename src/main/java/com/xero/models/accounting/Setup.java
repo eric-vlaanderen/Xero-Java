@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -47,7 +47,7 @@ public class Setup {
    *
    * @return conversionDate
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * conversionDate
    *
@@ -96,8 +96,8 @@ public class Setup {
    *
    * @return conversionBalances
    */
-  @ApiModelProperty(
-      value = "Balance supplied for each account that has a value as at the conversion date.")
+  @Schema(
+      description = "Balance supplied for each account that has a value as at the conversion date.")
   /**
    * Balance supplied for each account that has a value as at the conversion date.
    *
@@ -146,7 +146,7 @@ public class Setup {
    *
    * @return accounts
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * accounts
    *

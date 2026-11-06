@@ -13,14 +13,14 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The reimbursement type lines */
-@ApiModel(description = "The reimbursement type lines")
+@Schema(description = "The reimbursement type lines")
 public class ReimbursementLines {
   StringUtil util = new StringUtil();
 
@@ -57,7 +57,7 @@ public class ReimbursementLines {
    *
    * @return reimbursementLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * reimbursementLines
    *

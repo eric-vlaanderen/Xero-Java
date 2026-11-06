@@ -13,7 +13,7 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -52,7 +52,7 @@ public class EarningsOrder {
    *
    * @return id
    */
-  @ApiModelProperty(value = "Xero unique identifier for an earning rate")
+  @Schema(description = "Xero unique identifier for an earning rate")
   /**
    * Xero unique identifier for an earning rate
    *
@@ -87,7 +87,7 @@ public class EarningsOrder {
    *
    * @return name
    */
-  @ApiModelProperty(required = true, value = "Name of the earning order")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Name of the earning order")
   /**
    * Name of the earning order
    *
@@ -123,7 +123,7 @@ public class EarningsOrder {
    *
    * @return statutoryDeductionCategory
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * statutoryDeductionCategory
    *
@@ -158,7 +158,7 @@ public class EarningsOrder {
    *
    * @return liabilityAccountId
    */
-  @ApiModelProperty(value = "Xero identifier for Liability Account")
+  @Schema(description = "Xero identifier for Liability Account")
   /**
    * Xero identifier for Liability Account
    *
@@ -193,7 +193,7 @@ public class EarningsOrder {
    *
    * @return currentRecord
    */
-  @ApiModelProperty(value = "Identifier of a record is active or not.")
+  @Schema(description = "Identifier of a record is active or not.")
   /**
    * Identifier of a record is active or not.
    *

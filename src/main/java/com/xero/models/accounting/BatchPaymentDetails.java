@@ -13,12 +13,12 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** Bank details for use on a batch payment stored with each contact */
-@ApiModel(description = "Bank details for use on a batch payment stored with each contact")
+@Schema(description = "Bank details for use on a batch payment stored with each contact")
 public class BatchPaymentDetails {
   StringUtil util = new StringUtil();
 
@@ -53,9 +53,9 @@ public class BatchPaymentDetails {
    *
    * @return bankAccountNumber
    */
-  @ApiModelProperty(
+  @Schema(
       example = "123-456-1111111",
-      value = "Bank account number for use with Batch Payments")
+      description = "Bank account number for use with Batch Payments")
   /**
    * Bank account number for use with Batch Payments
    *
@@ -90,7 +90,7 @@ public class BatchPaymentDetails {
    *
    * @return bankAccountName
    */
-  @ApiModelProperty(example = "ACME Bank", value = "Name of bank for use with Batch Payments")
+  @Schema(example = "ACME Bank", description = "Name of bank for use with Batch Payments")
   /**
    * Name of bank for use with Batch Payments
    *
@@ -131,9 +131,9 @@ public class BatchPaymentDetails {
    *
    * @return details
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Hello World",
-      value =
+      description =
           "(Non-NZ Only) These details are sent to the org’s bank as a reference for the batch"
               + " payment transaction. They will also show with the batch payment transaction in"
               + " the bank reconciliation Find & Match screen. Depending on your individual bank,"
@@ -183,9 +183,9 @@ public class BatchPaymentDetails {
    *
    * @return code
    */
-  @ApiModelProperty(
+  @Schema(
       example = "ABC",
-      value =
+      description =
           "(NZ Only) Optional references for the batch payment transaction. It will also show with"
               + " the batch payment transaction in the bank reconciliation Find & Match screen."
               + " Depending on your individual bank, the detail may also show on the bank statement"
@@ -232,9 +232,9 @@ public class BatchPaymentDetails {
    *
    * @return reference
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Foobar",
-      value =
+      description =
           "(NZ Only) Optional references for the batch payment transaction. It will also show with"
               + " the batch payment transaction in the bank reconciliation Find & Match screen."
               + " Depending on your individual bank, the detail may also show on the bank statement"

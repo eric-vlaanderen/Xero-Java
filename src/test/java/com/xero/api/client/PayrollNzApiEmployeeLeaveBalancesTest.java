@@ -1,15 +1,17 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrollnz.*;
+import com.xero.models.payrollnz.EmployeeLeaveBalances;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollNzApiEmployeeLeaveBalancesTest {
 
@@ -19,7 +21,7 @@ public class PayrollNzApiEmployeeLeaveBalancesTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -45,10 +47,10 @@ public class PayrollNzApiEmployeeLeaveBalancesTest {
         assertThat(response.getPagination().getPageSize() , is(equalTo(100)));
         assertThat(response.getPagination().getPageCount() , is(equalTo(1)));
         assertThat(response.getPagination().getItemCount() , is(equalTo(4)));
-        assertThat(response.getLeaveBalances().get(0).getLeaveTypeID(), is(equalTo(UUID.fromString("0441497f-5dc7-4cd3-a90d-f2e07e21b2a6"))));
-        assertThat(response.getLeaveBalances().get(0).getName() , is(equalTo("Holiday Pay")));
-        assertThat(response.getLeaveBalances().get(0).getBalance() , is(equalTo(0.0)));
-        assertThat(response.getLeaveBalances().get(0).getTypeOfUnits() , is(equalTo("Dollars")));
+        assertThat(response.getLeaveBalances().getFirst().getLeaveTypeID(), is(equalTo(UUID.fromString("0441497f-5dc7-4cd3-a90d-f2e07e21b2a6"))));
+        assertThat(response.getLeaveBalances().getFirst().getName() , is(equalTo("Holiday Pay")));
+        assertThat(response.getLeaveBalances().getFirst().getBalance() , is(equalTo(0.0)));
+        assertThat(response.getLeaveBalances().getFirst().getTypeOfUnits() , is(equalTo("Dollars")));
 
         //System.out.println(response.toString());
     }

@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** StatementBalanceResponse */
@@ -46,8 +46,8 @@ public class StatementBalanceResponse {
    *
    * @return value
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Total closing balance of the account. This includes both reconciled and unreconciled"
               + " bank statement lines. The closing balance will always be represented as a"
               + " positive number, with it’s debit/credit status defined in the"
@@ -90,8 +90,8 @@ public class StatementBalanceResponse {
    *
    * @return type
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The DEBIT or CREDIT status of the account. Cash accounts in credit have a negative"
               + " balance.")
   /**

@@ -15,13 +15,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** Contact */
 public class Contact {
@@ -398,7 +399,7 @@ public class Contact {
    *
    * @return contactID
    */
-  @ApiModelProperty(value = "Xero identifier")
+  @Schema(description = "Xero identifier")
   /**
    * Xero identifier
    *
@@ -435,8 +436,8 @@ public class Contact {
    *
    * @return mergedToContactID
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "ID for the destination of a merged contact. Only returned when using paging or when"
               + " fetching a contact by ContactId or ContactNumber.")
   /**
@@ -479,8 +480,8 @@ public class Contact {
    *
    * @return contactNumber
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "This can be updated via the API only i.e. This field is read only on the Xero contact"
               + " screen, used to identify contacts in external systems (max length = 50). If the"
               + " Contact Number is used, this is displayed as Contact Code in the Contacts UI in"
@@ -525,8 +526,8 @@ public class Contact {
    *
    * @return accountNumber
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "A user defined account number. This can be updated via the API and the Xero UI (max"
               + " length = 50)")
   /**
@@ -565,7 +566,7 @@ public class Contact {
    *
    * @return contactStatus
    */
-  @ApiModelProperty(value = "Current status of a contact – see contact status types")
+  @Schema(description = "Current status of a contact – see contact status types")
   /**
    * Current status of a contact – see contact status types
    *
@@ -600,7 +601,7 @@ public class Contact {
    *
    * @return name
    */
-  @ApiModelProperty(value = "Full name of contact/organisation (max length = 255)")
+  @Schema(description = "Full name of contact/organisation (max length = 255)")
   /**
    * Full name of contact/organisation (max length &#x3D; 255)
    *
@@ -635,7 +636,7 @@ public class Contact {
    *
    * @return firstName
    */
-  @ApiModelProperty(value = "First name of contact person (max length = 255)")
+  @Schema(description = "First name of contact person (max length = 255)")
   /**
    * First name of contact person (max length &#x3D; 255)
    *
@@ -670,7 +671,7 @@ public class Contact {
    *
    * @return lastName
    */
-  @ApiModelProperty(value = "Last name of contact person (max length = 255)")
+  @Schema(description = "Last name of contact person (max length = 255)")
   /**
    * Last name of contact person (max length &#x3D; 255)
    *
@@ -705,7 +706,7 @@ public class Contact {
    *
    * @return companyNumber
    */
-  @ApiModelProperty(value = "Company registration number (max length = 50)")
+  @Schema(description = "Company registration number (max length = 50)")
   /**
    * Company registration number (max length &#x3D; 50)
    *
@@ -740,8 +741,8 @@ public class Contact {
    *
    * @return emailAddress
    */
-  @ApiModelProperty(
-      value = "Email address of contact person (umlauts not supported) (max length  = 255)")
+  @Schema(
+      description = "Email address of contact person (umlauts not supported) (max length  = 255)")
   /**
    * Email address of contact person (umlauts not supported) (max length &#x3D; 255)
    *
@@ -790,7 +791,7 @@ public class Contact {
    *
    * @return contactPersons
    */
-  @ApiModelProperty(value = "See contact persons")
+  @Schema(description = "See contact persons")
   /**
    * See contact persons
    *
@@ -825,7 +826,7 @@ public class Contact {
    *
    * @return bankAccountDetails
    */
-  @ApiModelProperty(value = "Bank account number of contact")
+  @Schema(description = "Bank account number of contact")
   /**
    * Bank account number of contact
    *
@@ -864,8 +865,8 @@ public class Contact {
    *
    * @return taxNumber
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Tax number of contact – this is also known as the ABN (Australia), GST Number (New"
               + " Zealand), VAT Number (UK) or Tax ID Number (US and global) in the Xero UI"
               + " depending on which regionalized version of Xero you are using (max length = 50)")
@@ -909,8 +910,8 @@ public class Contact {
    *
    * @return taxNumberType
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Identifier of the regional type of tax number, such as US, UK, or other regional tax"
               + " identifiers")
   /**
@@ -949,7 +950,7 @@ public class Contact {
    *
    * @return accountsReceivableTaxType
    */
-  @ApiModelProperty(value = "The tax type from TaxRates")
+  @Schema(description = "The tax type from TaxRates")
   /**
    * The tax type from TaxRates
    *
@@ -984,7 +985,7 @@ public class Contact {
    *
    * @return accountsPayableTaxType
    */
-  @ApiModelProperty(value = "The tax type from TaxRates")
+  @Schema(description = "The tax type from TaxRates")
   /**
    * The tax type from TaxRates
    *
@@ -1033,7 +1034,7 @@ public class Contact {
    *
    * @return addresses
    */
-  @ApiModelProperty(value = "Store certain address types for a contact – see address types")
+  @Schema(description = "Store certain address types for a contact – see address types")
   /**
    * Store certain address types for a contact – see address types
    *
@@ -1082,7 +1083,7 @@ public class Contact {
    *
    * @return phones
    */
-  @ApiModelProperty(value = "Store certain phone types for a contact – see phone types")
+  @Schema(description = "Store certain phone types for a contact – see phone types")
   /**
    * Store certain phone types for a contact – see phone types
    *
@@ -1121,8 +1122,8 @@ public class Contact {
    *
    * @return isSupplier
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "true or false – Boolean that describes if a contact that has any AP  invoices entered"
               + " against them. Cannot be set via PUT or POST – it is automatically set when an"
               + " accounts payable invoice is generated against this contact.")
@@ -1168,8 +1169,8 @@ public class Contact {
    *
    * @return isCustomer
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "true or false – Boolean that describes if a contact has any AR invoices entered against"
               + " them. Cannot be set via PUT or POST – it is automatically set when an accounts"
               + " receivable invoice is generated against this contact.")
@@ -1214,8 +1215,8 @@ public class Contact {
    *
    * @return salesDefaultLineAmountType
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The default sales line amount type for a contact. Only available when summaryOnly"
               + " parameter or paging is used, or when fetch by ContactId or ContactNumber.")
   /**
@@ -1258,8 +1259,8 @@ public class Contact {
    *
    * @return purchasesDefaultLineAmountType
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The default purchases line amount type for a contact Only available when summaryOnly"
               + " parameter or paging is used, or when fetch by ContactId or ContactNumber.")
   /**
@@ -1299,7 +1300,7 @@ public class Contact {
    *
    * @return defaultCurrency
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * defaultCurrency
    *
@@ -1334,7 +1335,7 @@ public class Contact {
    *
    * @return xeroNetworkKey
    */
-  @ApiModelProperty(value = "Store XeroNetworkKey for contacts.")
+  @Schema(description = "Store XeroNetworkKey for contacts.")
   /**
    * Store XeroNetworkKey for contacts.
    *
@@ -1369,7 +1370,7 @@ public class Contact {
    *
    * @return salesDefaultAccountCode
    */
-  @ApiModelProperty(value = "The default sales account code for contacts")
+  @Schema(description = "The default sales account code for contacts")
   /**
    * The default sales account code for contacts
    *
@@ -1404,7 +1405,7 @@ public class Contact {
    *
    * @return purchasesDefaultAccountCode
    */
-  @ApiModelProperty(value = "The default purchases account code for contacts")
+  @Schema(description = "The default purchases account code for contacts")
   /**
    * The default purchases account code for contacts
    *
@@ -1453,7 +1454,7 @@ public class Contact {
    *
    * @return salesTrackingCategories
    */
-  @ApiModelProperty(value = "The default sales tracking categories for contacts")
+  @Schema(description = "The default sales tracking categories for contacts")
   /**
    * The default sales tracking categories for contacts
    *
@@ -1504,7 +1505,7 @@ public class Contact {
    *
    * @return purchasesTrackingCategories
    */
-  @ApiModelProperty(value = "The default purchases tracking categories for contacts")
+  @Schema(description = "The default purchases tracking categories for contacts")
   /**
    * The default purchases tracking categories for contacts
    *
@@ -1542,8 +1543,8 @@ public class Contact {
    *
    * @return trackingCategoryName
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The name of the Tracking Category assigned to the contact under SalesTrackingCategories"
               + " and PurchasesTrackingCategories")
   /**
@@ -1584,8 +1585,8 @@ public class Contact {
    *
    * @return trackingCategoryOption
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The name of the Tracking Option assigned to the contact under SalesTrackingCategories"
               + " and PurchasesTrackingCategories")
   /**
@@ -1624,7 +1625,7 @@ public class Contact {
    *
    * @return paymentTerms
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * paymentTerms
    *
@@ -1648,9 +1649,9 @@ public class Contact {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(1573755038314)/",
-      value = "UTC timestamp of last update to contact")
+      description = "UTC timestamp of last update to contact")
   /**
    * UTC timestamp of last update to contact
    *
@@ -1706,7 +1707,7 @@ public class Contact {
    *
    * @return contactGroups
    */
-  @ApiModelProperty(value = "Displays which contact groups a contact is included in")
+  @Schema(description = "Displays which contact groups a contact is included in")
   /**
    * Displays which contact groups a contact is included in
    *
@@ -1730,7 +1731,7 @@ public class Contact {
    *
    * @return website
    */
-  @ApiModelProperty(value = "Website address for contact (read only)")
+  @Schema(description = "Website address for contact (read only)")
   /**
    * Website address for contact (read only)
    *
@@ -1756,7 +1757,7 @@ public class Contact {
    *
    * @return brandingTheme
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * brandingTheme
    *
@@ -1791,7 +1792,7 @@ public class Contact {
    *
    * @return batchPayments
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * batchPayments
    *
@@ -1815,7 +1816,7 @@ public class Contact {
    *
    * @return discount
    */
-  @ApiModelProperty(value = "The default discount rate for the contact (read only)")
+  @Schema(description = "The default discount rate for the contact (read only)")
   /**
    * The default discount rate for the contact (read only)
    *
@@ -1841,7 +1842,7 @@ public class Contact {
    *
    * @return balances
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * balances
    *
@@ -1890,7 +1891,7 @@ public class Contact {
    *
    * @return attachments
    */
-  @ApiModelProperty(value = "Displays array of attachments from the API")
+  @Schema(description = "Displays array of attachments from the API")
   /**
    * Displays array of attachments from the API
    *
@@ -1925,9 +1926,9 @@ public class Contact {
    *
    * @return hasAttachments
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "A boolean to indicate if a contact has an attachment")
+      description = "A boolean to indicate if a contact has an attachment")
   /**
    * A boolean to indicate if a contact has an attachment
    *
@@ -1976,7 +1977,7 @@ public class Contact {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays validation errors returned from the API")
+  @Schema(description = "Displays validation errors returned from the API")
   /**
    * Displays validation errors returned from the API
    *
@@ -2011,9 +2012,9 @@ public class Contact {
    *
    * @return hasValidationErrors
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "A boolean to indicate if a contact has an validation errors")
+      description = "A boolean to indicate if a contact has an validation errors")
   /**
    * A boolean to indicate if a contact has an validation errors
    *
@@ -2048,7 +2049,7 @@ public class Contact {
    *
    * @return statusAttributeString
    */
-  @ApiModelProperty(value = "Status of object")
+  @Schema(description = "Status of object")
   /**
    * Status of object
    *

@@ -15,11 +15,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** User */
 public class User {
@@ -133,7 +134,7 @@ public class User {
    *
    * @return userID
    */
-  @ApiModelProperty(value = "Xero identifier")
+  @Schema(description = "Xero identifier")
   /**
    * Xero identifier
    *
@@ -168,7 +169,7 @@ public class User {
    *
    * @return emailAddress
    */
-  @ApiModelProperty(value = "Email address of user")
+  @Schema(description = "Email address of user")
   /**
    * Email address of user
    *
@@ -203,7 +204,7 @@ public class User {
    *
    * @return firstName
    */
-  @ApiModelProperty(value = "First name of user")
+  @Schema(description = "First name of user")
   /**
    * First name of user
    *
@@ -238,7 +239,7 @@ public class User {
    *
    * @return lastName
    */
-  @ApiModelProperty(value = "Last name of user")
+  @Schema(description = "Last name of user")
   /**
    * Last name of user
    *
@@ -262,7 +263,7 @@ public class User {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1573755038314)/", value = "Timestamp of last change to user")
+  @Schema(example = "/Date(1573755038314)/", description = "Timestamp of last change to user")
   /**
    * Timestamp of last change to user
    *
@@ -304,7 +305,7 @@ public class User {
    *
    * @return isSubscriber
    */
-  @ApiModelProperty(value = "Boolean to indicate if user is the subscriber")
+  @Schema(description = "Boolean to indicate if user is the subscriber")
   /**
    * Boolean to indicate if user is the subscriber
    *
@@ -341,8 +342,8 @@ public class User {
    *
    * @return organisationRole
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "User role that defines permissions in Xero and via API (READONLY, INVOICEONLY, STANDARD,"
               + " FINANCIALADVISER, etc)")
   /**

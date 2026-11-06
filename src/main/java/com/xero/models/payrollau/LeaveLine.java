@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -64,9 +64,9 @@ public class LeaveLine {
    *
    * @return leaveTypeID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "742998cb-7584-4ecf-aa88-d694f59c50f9",
-      value = "Xero leave type identifier")
+      description = "Xero leave type identifier")
   /**
    * Xero leave type identifier
    *
@@ -101,7 +101,7 @@ public class LeaveLine {
    *
    * @return calculationType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * calculationType
    *
@@ -137,7 +137,7 @@ public class LeaveLine {
    *
    * @return entitlementFinalPayPayoutType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * entitlementFinalPayPayoutType
    *
@@ -174,7 +174,7 @@ public class LeaveLine {
    *
    * @return employmentTerminationPaymentType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * employmentTerminationPaymentType
    *
@@ -211,7 +211,7 @@ public class LeaveLine {
    *
    * @return includeSuperannuationGuaranteeContribution
    */
-  @ApiModelProperty(example = "true", value = "amount of leave line")
+  @Schema(example = "true", description = "amount of leave line")
   /**
    * amount of leave line
    *
@@ -249,10 +249,10 @@ public class LeaveLine {
    *
    * @return isQualifyingEarnings
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      required = true,
-      value =
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description =
           "Boolean to determine if the leave line is considered as qualifying earnings for"
               + " superannuation guarantee calculations")
   /**
@@ -291,7 +291,7 @@ public class LeaveLine {
    *
    * @return numberOfUnits
    */
-  @ApiModelProperty(example = "2.5", value = "Number of units for leave line.")
+  @Schema(example = "2.5", description = "Number of units for leave line.")
   /**
    * Number of units for leave line.
    *
@@ -326,7 +326,7 @@ public class LeaveLine {
    *
    * @return annualNumberOfUnits
    */
-  @ApiModelProperty(example = "2.5", value = "Hours of leave accrued each year")
+  @Schema(example = "2.5", description = "Hours of leave accrued each year")
   /**
    * Hours of leave accrued each year
    *
@@ -361,9 +361,9 @@ public class LeaveLine {
    *
    * @return fullTimeNumberOfUnitsPerPeriod
    */
-  @ApiModelProperty(
+  @Schema(
       example = "2.5",
-      value = "Normal ordinary earnings number of units for leave line.")
+      description = "Normal ordinary earnings number of units for leave line.")
   /**
    * Normal ordinary earnings number of units for leave line.
    *

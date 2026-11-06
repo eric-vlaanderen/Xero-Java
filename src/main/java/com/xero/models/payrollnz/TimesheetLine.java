@@ -13,10 +13,11 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** TimesheetLine */
 public class TimesheetLine {
@@ -53,7 +54,7 @@ public class TimesheetLine {
    *
    * @return timesheetLineID
    */
-  @ApiModelProperty(value = "The Xero identifier for a Timesheet Line")
+  @Schema(description = "The Xero identifier for a Timesheet Line")
   /**
    * The Xero identifier for a Timesheet Line
    *
@@ -88,9 +89,9 @@ public class TimesheetLine {
    *
    * @return date
    */
-  @ApiModelProperty(
-      required = true,
-      value = "The Date that this Timesheet Line is for (YYYY-MM-DD)")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The Date that this Timesheet Line is for (YYYY-MM-DD)")
   /**
    * The Date that this Timesheet Line is for (YYYY-MM-DD)
    *
@@ -125,9 +126,9 @@ public class TimesheetLine {
    *
    * @return earningsRateID
    */
-  @ApiModelProperty(
-      required = true,
-      value = "The Xero identifier for the Earnings Rate that the Timesheet is for")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The Xero identifier for the Earnings Rate that the Timesheet is for")
   /**
    * The Xero identifier for the Earnings Rate that the Timesheet is for
    *
@@ -162,7 +163,7 @@ public class TimesheetLine {
    *
    * @return trackingItemID
    */
-  @ApiModelProperty(value = "The Xero identifier for the Tracking Item that the Timesheet is for")
+  @Schema(description = "The Xero identifier for the Tracking Item that the Timesheet is for")
   /**
    * The Xero identifier for the Tracking Item that the Timesheet is for
    *
@@ -197,7 +198,7 @@ public class TimesheetLine {
    *
    * @return numberOfUnits
    */
-  @ApiModelProperty(required = true, value = "The Number of Units of the Timesheet Line")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The Number of Units of the Timesheet Line")
   /**
    * The Number of Units of the Timesheet Line
    *

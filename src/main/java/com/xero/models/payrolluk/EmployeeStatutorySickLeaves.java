@@ -13,7 +13,7 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -48,7 +48,7 @@ public class EmployeeStatutorySickLeaves {
    *
    * @return pagination
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * pagination
    *
@@ -83,7 +83,7 @@ public class EmployeeStatutorySickLeaves {
    *
    * @return problem
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * problem
    *
@@ -134,7 +134,7 @@ public class EmployeeStatutorySickLeaves {
    *
    * @return statutorySickLeave
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * statutorySickLeave
    *

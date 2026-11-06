@@ -13,10 +13,11 @@ package com.xero.models.project;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** ProjectCreateOrUpdate */
 public class ProjectCreateOrUpdate {
@@ -50,9 +51,9 @@ public class ProjectCreateOrUpdate {
    *
    * @return contactId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "01234567-89ab-cdef-0123-456789abcdef",
-      value = "Identifier of the contact this project was created for.")
+      description = "Identifier of the contact this project was created for.")
   /**
    * Identifier of the contact this project was created for.
    *
@@ -87,7 +88,7 @@ public class ProjectCreateOrUpdate {
    *
    * @return name
    */
-  @ApiModelProperty(example = "New Kitchen", required = true, value = "Name of the project.")
+  @Schema(example = "New Kitchen", requiredMode = Schema.RequiredMode.REQUIRED, description = "Name of the project.")
   /**
    * Name of the project.
    *
@@ -122,7 +123,7 @@ public class ProjectCreateOrUpdate {
    *
    * @return estimateAmount
    */
-  @ApiModelProperty(example = "1.0", value = "")
+  @Schema(example = "1.0", description = "")
   /**
    * estimateAmount
    *
@@ -157,9 +158,9 @@ public class ProjectCreateOrUpdate {
    *
    * @return deadlineUtc
    */
-  @ApiModelProperty(
+  @Schema(
       example = "2019-12-10T12:59:59Z",
-      value = "Deadline for the project. UTC Date Time in ISO-8601 format.")
+      description = "Deadline for the project. UTC Date Time in ISO-8601 format.")
   /**
    * Deadline for the project. UTC Date Time in ISO-8601 format.
    *

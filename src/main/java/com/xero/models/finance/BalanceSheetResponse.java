@@ -13,9 +13,10 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
-import org.threeten.bp.LocalDate;
 
 /** BalanceSheetResponse */
 public class BalanceSheetResponse {
@@ -49,7 +50,7 @@ public class BalanceSheetResponse {
    *
    * @return balanceDate
    */
-  @ApiModelProperty(value = "Balance date of the report")
+  @Schema(description = "Balance date of the report")
   /**
    * Balance date of the report
    *
@@ -84,7 +85,7 @@ public class BalanceSheetResponse {
    *
    * @return asset
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * asset
    *
@@ -119,7 +120,7 @@ public class BalanceSheetResponse {
    *
    * @return liability
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * liability
    *
@@ -154,7 +155,7 @@ public class BalanceSheetResponse {
    *
    * @return equity
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * equity
    *

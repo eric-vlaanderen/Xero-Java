@@ -13,10 +13,11 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** DevelopmentalRoleDetails */
 public class DevelopmentalRoleDetails {
@@ -50,10 +51,10 @@ public class DevelopmentalRoleDetails {
    *
    * @return startDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Mon Dec 02 00:00:00 UTC 2024",
-      required = true,
-      value = "The start date of the developmental role")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The start date of the developmental role")
   /**
    * The start date of the developmental role
    *
@@ -88,10 +89,10 @@ public class DevelopmentalRoleDetails {
    *
    * @return endDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Mon Dec 02 00:00:00 UTC 2024",
-      required = true,
-      value = "The end date of the developmental role")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The end date of the developmental role")
   /**
    * The end date of the developmental role
    *
@@ -126,10 +127,10 @@ public class DevelopmentalRoleDetails {
    *
    * @return developmentalRole
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Apprentice",
-      required = true,
-      value = "The developmental role type - \"Apprentice\" is the only supported role currently")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The developmental role type - \"Apprentice\" is the only supported role currently")
   /**
    * The developmental role type - \&quot;Apprentice\&quot; is the only supported role currently
    *
@@ -166,8 +167,8 @@ public class DevelopmentalRoleDetails {
    *
    * @return publicKey
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The public key of the developmental role. Public key is required if the intention is to"
               + " edit an existing developmental role. If no key is supplied a new developmental"
               + " role will be created")

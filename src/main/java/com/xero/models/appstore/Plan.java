@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -106,7 +106,7 @@ public class Plan {
    *
    * @return id
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the plan")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The unique identifier of the plan")
   /**
    * The unique identifier of the plan
    *
@@ -141,9 +141,9 @@ public class Plan {
    *
    * @return name
    */
-  @ApiModelProperty(
-      required = true,
-      value = "The name of the plan. It is used in the invoice line item description. ")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The name of the plan. It is used in the invoice line item description. ")
   /**
    * The name of the plan. It is used in the invoice line item description.
    *
@@ -178,9 +178,9 @@ public class Plan {
    *
    * @return status
    */
-  @ApiModelProperty(
-      required = true,
-      value =
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description =
           "Status of the plan. Available statuses are ACTIVE, CANCELED, and PENDING_ACTIVATION. ")
   /**
    * Status of the plan. Available statuses are ACTIVE, CANCELED, and PENDING_ACTIVATION.
@@ -230,9 +230,9 @@ public class Plan {
    *
    * @return subscriptionItems
    */
-  @ApiModelProperty(
-      required = true,
-      value =
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description =
           "List of the subscription items belonging to the plan. It does not include cancelled"
               + " subscription items. ")
   /**

@@ -13,7 +13,7 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** Address */
@@ -51,10 +51,10 @@ public class Address {
    *
    * @return addressLine1
    */
-  @ApiModelProperty(
+  @Schema(
       example = "123 Main St",
-      required = true,
-      value = "Address line 1 for employee home address")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Address line 1 for employee home address")
   /**
    * Address line 1 for employee home address
    *
@@ -89,7 +89,7 @@ public class Address {
    *
    * @return addressLine2
    */
-  @ApiModelProperty(example = "Apt 4", value = "Address line 2 for employee home address")
+  @Schema(example = "Apt 4", description = "Address line 2 for employee home address")
   /**
    * Address line 2 for employee home address
    *
@@ -124,7 +124,7 @@ public class Address {
    *
    * @return city
    */
-  @ApiModelProperty(example = "Fulham", required = true, value = "Suburb for employee home address")
+  @Schema(example = "Fulham", requiredMode = Schema.RequiredMode.REQUIRED, description = "Suburb for employee home address")
   /**
    * Suburb for employee home address
    *
@@ -159,10 +159,10 @@ public class Address {
    *
    * @return postCode
    */
-  @ApiModelProperty(
+  @Schema(
       example = "SW6 6EY",
-      required = true,
-      value = "PostCode for employee home address")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "PostCode for employee home address")
   /**
    * PostCode for employee home address
    *
@@ -197,7 +197,7 @@ public class Address {
    *
    * @return countryName
    */
-  @ApiModelProperty(example = "United Kingdom", value = "Country of HomeAddress")
+  @Schema(example = "United Kingdom", description = "Country of HomeAddress")
   /**
    * Country of HomeAddress
    *

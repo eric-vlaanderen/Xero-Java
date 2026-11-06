@@ -13,7 +13,7 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** InvalidField */
@@ -42,7 +42,7 @@ public class InvalidField {
    *
    * @return name
    */
-  @ApiModelProperty(example = "DateOfBirth", value = "The name of the field that caused the error")
+  @Schema(example = "DateOfBirth", description = "The name of the field that caused the error")
   /**
    * The name of the field that caused the error
    *
@@ -77,9 +77,9 @@ public class InvalidField {
    *
    * @return reason
    */
-  @ApiModelProperty(
+  @Schema(
       example = "The Date of Birth is required.",
-      value = "The reason the error occurred")
+      description = "The reason the error occurred")
   /**
    * The reason the error occurred
    *

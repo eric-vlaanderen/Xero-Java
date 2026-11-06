@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** BankTransferDeleteByUrlParam */
@@ -39,7 +39,7 @@ public class BankTransferDeleteByUrlParam {
    *
    * @return status
    */
-  @ApiModelProperty(required = true, value = "The status of the bank transfer.")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The status of the bank transfer.")
   /**
    * The status of the bank transfer.
    *

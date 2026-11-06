@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -116,7 +116,7 @@ public class Account {
    *
    * @return accountID
    */
-  @ApiModelProperty(value = "The Xero identifier for Settings.")
+  @Schema(description = "The Xero identifier for Settings.")
   /**
    * The Xero identifier for Settings.
    *
@@ -151,7 +151,7 @@ public class Account {
    *
    * @return type
    */
-  @ApiModelProperty(value = "The assigned AccountType")
+  @Schema(description = "The assigned AccountType")
   /**
    * The assigned AccountType
    *
@@ -186,7 +186,7 @@ public class Account {
    *
    * @return code
    */
-  @ApiModelProperty(value = "A unique 3 digit number for each Account")
+  @Schema(description = "A unique 3 digit number for each Account")
   /**
    * A unique 3 digit number for each Account
    *
@@ -221,7 +221,7 @@ public class Account {
    *
    * @return name
    */
-  @ApiModelProperty(value = "Name of the Account.")
+  @Schema(description = "Name of the Account.")
   /**
    * Name of the Account.
    *

@@ -15,10 +15,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** EmployeeLeaveType */
 public class EmployeeLeaveType {
@@ -135,7 +136,7 @@ public class EmployeeLeaveType {
    *
    * @return leaveTypeID
    */
-  @ApiModelProperty(value = "The Xero identifier for leave type")
+  @Schema(description = "The Xero identifier for leave type")
   /**
    * The Xero identifier for leave type
    *
@@ -170,7 +171,7 @@ public class EmployeeLeaveType {
    *
    * @return scheduleOfAccrual
    */
-  @ApiModelProperty(value = "The schedule of accrual")
+  @Schema(description = "The schedule of accrual")
   /**
    * The schedule of accrual
    *
@@ -207,8 +208,8 @@ public class EmployeeLeaveType {
    *
    * @return unitsAccruedAnnually
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The number of units accrued for the leave annually. This is 0 when the ScheduleOfAccrual"
               + " chosen is \"NoAccruals\"")
   /**
@@ -247,7 +248,7 @@ public class EmployeeLeaveType {
    *
    * @return typeOfUnitsToAccrue
    */
-  @ApiModelProperty(value = "The type of units accrued for the leave annually")
+  @Schema(description = "The type of units accrued for the leave annually")
   /**
    * The type of units accrued for the leave annually
    *
@@ -282,7 +283,7 @@ public class EmployeeLeaveType {
    *
    * @return maximumToAccrue
    */
-  @ApiModelProperty(value = "The maximum number of units that can be accrued for the leave")
+  @Schema(description = "The maximum number of units that can be accrued for the leave")
   /**
    * The maximum number of units that can be accrued for the leave
    *
@@ -317,8 +318,8 @@ public class EmployeeLeaveType {
    *
    * @return openingBalance
    */
-  @ApiModelProperty(
-      value = "The initial number of units assigned when the leave was added to the employee")
+  @Schema(
+      description = "The initial number of units assigned when the leave was added to the employee")
   /**
    * The initial number of units assigned when the leave was added to the employee
    *
@@ -353,7 +354,7 @@ public class EmployeeLeaveType {
    *
    * @return openingBalanceTypeOfUnits
    */
-  @ApiModelProperty(value = "The type of units for the opening balance")
+  @Schema(description = "The type of units for the opening balance")
   /**
    * The type of units for the opening balance
    *
@@ -388,7 +389,7 @@ public class EmployeeLeaveType {
    *
    * @return rateAccruedHourly
    */
-  @ApiModelProperty(value = "not supported in Payroll NZ")
+  @Schema(description = "not supported in Payroll NZ")
   /**
    * not supported in Payroll NZ
    *
@@ -425,8 +426,8 @@ public class EmployeeLeaveType {
    *
    * @return percentageOfGrossEarnings
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Specific for scheduleOfAccrual having percentage of gross earnings. Identifies how much"
               + " percentage of gross earnings is accrued per pay period.")
   /**
@@ -465,8 +466,8 @@ public class EmployeeLeaveType {
    *
    * @return includeHolidayPayEveryPay
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Specific to Holiday pay. Flag determining if pay for leave type is added on each pay"
               + " run.")
   /**
@@ -505,8 +506,8 @@ public class EmployeeLeaveType {
    *
    * @return showAnnualLeaveInAdvance
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Specific to Annual Leave. Flag to include leave available to take in advance in the"
               + " balance in the payslip")
   /**
@@ -545,7 +546,7 @@ public class EmployeeLeaveType {
    *
    * @return annualLeaveTotalAmountPaid
    */
-  @ApiModelProperty(value = "Specific to Annual Leave. Annual leave balance in dollars")
+  @Schema(description = "Specific to Annual Leave. Annual leave balance in dollars")
   /**
    * Specific to Annual Leave. Annual leave balance in dollars
    *
@@ -580,9 +581,9 @@ public class EmployeeLeaveType {
    *
    * @return scheduleOfAccrualDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Sun Jan 19 00:00:00 UTC 2020",
-      value = "The date when an employee becomes entitled to their accrual.")
+      description = "The date when an employee becomes entitled to their accrual.")
   /**
    * The date when an employee becomes entitled to their accrual.
    *

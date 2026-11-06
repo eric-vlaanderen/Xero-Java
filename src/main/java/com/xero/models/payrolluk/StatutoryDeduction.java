@@ -13,7 +13,7 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -52,7 +52,7 @@ public class StatutoryDeduction {
    *
    * @return id
    */
-  @ApiModelProperty(value = "The Xero identifier for earnings order")
+  @Schema(description = "The Xero identifier for earnings order")
   /**
    * The Xero identifier for earnings order
    *
@@ -87,7 +87,7 @@ public class StatutoryDeduction {
    *
    * @return name
    */
-  @ApiModelProperty(value = "Name of the earnings order")
+  @Schema(description = "Name of the earnings order")
   /**
    * Name of the earnings order
    *
@@ -123,7 +123,7 @@ public class StatutoryDeduction {
    *
    * @return statutoryDeductionCategory
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * statutoryDeductionCategory
    *
@@ -158,7 +158,7 @@ public class StatutoryDeduction {
    *
    * @return liabilityAccountId
    */
-  @ApiModelProperty(value = "Xero identifier for Liability Account")
+  @Schema(description = "Xero identifier for Liability Account")
   /**
    * Xero identifier for Liability Account
    *
@@ -193,7 +193,7 @@ public class StatutoryDeduction {
    *
    * @return currentRecord
    */
-  @ApiModelProperty(value = "Identifier of a record is active or not.")
+  @Schema(description = "Identifier of a record is active or not.")
   /**
    * Identifier of a record is active or not.
    *

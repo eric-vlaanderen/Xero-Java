@@ -15,10 +15,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** TimeEntry */
 public class TimeEntry {
@@ -125,9 +126,9 @@ public class TimeEntry {
    *
    * @return timeEntryId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      value = "Identifier of the time entry.")
+      description = "Identifier of the time entry.")
   /**
    * Identifier of the time entry.
    *
@@ -162,9 +163,9 @@ public class TimeEntry {
    *
    * @return userId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      value = "The xero user identifier of the person who logged time.")
+      description = "The xero user identifier of the person who logged time.")
   /**
    * The xero user identifier of the person who logged time.
    *
@@ -199,9 +200,9 @@ public class TimeEntry {
    *
    * @return projectId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      value =
+      description =
           "Identifier of the project, that the task (which the time entry is logged against)"
               + " belongs to.")
   /**
@@ -238,9 +239,9 @@ public class TimeEntry {
    *
    * @return taskId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      value = "Identifier of the task that time entry is logged against.")
+      description = "Identifier of the task that time entry is logged against.")
   /**
    * Identifier of the task that time entry is logged against.
    *
@@ -275,8 +276,8 @@ public class TimeEntry {
    *
    * @return dateUtc
    */
-  @ApiModelProperty(
-      value = "The date time that time entry is logged on. UTC Date Time in ISO-8601 format.")
+  @Schema(
+      description = "The date time that time entry is logged on. UTC Date Time in ISO-8601 format.")
   /**
    * The date time that time entry is logged on. UTC Date Time in ISO-8601 format.
    *
@@ -313,8 +314,8 @@ public class TimeEntry {
    *
    * @return dateEnteredUtc
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The date time that time entry is created. UTC Date Time in ISO-8601 format. By default"
               + " it is set to server time.")
   /**
@@ -353,7 +354,7 @@ public class TimeEntry {
    *
    * @return duration
    */
-  @ApiModelProperty(value = "The duration of logged minutes.")
+  @Schema(description = "The duration of logged minutes.")
   /**
    * The duration of logged minutes.
    *
@@ -388,7 +389,7 @@ public class TimeEntry {
    *
    * @return description
    */
-  @ApiModelProperty(value = "A description of the time entry.")
+  @Schema(description = "A description of the time entry.")
   /**
    * A description of the time entry.
    *
@@ -429,8 +430,8 @@ public class TimeEntry {
    *
    * @return status
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Status of the time entry. By default a time entry is created with status of `ACTIVE`. A"
               + " `LOCKED` state indicates that the time entry is currently changing state (for"
               + " example being invoiced). Updates are not allowed when in this state. It will have"

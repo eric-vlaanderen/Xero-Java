@@ -1,14 +1,18 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrolluk.*;
+import com.xero.models.payrolluk.EarningsOrderObject;
+import com.xero.models.payrolluk.EarningsOrders;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollUkApiEarningsOrdersTest {
 
@@ -18,7 +22,7 @@ public class PayrollUkApiEarningsOrdersTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -42,11 +46,11 @@ public class PayrollUkApiEarningsOrdersTest {
         int page = 1;
         EarningsOrders response = payrollUkApi.getEarningsOrders(accessToken, xeroTenantId, page);
         
-        assertThat(response.getStatutoryDeductions().get(0).getId(),is(equalTo(UUID.fromString("d00d0128-500b-4685-8332-8fc8743a395c"))));
-        assertThat(response.getStatutoryDeductions().get(0).getLiabilityAccountId(), is(equalTo(UUID.fromString("921237ae-76ff-4f4c-bf70-5c3c177b149d"))));
-        assertThat(response.getStatutoryDeductions().get(0).getName(), is(equalTo("AEO (maintenance)")));
-        assertThat(response.getStatutoryDeductions().get(0).getStatutoryDeductionCategory(), is(equalTo(com.xero.models.payrolluk.StatutoryDeductionCategory.PRIORITYORDER)));
-        assertThat(response.getStatutoryDeductions().get(0).getCurrentRecord(), is(equalTo(true)));
+        assertThat(response.getStatutoryDeductions().getFirst().getId(),is(equalTo(UUID.fromString("d00d0128-500b-4685-8332-8fc8743a395c"))));
+        assertThat(response.getStatutoryDeductions().getFirst().getLiabilityAccountId(), is(equalTo(UUID.fromString("921237ae-76ff-4f4c-bf70-5c3c177b149d"))));
+        assertThat(response.getStatutoryDeductions().getFirst().getName(), is(equalTo("AEO (maintenance)")));
+        assertThat(response.getStatutoryDeductions().getFirst().getStatutoryDeductionCategory(), is(equalTo(com.xero.models.payrolluk.StatutoryDeductionCategory.PRIORITYORDER)));
+        assertThat(response.getStatutoryDeductions().getFirst().getCurrentRecord(), is(equalTo(true)));
 
         //System.out.println(response.toString());
     }

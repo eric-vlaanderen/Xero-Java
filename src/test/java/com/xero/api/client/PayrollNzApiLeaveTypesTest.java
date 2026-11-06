@@ -1,16 +1,20 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrollnz.*;
+import com.xero.models.payrollnz.LeaveType;
+import com.xero.models.payrollnz.LeaveTypeObject;
+import com.xero.models.payrollnz.LeaveTypes;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.time.LocalDateTime;
 
-import org.threeten.bp.*;
 import java.io.IOException;
 import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollNzApiLeaveTypesTest {
 
@@ -20,7 +24,7 @@ public class PayrollNzApiLeaveTypesTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -42,12 +46,12 @@ public class PayrollNzApiLeaveTypesTest {
         int page = 1;
         LeaveTypes response = payrollNzApi.getLeaveTypes(accessToken, xeroTenantId, page, true);
         
-        assertThat(response.getLeaveTypes().get(0).getLeaveTypeID(),is(equalTo(UUID.fromString("b0b1b79e-2a25-46c2-ad08-ca25ef48d7e4"))));
-        assertThat(response.getLeaveTypes().get(0).getName(), is(equalTo("Annual Leave")));
-        assertThat(response.getLeaveTypes().get(0).getIsPaidLeave(), is(equalTo(true)));
-        assertThat(response.getLeaveTypes().get(0).getShowOnPayslip(), is(equalTo(true)));
-        assertThat(response.getLeaveTypes().get(0).getIsActive(), is(equalTo(true)));
-        assertThat(response.getLeaveTypes().get(0).getUpdatedDateUTC(), is(equalTo(LocalDateTime.parse("2019-09-22T23:09:32"))));
+        assertThat(response.getLeaveTypes().getFirst().getLeaveTypeID(),is(equalTo(UUID.fromString("b0b1b79e-2a25-46c2-ad08-ca25ef48d7e4"))));
+        assertThat(response.getLeaveTypes().getFirst().getName(), is(equalTo("Annual Leave")));
+        assertThat(response.getLeaveTypes().getFirst().getIsPaidLeave(), is(equalTo(true)));
+        assertThat(response.getLeaveTypes().getFirst().getShowOnPayslip(), is(equalTo(true)));
+        assertThat(response.getLeaveTypes().getFirst().getIsActive(), is(equalTo(true)));
+        assertThat(response.getLeaveTypes().getFirst().getUpdatedDateUTC(), is(equalTo(LocalDateTime.parse("2019-09-22T23:09:32"))));
 
         //System.out.println(response.toString());
     }

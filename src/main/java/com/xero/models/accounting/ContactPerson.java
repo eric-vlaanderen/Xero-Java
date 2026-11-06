@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** ContactPerson */
@@ -48,7 +48,7 @@ public class ContactPerson {
    *
    * @return firstName
    */
-  @ApiModelProperty(value = "First name of person")
+  @Schema(description = "First name of person")
   /**
    * First name of person
    *
@@ -83,7 +83,7 @@ public class ContactPerson {
    *
    * @return lastName
    */
-  @ApiModelProperty(value = "Last name of person")
+  @Schema(description = "Last name of person")
   /**
    * Last name of person
    *
@@ -118,7 +118,7 @@ public class ContactPerson {
    *
    * @return emailAddress
    */
-  @ApiModelProperty(value = "Email address of person")
+  @Schema(description = "Email address of person")
   /**
    * Email address of person
    *
@@ -153,8 +153,8 @@ public class ContactPerson {
    *
    * @return includeInEmails
    */
-  @ApiModelProperty(
-      value = "boolean to indicate whether contact should be included on emails with invoices etc.")
+  @Schema(
+      description = "boolean to indicate whether contact should be included on emails with invoices etc.")
   /**
    * boolean to indicate whether contact should be included on emails with invoices etc.
    *

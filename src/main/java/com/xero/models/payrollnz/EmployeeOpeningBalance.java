@@ -13,9 +13,10 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
-import org.threeten.bp.LocalDate;
 
 /** EmployeeOpeningBalance */
 public class EmployeeOpeningBalance {
@@ -49,7 +50,7 @@ public class EmployeeOpeningBalance {
    *
    * @return periodEndDate
    */
-  @ApiModelProperty(value = "The opening balance period end date.")
+  @Schema(description = "The opening balance period end date.")
   /**
    * The opening balance period end date.
    *
@@ -84,7 +85,7 @@ public class EmployeeOpeningBalance {
    *
    * @return daysPaid
    */
-  @ApiModelProperty(value = "The paid number of days.")
+  @Schema(description = "The paid number of days.")
   /**
    * The paid number of days.
    *
@@ -119,7 +120,7 @@ public class EmployeeOpeningBalance {
    *
    * @return unpaidWeeks
    */
-  @ApiModelProperty(value = "The number of unpaid weeks.")
+  @Schema(description = "The number of unpaid weeks.")
   /**
    * The number of unpaid weeks.
    *
@@ -154,7 +155,7 @@ public class EmployeeOpeningBalance {
    *
    * @return grossEarnings
    */
-  @ApiModelProperty(value = "The gross earnings during the period.")
+  @Schema(description = "The gross earnings during the period.")
   /**
    * The gross earnings during the period.
    *

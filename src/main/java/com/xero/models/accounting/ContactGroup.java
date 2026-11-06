@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -106,8 +106,8 @@ public class ContactGroup {
    *
    * @return name
    */
-  @ApiModelProperty(
-      value = "The Name of the contact group. Required when creating a new contact  group")
+  @Schema(
+      description = "The Name of the contact group. Required when creating a new contact  group")
   /**
    * The Name of the contact group. Required when creating a new contact group
    *
@@ -144,8 +144,8 @@ public class ContactGroup {
    *
    * @return status
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The Status of a contact group. To delete a contact group update the status to DELETED."
               + " Only contact groups with a status of ACTIVE are returned on GETs.")
   /**
@@ -186,8 +186,8 @@ public class ContactGroup {
    *
    * @return contactGroupID
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The Xero identifier for an contact group – specified as a string following the endpoint"
               + " name. e.g. /297c2dc5-cc47-4afd-8ec8-74990b8761e9")
   /**
@@ -243,8 +243,8 @@ public class ContactGroup {
    *
    * @return contacts
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The ContactID and Name of Contacts in a contact group. Returned on GETs when the"
               + " ContactGroupID is supplied in the URL.")
   /**

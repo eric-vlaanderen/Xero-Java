@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -50,7 +50,7 @@ public class ReportRows {
    *
    * @return rowType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * rowType
    *
@@ -85,7 +85,7 @@ public class ReportRows {
    *
    * @return title
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * title
    *
@@ -134,7 +134,7 @@ public class ReportRows {
    *
    * @return cells
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * cells
    *
@@ -183,7 +183,7 @@ public class ReportRows {
    *
    * @return rows
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * rows
    *

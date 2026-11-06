@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -115,7 +115,7 @@ public class Product {
    *
    * @return id
    */
-  @ApiModelProperty(value = "The unique identifier for the product")
+  @Schema(description = "The unique identifier for the product")
   /**
    * The unique identifier for the product
    *
@@ -150,7 +150,7 @@ public class Product {
    *
    * @return name
    */
-  @ApiModelProperty(value = "The name of the product")
+  @Schema(description = "The name of the product")
   /**
    * The name of the product
    *
@@ -187,8 +187,8 @@ public class Product {
    *
    * @return seatUnit
    */
-  @ApiModelProperty(
-      value = "The unit of the per seat product. e.g. \"user\", \"organisation\", \"SMS\", etc")
+  @Schema(
+      description = "The unit of the per seat product. e.g. \"user\", \"organisation\", \"SMS\", etc")
   /**
    * The unit of the per seat product. e.g. \&quot;user\&quot;, \&quot;organisation\&quot;,
    * \&quot;SMS\&quot;, etc
@@ -231,8 +231,8 @@ public class Product {
    *
    * @return type
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The pricing model of the product: * FIXED: Customers are charged a fixed amount for each"
               + " billing period * PER_SEAT: Customers are charged based on the number of units"
               + " they purchase * METERED: Customers are charged per use of this product * SIMPLE:"
@@ -280,8 +280,8 @@ public class Product {
    *
    * @return usageUnit
    */
-  @ApiModelProperty(
-      value = "The unit of the usage product. e.g. \"user\", \"minutes\", \"SMS\", etc")
+  @Schema(
+      description = "The unit of the usage product. e.g. \"user\", \"minutes\", \"SMS\", etc")
   /**
    * The unit of the usage product. e.g. \&quot;user\&quot;, \&quot;minutes\&quot;,
    * \&quot;SMS\&quot;, etc

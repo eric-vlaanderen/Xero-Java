@@ -13,12 +13,12 @@ package com.xero.models.bankfeeds;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** The starting balance of the statement */
-@ApiModel(description = "The starting balance of the statement")
+@Schema(description = "The starting balance of the statement")
 public class StartBalance {
   StringUtil util = new StringUtil();
 
@@ -44,9 +44,9 @@ public class StartBalance {
    *
    * @return amount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "9.0000",
-      value = "decimal(19,4) unsigned Opening/closing balance amount.")
+      description = "decimal(19,4) unsigned Opening/closing balance amount.")
   /**
    * decimal(19,4) unsigned Opening/closing balance amount.
    *
@@ -81,7 +81,7 @@ public class StartBalance {
    *
    * @return creditDebitIndicator
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * creditDebitIndicator
    *

@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -47,7 +47,7 @@ public class PnlAccountType {
    *
    * @return total
    */
-  @ApiModelProperty(value = "Total movement on this account type")
+  @Schema(description = "Total movement on this account type")
   /**
    * Total movement on this account type
    *
@@ -84,8 +84,8 @@ public class PnlAccountType {
    *
    * @return title
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Name of this account type, it will be either Trading Income or Other Income for Revenue"
               + " section / Direct Cost or Operating Expenses for Expense section")
   /**
@@ -141,8 +141,8 @@ public class PnlAccountType {
    *
    * @return accounts
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "A list of the movement on each account detail during the query period. Refer to the"
               + " account detail element below")
   /**

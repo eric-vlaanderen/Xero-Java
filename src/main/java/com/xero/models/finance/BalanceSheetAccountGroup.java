@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +58,7 @@ public class BalanceSheetAccountGroup {
    *
    * @return accountTypes
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * accountTypes
    *
@@ -93,7 +93,7 @@ public class BalanceSheetAccountGroup {
    *
    * @return total
    */
-  @ApiModelProperty(value = "Total value of all the accounts in this type")
+  @Schema(description = "Total value of all the accounts in this type")
   /**
    * Total value of all the accounts in this type
    *

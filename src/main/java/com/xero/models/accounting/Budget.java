@@ -15,13 +15,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** Budget */
 public class Budget {
@@ -111,7 +112,7 @@ public class Budget {
    *
    * @return budgetID
    */
-  @ApiModelProperty(value = "Xero identifier")
+  @Schema(description = "Xero identifier")
   /**
    * Xero identifier
    *
@@ -146,7 +147,7 @@ public class Budget {
    *
    * @return type
    */
-  @ApiModelProperty(value = "Type of Budget. OVERALL or TRACKING")
+  @Schema(description = "Type of Budget. OVERALL or TRACKING")
   /**
    * Type of Budget. OVERALL or TRACKING
    *
@@ -181,7 +182,7 @@ public class Budget {
    *
    * @return description
    */
-  @ApiModelProperty(value = "The Budget description")
+  @Schema(description = "The Budget description")
   /**
    * The Budget description
    *
@@ -205,9 +206,9 @@ public class Budget {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(1573755038314)/",
-      value = "UTC timestamp of last update to budget")
+      description = "UTC timestamp of last update to budget")
   /**
    * UTC timestamp of last update to budget
    *
@@ -263,7 +264,7 @@ public class Budget {
    *
    * @return budgetLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * budgetLines
    *
@@ -312,7 +313,7 @@ public class Budget {
    *
    * @return tracking
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * tracking
    *

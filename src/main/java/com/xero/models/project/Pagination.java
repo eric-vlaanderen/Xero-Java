@@ -13,7 +13,7 @@ package com.xero.models.project;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** Pagination */
@@ -50,9 +50,9 @@ public class Pagination {
    *
    * @return page
    */
-  @ApiModelProperty(
+  @Schema(
       example = "1",
-      value =
+      description =
           "Set to 1 by default. The requested number of the page in paged response - Must be a"
               + " number greater than 0.")
   /**
@@ -93,9 +93,9 @@ public class Pagination {
    *
    * @return pageSize
    */
-  @ApiModelProperty(
+  @Schema(
       example = "10",
-      value =
+      description =
           "Optional, it is set to 50 by default. The number of items to return per page in a paged"
               + " response - Must be a number between 1 and 500.")
   /**
@@ -134,7 +134,7 @@ public class Pagination {
    *
    * @return pageCount
    */
-  @ApiModelProperty(example = "1", value = "Number of pages available")
+  @Schema(example = "1", description = "Number of pages available")
   /**
    * Number of pages available
    *
@@ -169,7 +169,7 @@ public class Pagination {
    *
    * @return itemCount
    */
-  @ApiModelProperty(example = "2", value = "Number of items returned")
+  @Schema(example = "2", description = "Number of items returned")
   /**
    * Number of items returned
    *

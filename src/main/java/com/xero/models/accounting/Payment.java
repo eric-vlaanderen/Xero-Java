@@ -15,16 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** Payment */
 public class Payment {
@@ -251,7 +252,7 @@ public class Payment {
    *
    * @return invoice
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * invoice
    *
@@ -286,7 +287,7 @@ public class Payment {
    *
    * @return creditNote
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * creditNote
    *
@@ -321,7 +322,7 @@ public class Payment {
    *
    * @return prepayment
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * prepayment
    *
@@ -356,7 +357,7 @@ public class Payment {
    *
    * @return overpayment
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * overpayment
    *
@@ -391,8 +392,8 @@ public class Payment {
    *
    * @return invoiceNumber
    */
-  @ApiModelProperty(
-      value = "Number of invoice or credit note you are applying payment to e.g.INV-4003")
+  @Schema(
+      description = "Number of invoice or credit note you are applying payment to e.g.INV-4003")
   /**
    * Number of invoice or credit note you are applying payment to e.g.INV-4003
    *
@@ -427,8 +428,8 @@ public class Payment {
    *
    * @return creditNoteNumber
    */
-  @ApiModelProperty(
-      value = "Number of invoice or credit note you are applying payment to e.g. INV-4003")
+  @Schema(
+      description = "Number of invoice or credit note you are applying payment to e.g. INV-4003")
   /**
    * Number of invoice or credit note you are applying payment to e.g. INV-4003
    *
@@ -463,7 +464,7 @@ public class Payment {
    *
    * @return batchPayment
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * batchPayment
    *
@@ -498,7 +499,7 @@ public class Payment {
    *
    * @return account
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * account
    *
@@ -535,8 +536,8 @@ public class Payment {
    *
    * @return code
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Code of account you are using to make the payment e.g. 001 (note- not all accounts have"
               + " a code value)")
   /**
@@ -575,7 +576,7 @@ public class Payment {
    *
    * @return date
    */
-  @ApiModelProperty(value = "Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06")
+  @Schema(description = "Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06")
   /**
    * Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06
    *
@@ -641,8 +642,8 @@ public class Payment {
    *
    * @return currencyRate
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Exchange rate when payment is received. Only used for non base currency invoices and"
               + " credit notes e.g. 0.7500")
   /**
@@ -683,8 +684,8 @@ public class Payment {
    *
    * @return amount
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The amount of the payment. Must be less than or equal to the outstanding amount owing on"
               + " the invoice e.g. 200.00")
   /**
@@ -723,7 +724,7 @@ public class Payment {
    *
    * @return bankAmount
    */
-  @ApiModelProperty(value = "The amount of the payment in the currency of the bank account.")
+  @Schema(description = "The amount of the payment in the currency of the bank account.")
   /**
    * The amount of the payment in the currency of the bank account.
    *
@@ -758,7 +759,7 @@ public class Payment {
    *
    * @return reference
    */
-  @ApiModelProperty(value = "An optional description for the payment e.g. Direct Debit")
+  @Schema(description = "An optional description for the payment e.g. Direct Debit")
   /**
    * An optional description for the payment e.g. Direct Debit
    *
@@ -797,8 +798,8 @@ public class Payment {
    *
    * @return isReconciled
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "An optional parameter for the payment. A boolean indicating whether you would like the"
               + " payment to be created as reconciled when using PUT, or whether a payment has been"
               + " reconciled when using GET")
@@ -840,7 +841,7 @@ public class Payment {
    *
    * @return status
    */
-  @ApiModelProperty(value = "The status of the payment.")
+  @Schema(description = "The status of the payment.")
   /**
    * The status of the payment.
    *
@@ -864,7 +865,7 @@ public class Payment {
    *
    * @return paymentType
    */
-  @ApiModelProperty(value = "See Payment Types.")
+  @Schema(description = "See Payment Types.")
   /**
    * See Payment Types.
    *
@@ -879,9 +880,9 @@ public class Payment {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(1573755038314)/",
-      value = "UTC timestamp of last update to the payment")
+      description = "UTC timestamp of last update to the payment")
   /**
    * UTC timestamp of last update to the payment
    *
@@ -912,9 +913,9 @@ public class Payment {
    *
    * @return updatedDateUTCString
    */
-  @ApiModelProperty(
+  @Schema(
       example = "2019-11-14T18:10:38Z",
-      value = "UTC ISO-8601 formatted timestamp of last update to the payment")
+      description = "UTC ISO-8601 formatted timestamp of last update to the payment")
   /**
    * UTC ISO-8601 formatted timestamp of last update to the payment
    *
@@ -940,9 +941,9 @@ public class Payment {
    *
    * @return paymentID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      value = "The Xero identifier for an Payment e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9")
+      description = "The Xero identifier for an Payment e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9")
   /**
    * The Xero identifier for an Payment e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
    *
@@ -977,9 +978,9 @@ public class Payment {
    *
    * @return batchPaymentID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      value = "Present if the payment was created as part of a batch.")
+      description = "Present if the payment was created as part of a batch.")
   /**
    * Present if the payment was created as part of a batch.
    *
@@ -1014,7 +1015,7 @@ public class Payment {
    *
    * @return bankAccountNumber
    */
-  @ApiModelProperty(value = "The suppliers bank account number the payment is being made to")
+  @Schema(description = "The suppliers bank account number the payment is being made to")
   /**
    * The suppliers bank account number the payment is being made to
    *
@@ -1049,7 +1050,7 @@ public class Payment {
    *
    * @return particulars
    */
-  @ApiModelProperty(value = "The suppliers bank account number the payment is being made to")
+  @Schema(description = "The suppliers bank account number the payment is being made to")
   /**
    * The suppliers bank account number the payment is being made to
    *
@@ -1084,7 +1085,7 @@ public class Payment {
    *
    * @return details
    */
-  @ApiModelProperty(value = "The information to appear on the supplier's bank account")
+  @Schema(description = "The information to appear on the supplier's bank account")
   /**
    * The information to appear on the supplier&#39;s bank account
    *
@@ -1119,9 +1120,9 @@ public class Payment {
    *
    * @return hasAccount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "A boolean to indicate if a contact has an validation errors")
+      description = "A boolean to indicate if a contact has an validation errors")
   /**
    * A boolean to indicate if a contact has an validation errors
    *
@@ -1156,9 +1157,9 @@ public class Payment {
    *
    * @return hasValidationErrors
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "A boolean to indicate if a contact has an validation errors")
+      description = "A boolean to indicate if a contact has an validation errors")
   /**
    * A boolean to indicate if a contact has an validation errors
    *
@@ -1193,7 +1194,7 @@ public class Payment {
    *
    * @return statusAttributeString
    */
-  @ApiModelProperty(value = "A string to indicate if a invoice status")
+  @Schema(description = "A string to indicate if a invoice status")
   /**
    * A string to indicate if a invoice status
    *
@@ -1242,7 +1243,7 @@ public class Payment {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *
@@ -1291,7 +1292,7 @@ public class Payment {
    *
    * @return warnings
    */
-  @ApiModelProperty(value = "Displays array of warning messages from the API")
+  @Schema(description = "Displays array of warning messages from the API")
   /**
    * Displays array of warning messages from the API
    *

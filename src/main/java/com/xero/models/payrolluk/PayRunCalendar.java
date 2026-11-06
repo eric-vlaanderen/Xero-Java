@@ -15,11 +15,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.LocalDateTime;
 
 /** PayRunCalendar */
 public class PayRunCalendar {
@@ -124,7 +125,7 @@ public class PayRunCalendar {
    *
    * @return payrollCalendarID
    */
-  @ApiModelProperty(value = "Xero unique identifier for the payroll calendar")
+  @Schema(description = "Xero unique identifier for the payroll calendar")
   /**
    * Xero unique identifier for the payroll calendar
    *
@@ -159,7 +160,7 @@ public class PayRunCalendar {
    *
    * @return name
    */
-  @ApiModelProperty(required = true, value = "Name of the calendar")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Name of the calendar")
   /**
    * Name of the calendar
    *
@@ -194,7 +195,7 @@ public class PayRunCalendar {
    *
    * @return calendarType
    */
-  @ApiModelProperty(required = true, value = "Type of the calendar")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Type of the calendar")
   /**
    * Type of the calendar
    *
@@ -229,7 +230,7 @@ public class PayRunCalendar {
    *
    * @return periodStartDate
    */
-  @ApiModelProperty(required = true, value = "Period start date of the calendar")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Period start date of the calendar")
   /**
    * Period start date of the calendar
    *
@@ -264,7 +265,7 @@ public class PayRunCalendar {
    *
    * @return periodEndDate
    */
-  @ApiModelProperty(value = "Period end date of the calendar")
+  @Schema(description = "Period end date of the calendar")
   /**
    * Period end date of the calendar
    *
@@ -299,7 +300,7 @@ public class PayRunCalendar {
    *
    * @return paymentDate
    */
-  @ApiModelProperty(required = true, value = "Payment date of the calendar")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Payment date of the calendar")
   /**
    * Payment date of the calendar
    *
@@ -334,7 +335,7 @@ public class PayRunCalendar {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(value = "UTC timestamp of the last update to the pay run calendar")
+  @Schema(description = "UTC timestamp of the last update to the pay run calendar")
   /**
    * UTC timestamp of the last update to the pay run calendar
    *

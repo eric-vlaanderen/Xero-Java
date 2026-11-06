@@ -13,10 +13,11 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.Objects;
-import org.threeten.bp.OffsetDateTime;
 
 /** HistoryRecord */
 public class HistoryRecord {
@@ -50,7 +51,7 @@ public class HistoryRecord {
    *
    * @return details
    */
-  @ApiModelProperty(value = "details")
+  @Schema(description = "details")
   /**
    * details
    *
@@ -85,7 +86,7 @@ public class HistoryRecord {
    *
    * @return changes
    */
-  @ApiModelProperty(value = "Name of branding theme")
+  @Schema(description = "Name of branding theme")
   /**
    * Name of branding theme
    *
@@ -120,7 +121,7 @@ public class HistoryRecord {
    *
    * @return user
    */
-  @ApiModelProperty(value = "has a value of 0")
+  @Schema(description = "has a value of 0")
   /**
    * has a value of 0
    *
@@ -144,9 +145,9 @@ public class HistoryRecord {
    *
    * @return dateUTC
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(1573755038314)/",
-      value = "UTC timestamp of creation date of branding theme")
+      description = "UTC timestamp of creation date of branding theme")
   /**
    * UTC timestamp of creation date of branding theme
    *

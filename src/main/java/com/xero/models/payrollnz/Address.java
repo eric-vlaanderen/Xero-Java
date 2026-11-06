@@ -13,7 +13,7 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** Address */
@@ -54,10 +54,10 @@ public class Address {
    *
    * @return addressLine1
    */
-  @ApiModelProperty(
+  @Schema(
       example = "19 Taranaki Street",
-      required = true,
-      value = "Address line 1 for employee home address")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Address line 1 for employee home address")
   /**
    * Address line 1 for employee home address
    *
@@ -92,7 +92,7 @@ public class Address {
    *
    * @return addressLine2
    */
-  @ApiModelProperty(example = "Apt 4", value = "Address line 2 for employee home address")
+  @Schema(example = "Apt 4", description = "Address line 2 for employee home address")
   /**
    * Address line 2 for employee home address
    *
@@ -127,10 +127,10 @@ public class Address {
    *
    * @return city
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Wellington",
-      required = true,
-      value = "Suburb for employee home address")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Suburb for employee home address")
   /**
    * Suburb for employee home address
    *
@@ -165,7 +165,7 @@ public class Address {
    *
    * @return suburb
    */
-  @ApiModelProperty(example = "Te Aro", value = "Suburb for employee home address")
+  @Schema(example = "Te Aro", description = "Suburb for employee home address")
   /**
    * Suburb for employee home address
    *
@@ -200,7 +200,7 @@ public class Address {
    *
    * @return postCode
    */
-  @ApiModelProperty(example = "6011", required = true, value = "PostCode for employee home address")
+  @Schema(example = "6011", requiredMode = Schema.RequiredMode.REQUIRED, description = "PostCode for employee home address")
   /**
    * PostCode for employee home address
    *
@@ -235,7 +235,7 @@ public class Address {
    *
    * @return countryName
    */
-  @ApiModelProperty(example = "NEW ZEALAND", value = "Country of HomeAddress")
+  @Schema(example = "NEW ZEALAND", description = "Country of HomeAddress")
   /**
    * Country of HomeAddress
    *

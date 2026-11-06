@@ -1,17 +1,21 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.accounting.*;
+import com.xero.models.accounting.Attachments;
+import com.xero.models.accounting.BankTransactions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+import java.time.OffsetDateTime;
 
 import java.io.File;
-import org.threeten.bp.*;
 import java.io.IOException;
 import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class AccountingApiBankTransactionTest {
 
@@ -22,7 +26,7 @@ public class AccountingApiBankTransactionTest {
 	
 	private static boolean setUpIsDone = false;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -62,15 +66,15 @@ public class AccountingApiBankTransactionTest {
         Integer unitdp = null;
         Integer pageSize = null;
 		BankTransactions response = accountingApi.getBankTransactions(accessToken,xeroTenantId,ifModifiedSince, where, order, page, unitdp, pageSize, null);
-		assertThat(response.getBankTransactions().get(0).getBankTransactionID(), is(equalTo(UUID.fromString("db54aab0-ad40-4ced-bcff-0940ba20db2c"))));
-		assertThat(response.getBankTransactions().get(0).getStatus(), is(equalTo(com.xero.models.accounting.BankTransaction.StatusEnum.AUTHORISED)));
-		assertThat(response.getBankTransactions().get(0).getType(), is(equalTo(com.xero.models.accounting.BankTransaction.TypeEnum.RECEIVE)));
-		assertThat(response.getBankTransactions().get(0).getCurrencyCode(), is(equalTo(com.xero.models.accounting.CurrencyCode.USD)));
-		assertThat(response.getBankTransactions().get(0).getIsReconciled(), is(equalTo(false)));
-		assertThat(response.getBankTransactions().get(0).getIsReconciled(), is(equalTo(false)));
-		assertThat(response.getBankTransactions().get(0).getSubTotal(), is(equalTo(10.0)));
-		assertThat(response.getBankTransactions().get(0).getTotal(), is(equalTo(10.0)));
-		//System.out.println(response.getBankTransactions().get(0).toString());
+		assertThat(response.getBankTransactions().getFirst().getBankTransactionID(), is(equalTo(UUID.fromString("db54aab0-ad40-4ced-bcff-0940ba20db2c"))));
+		assertThat(response.getBankTransactions().getFirst().getStatus(), is(equalTo(com.xero.models.accounting.BankTransaction.StatusEnum.AUTHORISED)));
+		assertThat(response.getBankTransactions().getFirst().getType(), is(equalTo(com.xero.models.accounting.BankTransaction.TypeEnum.RECEIVE)));
+		assertThat(response.getBankTransactions().getFirst().getCurrencyCode(), is(equalTo(com.xero.models.accounting.CurrencyCode.USD)));
+		assertThat(response.getBankTransactions().getFirst().getIsReconciled(), is(equalTo(false)));
+		assertThat(response.getBankTransactions().getFirst().getIsReconciled(), is(equalTo(false)));
+		assertThat(response.getBankTransactions().getFirst().getSubTotal(), is(equalTo(10.0)));
+		assertThat(response.getBankTransactions().getFirst().getTotal(), is(equalTo(10.0)));
+		//System.out.println(response.getBankTransactions().getFirst().toString());
 	}
 
 	@Test
@@ -79,14 +83,14 @@ public class AccountingApiBankTransactionTest {
         UUID bankTransactionID = UUID.fromString("297c2dc5-cc47-4afd-8ec8-74990b8761e9");
         Integer unitdp = null;
 		BankTransactions response = accountingApi.getBankTransaction(accessToken,xeroTenantId,bankTransactionID,unitdp);
-		assertThat(response.getBankTransactions().get(0).getBankTransactionID(), is(equalTo(UUID.fromString("db54aab0-ad40-4ced-bcff-0940ba20db2c"))));
-		assertThat(response.getBankTransactions().get(0).getStatus(), is(equalTo(com.xero.models.accounting.BankTransaction.StatusEnum.AUTHORISED)));
-		assertThat(response.getBankTransactions().get(0).getType(), is(equalTo(com.xero.models.accounting.BankTransaction.TypeEnum.RECEIVE)));
-		assertThat(response.getBankTransactions().get(0).getCurrencyCode(), is(equalTo(com.xero.models.accounting.CurrencyCode.USD)));
-		assertThat(response.getBankTransactions().get(0).getIsReconciled(), is(equalTo(false)));
-		assertThat(response.getBankTransactions().get(0).getSubTotal(), is(equalTo(10.0)));
-		assertThat(response.getBankTransactions().get(0).getTotal(), is(equalTo(10.0)));
-		//System.out.println(response.getBankTransactions().get(0).toString());
+		assertThat(response.getBankTransactions().getFirst().getBankTransactionID(), is(equalTo(UUID.fromString("db54aab0-ad40-4ced-bcff-0940ba20db2c"))));
+		assertThat(response.getBankTransactions().getFirst().getStatus(), is(equalTo(com.xero.models.accounting.BankTransaction.StatusEnum.AUTHORISED)));
+		assertThat(response.getBankTransactions().getFirst().getType(), is(equalTo(com.xero.models.accounting.BankTransaction.TypeEnum.RECEIVE)));
+		assertThat(response.getBankTransactions().getFirst().getCurrencyCode(), is(equalTo(com.xero.models.accounting.CurrencyCode.USD)));
+		assertThat(response.getBankTransactions().getFirst().getIsReconciled(), is(equalTo(false)));
+		assertThat(response.getBankTransactions().getFirst().getSubTotal(), is(equalTo(10.0)));
+		assertThat(response.getBankTransactions().getFirst().getTotal(), is(equalTo(10.0)));
+		//System.out.println(response.getBankTransactions().getFirst().toString());
 	}
 
 	@Test
@@ -97,14 +101,14 @@ public class AccountingApiBankTransactionTest {
 		BankTransactions newBankTransactions = new BankTransactions();
 		BankTransactions response = accountingApi.updateBankTransaction(accessToken,xeroTenantId,bankTransactionID,newBankTransactions,unitdp,null);
 					
-		assertThat(response.getBankTransactions().get(0).getBankTransactionID(), is(equalTo(UUID.fromString("1289c190-e46d-434b-9628-463ffdb52f00"))));		
-		assertThat(response.getBankTransactions().get(0).getStatus(), is(equalTo(com.xero.models.accounting.BankTransaction.StatusEnum.AUTHORISED)));
-		assertThat(response.getBankTransactions().get(0).getType(), is(equalTo(com.xero.models.accounting.BankTransaction.TypeEnum.SPEND)));
-		assertThat(response.getBankTransactions().get(0).getCurrencyCode(), is(equalTo(com.xero.models.accounting.CurrencyCode.USD)));
-		assertThat(response.getBankTransactions().get(0).getIsReconciled(), is(equalTo(false)));
-		assertThat(response.getBankTransactions().get(0).getSubTotal(), is(equalTo(18.26)));
-		assertThat(response.getBankTransactions().get(0).getTotal(), is(equalTo(20.00)));
-		//System.out.println(response.getBankTransactions().get(0).toString());
+		assertThat(response.getBankTransactions().getFirst().getBankTransactionID(), is(equalTo(UUID.fromString("1289c190-e46d-434b-9628-463ffdb52f00"))));		
+		assertThat(response.getBankTransactions().getFirst().getStatus(), is(equalTo(com.xero.models.accounting.BankTransaction.StatusEnum.AUTHORISED)));
+		assertThat(response.getBankTransactions().getFirst().getType(), is(equalTo(com.xero.models.accounting.BankTransaction.TypeEnum.SPEND)));
+		assertThat(response.getBankTransactions().getFirst().getCurrencyCode(), is(equalTo(com.xero.models.accounting.CurrencyCode.USD)));
+		assertThat(response.getBankTransactions().getFirst().getIsReconciled(), is(equalTo(false)));
+		assertThat(response.getBankTransactions().getFirst().getSubTotal(), is(equalTo(18.26)));
+		assertThat(response.getBankTransactions().getFirst().getTotal(), is(equalTo(20.00)));
+		//System.out.println(response.getBankTransactions().getFirst().toString());
 	}
 /*
 	@Test
@@ -113,18 +117,18 @@ public class AccountingApiBankTransactionTest {
 		BankTransaction newBankTransaction = new BankTransaction();
 		BankTransactions response = accountingApi.createBankTransaction(accessToken,xeroTenantId,newBankTransaction);
 					
-		assertThat(response.getBankTransactions().get(0).getBankTransactionID(), is(equalTo(UUID.fromString("1289c190-e46d-434b-9628-463ffdb52f00"))));		
-		assertThat(response.getBankTransactions().get(0).getStatus(), is(equalTo(com.xero.models.accounting.BankTransaction.StatusEnum.AUTHORISED)));
-		assertThat(response.getBankTransactions().get(0).getType(), is(equalTo(com.xero.models.accounting.BankTransaction.TypeEnum.SPEND)));
-		assertThat(response.getBankTransactions().get(0).getCurrencyCode(), is(equalTo(com.xero.models.accounting.CurrencyCode.USD)));
-		assertThat(response.getBankTransactions().get(0).getIsReconciled(), is(equalTo(false)));
-		assertThat(response.getBankTransactions().get(0).getSubTotal(), is(equalTo(18.26)));
-		assertThat(response.getBankTransactions().get(0).getTotal(), is(equalTo(20.00)));
-		//System.out.println(response.getBankTransactions().get(0).toString());
+		assertThat(response.getBankTransactions().getFirst().getBankTransactionID(), is(equalTo(UUID.fromString("1289c190-e46d-434b-9628-463ffdb52f00"))));		
+		assertThat(response.getBankTransactions().getFirst().getStatus(), is(equalTo(com.xero.models.accounting.BankTransaction.StatusEnum.AUTHORISED)));
+		assertThat(response.getBankTransactions().getFirst().getType(), is(equalTo(com.xero.models.accounting.BankTransaction.TypeEnum.SPEND)));
+		assertThat(response.getBankTransactions().getFirst().getCurrencyCode(), is(equalTo(com.xero.models.accounting.CurrencyCode.USD)));
+		assertThat(response.getBankTransactions().getFirst().getIsReconciled(), is(equalTo(false)));
+		assertThat(response.getBankTransactions().getFirst().getSubTotal(), is(equalTo(18.26)));
+		assertThat(response.getBankTransactions().getFirst().getTotal(), is(equalTo(20.00)));
+		//System.out.println(response.getBankTransactions().getFirst().toString());
 	}
 */
 
-    @Ignore("Enable when OpenAPI schema is changed to binary wherever octet/stream is used")
+    @Disabled("Enable when OpenAPI schema is changed to binary wherever octet/stream is used")
     @Test
     public void createBankTransactionAttachmentByFileNameTest() throws IOException {
     	System.out.println("@Test - createBankTransactionAttachmentByFileNameTest");
@@ -133,11 +137,11 @@ public class AccountingApiBankTransactionTest {
 		File bytes = new File(classLoader.getResource("helo-heros.jpg").getFile());
         String fileName = "sample5.jpg";
         Attachments response = accountingApi.createBankTransactionAttachmentByFileName(accessToken,xeroTenantId,bankTransactionID, fileName, bytes, null);
-		assertThat(response.getAttachments().get(0).getAttachmentID(), is(equalTo(UUID.fromString("4508a692-e52c-4ad8-a138-2f13e22bf57b"))));
-		assertThat(response.getAttachments().get(0).getFileName().toString(), is(equalTo("sample5.jpg")));
-		assertThat(response.getAttachments().get(0).getMimeType().toString(), is(equalTo("image/jpg")));
-		assertThat(response.getAttachments().get(0).getUrl().toString(), is(equalTo("https://api.xero.com/api.xro/2.0/BankTransactions/db54aab0-ad40-4ced-bcff-0940ba20db2c/Attachments/sample5.jpg")));
-		//System.out.println(response.getAttachments().get(0).toString());
+		assertThat(response.getAttachments().getFirst().getAttachmentID(), is(equalTo(UUID.fromString("4508a692-e52c-4ad8-a138-2f13e22bf57b"))));
+		assertThat(response.getAttachments().getFirst().getFileName().toString(), is(equalTo("sample5.jpg")));
+		assertThat(response.getAttachments().getFirst().getMimeType().toString(), is(equalTo("image/jpg")));
+		assertThat(response.getAttachments().getFirst().getUrl().toString(), is(equalTo("https://api.xero.com/api.xro/2.0/BankTransactions/db54aab0-ad40-4ced-bcff-0940ba20db2c/Attachments/sample5.jpg")));
+		//System.out.println(response.getAttachments().getFirst().toString());
     }
 
 
@@ -147,12 +151,12 @@ public class AccountingApiBankTransactionTest {
     	UUID bankTransactionID = UUID.fromString("297c2dc5-cc47-4afd-8ec8-74990b8761e9");
         Attachments response = accountingApi.getBankTransactionAttachments(accessToken,xeroTenantId,bankTransactionID);
 
-       	assertThat(response.getAttachments().get(0).getAttachmentID(), is(equalTo(UUID.fromString("4508a692-e52c-4ad8-a138-2f13e22bf57b"))));
-		assertThat(response.getAttachments().get(0).getFileName(), is(equalTo("sample5.jpg")));
-		assertThat(response.getAttachments().get(0).getMimeType(), is(equalTo("image/jpg")));
-		assertThat(response.getAttachments().get(0).getUrl(), is(equalTo("https://api.xero.com/api.xro/2.0/BankTransactions/db54aab0-ad40-4ced-bcff-0940ba20db2c/Attachments/sample5.jpg")));
-		assertThat(response.getAttachments().get(0).getContentLength(), is(equalTo(2878711)));
-		//System.out.println(response.getAttachments().get(0).toString());
+       	assertThat(response.getAttachments().getFirst().getAttachmentID(), is(equalTo(UUID.fromString("4508a692-e52c-4ad8-a138-2f13e22bf57b"))));
+		assertThat(response.getAttachments().getFirst().getFileName(), is(equalTo("sample5.jpg")));
+		assertThat(response.getAttachments().getFirst().getMimeType(), is(equalTo("image/jpg")));
+		assertThat(response.getAttachments().getFirst().getUrl(), is(equalTo("https://api.xero.com/api.xro/2.0/BankTransactions/db54aab0-ad40-4ced-bcff-0940ba20db2c/Attachments/sample5.jpg")));
+		assertThat(response.getAttachments().getFirst().getContentLength(), is(equalTo(2878711)));
+		//System.out.println(response.getAttachments().getFirst().toString());
     }
 /*
     @Test
@@ -164,10 +168,10 @@ public class AccountingApiBankTransactionTest {
     	String fileName = "sample2.jpg";
 		
         Attachments response = accountingApi.updateBankTransactionAttachmentByFileName(bankTransactionID, fileName, bytes);
-		assertThat(response.getAttachments().get(0).getAttachmentID(), is(equalTo(UUID.fromString("4508a692-e52c-4ad8-a138-2f13e22bf57b"))));
-		assertThat(response.getAttachments().get(0).getFileName().toString(), is(equalTo("sample5.jpg")));
-		assertThat(response.getAttachments().get(0).getMimeType().toString(), is(equalTo("image/jpg")));
-		assertThat(response.getAttachments().get(0).getUrl().toString(), is(equalTo("https://api.xero.com/api.xro/2.0/BankTransactions/db54aab0-ad40-4ced-bcff-0940ba20db2c/Attachments/sample5.jpg")));
+		assertThat(response.getAttachments().getFirst().getAttachmentID(), is(equalTo(UUID.fromString("4508a692-e52c-4ad8-a138-2f13e22bf57b"))));
+		assertThat(response.getAttachments().getFirst().getFileName().toString(), is(equalTo("sample5.jpg")));
+		assertThat(response.getAttachments().getFirst().getMimeType().toString(), is(equalTo("image/jpg")));
+		assertThat(response.getAttachments().getFirst().getUrl().toString(), is(equalTo("https://api.xero.com/api.xro/2.0/BankTransactions/db54aab0-ad40-4ced-bcff-0940ba20db2c/Attachments/sample5.jpg")));
 
     }
 */

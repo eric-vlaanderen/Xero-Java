@@ -1,14 +1,16 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.accounting.*;
+import com.xero.models.accounting.TaxRates;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class AccountingApiTaxRatesTest {
 
@@ -19,7 +21,7 @@ public class AccountingApiTaxRatesTest {
 
     private static boolean setUpIsDone = false;
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -54,24 +56,24 @@ public class AccountingApiTaxRatesTest {
         TaxRates taxRates = new TaxRates();
         TaxRates response = accountingApi.createTaxRates(accessToken,xeroTenantId,taxRates,null);
 
-        assertThat(response.getTaxRates().get(0).getName(), is(equalTo("SDKTax29067")));
-        assertThat(response.getTaxRates().get(0).getTaxType(), is(equalTo("TAX002")));
-        assertThat(response.getTaxRates().get(0).getTaxComponents().get(0).getName(), is(equalTo("State Tax")));
-        assertThat(response.getTaxRates().get(0).getTaxComponents().get(0).getRate(), is(equalTo(2.25)));
-        assertThat(response.getTaxRates().get(0).getTaxComponents().get(0).getIsCompound(), is(equalTo(false)));
-        assertThat(response.getTaxRates().get(0).getTaxComponents().get(0).getIsNonRecoverable(), is(equalTo(false)));        
-        assertThat(response.getTaxRates().get(0).getStatus(), is(equalTo(com.xero.models.accounting.TaxRate.StatusEnum.ACTIVE)));
-        assertThat(response.getTaxRates().get(0).getReportTaxType(), is(equalTo(com.xero.models.accounting.TaxRate.ReportTaxTypeEnum.INPUT)));
-        assertThat(response.getTaxRates().get(0).getCanApplyToAssets(), is(equalTo(true)));
-        assertThat(response.getTaxRates().get(0).getCanApplyToEquity(), is(equalTo(true)));
-        assertThat(response.getTaxRates().get(0).getCanApplyToExpenses(), is(equalTo(true)));
-        assertThat(response.getTaxRates().get(0).getCanApplyToLiabilities(), is(equalTo(true)));
-        assertThat(response.getTaxRates().get(0).getCanApplyToRevenue(), is(equalTo(false)));
-        assertThat(response.getTaxRates().get(0).getDisplayTaxRate(), is(equalTo(2.25)));
-        assertThat(response.getTaxRates().get(0).getDisplayTaxRate().toString(), is(equalTo("2.25")));
-        assertThat(response.getTaxRates().get(0).getEffectiveRate(), is(equalTo(2.25)));
-        assertThat(response.getTaxRates().get(0).getEffectiveRate().toString(), is(equalTo("2.25")));
-        //System.out.println(response.getTaxRates().get(0).toString());
+        assertThat(response.getTaxRates().getFirst().getName(), is(equalTo("SDKTax29067")));
+        assertThat(response.getTaxRates().getFirst().getTaxType(), is(equalTo("TAX002")));
+        assertThat(response.getTaxRates().getFirst().getTaxComponents().getFirst().getName(), is(equalTo("State Tax")));
+        assertThat(response.getTaxRates().getFirst().getTaxComponents().getFirst().getRate(), is(equalTo(2.25)));
+        assertThat(response.getTaxRates().getFirst().getTaxComponents().getFirst().getIsCompound(), is(equalTo(false)));
+        assertThat(response.getTaxRates().getFirst().getTaxComponents().getFirst().getIsNonRecoverable(), is(equalTo(false)));        
+        assertThat(response.getTaxRates().getFirst().getStatus(), is(equalTo(com.xero.models.accounting.TaxRate.StatusEnum.ACTIVE)));
+        assertThat(response.getTaxRates().getFirst().getReportTaxType(), is(equalTo(com.xero.models.accounting.TaxRate.ReportTaxTypeEnum.INPUT)));
+        assertThat(response.getTaxRates().getFirst().getCanApplyToAssets(), is(equalTo(true)));
+        assertThat(response.getTaxRates().getFirst().getCanApplyToEquity(), is(equalTo(true)));
+        assertThat(response.getTaxRates().getFirst().getCanApplyToExpenses(), is(equalTo(true)));
+        assertThat(response.getTaxRates().getFirst().getCanApplyToLiabilities(), is(equalTo(true)));
+        assertThat(response.getTaxRates().getFirst().getCanApplyToRevenue(), is(equalTo(false)));
+        assertThat(response.getTaxRates().getFirst().getDisplayTaxRate(), is(equalTo(2.25)));
+        assertThat(response.getTaxRates().getFirst().getDisplayTaxRate().toString(), is(equalTo("2.25")));
+        assertThat(response.getTaxRates().getFirst().getEffectiveRate(), is(equalTo(2.25)));
+        assertThat(response.getTaxRates().getFirst().getEffectiveRate().toString(), is(equalTo("2.25")));
+        //System.out.println(response.getTaxRates().getFirst().toString());
     }
 
     @Test
@@ -82,24 +84,24 @@ public class AccountingApiTaxRatesTest {
         
         TaxRates response = accountingApi.getTaxRates(accessToken, xeroTenantId,where, order);
 
-        assertThat(response.getTaxRates().get(0).getName(), is(equalTo("15% GST on Expenses")));
-        assertThat(response.getTaxRates().get(0).getTaxType(), is(equalTo("INPUT2")));
-        assertThat(response.getTaxRates().get(0).getTaxComponents().get(0).getName(), is(equalTo("GST")));
-        assertThat(response.getTaxRates().get(0).getTaxComponents().get(0).getRate(), is(equalTo(15.0)));
-        assertThat(response.getTaxRates().get(0).getTaxComponents().get(0).getIsCompound(), is(equalTo(false)));
-        assertThat(response.getTaxRates().get(0).getTaxComponents().get(0).getIsNonRecoverable(), is(equalTo(false)));        
-        assertThat(response.getTaxRates().get(0).getStatus(), is(equalTo(com.xero.models.accounting.TaxRate.StatusEnum.ACTIVE)));
-        assertThat(response.getTaxRates().get(0).getReportTaxType(), is(equalTo(com.xero.models.accounting.TaxRate.ReportTaxTypeEnum.INPUT)));
-        assertThat(response.getTaxRates().get(0).getCanApplyToAssets(), is(equalTo(true)));
-        assertThat(response.getTaxRates().get(0).getCanApplyToEquity(), is(equalTo(true)));
-        assertThat(response.getTaxRates().get(0).getCanApplyToExpenses(), is(equalTo(true)));
-        assertThat(response.getTaxRates().get(0).getCanApplyToLiabilities(), is(equalTo(true)));
-        assertThat(response.getTaxRates().get(0).getCanApplyToRevenue(), is(equalTo(false)));
-        assertThat(response.getTaxRates().get(0).getDisplayTaxRate(), is(equalTo(15.0)));
-        assertThat(response.getTaxRates().get(0).getDisplayTaxRate().toString(), is(equalTo("15.0")));
-        assertThat(response.getTaxRates().get(0).getEffectiveRate(), is(equalTo(15.0)));
-        assertThat(response.getTaxRates().get(0).getEffectiveRate().toString(), is(equalTo("15.0")));
-        //System.out.println(response.getTaxRates().get(0).toString());
+        assertThat(response.getTaxRates().getFirst().getName(), is(equalTo("15% GST on Expenses")));
+        assertThat(response.getTaxRates().getFirst().getTaxType(), is(equalTo("INPUT2")));
+        assertThat(response.getTaxRates().getFirst().getTaxComponents().getFirst().getName(), is(equalTo("GST")));
+        assertThat(response.getTaxRates().getFirst().getTaxComponents().getFirst().getRate(), is(equalTo(15.0)));
+        assertThat(response.getTaxRates().getFirst().getTaxComponents().getFirst().getIsCompound(), is(equalTo(false)));
+        assertThat(response.getTaxRates().getFirst().getTaxComponents().getFirst().getIsNonRecoverable(), is(equalTo(false)));        
+        assertThat(response.getTaxRates().getFirst().getStatus(), is(equalTo(com.xero.models.accounting.TaxRate.StatusEnum.ACTIVE)));
+        assertThat(response.getTaxRates().getFirst().getReportTaxType(), is(equalTo(com.xero.models.accounting.TaxRate.ReportTaxTypeEnum.INPUT)));
+        assertThat(response.getTaxRates().getFirst().getCanApplyToAssets(), is(equalTo(true)));
+        assertThat(response.getTaxRates().getFirst().getCanApplyToEquity(), is(equalTo(true)));
+        assertThat(response.getTaxRates().getFirst().getCanApplyToExpenses(), is(equalTo(true)));
+        assertThat(response.getTaxRates().getFirst().getCanApplyToLiabilities(), is(equalTo(true)));
+        assertThat(response.getTaxRates().getFirst().getCanApplyToRevenue(), is(equalTo(false)));
+        assertThat(response.getTaxRates().getFirst().getDisplayTaxRate(), is(equalTo(15.0)));
+        assertThat(response.getTaxRates().getFirst().getDisplayTaxRate().toString(), is(equalTo("15.0")));
+        assertThat(response.getTaxRates().getFirst().getEffectiveRate(), is(equalTo(15.0)));
+        assertThat(response.getTaxRates().getFirst().getEffectiveRate().toString(), is(equalTo("15.0")));
+        //System.out.println(response.getTaxRates().getFirst().toString());
     }
 
     @Test
@@ -108,23 +110,23 @@ public class AccountingApiTaxRatesTest {
         TaxRates taxRates = new TaxRates();
         TaxRates response = accountingApi.updateTaxRate(accessToken,xeroTenantId,taxRates,null);
 
-        assertThat(response.getTaxRates().get(0).getName(), is(equalTo("SDKTax29067")));
-        assertThat(response.getTaxRates().get(0).getTaxType(), is(equalTo("TAX002")));
-        assertThat(response.getTaxRates().get(0).getTaxComponents().get(0).getName(), is(equalTo("State Tax")));
-        assertThat(response.getTaxRates().get(0).getTaxComponents().get(0).getRate(), is(equalTo(2.25)));
-        assertThat(response.getTaxRates().get(0).getTaxComponents().get(0).getIsCompound(), is(equalTo(false)));
-        assertThat(response.getTaxRates().get(0).getTaxComponents().get(0).getIsNonRecoverable(), is(equalTo(false)));        
-        assertThat(response.getTaxRates().get(0).getStatus(), is(equalTo(com.xero.models.accounting.TaxRate.StatusEnum.DELETED)));
-        assertThat(response.getTaxRates().get(0).getReportTaxType(), is(equalTo(com.xero.models.accounting.TaxRate.ReportTaxTypeEnum.INPUT)));
-        assertThat(response.getTaxRates().get(0).getCanApplyToAssets(), is(equalTo(true)));
-        assertThat(response.getTaxRates().get(0).getCanApplyToEquity(), is(equalTo(true)));
-        assertThat(response.getTaxRates().get(0).getCanApplyToExpenses(), is(equalTo(true)));
-        assertThat(response.getTaxRates().get(0).getCanApplyToLiabilities(), is(equalTo(true)));
-        assertThat(response.getTaxRates().get(0).getCanApplyToRevenue(), is(equalTo(false)));
-        assertThat(response.getTaxRates().get(0).getDisplayTaxRate(), is(equalTo(2.25)));
-        assertThat(response.getTaxRates().get(0).getDisplayTaxRate().toString(), is(equalTo("2.25")));
-        assertThat(response.getTaxRates().get(0).getEffectiveRate(), is(equalTo(2.25)));
-        assertThat(response.getTaxRates().get(0).getEffectiveRate().toString(), is(equalTo("2.25")));
-        //System.out.println(response.getTaxRates().get(0).toString());
+        assertThat(response.getTaxRates().getFirst().getName(), is(equalTo("SDKTax29067")));
+        assertThat(response.getTaxRates().getFirst().getTaxType(), is(equalTo("TAX002")));
+        assertThat(response.getTaxRates().getFirst().getTaxComponents().getFirst().getName(), is(equalTo("State Tax")));
+        assertThat(response.getTaxRates().getFirst().getTaxComponents().getFirst().getRate(), is(equalTo(2.25)));
+        assertThat(response.getTaxRates().getFirst().getTaxComponents().getFirst().getIsCompound(), is(equalTo(false)));
+        assertThat(response.getTaxRates().getFirst().getTaxComponents().getFirst().getIsNonRecoverable(), is(equalTo(false)));        
+        assertThat(response.getTaxRates().getFirst().getStatus(), is(equalTo(com.xero.models.accounting.TaxRate.StatusEnum.DELETED)));
+        assertThat(response.getTaxRates().getFirst().getReportTaxType(), is(equalTo(com.xero.models.accounting.TaxRate.ReportTaxTypeEnum.INPUT)));
+        assertThat(response.getTaxRates().getFirst().getCanApplyToAssets(), is(equalTo(true)));
+        assertThat(response.getTaxRates().getFirst().getCanApplyToEquity(), is(equalTo(true)));
+        assertThat(response.getTaxRates().getFirst().getCanApplyToExpenses(), is(equalTo(true)));
+        assertThat(response.getTaxRates().getFirst().getCanApplyToLiabilities(), is(equalTo(true)));
+        assertThat(response.getTaxRates().getFirst().getCanApplyToRevenue(), is(equalTo(false)));
+        assertThat(response.getTaxRates().getFirst().getDisplayTaxRate(), is(equalTo(2.25)));
+        assertThat(response.getTaxRates().getFirst().getDisplayTaxRate().toString(), is(equalTo("2.25")));
+        assertThat(response.getTaxRates().getFirst().getEffectiveRate(), is(equalTo(2.25)));
+        assertThat(response.getTaxRates().getFirst().getEffectiveRate().toString(), is(equalTo("2.25")));
+        //System.out.println(response.getTaxRates().getFirst().toString());
     }
 }

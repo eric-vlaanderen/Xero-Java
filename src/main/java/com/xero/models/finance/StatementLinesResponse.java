@@ -13,9 +13,10 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
-import org.threeten.bp.LocalDate;
 
 /** StatementLinesResponse */
 public class StatementLinesResponse {
@@ -90,8 +91,8 @@ public class StatementLinesResponse {
    *
    * @return unreconciledAmountPos
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines where both the reconciled flag is set to"
               + " FALSE, and the amount is positive.")
   /**
@@ -132,8 +133,8 @@ public class StatementLinesResponse {
    *
    * @return unreconciledAmountNeg
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines where both the reconciled flag is set to"
               + " FALSE, and the amount is negative.")
   /**
@@ -172,8 +173,8 @@ public class StatementLinesResponse {
    *
    * @return unreconciledLines
    */
-  @ApiModelProperty(
-      value = "Count of all statement lines where the reconciled flag is set to FALSE.")
+  @Schema(
+      description = "Count of all statement lines where the reconciled flag is set to FALSE.")
   /**
    * Count of all statement lines where the reconciled flag is set to FALSE.
    *
@@ -214,8 +215,8 @@ public class StatementLinesResponse {
    *
    * @return avgDaysUnreconciledPos
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum-product of age of statement line in days multiplied by transaction amount, divided"
               + " by the sum of transaction amount - in for those statement lines in which the"
               + " reconciled flag is set to FALSE, and the amount is positive. Provides an"
@@ -266,8 +267,8 @@ public class StatementLinesResponse {
    *
    * @return avgDaysUnreconciledNeg
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum-product of age of statement line in days multiplied by transaction amount, divided"
               + " by the sum of transaction amount - in for those statement lines in which the"
               + " reconciled flag is set to FALSE, and the amount is negative. Provides an"
@@ -315,8 +316,8 @@ public class StatementLinesResponse {
    *
    * @return earliestUnreconciledTransaction
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "UTC Date which is the earliest transaction date of a statement line for which the"
               + " reconciled flag is set to FALSE.  This date is represented in ISO 8601 format.")
   /**
@@ -358,8 +359,8 @@ public class StatementLinesResponse {
    *
    * @return latestUnreconciledTransaction
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "UTC Date which is the latest transaction date of a statement line for which the"
               + " reconciled flag is set to FALSE.  This date is represented in ISO 8601 format.")
   /**
@@ -400,8 +401,8 @@ public class StatementLinesResponse {
    *
    * @return deletedAmount
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all deleted statement lines.  Transactions may be deleted due to"
               + " duplication or otherwise.")
   /**
@@ -442,8 +443,8 @@ public class StatementLinesResponse {
    *
    * @return totalAmount
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines.  This is used as a metric of comparison to"
               + " the unreconciled figures above.")
   /**
@@ -482,7 +483,7 @@ public class StatementLinesResponse {
    *
    * @return dataSource
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * dataSource
    *
@@ -520,8 +521,8 @@ public class StatementLinesResponse {
    *
    * @return earliestReconciledTransaction
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "UTC Date which is the earliest transaction date of a statement line for which the"
               + " reconciled flag is set to TRUE.  This date is represented in ISO 8601 format.")
   /**
@@ -562,8 +563,8 @@ public class StatementLinesResponse {
    *
    * @return latestReconciledTransaction
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "UTC Date which is the latest transaction date of a statement line for which the"
               + " reconciled flag is set to TRUE.  This date is represented in ISO 8601 format.")
   /**
@@ -604,8 +605,8 @@ public class StatementLinesResponse {
    *
    * @return reconciledAmountPos
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines where both the reconciled flag is set to TRUE,"
               + " and the amount is positive.")
   /**
@@ -646,8 +647,8 @@ public class StatementLinesResponse {
    *
    * @return reconciledAmountNeg
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Sum of the amounts of all statement lines where both the reconciled flag is set to TRUE,"
               + " and the amount is negative.")
   /**
@@ -686,7 +687,7 @@ public class StatementLinesResponse {
    *
    * @return reconciledLines
    */
-  @ApiModelProperty(value = "Count of all statement lines where the reconciled flag is set to TRUE")
+  @Schema(description = "Count of all statement lines where the reconciled flag is set to TRUE")
   /**
    * Count of all statement lines where the reconciled flag is set to TRUE
    *
@@ -721,8 +722,8 @@ public class StatementLinesResponse {
    *
    * @return totalAmountPos
    */
-  @ApiModelProperty(
-      value = "Sum of the amounts of all statement lines where the amount is positive")
+  @Schema(
+      description = "Sum of the amounts of all statement lines where the amount is positive")
   /**
    * Sum of the amounts of all statement lines where the amount is positive
    *
@@ -757,8 +758,8 @@ public class StatementLinesResponse {
    *
    * @return totalAmountNeg
    */
-  @ApiModelProperty(
-      value = "Sum of the amounts of all statement lines where the amount is negative.")
+  @Schema(
+      description = "Sum of the amounts of all statement lines where the amount is negative.")
   /**
    * Sum of the amounts of all statement lines where the amount is negative.
    *

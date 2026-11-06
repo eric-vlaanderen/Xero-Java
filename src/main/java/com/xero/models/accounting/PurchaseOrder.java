@@ -15,16 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** PurchaseOrder */
 public class PurchaseOrder {
@@ -189,7 +190,7 @@ public class PurchaseOrder {
    *
    * @return contact
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * contact
    *
@@ -238,7 +239,7 @@ public class PurchaseOrder {
    *
    * @return lineItems
    */
-  @ApiModelProperty(value = "See LineItems")
+  @Schema(description = "See LineItems")
   /**
    * See LineItems
    *
@@ -275,8 +276,8 @@ public class PurchaseOrder {
    *
    * @return date
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Date purchase order was issued – YYYY-MM-DD. If the Date element is not specified then"
               + " it will default to the current date based on the timezone setting of the"
               + " organisation")
@@ -347,7 +348,7 @@ public class PurchaseOrder {
    *
    * @return deliveryDate
    */
-  @ApiModelProperty(value = "Date the goods are to be delivered – YYYY-MM-DD")
+  @Schema(description = "Date the goods are to be delivered – YYYY-MM-DD")
   /**
    * Date the goods are to be delivered – YYYY-MM-DD
    *
@@ -411,7 +412,7 @@ public class PurchaseOrder {
    *
    * @return lineAmountTypes
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * lineAmountTypes
    *
@@ -448,8 +449,8 @@ public class PurchaseOrder {
    *
    * @return purchaseOrderNumber
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Unique alpha numeric code identifying purchase order (when missing will auto-generate"
               + " from your Organisation Invoice Settings)")
   /**
@@ -488,7 +489,7 @@ public class PurchaseOrder {
    *
    * @return reference
    */
-  @ApiModelProperty(value = "Additional reference number")
+  @Schema(description = "Additional reference number")
   /**
    * Additional reference number
    *
@@ -523,7 +524,7 @@ public class PurchaseOrder {
    *
    * @return brandingThemeID
    */
-  @ApiModelProperty(value = "See BrandingThemes")
+  @Schema(description = "See BrandingThemes")
   /**
    * See BrandingThemes
    *
@@ -558,7 +559,7 @@ public class PurchaseOrder {
    *
    * @return currencyCode
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * currencyCode
    *
@@ -593,7 +594,7 @@ public class PurchaseOrder {
    *
    * @return status
    */
-  @ApiModelProperty(value = "See Purchase Order Status Codes")
+  @Schema(description = "See Purchase Order Status Codes")
   /**
    * See Purchase Order Status Codes
    *
@@ -630,8 +631,8 @@ public class PurchaseOrder {
    *
    * @return sentToContact
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Boolean to set whether the purchase order should be marked as “sent”. This can be set"
               + " only on purchase orders that have been approved or billed")
   /**
@@ -670,7 +671,7 @@ public class PurchaseOrder {
    *
    * @return deliveryAddress
    */
-  @ApiModelProperty(value = "The address the goods are to be delivered to")
+  @Schema(description = "The address the goods are to be delivered to")
   /**
    * The address the goods are to be delivered to
    *
@@ -705,7 +706,7 @@ public class PurchaseOrder {
    *
    * @return attentionTo
    */
-  @ApiModelProperty(value = "The person that the delivery is going to")
+  @Schema(description = "The person that the delivery is going to")
   /**
    * The person that the delivery is going to
    *
@@ -740,7 +741,7 @@ public class PurchaseOrder {
    *
    * @return telephone
    */
-  @ApiModelProperty(value = "The phone number for the person accepting the delivery")
+  @Schema(description = "The phone number for the person accepting the delivery")
   /**
    * The phone number for the person accepting the delivery
    *
@@ -775,7 +776,7 @@ public class PurchaseOrder {
    *
    * @return deliveryInstructions
    */
-  @ApiModelProperty(value = "A free text feild for instructions (500 characters max)")
+  @Schema(description = "A free text feild for instructions (500 characters max)")
   /**
    * A free text feild for instructions (500 characters max)
    *
@@ -810,7 +811,7 @@ public class PurchaseOrder {
    *
    * @return expectedArrivalDate
    */
-  @ApiModelProperty(value = "The date the goods are expected to arrive.")
+  @Schema(description = "The date the goods are expected to arrive.")
   /**
    * The date the goods are expected to arrive.
    *
@@ -874,7 +875,7 @@ public class PurchaseOrder {
    *
    * @return purchaseOrderID
    */
-  @ApiModelProperty(value = "Xero generated unique identifier for purchase order")
+  @Schema(description = "Xero generated unique identifier for purchase order")
   /**
    * Xero generated unique identifier for purchase order
    *
@@ -911,8 +912,8 @@ public class PurchaseOrder {
    *
    * @return currencyRate
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The currency rate for a multicurrency purchase order. If no rate is specified, the"
               + " XE.com day rate is used.")
   /**
@@ -940,7 +941,7 @@ public class PurchaseOrder {
    *
    * @return subTotal
    */
-  @ApiModelProperty(value = "Total of purchase order excluding taxes")
+  @Schema(description = "Total of purchase order excluding taxes")
   /**
    * Total of purchase order excluding taxes
    *
@@ -955,7 +956,7 @@ public class PurchaseOrder {
    *
    * @return totalTax
    */
-  @ApiModelProperty(value = "Total tax on purchase order")
+  @Schema(description = "Total tax on purchase order")
   /**
    * Total tax on purchase order
    *
@@ -970,7 +971,7 @@ public class PurchaseOrder {
    *
    * @return total
    */
-  @ApiModelProperty(value = "Total of Purchase Order tax inclusive (i.e. SubTotal + TotalTax)")
+  @Schema(description = "Total of Purchase Order tax inclusive (i.e. SubTotal + TotalTax)")
   /**
    * Total of Purchase Order tax inclusive (i.e. SubTotal + TotalTax)
    *
@@ -985,7 +986,7 @@ public class PurchaseOrder {
    *
    * @return totalDiscount
    */
-  @ApiModelProperty(value = "Total of discounts applied on the purchase order line items")
+  @Schema(description = "Total of discounts applied on the purchase order line items")
   /**
    * Total of discounts applied on the purchase order line items
    *
@@ -1000,9 +1001,9 @@ public class PurchaseOrder {
    *
    * @return hasAttachments
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "boolean to indicate if a purchase order has an attachment")
+      description = "boolean to indicate if a purchase order has an attachment")
   /**
    * boolean to indicate if a purchase order has an attachment
    *
@@ -1017,7 +1018,7 @@ public class PurchaseOrder {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1573755038314)/", value = "Last modified date UTC format")
+  @Schema(example = "/Date(1573755038314)/", description = "Last modified date UTC format")
   /**
    * Last modified date UTC format
    *
@@ -1059,7 +1060,7 @@ public class PurchaseOrder {
    *
    * @return statusAttributeString
    */
-  @ApiModelProperty(value = "A string to indicate if a invoice status")
+  @Schema(description = "A string to indicate if a invoice status")
   /**
    * A string to indicate if a invoice status
    *
@@ -1108,7 +1109,7 @@ public class PurchaseOrder {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *
@@ -1157,7 +1158,7 @@ public class PurchaseOrder {
    *
    * @return warnings
    */
-  @ApiModelProperty(value = "Displays array of warning messages from the API")
+  @Schema(description = "Displays array of warning messages from the API")
   /**
    * Displays array of warning messages from the API
    *
@@ -1206,7 +1207,7 @@ public class PurchaseOrder {
    *
    * @return attachments
    */
-  @ApiModelProperty(value = "Displays array of attachments from the API")
+  @Schema(description = "Displays array of attachments from the API")
   /**
    * Displays array of attachments from the API
    *

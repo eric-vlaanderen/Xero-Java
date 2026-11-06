@@ -13,7 +13,7 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -43,7 +43,7 @@ public class TrackingCategory {
    *
    * @return employeeGroupsTrackingCategoryID
    */
-  @ApiModelProperty(value = "The Xero identifier for Employee groups tracking category.")
+  @Schema(description = "The Xero identifier for Employee groups tracking category.")
   /**
    * The Xero identifier for Employee groups tracking category.
    *
@@ -78,7 +78,7 @@ public class TrackingCategory {
    *
    * @return timesheetTrackingCategoryID
    */
-  @ApiModelProperty(value = "The Xero identifier for Timesheet tracking category.")
+  @Schema(description = "The Xero identifier for Timesheet tracking category.")
   /**
    * The Xero identifier for Timesheet tracking category.
    *

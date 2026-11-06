@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -49,9 +49,9 @@ public class Account {
    *
    * @return accountID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "c56b19ef-75bf-45e8-98a4-e699a96609f7",
-      value = "Xero identifier for accounts")
+      description = "Xero identifier for accounts")
   /**
    * Xero identifier for accounts
    *
@@ -86,7 +86,7 @@ public class Account {
    *
    * @return type
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * type
    *
@@ -121,7 +121,7 @@ public class Account {
    *
    * @return code
    */
-  @ApiModelProperty(example = "420", value = "Customer defined account code")
+  @Schema(example = "420", description = "Customer defined account code")
   /**
    * Customer defined account code
    *
@@ -156,7 +156,7 @@ public class Account {
    *
    * @return name
    */
-  @ApiModelProperty(example = "General expenses", value = "Name of account")
+  @Schema(example = "General expenses", description = "Name of account")
   /**
    * Name of account
    *

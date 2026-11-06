@@ -13,10 +13,11 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.math.BigDecimal;
 import java.util.Objects;
-import org.threeten.bp.LocalDate;
 
 /** NICategory */
 public class NICategory {
@@ -53,9 +54,9 @@ public class NICategory {
    *
    * @return startDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Mon Dec 02 00:00:00 UTC 2024",
-      value = "The start date of the NI category (YYYY-MM-DD)")
+      description = "The start date of the NI category (YYYY-MM-DD)")
   /**
    * The start date of the NI category (YYYY-MM-DD)
    *
@@ -90,7 +91,7 @@ public class NICategory {
    *
    * @return niCategory
    */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "")
   /**
    * niCategory
    *
@@ -125,7 +126,7 @@ public class NICategory {
    *
    * @return niCategoryID
    */
-  @ApiModelProperty(example = "15", value = "Xero unique identifier for the NI category")
+  @Schema(example = "15", description = "Xero unique identifier for the NI category")
   /**
    * Xero unique identifier for the NI category
    *
@@ -160,9 +161,9 @@ public class NICategory {
    *
    * @return dateFirstEmployedAsCivilian
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Mon Dec 02 00:00:00 UTC 2024",
-      value = "The date in which the employee was first employed as a civilian (YYYY-MM-DD)")
+      description = "The date in which the employee was first employed as a civilian (YYYY-MM-DD)")
   /**
    * The date in which the employee was first employed as a civilian (YYYY-MM-DD)
    *
@@ -197,7 +198,7 @@ public class NICategory {
    *
    * @return workplacePostcode
    */
-  @ApiModelProperty(example = "SW1A 1AA", required = true, value = "The workplace postcode")
+  @Schema(example = "SW1A 1AA", requiredMode = Schema.RequiredMode.REQUIRED, description = "The workplace postcode")
   /**
    * The workplace postcode
    *

@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -55,7 +55,7 @@ public class PnlAccount {
    *
    * @return accountID
    */
-  @ApiModelProperty(value = "ID of the account")
+  @Schema(description = "ID of the account")
   /**
    * ID of the account
    *
@@ -94,8 +94,8 @@ public class PnlAccount {
    *
    * @return accountType
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The type of the account. See <a"
               + " href='https://developer.xero.com/documentation/api/types#AccountTypes'>Account"
               + " Types</a>")
@@ -137,7 +137,7 @@ public class PnlAccount {
    *
    * @return code
    */
-  @ApiModelProperty(value = "Account code")
+  @Schema(description = "Account code")
   /**
    * Account code
    *
@@ -172,7 +172,7 @@ public class PnlAccount {
    *
    * @return name
    */
-  @ApiModelProperty(value = "Account name")
+  @Schema(description = "Account name")
   /**
    * Account name
    *
@@ -207,7 +207,7 @@ public class PnlAccount {
    *
    * @return reportingCode
    */
-  @ApiModelProperty(value = "Reporting code (Shown if set)")
+  @Schema(description = "Reporting code (Shown if set)")
   /**
    * Reporting code (Shown if set)
    *
@@ -242,7 +242,7 @@ public class PnlAccount {
    *
    * @return total
    */
-  @ApiModelProperty(value = "Total movement on this account")
+  @Schema(description = "Total movement on this account")
   /**
    * Total movement on this account
    *

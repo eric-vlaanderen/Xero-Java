@@ -1,19 +1,23 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.accounting.*;
+import com.xero.models.accounting.Attachments;
+import com.xero.models.accounting.Contacts;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+import java.time.OffsetDateTime;
 
 import java.io.File;
-import org.threeten.bp.*;
 import java.io.IOException;
-import java.util.UUID;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class AccountingApiContactsTest {
 
@@ -26,7 +30,7 @@ public class AccountingApiContactsTest {
 
     private static boolean setUpIsDone = false;
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -65,34 +69,34 @@ public class AccountingApiContactsTest {
         OffsetDateTime ifModifiedSince = null;
         String where = null;
         String order = null;
-        List<UUID> ids = new ArrayList();
+        List<UUID> ids = new ArrayList<>();
         Boolean includeArchived = null;
         Boolean summaryOnly = null;
         Contacts response = accountingApi.getContacts(accessToken,xeroTenantId,ifModifiedSince, where, order, ids, null, includeArchived, summaryOnly, null, null);
 
-        assertThat(response.getContacts().get(0).getContactID(), is(equalTo(UUID.fromString("5cc8cf28-567e-4d43-b287-687cfcaec47c"))));
-        assertThat(response.getContacts().get(0).getName(), is(equalTo("Katherine Warren")));
-        assertThat(response.getContacts().get(0).getFirstName(), is(equalTo("Katherine")));
-        assertThat(response.getContacts().get(0).getLastName(), is(equalTo("Warren")));
-        assertThat(response.getContacts().get(0).getEmailAddress(), is(equalTo("kat.warren@clampett.com")));
-        assertThat(response.getContacts().get(0).getContactStatus(), is(equalTo(com.xero.models.accounting.Contact.ContactStatusEnum.ACTIVE)));        
-        assertThat(response.getContacts().get(0).getAddresses().get(1).getAddressType(), is(equalTo(com.xero.models.accounting.Address.AddressTypeEnum.POBOX)));
-        assertThat(response.getContacts().get(0).getAddresses().get(1).getCity(), is(equalTo("Palo Alto")));
-        assertThat(response.getContacts().get(0).getAddresses().get(1).getRegion(), is(equalTo("CA")));
-        assertThat(response.getContacts().get(0).getAddresses().get(1).getPostalCode(), is(equalTo("94020")));
-        assertThat(response.getContacts().get(0).getAddresses().get(1).getCountry(), is(equalTo("United States")));
-        assertThat(response.getContacts().get(0).getPhones().get(1).getPhoneType(), is(equalTo(com.xero.models.accounting.Phone.PhoneTypeEnum.DEFAULT)));
-        assertThat(response.getContacts().get(0).getPhones().get(1).getPhoneNumber(), is(equalTo("847-1294")));
-        assertThat(response.getContacts().get(0).getPhones().get(1).getPhoneAreaCode(), is(equalTo("(626)")));
-        assertThat(response.getContacts().get(0).getIsSupplier(), is(equalTo(true)));
-        assertThat(response.getContacts().get(0).getIsCustomer(), is(equalTo(true)));
-        assertThat(response.getContacts().get(0).getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2017-08-21T20:49:04.227Z"))));
-        assertThat(response.getContacts().get(0).getBalances().getAccountsReceivable().getOutstanding(), is(equalTo(760.0)));
-        assertThat(response.getContacts().get(0).getBalances().getAccountsReceivable().getOverdue(), is(equalTo(920.0)));
-        assertThat(response.getContacts().get(0).getBalances().getAccountsPayable().getOutstanding(), is(equalTo(231.6)));
-        assertThat(response.getContacts().get(0).getBalances().getAccountsPayable().getOverdue(), is(equalTo(360.0)));    
-        assertThat(response.getContacts().get(0).getHasAttachments(), is(equalTo(false)));
-        //System.out.println(response.getContacts().get(0).toString());
+        assertThat(response.getContacts().getFirst().getContactID(), is(equalTo(UUID.fromString("5cc8cf28-567e-4d43-b287-687cfcaec47c"))));
+        assertThat(response.getContacts().getFirst().getName(), is(equalTo("Katherine Warren")));
+        assertThat(response.getContacts().getFirst().getFirstName(), is(equalTo("Katherine")));
+        assertThat(response.getContacts().getFirst().getLastName(), is(equalTo("Warren")));
+        assertThat(response.getContacts().getFirst().getEmailAddress(), is(equalTo("kat.warren@clampett.com")));
+        assertThat(response.getContacts().getFirst().getContactStatus(), is(equalTo(com.xero.models.accounting.Contact.ContactStatusEnum.ACTIVE)));        
+        assertThat(response.getContacts().getFirst().getAddresses().get(1).getAddressType(), is(equalTo(com.xero.models.accounting.Address.AddressTypeEnum.POBOX)));
+        assertThat(response.getContacts().getFirst().getAddresses().get(1).getCity(), is(equalTo("Palo Alto")));
+        assertThat(response.getContacts().getFirst().getAddresses().get(1).getRegion(), is(equalTo("CA")));
+        assertThat(response.getContacts().getFirst().getAddresses().get(1).getPostalCode(), is(equalTo("94020")));
+        assertThat(response.getContacts().getFirst().getAddresses().get(1).getCountry(), is(equalTo("United States")));
+        assertThat(response.getContacts().getFirst().getPhones().get(1).getPhoneType(), is(equalTo(com.xero.models.accounting.Phone.PhoneTypeEnum.DEFAULT)));
+        assertThat(response.getContacts().getFirst().getPhones().get(1).getPhoneNumber(), is(equalTo("847-1294")));
+        assertThat(response.getContacts().getFirst().getPhones().get(1).getPhoneAreaCode(), is(equalTo("(626)")));
+        assertThat(response.getContacts().getFirst().getIsSupplier(), is(equalTo(true)));
+        assertThat(response.getContacts().getFirst().getIsCustomer(), is(equalTo(true)));
+        assertThat(response.getContacts().getFirst().getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2017-08-21T20:49:04.227Z"))));
+        assertThat(response.getContacts().getFirst().getBalances().getAccountsReceivable().getOutstanding(), is(equalTo(760.0)));
+        assertThat(response.getContacts().getFirst().getBalances().getAccountsReceivable().getOverdue(), is(equalTo(920.0)));
+        assertThat(response.getContacts().getFirst().getBalances().getAccountsPayable().getOutstanding(), is(equalTo(231.6)));
+        assertThat(response.getContacts().getFirst().getBalances().getAccountsPayable().getOverdue(), is(equalTo(360.0)));    
+        assertThat(response.getContacts().getFirst().getHasAttachments(), is(equalTo(false)));
+        //System.out.println(response.getContacts().getFirst().toString());
 	}
 
    	@Test
@@ -102,53 +106,53 @@ public class AccountingApiContactsTest {
         UUID contactID = UUID.fromString("8138a266-fb42-49b2-a104-014b7045753d");  
         Contacts response = accountingApi.getContact(accessToken,xeroTenantId,contactID);
 
-        assertThat(response.getContacts().get(0).getContactID(), is(equalTo(UUID.fromString("8138a266-fb42-49b2-a104-014b7045753d"))));
-        assertThat(response.getContacts().get(0).getContactNumber(), is(equalTo("SB2")));
-        assertThat(response.getContacts().get(0).getAccountNumber(), is(equalTo("1234567")));
-        assertThat(response.getContacts().get(0).getContactStatus(), is(equalTo(com.xero.models.accounting.Contact.ContactStatusEnum.ACTIVE)));
-        assertThat(response.getContacts().get(0).getName(), is(equalTo("Acme Parts Co.")));
-        assertThat(response.getContacts().get(0).getFirstName(), is(equalTo("Blake")));
-        assertThat(response.getContacts().get(0).getLastName(), is(equalTo("Kohler")));
-        assertThat(response.getContacts().get(0).getEmailAddress(), is(equalTo("bk@krave.co")));
-        assertThat(response.getContacts().get(0).getContactPersons().get(0).getFirstName(), is(equalTo("Sue")));
-        assertThat(response.getContacts().get(0).getContactPersons().get(0).getLastName(), is(equalTo("Johnson")));
-        assertThat(response.getContacts().get(0).getContactPersons().get(0).getEmailAddress(), is(equalTo("sue.johnson@krave.com")));
-        assertThat(response.getContacts().get(0).getContactPersons().get(0).getIncludeInEmails(), is(equalTo(true)));
-        assertThat(response.getContacts().get(0).getBankAccountDetails(), is(equalTo("12334567")));
-        assertThat(response.getContacts().get(0).getTaxNumber(), is(equalTo("123-22-3456")));
-        assertThat(response.getContacts().get(0).getAccountsReceivableTaxType(), is(equalTo("TAX003")));
-        assertThat(response.getContacts().get(0).getAccountsPayableTaxType(), is(equalTo("TAX022")));        
-        assertThat(response.getContacts().get(0).getAddresses().get(0).getAddressType(), is(equalTo(com.xero.models.accounting.Address.AddressTypeEnum.STREET)));
-        assertThat(response.getContacts().get(0).getAddresses().get(0).getAddressLine1(), is(equalTo("123 Fake Street")));
-        assertThat(response.getContacts().get(0).getAddresses().get(0).getCity(), is(equalTo("Vancouver")));
-        assertThat(response.getContacts().get(0).getAddresses().get(0).getRegion(), is(equalTo("British Columbia")));
-        assertThat(response.getContacts().get(0).getAddresses().get(0).getPostalCode(), is(equalTo("V6B 2T4")));
-        assertThat(response.getContacts().get(0).getPhones().get(0).getPhoneType(), is(equalTo(com.xero.models.accounting.Phone.PhoneTypeEnum.DDI)));
-        assertThat(response.getContacts().get(0).getPhones().get(0).getPhoneCountryCode(), is(equalTo("4")));
-        assertThat(response.getContacts().get(0).getPhones().get(0).getPhoneNumber(), is(equalTo("489-44493")));
-        assertThat(response.getContacts().get(0).getPhones().get(0).getPhoneAreaCode(), is(equalTo("345")));
-        assertThat(response.getContacts().get(0).getIsSupplier(), is(equalTo(true)));
-        assertThat(response.getContacts().get(0).getIsCustomer(), is(equalTo(true)));
-        assertThat(response.getContacts().get(0).getDefaultCurrency(), is(equalTo(com.xero.models.accounting.CurrencyCode.USD)));
-        assertThat(response.getContacts().get(0).getSalesDefaultAccountCode(), is(equalTo("002")));
-        assertThat(response.getContacts().get(0).getPurchasesDefaultAccountCode(), is(equalTo("660")));
-        assertThat(response.getContacts().get(0).getWebsite(), is(equalTo("http://www.google.com")));
-        assertThat(response.getContacts().get(0).getBrandingTheme().getBrandingThemeID(), is(equalTo(UUID.fromString("dabc7637-62c1-4941-8a6e-ee44fa5090e7"))));
-        assertThat(response.getContacts().get(0).getBrandingTheme().getName(), is(equalTo("Standard")));
-        assertThat(response.getContacts().get(0).getBatchPayments().getDetails(), is(equalTo("biz checking")));
-        assertThat(response.getContacts().get(0).getBatchPayments().getBankAccountNumber(), is(equalTo("12334567")));
-        assertThat(response.getContacts().get(0).getBatchPayments().getBankAccountName(), is(equalTo("Citi Bank")));
-        assertThat(response.getContacts().get(0).getDiscount(), is(equalTo(13.0)));
-        assertThat(response.getContacts().get(0).getBalances().getAccountsReceivable().getOutstanding(), is(equalTo(118.90)));
-        assertThat(response.getContacts().get(0).getBalances().getAccountsReceivable().getOverdue(), is(equalTo(136.90)));
-        assertThat(response.getContacts().get(0).getBalances().getAccountsPayable().getOutstanding(), is(equalTo(-43.60)));
-        assertThat(response.getContacts().get(0).getBalances().getAccountsPayable().getOverdue(), is(equalTo(40.00)));    
-        assertThat(response.getContacts().get(0).getPaymentTerms().getBills().getDay(), is(equalTo(Integer.parseInt("12"))));
-        assertThat(response.getContacts().get(0).getPaymentTerms().getBills().getType(), is(equalTo(com.xero.models.accounting.PaymentTermType.OFFOLLOWINGMONTH)));
-        assertThat(response.getContacts().get(0).getPaymentTerms().getSales().getDay(), is(equalTo(Integer.parseInt("14"))));
-        assertThat(response.getContacts().get(0).getPaymentTerms().getSales().getType(), is(equalTo(com.xero.models.accounting.PaymentTermType.OFCURRENTMONTH)));
-        assertThat(response.getContacts().get(0).getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-03-01T17:02:57.193Z"))));  
-        //System.out.println(response.getContacts().get(0).toString());
+        assertThat(response.getContacts().getFirst().getContactID(), is(equalTo(UUID.fromString("8138a266-fb42-49b2-a104-014b7045753d"))));
+        assertThat(response.getContacts().getFirst().getContactNumber(), is(equalTo("SB2")));
+        assertThat(response.getContacts().getFirst().getAccountNumber(), is(equalTo("1234567")));
+        assertThat(response.getContacts().getFirst().getContactStatus(), is(equalTo(com.xero.models.accounting.Contact.ContactStatusEnum.ACTIVE)));
+        assertThat(response.getContacts().getFirst().getName(), is(equalTo("Acme Parts Co.")));
+        assertThat(response.getContacts().getFirst().getFirstName(), is(equalTo("Blake")));
+        assertThat(response.getContacts().getFirst().getLastName(), is(equalTo("Kohler")));
+        assertThat(response.getContacts().getFirst().getEmailAddress(), is(equalTo("bk@krave.co")));
+        assertThat(response.getContacts().getFirst().getContactPersons().getFirst().getFirstName(), is(equalTo("Sue")));
+        assertThat(response.getContacts().getFirst().getContactPersons().getFirst().getLastName(), is(equalTo("Johnson")));
+        assertThat(response.getContacts().getFirst().getContactPersons().getFirst().getEmailAddress(), is(equalTo("sue.johnson@krave.com")));
+        assertThat(response.getContacts().getFirst().getContactPersons().getFirst().getIncludeInEmails(), is(equalTo(true)));
+        assertThat(response.getContacts().getFirst().getBankAccountDetails(), is(equalTo("12334567")));
+        assertThat(response.getContacts().getFirst().getTaxNumber(), is(equalTo("123-22-3456")));
+        assertThat(response.getContacts().getFirst().getAccountsReceivableTaxType(), is(equalTo("TAX003")));
+        assertThat(response.getContacts().getFirst().getAccountsPayableTaxType(), is(equalTo("TAX022")));        
+        assertThat(response.getContacts().getFirst().getAddresses().getFirst().getAddressType(), is(equalTo(com.xero.models.accounting.Address.AddressTypeEnum.STREET)));
+        assertThat(response.getContacts().getFirst().getAddresses().getFirst().getAddressLine1(), is(equalTo("123 Fake Street")));
+        assertThat(response.getContacts().getFirst().getAddresses().getFirst().getCity(), is(equalTo("Vancouver")));
+        assertThat(response.getContacts().getFirst().getAddresses().getFirst().getRegion(), is(equalTo("British Columbia")));
+        assertThat(response.getContacts().getFirst().getAddresses().getFirst().getPostalCode(), is(equalTo("V6B 2T4")));
+        assertThat(response.getContacts().getFirst().getPhones().getFirst().getPhoneType(), is(equalTo(com.xero.models.accounting.Phone.PhoneTypeEnum.DDI)));
+        assertThat(response.getContacts().getFirst().getPhones().getFirst().getPhoneCountryCode(), is(equalTo("4")));
+        assertThat(response.getContacts().getFirst().getPhones().getFirst().getPhoneNumber(), is(equalTo("489-44493")));
+        assertThat(response.getContacts().getFirst().getPhones().getFirst().getPhoneAreaCode(), is(equalTo("345")));
+        assertThat(response.getContacts().getFirst().getIsSupplier(), is(equalTo(true)));
+        assertThat(response.getContacts().getFirst().getIsCustomer(), is(equalTo(true)));
+        assertThat(response.getContacts().getFirst().getDefaultCurrency(), is(equalTo(com.xero.models.accounting.CurrencyCode.USD)));
+        assertThat(response.getContacts().getFirst().getSalesDefaultAccountCode(), is(equalTo("002")));
+        assertThat(response.getContacts().getFirst().getPurchasesDefaultAccountCode(), is(equalTo("660")));
+        assertThat(response.getContacts().getFirst().getWebsite(), is(equalTo("http://www.google.com")));
+        assertThat(response.getContacts().getFirst().getBrandingTheme().getBrandingThemeID(), is(equalTo(UUID.fromString("dabc7637-62c1-4941-8a6e-ee44fa5090e7"))));
+        assertThat(response.getContacts().getFirst().getBrandingTheme().getName(), is(equalTo("Standard")));
+        assertThat(response.getContacts().getFirst().getBatchPayments().getDetails(), is(equalTo("biz checking")));
+        assertThat(response.getContacts().getFirst().getBatchPayments().getBankAccountNumber(), is(equalTo("12334567")));
+        assertThat(response.getContacts().getFirst().getBatchPayments().getBankAccountName(), is(equalTo("Citi Bank")));
+        assertThat(response.getContacts().getFirst().getDiscount(), is(equalTo(13.0)));
+        assertThat(response.getContacts().getFirst().getBalances().getAccountsReceivable().getOutstanding(), is(equalTo(118.90)));
+        assertThat(response.getContacts().getFirst().getBalances().getAccountsReceivable().getOverdue(), is(equalTo(136.90)));
+        assertThat(response.getContacts().getFirst().getBalances().getAccountsPayable().getOutstanding(), is(equalTo(-43.60)));
+        assertThat(response.getContacts().getFirst().getBalances().getAccountsPayable().getOverdue(), is(equalTo(40.00)));    
+        assertThat(response.getContacts().getFirst().getPaymentTerms().getBills().getDay(), is(equalTo(Integer.parseInt("12"))));
+        assertThat(response.getContacts().getFirst().getPaymentTerms().getBills().getType(), is(equalTo(com.xero.models.accounting.PaymentTermType.OFFOLLOWINGMONTH)));
+        assertThat(response.getContacts().getFirst().getPaymentTerms().getSales().getDay(), is(equalTo(Integer.parseInt("14"))));
+        assertThat(response.getContacts().getFirst().getPaymentTerms().getSales().getType(), is(equalTo(com.xero.models.accounting.PaymentTermType.OFCURRENTMONTH)));
+        assertThat(response.getContacts().getFirst().getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-03-01T17:02:57.193Z"))));  
+        //System.out.println(response.getContacts().getFirst().toString());
     }
     /*
 	@Test
@@ -157,17 +161,17 @@ public class AccountingApiContactsTest {
 
         Contact contact = new Contact();
         Contacts response = accountingApi.createContact(accessToken,xeroTenantId,contact);
-		assertThat(response.getContacts().get(0).getContactID(), is(equalTo(UUID.fromString("3ff6d40c-af9a-40a3-89ce-3c1556a25591"))));
-		assertThat(response.getContacts().get(0).getContactStatus(), is(equalTo(com.xero.models.accounting.Contact.ContactStatusEnum.ACTIVE)));
-		assertThat(response.getContacts().get(0).getName(), is(equalTo("Foo9987")));
-        assertThat(response.getContacts().get(0).getEmailAddress(), is(equalTo("sid32476@blah.com")));
-        assertThat(response.getContacts().get(0).getPhones().get(3).getPhoneNumber(), is(equalTo("555-1212")));
-        assertThat(response.getContacts().get(0).getPhones().get(3).getPhoneAreaCode(), is(equalTo("415")));
-        assertThat(response.getContacts().get(0).getPaymentTerms().getBills().getDay(), is(equalTo(Integer.parseInt("15"))));
-        assertThat(response.getContacts().get(0).getPaymentTerms().getBills().getType(), is(equalTo(com.xero.models.accounting.PaymentTermType.OFCURRENTMONTH)));
-        assertThat(response.getContacts().get(0).getPaymentTerms().getSales().getDay(), is(equalTo(Integer.parseInt("10"))));
-        assertThat(response.getContacts().get(0).getPaymentTerms().getSales().getType(), is(equalTo(com.xero.models.accounting.PaymentTermType.DAYSAFTERBILLMONTH)));
-        //System.out.println(response.getContacts().get(0).toString());
+		assertThat(response.getContacts().getFirst().getContactID(), is(equalTo(UUID.fromString("3ff6d40c-af9a-40a3-89ce-3c1556a25591"))));
+		assertThat(response.getContacts().getFirst().getContactStatus(), is(equalTo(com.xero.models.accounting.Contact.ContactStatusEnum.ACTIVE)));
+		assertThat(response.getContacts().getFirst().getName(), is(equalTo("Foo9987")));
+        assertThat(response.getContacts().getFirst().getEmailAddress(), is(equalTo("sid32476@blah.com")));
+        assertThat(response.getContacts().getFirst().getPhones().get(3).getPhoneNumber(), is(equalTo("555-1212")));
+        assertThat(response.getContacts().getFirst().getPhones().get(3).getPhoneAreaCode(), is(equalTo("415")));
+        assertThat(response.getContacts().getFirst().getPaymentTerms().getBills().getDay(), is(equalTo(Integer.parseInt("15"))));
+        assertThat(response.getContacts().getFirst().getPaymentTerms().getBills().getType(), is(equalTo(com.xero.models.accounting.PaymentTermType.OFCURRENTMONTH)));
+        assertThat(response.getContacts().getFirst().getPaymentTerms().getSales().getDay(), is(equalTo(Integer.parseInt("10"))));
+        assertThat(response.getContacts().getFirst().getPaymentTerms().getSales().getType(), is(equalTo(com.xero.models.accounting.PaymentTermType.DAYSAFTERBILLMONTH)));
+        //System.out.println(response.getContacts().getFirst().toString());
     }
 */
     @Test
@@ -177,25 +181,25 @@ public class AccountingApiContactsTest {
         UUID contactID = UUID.fromString("8138a266-fb42-49b2-a104-014b7045753d");  
         Contacts contacts = new Contacts();
         Contacts response = accountingApi.updateContact(accessToken,xeroTenantId,contactID,contacts, null);
-        assertThat(response.getContacts().get(0).getContactID(), is(equalTo(UUID.fromString("d5be01fb-b09f-4c3a-9c67-e10c2a03412c"))));
-        assertThat(response.getContacts().get(0).getContactStatus(), is(equalTo(com.xero.models.accounting.Contact.ContactStatusEnum.ACTIVE)));
-        assertThat(response.getContacts().get(0).getName(), is(equalTo("FooBar")));
-        assertThat(response.getContacts().get(0).getEmailAddress(), is(equalTo("sid30680@blah.com")));
-        assertThat(response.getContacts().get(0).getPhones().get(3).getPhoneType(), is(equalTo(com.xero.models.accounting.Phone.PhoneTypeEnum.MOBILE)));
-        assertThat(response.getContacts().get(0).getPhones().get(3).getPhoneNumber(), is(equalTo("555-1212")));
-        assertThat(response.getContacts().get(0).getPhones().get(3).getPhoneAreaCode(), is(equalTo("415")));
-        assertThat(response.getContacts().get(0).getIsSupplier(), is(equalTo(false)));
-        assertThat(response.getContacts().get(0).getIsCustomer(), is(equalTo(false)));
-        assertThat(response.getContacts().get(0).getPaymentTerms().getBills().getDay(), is(equalTo(Integer.parseInt("15"))));
-        assertThat(response.getContacts().get(0).getPaymentTerms().getBills().getType(), is(equalTo(com.xero.models.accounting.PaymentTermType.OFCURRENTMONTH)));
-        assertThat(response.getContacts().get(0).getPaymentTerms().getSales().getDay(), is(equalTo(Integer.parseInt("10"))));
-        assertThat(response.getContacts().get(0).getPaymentTerms().getSales().getType(), is(equalTo(com.xero.models.accounting.PaymentTermType.DAYSAFTERBILLMONTH)));
-        assertThat(response.getContacts().get(0).getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-03-01T00:27:11.763Z"))));  
-        assertThat(response.getContacts().get(0).getHasValidationErrors(), is(equalTo(false))); 
-        //System.out.println(response.getContacts().get(0).toString());
+        assertThat(response.getContacts().getFirst().getContactID(), is(equalTo(UUID.fromString("d5be01fb-b09f-4c3a-9c67-e10c2a03412c"))));
+        assertThat(response.getContacts().getFirst().getContactStatus(), is(equalTo(com.xero.models.accounting.Contact.ContactStatusEnum.ACTIVE)));
+        assertThat(response.getContacts().getFirst().getName(), is(equalTo("FooBar")));
+        assertThat(response.getContacts().getFirst().getEmailAddress(), is(equalTo("sid30680@blah.com")));
+        assertThat(response.getContacts().getFirst().getPhones().get(3).getPhoneType(), is(equalTo(com.xero.models.accounting.Phone.PhoneTypeEnum.MOBILE)));
+        assertThat(response.getContacts().getFirst().getPhones().get(3).getPhoneNumber(), is(equalTo("555-1212")));
+        assertThat(response.getContacts().getFirst().getPhones().get(3).getPhoneAreaCode(), is(equalTo("415")));
+        assertThat(response.getContacts().getFirst().getIsSupplier(), is(equalTo(false)));
+        assertThat(response.getContacts().getFirst().getIsCustomer(), is(equalTo(false)));
+        assertThat(response.getContacts().getFirst().getPaymentTerms().getBills().getDay(), is(equalTo(Integer.parseInt("15"))));
+        assertThat(response.getContacts().getFirst().getPaymentTerms().getBills().getType(), is(equalTo(com.xero.models.accounting.PaymentTermType.OFCURRENTMONTH)));
+        assertThat(response.getContacts().getFirst().getPaymentTerms().getSales().getDay(), is(equalTo(Integer.parseInt("10"))));
+        assertThat(response.getContacts().getFirst().getPaymentTerms().getSales().getType(), is(equalTo(com.xero.models.accounting.PaymentTermType.DAYSAFTERBILLMONTH)));
+        assertThat(response.getContacts().getFirst().getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-03-01T00:27:11.763Z"))));  
+        assertThat(response.getContacts().getFirst().getHasValidationErrors(), is(equalTo(false))); 
+        //System.out.println(response.getContacts().getFirst().toString());
     }
 
-    @Ignore("Enable when OpenAPI schema is changed to binary wherever octet/stream is used")
+    @Disabled("Enable when OpenAPI schema is changed to binary wherever octet/stream is used")
     @Test
     public void createContactAttachmentByFileNameTest() throws IOException {
         System.out.println("@Test - createContactAttachmentByFileNameTest");
@@ -204,13 +208,13 @@ public class AccountingApiContactsTest {
         String fileName = "sample5.jpg";
         
         Attachments response = accountingApi.createContactAttachmentByFileName(accessToken,xeroTenantId,contactID, fileName, body, null);
-        assertThat(response.getAttachments().get(0).getAttachmentID(), is(equalTo(UUID.fromString("27e37b01-6996-4ebe-836c-95fd472ad674"))));
-        assertThat(response.getAttachments().get(0).getFileName(), is(equalTo("sample5.jpg")));
-        assertThat(response.getAttachments().get(0).getMimeType(), is(equalTo("image/jpg")));
-        assertThat(response.getAttachments().get(0).getUrl(), is(equalTo("https://api.xero.com/api.xro/2.0/Contacts/8138a266-fb42-49b2-a104-014b7045753d/Attachments/sample5.jpg")));
-        assertThat(response.getAttachments().get(0).getContentLength(), is(equalTo(2878711)));
-        assertThat(response.getAttachments().get(0).getIncludeOnline(), is(equalTo(null)));
-        //System.out.println(response.getAttachments().get(0).toString());	
+        assertThat(response.getAttachments().getFirst().getAttachmentID(), is(equalTo(UUID.fromString("27e37b01-6996-4ebe-836c-95fd472ad674"))));
+        assertThat(response.getAttachments().getFirst().getFileName(), is(equalTo("sample5.jpg")));
+        assertThat(response.getAttachments().getFirst().getMimeType(), is(equalTo("image/jpg")));
+        assertThat(response.getAttachments().getFirst().getUrl(), is(equalTo("https://api.xero.com/api.xro/2.0/Contacts/8138a266-fb42-49b2-a104-014b7045753d/Attachments/sample5.jpg")));
+        assertThat(response.getAttachments().getFirst().getContentLength(), is(equalTo(2878711)));
+        assertThat(response.getAttachments().getFirst().getIncludeOnline(), is(equalTo(null)));
+        //System.out.println(response.getAttachments().getFirst().toString());	
     }
     
 
@@ -221,13 +225,13 @@ public class AccountingApiContactsTest {
         UUID contactID = UUID.fromString("04e0a3e3-b116-456a-9f32-9706f0d33afa");  
         Attachments response = accountingApi.getContactAttachments(accessToken,xeroTenantId,contactID);
 
-        assertThat(response.getAttachments().get(0).getAttachmentID(), is(equalTo(UUID.fromString("04e0a3e3-b116-456a-9f32-9706f0d33afa"))));
-        assertThat(response.getAttachments().get(0).getFileName(), is(equalTo("sample5.jpg")));
-        assertThat(response.getAttachments().get(0).getMimeType(), is(equalTo("image/jpg")));
-        assertThat(response.getAttachments().get(0).getUrl(), is(equalTo("https://api.xero.com/api.xro/2.0/Contacts/8138a266-fb42-49b2-a104-014b7045753d/Attachments/sample5.jpg")));
-        assertThat(response.getAttachments().get(0).getContentLength(), is(equalTo(2878711)));
-        assertThat(response.getAttachments().get(0).getIncludeOnline(), is(equalTo(null)));
-        //System.out.println(response.getAttachments().get(0).toString());
+        assertThat(response.getAttachments().getFirst().getAttachmentID(), is(equalTo(UUID.fromString("04e0a3e3-b116-456a-9f32-9706f0d33afa"))));
+        assertThat(response.getAttachments().getFirst().getFileName(), is(equalTo("sample5.jpg")));
+        assertThat(response.getAttachments().getFirst().getMimeType(), is(equalTo("image/jpg")));
+        assertThat(response.getAttachments().getFirst().getUrl(), is(equalTo("https://api.xero.com/api.xro/2.0/Contacts/8138a266-fb42-49b2-a104-014b7045753d/Attachments/sample5.jpg")));
+        assertThat(response.getAttachments().getFirst().getContentLength(), is(equalTo(2878711)));
+        assertThat(response.getAttachments().getFirst().getIncludeOnline(), is(equalTo(null)));
+        //System.out.println(response.getAttachments().getFirst().toString());
     }
     
 

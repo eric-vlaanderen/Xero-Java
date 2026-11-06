@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** CISSetting */
@@ -42,7 +42,7 @@ public class CISSetting {
    *
    * @return ciSEnabled
    */
-  @ApiModelProperty(value = "Boolean that describes if the contact is a CIS Subcontractor")
+  @Schema(description = "Boolean that describes if the contact is a CIS Subcontractor")
   /**
    * Boolean that describes if the contact is a CIS Subcontractor
    *
@@ -67,8 +67,8 @@ public class CISSetting {
    *
    * @return rate
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "CIS Deduction rate for the contact if he is a subcontractor. If the contact is not"
               + " CISEnabled, then the rate is not returned")
   /**

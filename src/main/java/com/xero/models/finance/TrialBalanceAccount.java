@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -67,7 +67,7 @@ public class TrialBalanceAccount {
    *
    * @return accountId
    */
-  @ApiModelProperty(value = "ID of the account")
+  @Schema(description = "ID of the account")
   /**
    * ID of the account
    *
@@ -106,8 +106,8 @@ public class TrialBalanceAccount {
    *
    * @return accountType
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The type of the account. See <a"
               + " href='https://developer.xero.com/documentation/api/types#AccountTypes'>Account"
               + " Types</a>")
@@ -149,7 +149,7 @@ public class TrialBalanceAccount {
    *
    * @return accountCode
    */
-  @ApiModelProperty(value = "Customer defined alpha numeric account code e.g 200 or SALES")
+  @Schema(description = "Customer defined alpha numeric account code e.g 200 or SALES")
   /**
    * Customer defined alpha numeric account code e.g 200 or SALES
    *
@@ -188,8 +188,8 @@ public class TrialBalanceAccount {
    *
    * @return accountClass
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The class of the account. See <a"
               + " href='https://developer.xero.com/documentation/api/types#AccountClassTypes'>Account"
               + " Class Types</a>")
@@ -235,8 +235,8 @@ public class TrialBalanceAccount {
    *
    * @return status
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Accounts with a status of ACTIVE can be updated to ARCHIVED. See <a"
               + " href='https://developer.xero.com/documentation/api/types#AccountStatusCodes'>Account"
               + " Status Codes</a>")
@@ -278,7 +278,7 @@ public class TrialBalanceAccount {
    *
    * @return reportingCode
    */
-  @ApiModelProperty(value = "Reporting code (Shown if set)")
+  @Schema(description = "Reporting code (Shown if set)")
   /**
    * Reporting code (Shown if set)
    *
@@ -313,7 +313,7 @@ public class TrialBalanceAccount {
    *
    * @return accountName
    */
-  @ApiModelProperty(value = "Name of the account")
+  @Schema(description = "Name of the account")
   /**
    * Name of the account
    *
@@ -348,7 +348,7 @@ public class TrialBalanceAccount {
    *
    * @return balance
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * balance
    *
@@ -385,8 +385,8 @@ public class TrialBalanceAccount {
    *
    * @return signedBalance
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Value of balance. Expense and Asset accounts code debits as positive. Revenue,"
               + " Liability, and Equity accounts code debits as negative")
   /**
@@ -425,7 +425,7 @@ public class TrialBalanceAccount {
    *
    * @return accountMovement
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * accountMovement
    *

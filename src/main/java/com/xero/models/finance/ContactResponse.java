@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -43,7 +43,7 @@ public class ContactResponse {
    *
    * @return contactId
    */
-  @ApiModelProperty(value = "Xero Identifier of contact")
+  @Schema(description = "Xero Identifier of contact")
   /**
    * Xero Identifier of contact
    *
@@ -78,7 +78,7 @@ public class ContactResponse {
    *
    * @return contactName
    */
-  @ApiModelProperty(value = "Full name of contact/organisation")
+  @Schema(description = "Full name of contact/organisation")
   /**
    * Full name of contact/organisation
    *

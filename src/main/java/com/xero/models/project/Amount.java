@@ -13,7 +13,7 @@ package com.xero.models.project;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** Amount */
@@ -42,7 +42,7 @@ public class Amount {
    *
    * @return currency
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * currency
    *
@@ -77,7 +77,7 @@ public class Amount {
    *
    * @return value
    */
-  @ApiModelProperty(example = "1.0", value = "")
+  @Schema(example = "1.0", description = "")
   /**
    * value
    *

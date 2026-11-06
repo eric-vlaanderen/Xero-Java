@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -172,7 +172,7 @@ public class Benefit {
    *
    * @return id
    */
-  @ApiModelProperty(value = "The Xero identifier for superannuation")
+  @Schema(description = "The Xero identifier for superannuation")
   /**
    * The Xero identifier for superannuation
    *
@@ -207,7 +207,7 @@ public class Benefit {
    *
    * @return name
    */
-  @ApiModelProperty(required = true, value = "Name of the superannuations")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Name of the superannuations")
   /**
    * Name of the superannuations
    *
@@ -242,7 +242,7 @@ public class Benefit {
    *
    * @return category
    */
-  @ApiModelProperty(required = true, value = "Superannuations Category type")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Superannuations Category type")
   /**
    * Superannuations Category type
    *
@@ -277,7 +277,7 @@ public class Benefit {
    *
    * @return liabilityAccountId
    */
-  @ApiModelProperty(required = true, value = "Xero identifier for Liability Account")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Xero identifier for Liability Account")
   /**
    * Xero identifier for Liability Account
    *
@@ -312,7 +312,7 @@ public class Benefit {
    *
    * @return expenseAccountId
    */
-  @ApiModelProperty(required = true, value = "Xero identifier for Expense Account")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Xero identifier for Expense Account")
   /**
    * Xero identifier for Expense Account
    *
@@ -347,8 +347,8 @@ public class Benefit {
    *
    * @return calculationTypeNZ
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Calculation Type of the superannuation either FixedAmount or"
               + " PercentageOfTaxableEarnings")
   /**
@@ -385,7 +385,7 @@ public class Benefit {
    *
    * @return standardAmount
    */
-  @ApiModelProperty(value = "Standard amount of the superannuation")
+  @Schema(description = "Standard amount of the superannuation")
   /**
    * Standard amount of the superannuation
    *
@@ -420,7 +420,7 @@ public class Benefit {
    *
    * @return percentage
    */
-  @ApiModelProperty(value = "Percentage of Taxable Earnings of the superannuation")
+  @Schema(description = "Percentage of Taxable Earnings of the superannuation")
   /**
    * Percentage of Taxable Earnings of the superannuation
    *
@@ -455,7 +455,7 @@ public class Benefit {
    *
    * @return companyMax
    */
-  @ApiModelProperty(value = "Company Maximum amount of the superannuation")
+  @Schema(description = "Company Maximum amount of the superannuation")
   /**
    * Company Maximum amount of the superannuation
    *
@@ -490,7 +490,7 @@ public class Benefit {
    *
    * @return currentRecord
    */
-  @ApiModelProperty(value = "Identifier of a record is active or not.")
+  @Schema(description = "Identifier of a record is active or not.")
   /**
    * Identifier of a record is active or not.
    *

@@ -13,16 +13,17 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** PayrollCalendar */
 public class PayrollCalendar {
@@ -68,7 +69,7 @@ public class PayrollCalendar {
    *
    * @return name
    */
-  @ApiModelProperty(example = "Fortnightly Calendar", value = "Name of the Payroll Calendar")
+  @Schema(example = "Fortnightly Calendar", description = "Name of the Payroll Calendar")
   /**
    * Name of the Payroll Calendar
    *
@@ -103,7 +104,7 @@ public class PayrollCalendar {
    *
    * @return calendarType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * calendarType
    *
@@ -140,9 +141,9 @@ public class PayrollCalendar {
    *
    * @return startDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(322560000000+0000)/",
-      value =
+      description =
           "The start date of the upcoming pay period. The end date will be calculated based upon"
               + " this date, and the calendar type selected (YYYY-MM-DD)")
   /**
@@ -212,9 +213,9 @@ public class PayrollCalendar {
    *
    * @return paymentDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(322560000000+0000)/",
-      value = "The date on which employees will be paid for the upcoming pay period (YYYY-MM-DD)")
+      description = "The date on which employees will be paid for the upcoming pay period (YYYY-MM-DD)")
   /**
    * The date on which employees will be paid for the upcoming pay period (YYYY-MM-DD)
    *
@@ -278,7 +279,7 @@ public class PayrollCalendar {
    *
    * @return payrollCalendarID
    */
-  @ApiModelProperty(example = "e0eb6747-7c17-4075-b804-989f8d4e5d39", value = "Xero identifier")
+  @Schema(example = "e0eb6747-7c17-4075-b804-989f8d4e5d39", description = "Xero identifier")
   /**
    * Xero identifier
    *
@@ -302,7 +303,7 @@ public class PayrollCalendar {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1583967733054+0000)/", value = "Last modified timestamp")
+  @Schema(example = "/Date(1583967733054+0000)/", description = "Last modified timestamp")
   /**
    * Last modified timestamp
    *
@@ -344,7 +345,7 @@ public class PayrollCalendar {
    *
    * @return referenceDate
    */
-  @ApiModelProperty(example = "/Date(322560000000+0000)/", value = "Reference Date (YYYY-MM-DD)")
+  @Schema(example = "/Date(322560000000+0000)/", description = "Reference Date (YYYY-MM-DD)")
   /**
    * Reference Date (YYYY-MM-DD)
    *
@@ -422,7 +423,7 @@ public class PayrollCalendar {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *

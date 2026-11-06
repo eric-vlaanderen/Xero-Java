@@ -1,15 +1,17 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrollnz.*;
+import com.xero.models.payrollnz.Settings;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollNzApiSettingsTest {
 
@@ -19,7 +21,7 @@ public class PayrollNzApiSettingsTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -40,10 +42,10 @@ public class PayrollNzApiSettingsTest {
        
         Settings response = payrollNzApi.getSettings(accessToken, xeroTenantId);
         
-        assertThat(response.getSettings().getAccounts().get(0).getAccountID(), is(equalTo(UUID.fromString("fa5cdc43-643b-4ad8-b4ac-3ffe0d0f4488"))));
-        assertThat(response.getSettings().getAccounts().get(0).getType(), is(equalTo(com.xero.models.payrollnz.Account.TypeEnum.PAYELIABILITY)));
-        assertThat(response.getSettings().getAccounts().get(0).getCode() , is(equalTo("825")));
-        assertThat(response.getSettings().getAccounts().get(0).getName() , is(equalTo("PAYE Payable")));
+        assertThat(response.getSettings().getAccounts().getFirst().getAccountID(), is(equalTo(UUID.fromString("fa5cdc43-643b-4ad8-b4ac-3ffe0d0f4488"))));
+        assertThat(response.getSettings().getAccounts().getFirst().getType(), is(equalTo(com.xero.models.payrollnz.Account.TypeEnum.PAYELIABILITY)));
+        assertThat(response.getSettings().getAccounts().getFirst().getCode() , is(equalTo("825")));
+        assertThat(response.getSettings().getAccounts().getFirst().getName() , is(equalTo("PAYE Payable")));
         assertThat(response.getSettings().getAccounts().get(1).getAccountID(), is(equalTo(UUID.fromString("e529775e-ea49-4a19-86f0-8d3e1ecda2cd"))));
         assertThat(response.getSettings().getAccounts().get(1).getType(), is(equalTo(com.xero.models.payrollnz.Account.TypeEnum.WAGESPAYABLE)));
         assertThat(response.getSettings().getAccounts().get(1).getCode() , is(equalTo("814")));

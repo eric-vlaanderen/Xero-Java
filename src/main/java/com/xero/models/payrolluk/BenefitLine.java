@@ -13,7 +13,7 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -52,7 +52,7 @@ public class BenefitLine {
    *
    * @return benefitTypeID
    */
-  @ApiModelProperty(value = "Xero identifier for payroll benefit type")
+  @Schema(description = "Xero identifier for payroll benefit type")
   /**
    * Xero identifier for payroll benefit type
    *
@@ -87,7 +87,7 @@ public class BenefitLine {
    *
    * @return displayName
    */
-  @ApiModelProperty(value = "Benefit display name")
+  @Schema(description = "Benefit display name")
   /**
    * Benefit display name
    *
@@ -122,7 +122,7 @@ public class BenefitLine {
    *
    * @return amount
    */
-  @ApiModelProperty(value = "The amount of the benefit line.")
+  @Schema(description = "The amount of the benefit line.")
   /**
    * The amount of the benefit line.
    *
@@ -157,7 +157,7 @@ public class BenefitLine {
    *
    * @return fixedAmount
    */
-  @ApiModelProperty(value = "Benefit fixed amount")
+  @Schema(description = "Benefit fixed amount")
   /**
    * Benefit fixed amount
    *
@@ -192,7 +192,7 @@ public class BenefitLine {
    *
    * @return percentage
    */
-  @ApiModelProperty(value = "Benefit rate percentage")
+  @Schema(description = "Benefit rate percentage")
   /**
    * Benefit rate percentage
    *

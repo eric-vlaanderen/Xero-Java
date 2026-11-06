@@ -15,10 +15,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** SalaryAndWage */
 public class SalaryAndWage {
@@ -170,7 +171,7 @@ public class SalaryAndWage {
    *
    * @return salaryAndWagesID
    */
-  @ApiModelProperty(value = "Xero unique identifier for a salary and wages record")
+  @Schema(description = "Xero unique identifier for a salary and wages record")
   /**
    * Xero unique identifier for a salary and wages record
    *
@@ -205,7 +206,7 @@ public class SalaryAndWage {
    *
    * @return earningsRateID
    */
-  @ApiModelProperty(required = true, value = "Xero unique identifier for an earnings rate")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Xero unique identifier for an earnings rate")
   /**
    * Xero unique identifier for an earnings rate
    *
@@ -240,9 +241,9 @@ public class SalaryAndWage {
    *
    * @return numberOfUnitsPerWeek
    */
-  @ApiModelProperty(
-      required = true,
-      value = "The Number of Units per week for the corresponding salary and wages")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The Number of Units per week for the corresponding salary and wages")
   /**
    * The Number of Units per week for the corresponding salary and wages
    *
@@ -277,7 +278,7 @@ public class SalaryAndWage {
    *
    * @return ratePerUnit
    */
-  @ApiModelProperty(value = "The rate of each unit for the corresponding salary and wages")
+  @Schema(description = "The rate of each unit for the corresponding salary and wages")
   /**
    * The rate of each unit for the corresponding salary and wages
    *
@@ -312,7 +313,7 @@ public class SalaryAndWage {
    *
    * @return numberOfUnitsPerDay
    */
-  @ApiModelProperty(value = "The Number of Units per day for the corresponding salary and wages")
+  @Schema(description = "The Number of Units per day for the corresponding salary and wages")
   /**
    * The Number of Units per day for the corresponding salary and wages
    *
@@ -347,9 +348,9 @@ public class SalaryAndWage {
    *
    * @return effectiveFrom
    */
-  @ApiModelProperty(
-      required = true,
-      value = "The effective date of the corresponding salary and wages")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The effective date of the corresponding salary and wages")
   /**
    * The effective date of the corresponding salary and wages
    *
@@ -384,7 +385,7 @@ public class SalaryAndWage {
    *
    * @return annualSalary
    */
-  @ApiModelProperty(required = true, value = "The annual salary")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The annual salary")
   /**
    * The annual salary
    *
@@ -419,9 +420,9 @@ public class SalaryAndWage {
    *
    * @return status
    */
-  @ApiModelProperty(
-      required = true,
-      value = "The current status of the corresponding salary and wages")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The current status of the corresponding salary and wages")
   /**
    * The current status of the corresponding salary and wages
    *
@@ -456,9 +457,9 @@ public class SalaryAndWage {
    *
    * @return paymentType
    */
-  @ApiModelProperty(
-      required = true,
-      value = "The type of the payment of the corresponding salary and wages")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The type of the payment of the corresponding salary and wages")
   /**
    * The type of the payment of the corresponding salary and wages
    *

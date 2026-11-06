@@ -13,9 +13,10 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
-import org.threeten.bp.LocalDate;
 
 /** EmployeeTax */
 public class EmployeeTax {
@@ -70,7 +71,7 @@ public class EmployeeTax {
    *
    * @return starterType
    */
-  @ApiModelProperty(example = "New Employee with P45", value = "The Starter type.")
+  @Schema(example = "New Employee with P45", description = "The Starter type.")
   /**
    * The Starter type.
    *
@@ -105,9 +106,9 @@ public class EmployeeTax {
    *
    * @return starterDeclaration
    */
-  @ApiModelProperty(
+  @Schema(
       example = "B.) This is currently their only job",
-      value = "Starter declaration.")
+      description = "Starter declaration.")
   /**
    * Starter declaration.
    *
@@ -142,7 +143,7 @@ public class EmployeeTax {
    *
    * @return taxCode
    */
-  @ApiModelProperty(example = "1185L", value = "The Tax code.")
+  @Schema(example = "1185L", description = "The Tax code.")
   /**
    * The Tax code.
    *
@@ -177,7 +178,7 @@ public class EmployeeTax {
    *
    * @return w1M1
    */
-  @ApiModelProperty(value = "Describes whether the tax settings is W1M1")
+  @Schema(description = "Describes whether the tax settings is W1M1")
   /**
    * Describes whether the tax settings is W1M1
    *
@@ -212,7 +213,7 @@ public class EmployeeTax {
    *
    * @return previousTaxablePay
    */
-  @ApiModelProperty(value = "The previous taxable pay")
+  @Schema(description = "The previous taxable pay")
   /**
    * The previous taxable pay
    *
@@ -247,7 +248,7 @@ public class EmployeeTax {
    *
    * @return previousTaxPaid
    */
-  @ApiModelProperty(value = "The tax amount previously paid")
+  @Schema(description = "The tax amount previously paid")
   /**
    * The tax amount previously paid
    *
@@ -282,7 +283,7 @@ public class EmployeeTax {
    *
    * @return studentLoanDeduction
    */
-  @ApiModelProperty(example = "Plan Type 2", value = "The employee's student loan deduction type")
+  @Schema(example = "Plan Type 2", description = "The employee's student loan deduction type")
   /**
    * The employee&#39;s student loan deduction type
    *
@@ -317,7 +318,7 @@ public class EmployeeTax {
    *
    * @return hasPostGraduateLoans
    */
-  @ApiModelProperty(value = "Describes whether the employee has post graduate loans")
+  @Schema(description = "Describes whether the employee has post graduate loans")
   /**
    * Describes whether the employee has post graduate loans
    *
@@ -352,7 +353,7 @@ public class EmployeeTax {
    *
    * @return isDirector
    */
-  @ApiModelProperty(value = "Describes whether the employee is director")
+  @Schema(description = "Describes whether the employee is director")
   /**
    * Describes whether the employee is director
    *
@@ -387,7 +388,7 @@ public class EmployeeTax {
    *
    * @return directorshipStartDate
    */
-  @ApiModelProperty(value = "The directorship start date")
+  @Schema(description = "The directorship start date")
   /**
    * The directorship start date
    *
@@ -422,7 +423,7 @@ public class EmployeeTax {
    *
    * @return nicCalculationMethod
    */
-  @ApiModelProperty(example = "Annualized", value = "NICs calculation method")
+  @Schema(example = "Annualized", description = "NICs calculation method")
   /**
    * NICs calculation method
    *

@@ -15,12 +15,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDateTime;
 
 /** Payslip */
 public class Payslip {
@@ -180,7 +181,7 @@ public class Payslip {
    *
    * @return paySlipID
    */
-  @ApiModelProperty(value = "The Xero identifier for a Payslip")
+  @Schema(description = "The Xero identifier for a Payslip")
   /**
    * The Xero identifier for a Payslip
    *
@@ -215,7 +216,7 @@ public class Payslip {
    *
    * @return employeeID
    */
-  @ApiModelProperty(value = "The Xero identifier for payroll employee")
+  @Schema(description = "The Xero identifier for payroll employee")
   /**
    * The Xero identifier for payroll employee
    *
@@ -250,7 +251,7 @@ public class Payslip {
    *
    * @return payRunID
    */
-  @ApiModelProperty(value = "The Xero identifier for the associated payrun")
+  @Schema(description = "The Xero identifier for the associated payrun")
   /**
    * The Xero identifier for the associated payrun
    *
@@ -285,7 +286,7 @@ public class Payslip {
    *
    * @return lastEdited
    */
-  @ApiModelProperty(value = "The date payslip was last updated")
+  @Schema(description = "The date payslip was last updated")
   /**
    * The date payslip was last updated
    *
@@ -320,7 +321,7 @@ public class Payslip {
    *
    * @return firstName
    */
-  @ApiModelProperty(value = "Employee first name")
+  @Schema(description = "Employee first name")
   /**
    * Employee first name
    *
@@ -355,7 +356,7 @@ public class Payslip {
    *
    * @return lastName
    */
-  @ApiModelProperty(value = "Employee last name")
+  @Schema(description = "Employee last name")
   /**
    * Employee last name
    *
@@ -390,7 +391,7 @@ public class Payslip {
    *
    * @return totalEarnings
    */
-  @ApiModelProperty(value = "Total earnings before any deductions. Same as gross earnings for UK.")
+  @Schema(description = "Total earnings before any deductions. Same as gross earnings for UK.")
   /**
    * Total earnings before any deductions. Same as gross earnings for UK.
    *
@@ -425,7 +426,7 @@ public class Payslip {
    *
    * @return grossEarnings
    */
-  @ApiModelProperty(value = "Total earnings before any deductions. Same as total earnings for UK.")
+  @Schema(description = "Total earnings before any deductions. Same as total earnings for UK.")
   /**
    * Total earnings before any deductions. Same as total earnings for UK.
    *
@@ -460,7 +461,7 @@ public class Payslip {
    *
    * @return totalPay
    */
-  @ApiModelProperty(value = "The employee net pay")
+  @Schema(description = "The employee net pay")
   /**
    * The employee net pay
    *
@@ -495,7 +496,7 @@ public class Payslip {
    *
    * @return totalEmployerTaxes
    */
-  @ApiModelProperty(value = "The employer's tax obligation")
+  @Schema(description = "The employer's tax obligation")
   /**
    * The employer&#39;s tax obligation
    *
@@ -530,7 +531,7 @@ public class Payslip {
    *
    * @return totalEmployeeTaxes
    */
-  @ApiModelProperty(value = "The part of an employee's earnings that is deducted for tax purposes")
+  @Schema(description = "The part of an employee's earnings that is deducted for tax purposes")
   /**
    * The part of an employee&#39;s earnings that is deducted for tax purposes
    *
@@ -565,8 +566,8 @@ public class Payslip {
    *
    * @return totalDeductions
    */
-  @ApiModelProperty(
-      value = "Total amount subtracted from an employee's earnings to reach total pay")
+  @Schema(
+      description = "Total amount subtracted from an employee's earnings to reach total pay")
   /**
    * Total amount subtracted from an employee&#39;s earnings to reach total pay
    *
@@ -603,8 +604,8 @@ public class Payslip {
    *
    * @return totalReimbursements
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Total reimbursements are nontaxable payments to an employee used to repay out-of-pocket"
               + " expenses when the person incurs those expenses through employment")
   /**
@@ -643,8 +644,8 @@ public class Payslip {
    *
    * @return totalCourtOrders
    */
-  @ApiModelProperty(
-      value = "Total amounts required by law to subtract from the employee's earnings")
+  @Schema(
+      description = "Total amounts required by law to subtract from the employee's earnings")
   /**
    * Total amounts required by law to subtract from the employee&#39;s earnings
    *
@@ -681,8 +682,8 @@ public class Payslip {
    *
    * @return totalBenefits
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Benefits (also called fringe benefits, perquisites or perks) are various non-earnings"
               + " compensations provided to employees in addition to their normal earnings or"
               + " salaries")
@@ -722,7 +723,7 @@ public class Payslip {
    *
    * @return bacsHash
    */
-  @ApiModelProperty(value = "BACS Service User Number")
+  @Schema(description = "BACS Service User Number")
   /**
    * BACS Service User Number
    *
@@ -757,7 +758,7 @@ public class Payslip {
    *
    * @return paymentMethod
    */
-  @ApiModelProperty(value = "The payment method code")
+  @Schema(description = "The payment method code")
   /**
    * The payment method code
    *
@@ -806,7 +807,7 @@ public class Payslip {
    *
    * @return earningsLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * earningsLines
    *
@@ -855,7 +856,7 @@ public class Payslip {
    *
    * @return leaveEarningsLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * leaveEarningsLines
    *
@@ -904,7 +905,7 @@ public class Payslip {
    *
    * @return timesheetEarningsLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * timesheetEarningsLines
    *
@@ -953,7 +954,7 @@ public class Payslip {
    *
    * @return deductionLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * deductionLines
    *
@@ -1002,7 +1003,7 @@ public class Payslip {
    *
    * @return reimbursementLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * reimbursementLines
    *
@@ -1051,7 +1052,7 @@ public class Payslip {
    *
    * @return leaveAccrualLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * leaveAccrualLines
    *
@@ -1100,7 +1101,7 @@ public class Payslip {
    *
    * @return benefitLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * benefitLines
    *
@@ -1149,7 +1150,7 @@ public class Payslip {
    *
    * @return paymentLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * paymentLines
    *
@@ -1198,7 +1199,7 @@ public class Payslip {
    *
    * @return employeeTaxLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * employeeTaxLines
    *
@@ -1247,7 +1248,7 @@ public class Payslip {
    *
    * @return employerTaxLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * employerTaxLines
    *
@@ -1296,7 +1297,7 @@ public class Payslip {
    *
    * @return courtOrderLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * courtOrderLines
    *

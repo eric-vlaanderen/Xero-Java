@@ -1,15 +1,17 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrollau.*;
+import com.xero.models.payrollau.SettingsObject;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollAuApiSettingsTest {
 
@@ -19,7 +21,7 @@ public class PayrollAuApiSettingsTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -41,10 +43,10 @@ public class PayrollAuApiSettingsTest {
         
         SettingsObject response = payrollAuApi.getSettings(accessToken, xeroTenantId);
         
-        assertThat(response.getSettings().getAccounts().get(0).getAccountID(), is(equalTo(UUID.fromString("85bd2954-7ef5-4fbe-9e40-a1990d0fd63f"))));        
-        assertThat(response.getSettings().getAccounts().get(0).getType(), is(equalTo(com.xero.models.payrollau.AccountType.BANK)));
-        assertThat(response.getSettings().getAccounts().get(0).getCode(), is(equalTo("094")));
-        assertThat(response.getSettings().getAccounts().get(0).getName(), is(equalTo("Bank of A")));
+        assertThat(response.getSettings().getAccounts().getFirst().getAccountID(), is(equalTo(UUID.fromString("85bd2954-7ef5-4fbe-9e40-a1990d0fd63f"))));        
+        assertThat(response.getSettings().getAccounts().getFirst().getType(), is(equalTo(com.xero.models.payrollau.AccountType.BANK)));
+        assertThat(response.getSettings().getAccounts().getFirst().getCode(), is(equalTo("094")));
+        assertThat(response.getSettings().getAccounts().getFirst().getName(), is(equalTo("Bank of A")));
         assertThat(response.getSettings().getTrackingCategories().getEmployeeGroups().getTrackingCategoryID(), is(equalTo(UUID.fromString("a28f419f-6ec3-4dcf-9be0-7959ea983630"))));
         assertThat(response.getSettings().getTrackingCategories().getEmployeeGroups().getTrackingCategoryName(), is(equalTo("Foo70317")));
         assertThat(response.getSettings().getTrackingCategories().getTimesheetCategories().getTrackingCategoryID(), is(equalTo(UUID.fromString("89375aed-ed51-4624-9e5d-92db6bfa8974"))));

@@ -13,7 +13,7 @@ package com.xero.models.assets;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +71,7 @@ public class Error {
    *
    * @return resourceValidationErrors
    */
-  @ApiModelProperty(value = "Array of elements of resource validation errors")
+  @Schema(description = "Array of elements of resource validation errors")
   /**
    * Array of elements of resource validation errors
    *
@@ -122,7 +122,7 @@ public class Error {
    *
    * @return fieldValidationErrors
    */
-  @ApiModelProperty(value = "Array of elements of field validation errors")
+  @Schema(description = "Array of elements of field validation errors")
   /**
    * Array of elements of field validation errors
    *
@@ -157,7 +157,7 @@ public class Error {
    *
    * @return type
    */
-  @ApiModelProperty(value = "The internal type of error, not accessible externally")
+  @Schema(description = "The internal type of error, not accessible externally")
   /**
    * The internal type of error, not accessible externally
    *
@@ -192,7 +192,7 @@ public class Error {
    *
    * @return title
    */
-  @ApiModelProperty(value = "Title of the error")
+  @Schema(description = "Title of the error")
   /**
    * Title of the error
    *
@@ -227,7 +227,7 @@ public class Error {
    *
    * @return detail
    */
-  @ApiModelProperty(value = "Detail of the error")
+  @Schema(description = "Detail of the error")
   /**
    * Detail of the error
    *

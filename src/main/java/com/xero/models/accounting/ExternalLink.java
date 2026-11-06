@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** ExternalLink */
@@ -106,7 +106,7 @@ public class ExternalLink {
    *
    * @return linkType
    */
-  @ApiModelProperty(value = "See External link types")
+  @Schema(description = "See External link types")
   /**
    * See External link types
    *
@@ -141,7 +141,7 @@ public class ExternalLink {
    *
    * @return url
    */
-  @ApiModelProperty(value = "URL for service e.g. http://twitter.com/xeroapi")
+  @Schema(description = "URL for service e.g. http://twitter.com/xeroapi")
   /**
    * URL for service e.g. http://twitter.com/xeroapi
    *
@@ -176,7 +176,7 @@ public class ExternalLink {
    *
    * @return description
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * description
    *

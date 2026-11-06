@@ -13,11 +13,12 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** EarningsRate */
 public class EarningsRate {
@@ -102,7 +103,7 @@ public class EarningsRate {
    *
    * @return name
    */
-  @ApiModelProperty(example = "PTO", value = "Name of the earnings rate (max length = 100)")
+  @Schema(example = "PTO", description = "Name of the earnings rate (max length = 100)")
   /**
    * Name of the earnings rate (max length &#x3D; 100)
    *
@@ -137,7 +138,7 @@ public class EarningsRate {
    *
    * @return accountCode
    */
-  @ApiModelProperty(example = "720", value = "See Accounts")
+  @Schema(example = "720", description = "See Accounts")
   /**
    * See Accounts
    *
@@ -172,9 +173,9 @@ public class EarningsRate {
    *
    * @return typeOfUnits
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Fixed",
-      value =
+      description =
           "Type of units used to record earnings (max length = 50). Only When RateType is"
               + " RATEPERUNIT")
   /**
@@ -213,9 +214,9 @@ public class EarningsRate {
    *
    * @return isExemptFromTax
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value =
+      description =
           "Most payments are subject to tax, so you should only set this value if you are sure that"
               + " a payment is exempt from PAYG withholding")
   /**
@@ -254,9 +255,9 @@ public class EarningsRate {
    *
    * @return isExemptFromSuper
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "See the ATO website for details of which payments are exempt from SGC")
+      description = "See the ATO website for details of which payments are exempt from SGC")
   /**
    * See the ATO website for details of which payments are exempt from SGC
    *
@@ -291,9 +292,9 @@ public class EarningsRate {
    *
    * @return isReportableAsW1
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "Boolean to determine if the earnings rate is reportable or exempt from W1")
+      description = "Boolean to determine if the earnings rate is reportable or exempt from W1")
   /**
    * Boolean to determine if the earnings rate is reportable or exempt from W1
    *
@@ -330,10 +331,10 @@ public class EarningsRate {
    *
    * @return isQualifyingEarnings
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      required = true,
-      value =
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description =
           "Boolean to determine if the earnings rate is considered as qualifying earnings for"
               + " superannuation guarantee calculations")
   /**
@@ -375,9 +376,9 @@ public class EarningsRate {
    *
    * @return allowanceContributesToAnnualLeaveRate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value =
+      description =
           "Boolean to determine if the allowance earnings rate contributes towards annual leave"
               + " rate. Only applicable if EarningsType is ALLOWANCE and RateType is RATEPERUNIT")
   /**
@@ -420,9 +421,9 @@ public class EarningsRate {
    *
    * @return allowanceContributesToOvertimeRate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value =
+      description =
           "Boolean to determine if the allowance earnings rate contributes towards overtime"
               + " allowance rate. Only applicable if EarningsType is ALLOWANCE and RateType is"
               + " RATEPERUNIT")
@@ -462,7 +463,7 @@ public class EarningsRate {
    *
    * @return earningsType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * earningsType
    *
@@ -497,7 +498,7 @@ public class EarningsRate {
    *
    * @return earningsRateID
    */
-  @ApiModelProperty(example = "e0eb6747-7c17-4075-b804-989f8d4e5d39", value = "Xero identifier")
+  @Schema(example = "e0eb6747-7c17-4075-b804-989f8d4e5d39", description = "Xero identifier")
   /**
    * Xero identifier
    *
@@ -532,7 +533,7 @@ public class EarningsRate {
    *
    * @return rateType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * rateType
    *
@@ -567,9 +568,9 @@ public class EarningsRate {
    *
    * @return ratePerUnit
    */
-  @ApiModelProperty(
+  @Schema(
       example = "10",
-      value = "Default rate per unit (optional). Only applicable if RateType is RATEPERUNIT.")
+      description = "Default rate per unit (optional). Only applicable if RateType is RATEPERUNIT.")
   /**
    * Default rate per unit (optional). Only applicable if RateType is RATEPERUNIT.
    *
@@ -608,9 +609,9 @@ public class EarningsRate {
    *
    * @return multiplier
    */
-  @ApiModelProperty(
+  @Schema(
       example = "1.5",
-      value =
+      description =
           "This is the multiplier used to calculate the rate per unit, based on the employee’s"
               + " ordinary earnings rate. For example, for time and a half enter 1.5. Only"
               + " applicable if RateType is MULTIPLE")
@@ -652,9 +653,9 @@ public class EarningsRate {
    *
    * @return accrueLeave
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value =
+      description =
           "Indicates that this earnings rate should accrue leave. Only applicable if RateType is"
               + " MULTIPLE")
   /**
@@ -691,9 +692,9 @@ public class EarningsRate {
    *
    * @return amount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "50.3",
-      value = "Optional Amount for FIXEDAMOUNT RateType EarningsRate")
+      description = "Optional Amount for FIXEDAMOUNT RateType EarningsRate")
   /**
    * Optional Amount for FIXEDAMOUNT RateType EarningsRate
    *
@@ -729,7 +730,7 @@ public class EarningsRate {
    *
    * @return employmentTerminationPaymentType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * employmentTerminationPaymentType
    *
@@ -754,7 +755,7 @@ public class EarningsRate {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1583967733054+0000)/", value = "Last modified timestamp")
+  @Schema(example = "/Date(1583967733054+0000)/", description = "Last modified timestamp")
   /**
    * Last modified timestamp
    *
@@ -796,7 +797,7 @@ public class EarningsRate {
    *
    * @return currentRecord
    */
-  @ApiModelProperty(example = "true", value = "Is the current record")
+  @Schema(example = "true", description = "Is the current record")
   /**
    * Is the current record
    *
@@ -831,7 +832,7 @@ public class EarningsRate {
    *
    * @return allowanceType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * allowanceType
    *
@@ -866,7 +867,7 @@ public class EarningsRate {
    *
    * @return allowanceCategory
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * allowanceCategory
    *

@@ -13,11 +13,12 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import org.threeten.bp.LocalDate;
 
 /** IncomeByContactResponse */
 public class IncomeByContactResponse {
@@ -60,7 +61,7 @@ public class IncomeByContactResponse {
    *
    * @return startDate
    */
-  @ApiModelProperty(value = "Start date of the report")
+  @Schema(description = "Start date of the report")
   /**
    * Start date of the report
    *
@@ -95,7 +96,7 @@ public class IncomeByContactResponse {
    *
    * @return endDate
    */
-  @ApiModelProperty(value = "End date of the report")
+  @Schema(description = "End date of the report")
   /**
    * End date of the report
    *
@@ -130,7 +131,7 @@ public class IncomeByContactResponse {
    *
    * @return total
    */
-  @ApiModelProperty(value = "Total value")
+  @Schema(description = "Total value")
   /**
    * Total value
    *
@@ -165,7 +166,7 @@ public class IncomeByContactResponse {
    *
    * @return totalDetail
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * totalDetail
    *
@@ -200,7 +201,7 @@ public class IncomeByContactResponse {
    *
    * @return totalOther
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * totalOther
    *
@@ -249,7 +250,7 @@ public class IncomeByContactResponse {
    *
    * @return contacts
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * contacts
    *
@@ -284,7 +285,7 @@ public class IncomeByContactResponse {
    *
    * @return manualJournals
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * manualJournals
    *

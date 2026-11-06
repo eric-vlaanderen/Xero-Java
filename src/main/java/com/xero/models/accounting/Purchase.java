@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** Purchase */
@@ -50,8 +50,8 @@ public class Purchase {
    *
    * @return unitPrice
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Unit Price of the item. By default UnitPrice is rounded to two decimal places. You can"
               + " use 4 decimal places by adding the unitdp=4 querystring parameter to your"
               + " request.")
@@ -93,8 +93,8 @@ public class Purchase {
    *
    * @return accountCode
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Default account code to be used for purchased/sale. Not applicable to the purchase"
               + " details of tracked items")
   /**
@@ -133,8 +133,8 @@ public class Purchase {
    *
    * @return coGSAccountCode
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Cost of goods sold account. Only applicable to the purchase details of tracked items.")
   /**
    * Cost of goods sold account. Only applicable to the purchase details of tracked items.
@@ -170,7 +170,7 @@ public class Purchase {
    *
    * @return taxType
    */
-  @ApiModelProperty(value = "The tax type from TaxRates")
+  @Schema(description = "The tax type from TaxRates")
   /**
    * The tax type from TaxRates
    *

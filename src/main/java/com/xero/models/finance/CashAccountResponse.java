@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** CashAccountResponse */
@@ -53,8 +53,8 @@ public class CashAccountResponse {
    *
    * @return unreconciledAmountPos
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Total value of transactions in the journals which are not reconciled to bank statement"
               + " lines, and have a positive (debit) value.")
   /**
@@ -95,8 +95,8 @@ public class CashAccountResponse {
    *
    * @return unreconciledAmountNeg
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Total value of transactions in the journals which are not reconciled to bank statement"
               + " lines, and have a negative (credit) value.")
   /**
@@ -137,8 +137,8 @@ public class CashAccountResponse {
    *
    * @return startingBalance
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Starting (or historic) balance from the journals (manually keyed in by users on account"
               + " creation - unverified).")
   /**
@@ -177,7 +177,7 @@ public class CashAccountResponse {
    *
    * @return accountBalance
    */
-  @ApiModelProperty(value = "Current cash at bank accounting value from the journals.")
+  @Schema(description = "Current cash at bank accounting value from the journals.")
   /**
    * Current cash at bank accounting value from the journals.
    *
@@ -212,7 +212,7 @@ public class CashAccountResponse {
    *
    * @return balanceCurrency
    */
-  @ApiModelProperty(value = "Currency which the cashAccount transactions relate to.")
+  @Schema(description = "Currency which the cashAccount transactions relate to.")
   /**
    * Currency which the cashAccount transactions relate to.
    *

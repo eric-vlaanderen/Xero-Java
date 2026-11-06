@@ -12,41 +12,31 @@
 
 package com.xero.api.client;
 
-import com.fasterxml.jackson.core.type.TypeReference;
+import tools.jackson.core.type.TypeReference;
 import com.google.api.client.auth.oauth2.BearerToken;
 import com.google.api.client.auth.oauth2.Credential;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpContent;
-import com.google.api.client.http.HttpHeaders;
-import com.google.api.client.http.HttpMethods;
-import com.google.api.client.http.HttpRequestFactory;
-import com.google.api.client.http.HttpResponse;
-import com.google.api.client.http.HttpResponseException;
-import com.google.api.client.http.HttpTransport;
+import com.google.api.client.http.*;
 import com.xero.api.ApiClient;
 import com.xero.api.XeroApiExceptionHandler;
-import com.xero.models.appstore.CreateUsageRecord;
-import com.xero.models.appstore.Subscription;
-import com.xero.models.appstore.UpdateUsageRecord;
-import com.xero.models.appstore.UsageRecord;
-import com.xero.models.appstore.UsageRecordsList;
+import com.xero.models.appstore.*;
 import jakarta.ws.rs.core.UriBuilder;
+import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /** AppStoreApi has methods for interacting with all endpoints in the API set */
 public class AppStoreApi {
   private ApiClient apiClient;
   private static AppStoreApi instance = null;
   private String userAgent = "Default";
-  private String version = "18.3.0";
+  private final String version = "18.3.0";
   static final Logger logger = LoggerFactory.getLogger(AppStoreApi.class);
 
   /** AppStoreApi */
@@ -547,8 +537,7 @@ public class AppStoreApi {
     byte[] bytes = IOUtils.toByteArray(is);
     try {
       // Process the input stream..
-      ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
-      return byteArrayInputStream;
+        return new ByteArrayInputStream(bytes);
     } finally {
       is.close();
     }

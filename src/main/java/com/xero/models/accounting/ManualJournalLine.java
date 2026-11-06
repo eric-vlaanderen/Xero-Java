@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -63,9 +63,9 @@ public class ManualJournalLine {
    *
    * @return lineAmount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "-2569.0",
-      value = "total for line. Debits are positive, credits are negative value")
+      description = "total for line. Debits are positive, credits are negative value")
   /**
    * total for line. Debits are positive, credits are negative value
    *
@@ -100,7 +100,7 @@ public class ManualJournalLine {
    *
    * @return accountCode
    */
-  @ApiModelProperty(example = "720", value = "See Accounts")
+  @Schema(example = "720", description = "See Accounts")
   /**
    * See Accounts
    *
@@ -135,7 +135,7 @@ public class ManualJournalLine {
    *
    * @return accountID
    */
-  @ApiModelProperty(value = "See Accounts")
+  @Schema(description = "See Accounts")
   /**
    * See Accounts
    *
@@ -170,9 +170,9 @@ public class ManualJournalLine {
    *
    * @return description
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Coded incorrectly Office Equipment should be Computer Equipment",
-      value = "Description for journal line")
+      description = "Description for journal line")
   /**
    * Description for journal line
    *
@@ -207,7 +207,7 @@ public class ManualJournalLine {
    *
    * @return taxType
    */
-  @ApiModelProperty(value = "The tax type from TaxRates")
+  @Schema(description = "The tax type from TaxRates")
   /**
    * The tax type from TaxRates
    *
@@ -259,8 +259,8 @@ public class ManualJournalLine {
    *
    * @return tracking
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2"
               + " <TrackingCategory> elements.")
   /**
@@ -299,9 +299,9 @@ public class ManualJournalLine {
    *
    * @return taxAmount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "0.0",
-      value = "The calculated tax amount based on the TaxType and LineAmount")
+      description = "The calculated tax amount based on the TaxType and LineAmount")
   /**
    * The calculated tax amount based on the TaxType and LineAmount
    *
@@ -336,7 +336,7 @@ public class ManualJournalLine {
    *
    * @return isBlank
    */
-  @ApiModelProperty(example = "false", value = "is the line blank")
+  @Schema(example = "false", description = "is the line blank")
   /**
    * is the line blank
    *

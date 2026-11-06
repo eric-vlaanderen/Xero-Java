@@ -13,7 +13,7 @@ package com.xero.models.assets;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** FieldValidationErrorsElement */
@@ -54,7 +54,7 @@ public class FieldValidationErrorsElement {
    *
    * @return fieldName
    */
-  @ApiModelProperty(value = "The field name of the erroneous field")
+  @Schema(description = "The field name of the erroneous field")
   /**
    * The field name of the erroneous field
    *
@@ -89,7 +89,7 @@ public class FieldValidationErrorsElement {
    *
    * @return valueProvided
    */
-  @ApiModelProperty(value = "The provided value")
+  @Schema(description = "The provided value")
   /**
    * The provided value
    *
@@ -124,7 +124,7 @@ public class FieldValidationErrorsElement {
    *
    * @return localisedMessage
    */
-  @ApiModelProperty(value = "Explanation of the field validation error")
+  @Schema(description = "Explanation of the field validation error")
   /**
    * Explanation of the field validation error
    *
@@ -159,7 +159,7 @@ public class FieldValidationErrorsElement {
    *
    * @return type
    */
-  @ApiModelProperty(value = "Internal type of the field validation error message")
+  @Schema(description = "Internal type of the field validation error message")
   /**
    * Internal type of the field validation error message
    *
@@ -194,7 +194,7 @@ public class FieldValidationErrorsElement {
    *
    * @return title
    */
-  @ApiModelProperty(value = "Title of the field validation error")
+  @Schema(description = "Title of the field validation error")
   /**
    * Title of the field validation error
    *
@@ -229,7 +229,7 @@ public class FieldValidationErrorsElement {
    *
    * @return detail
    */
-  @ApiModelProperty(value = "Detail of the field validation error")
+  @Schema(description = "Detail of the field validation error")
   /**
    * Detail of the field validation error
    *

@@ -13,13 +13,13 @@ package com.xero.models.appstore;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDateTime;
+
 import java.util.Objects;
-import org.threeten.bp.LocalDateTime;
 
 /** Data transfer object for public create usage end point */
-@ApiModel(description = "Data transfer object for public create usage end point")
+@Schema(description = "Data transfer object for public create usage end point")
 public class CreateUsageRecord {
   StringUtil util = new StringUtil();
 
@@ -47,9 +47,9 @@ public class CreateUsageRecord {
    *
    * @return quantity
    */
-  @ApiModelProperty(
-      required = true,
-      value =
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description =
           "The initial quantity for the usage record. Must be a whole number that is greater than"
               + " or equal to 0")
   /**
@@ -88,9 +88,9 @@ public class CreateUsageRecord {
    *
    * @return timestamp
    */
-  @ApiModelProperty(
-      required = true,
-      value = "DateTime in UTC of when the the product was consumed/used")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "DateTime in UTC of when the the product was consumed/used")
   /**
    * DateTime in UTC of when the the product was consumed/used
    *

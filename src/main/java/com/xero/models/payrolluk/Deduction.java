@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -211,7 +211,7 @@ public class Deduction {
    *
    * @return deductionId
    */
-  @ApiModelProperty(value = "The Xero identifier for Deduction")
+  @Schema(description = "The Xero identifier for Deduction")
   /**
    * The Xero identifier for Deduction
    *
@@ -246,7 +246,7 @@ public class Deduction {
    *
    * @return deductionName
    */
-  @ApiModelProperty(required = true, value = "Name of the deduction")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Name of the deduction")
   /**
    * Name of the deduction
    *
@@ -281,7 +281,7 @@ public class Deduction {
    *
    * @return deductionCategory
    */
-  @ApiModelProperty(value = "Deduction Category type")
+  @Schema(description = "Deduction Category type")
   /**
    * Deduction Category type
    *
@@ -316,7 +316,7 @@ public class Deduction {
    *
    * @return liabilityAccountId
    */
-  @ApiModelProperty(required = true, value = "Xero identifier for Liability Account")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Xero identifier for Liability Account")
   /**
    * Xero identifier for Liability Account
    *
@@ -351,7 +351,7 @@ public class Deduction {
    *
    * @return currentRecord
    */
-  @ApiModelProperty(value = "Identifier of a record is active or not.")
+  @Schema(description = "Identifier of a record is active or not.")
   /**
    * Identifier of a record is active or not.
    *
@@ -386,7 +386,7 @@ public class Deduction {
    *
    * @return standardAmount
    */
-  @ApiModelProperty(value = "Standard amount of the deduction")
+  @Schema(description = "Standard amount of the deduction")
   /**
    * Standard amount of the deduction
    *
@@ -421,7 +421,7 @@ public class Deduction {
    *
    * @return reducesSuperLiability
    */
-  @ApiModelProperty(value = "Identifier of reduces super liability")
+  @Schema(description = "Identifier of reduces super liability")
   /**
    * Identifier of reduces super liability
    *
@@ -456,7 +456,7 @@ public class Deduction {
    *
    * @return reducesTaxLiability
    */
-  @ApiModelProperty(value = "Identifier of reduces tax liability")
+  @Schema(description = "Identifier of reduces tax liability")
   /**
    * Identifier of reduces tax liability
    *
@@ -491,8 +491,8 @@ public class Deduction {
    *
    * @return calculationType
    */
-  @ApiModelProperty(
-      value = "determine the calculation type whether fixed amount or percentage of gross")
+  @Schema(
+      description = "determine the calculation type whether fixed amount or percentage of gross")
   /**
    * determine the calculation type whether fixed amount or percentage of gross
    *
@@ -527,7 +527,7 @@ public class Deduction {
    *
    * @return percentage
    */
-  @ApiModelProperty(value = "Percentage of gross")
+  @Schema(description = "Percentage of gross")
   /**
    * Percentage of gross
    *
@@ -562,7 +562,7 @@ public class Deduction {
    *
    * @return subjectToNIC
    */
-  @ApiModelProperty(value = "Identifier of subject To NIC")
+  @Schema(description = "Identifier of subject To NIC")
   /**
    * Identifier of subject To NIC
    *
@@ -597,7 +597,7 @@ public class Deduction {
    *
    * @return subjectToTax
    */
-  @ApiModelProperty(value = "Identifier of subject To Tax")
+  @Schema(description = "Identifier of subject To Tax")
   /**
    * Identifier of subject To Tax
    *
@@ -632,7 +632,7 @@ public class Deduction {
    *
    * @return isReducedByBasicRate
    */
-  @ApiModelProperty(value = "Identifier of reduced by basic rate applicable or not")
+  @Schema(description = "Identifier of reduced by basic rate applicable or not")
   /**
    * Identifier of reduced by basic rate applicable or not
    *
@@ -667,7 +667,7 @@ public class Deduction {
    *
    * @return applyToPensionCalculations
    */
-  @ApiModelProperty(value = "Identifier for apply to pension calculations")
+  @Schema(description = "Identifier for apply to pension calculations")
   /**
    * Identifier for apply to pension calculations
    *
@@ -702,7 +702,7 @@ public class Deduction {
    *
    * @return isCalculatingOnQualifyingEarnings
    */
-  @ApiModelProperty(value = "Identifier of calculating on qualifying earnings")
+  @Schema(description = "Identifier of calculating on qualifying earnings")
   /**
    * Identifier of calculating on qualifying earnings
    *
@@ -737,7 +737,7 @@ public class Deduction {
    *
    * @return isPension
    */
-  @ApiModelProperty(value = "Identifier of applicable for pension or not")
+  @Schema(description = "Identifier of applicable for pension or not")
   /**
    * Identifier of applicable for pension or not
    *

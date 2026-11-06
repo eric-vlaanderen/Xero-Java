@@ -13,7 +13,7 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -55,7 +55,7 @@ public class EarningsTemplate {
    *
    * @return payTemplateEarningID
    */
-  @ApiModelProperty(value = "The Xero identifier for the earnings template")
+  @Schema(description = "The Xero identifier for the earnings template")
   /**
    * The Xero identifier for the earnings template
    *
@@ -90,7 +90,7 @@ public class EarningsTemplate {
    *
    * @return ratePerUnit
    */
-  @ApiModelProperty(value = "The rate per unit")
+  @Schema(description = "The rate per unit")
   /**
    * The rate per unit
    *
@@ -125,7 +125,7 @@ public class EarningsTemplate {
    *
    * @return numberOfUnits
    */
-  @ApiModelProperty(value = "The rate per unit")
+  @Schema(description = "The rate per unit")
   /**
    * The rate per unit
    *
@@ -160,7 +160,7 @@ public class EarningsTemplate {
    *
    * @return fixedAmount
    */
-  @ApiModelProperty(value = "The fixed amount per period")
+  @Schema(description = "The fixed amount per period")
   /**
    * The fixed amount per period
    *
@@ -195,7 +195,7 @@ public class EarningsTemplate {
    *
    * @return earningsRateID
    */
-  @ApiModelProperty(value = "The corresponding earnings rate identifier")
+  @Schema(description = "The corresponding earnings rate identifier")
   /**
    * The corresponding earnings rate identifier
    *
@@ -230,7 +230,7 @@ public class EarningsTemplate {
    *
    * @return name
    */
-  @ApiModelProperty(value = "The read-only name of the Earning Template.")
+  @Schema(description = "The read-only name of the Earning Template.")
   /**
    * The read-only name of the Earning Template.
    *

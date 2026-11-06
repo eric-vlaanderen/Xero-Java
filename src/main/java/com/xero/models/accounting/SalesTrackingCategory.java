@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** SalesTrackingCategory */
@@ -42,7 +42,7 @@ public class SalesTrackingCategory {
    *
    * @return trackingCategoryName
    */
-  @ApiModelProperty(value = "The default sales tracking category name for contacts")
+  @Schema(description = "The default sales tracking category name for contacts")
   /**
    * The default sales tracking category name for contacts
    *
@@ -77,7 +77,7 @@ public class SalesTrackingCategory {
    *
    * @return trackingOptionName
    */
-  @ApiModelProperty(value = "The default purchase tracking category name for contacts")
+  @Schema(description = "The default purchase tracking category name for contacts")
   /**
    * The default purchase tracking category name for contacts
    *

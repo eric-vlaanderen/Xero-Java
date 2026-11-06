@@ -13,9 +13,10 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
-import org.threeten.bp.LocalDate;
 
 /** EmployeeLeaveSetup */
 public class EmployeeLeaveSetup {
@@ -67,9 +68,9 @@ public class EmployeeLeaveSetup {
    *
    * @return includeHolidayPay
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "Identifier if holiday pay will be included in each payslip")
+      description = "Identifier if holiday pay will be included in each payslip")
   /**
    * Identifier if holiday pay will be included in each payslip
    *
@@ -106,9 +107,9 @@ public class EmployeeLeaveSetup {
    *
    * @return holidayPayOpeningBalance
    */
-  @ApiModelProperty(
+  @Schema(
       example = "10.5",
-      value =
+      description =
           "Initial holiday pay balance. A percentage — usually 8% — of gross earnings since their"
               + " last work anniversary.")
   /**
@@ -149,9 +150,9 @@ public class EmployeeLeaveSetup {
    *
    * @return annualLeaveOpeningBalance
    */
-  @ApiModelProperty(
+  @Schema(
       example = "25.89",
-      value =
+      description =
           "Initial annual leave balance. The balance at their last anniversary, less any leave"
               + " taken since then and excluding accrued annual leave.")
   /**
@@ -191,9 +192,9 @@ public class EmployeeLeaveSetup {
    *
    * @return negativeAnnualLeaveBalancePaidAmount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "10.0",
-      value = "The dollar value of annual leave opening balance if negative.")
+      description = "The dollar value of annual leave opening balance if negative.")
   /**
    * The dollar value of annual leave opening balance if negative.
    *
@@ -230,9 +231,9 @@ public class EmployeeLeaveSetup {
    *
    * @return sickLeaveToAccrueAnnually
    */
-  @ApiModelProperty(
+  @Schema(
       example = "100.5",
-      value =
+      description =
           "Number of units accrued annually for sick leave. The type of units is determined by the"
               + " property \"TypeOfUnitsToAccrue\" on the \"Sick Leave\" leave type")
   /**
@@ -273,9 +274,9 @@ public class EmployeeLeaveSetup {
    *
    * @return sickLeaveMaximumToAccrue
    */
-  @ApiModelProperty(
+  @Schema(
       example = "200.5",
-      value =
+      description =
           "Maximum number of units accrued annually for sick leave. The type of units is determined"
               + " by the property \"TypeOfUnitsToAccrue\" on the \"Sick Leave\" leave type")
   /**
@@ -316,9 +317,9 @@ public class EmployeeLeaveSetup {
    *
    * @return sickLeaveOpeningBalance
    */
-  @ApiModelProperty(
+  @Schema(
       example = "10.5",
-      value =
+      description =
           "Initial sick leave balance. This will be positive unless they've taken sick leave in"
               + " advance")
   /**
@@ -357,9 +358,9 @@ public class EmployeeLeaveSetup {
    *
    * @return sickLeaveScheduleOfAccrual
    */
-  @ApiModelProperty(
+  @Schema(
       example = "OnAnniversaryDate",
-      value = "Set Schedule of Accrual Type for Sick Leave")
+      description = "Set Schedule of Accrual Type for Sick Leave")
   /**
    * Set Schedule of Accrual Type for Sick Leave
    *
@@ -396,9 +397,9 @@ public class EmployeeLeaveSetup {
    *
    * @return sickLeaveAnniversaryDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Sun Jan 19 00:00:00 UTC 2020",
-      value =
+      description =
           "If Sick Leave Schedule of Accrual is \"OnAnniversaryDate\", this is the date when"
               + " entitled to Sick Leave. When null the Employee's start date is used as the"
               + " anniversary date")
@@ -440,9 +441,9 @@ public class EmployeeLeaveSetup {
    *
    * @return annualLeaveAnniversaryDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Sun Jan 19 00:00:00 UTC 2020",
-      value =
+      description =
           "The first date the employee will accrue Annual Leave. When null the Employee's start"
               + " date is used as the anniversary date")
   /**

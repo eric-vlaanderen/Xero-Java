@@ -13,15 +13,16 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.ZoneId;
 
 /** Allocation */
 public class Allocation {
@@ -73,7 +74,7 @@ public class Allocation {
    *
    * @return allocationID
    */
-  @ApiModelProperty(value = "Xero generated unique identifier")
+  @Schema(description = "Xero generated unique identifier")
   /**
    * Xero generated unique identifier
    *
@@ -108,7 +109,7 @@ public class Allocation {
    *
    * @return invoice
    */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "")
   /**
    * invoice
    *
@@ -143,7 +144,7 @@ public class Allocation {
    *
    * @return overpayment
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * overpayment
    *
@@ -178,7 +179,7 @@ public class Allocation {
    *
    * @return prepayment
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * prepayment
    *
@@ -213,7 +214,7 @@ public class Allocation {
    *
    * @return creditNote
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * creditNote
    *
@@ -248,7 +249,7 @@ public class Allocation {
    *
    * @return amount
    */
-  @ApiModelProperty(required = true, value = "the amount being applied to the invoice")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "the amount being applied to the invoice")
   /**
    * the amount being applied to the invoice
    *
@@ -283,7 +284,7 @@ public class Allocation {
    *
    * @return date
    */
-  @ApiModelProperty(required = true, value = "the date the allocation is applied YYYY-MM-DD.")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "the date the allocation is applied YYYY-MM-DD.")
   /**
    * the date the allocation is applied YYYY-MM-DD.
    *
@@ -336,7 +337,7 @@ public class Allocation {
    *
    * @return isDeleted
    */
-  @ApiModelProperty(value = "A flag that returns true when the allocation is succesfully deleted")
+  @Schema(description = "A flag that returns true when the allocation is succesfully deleted")
   /**
    * A flag that returns true when the allocation is succesfully deleted
    *
@@ -362,7 +363,7 @@ public class Allocation {
    *
    * @return statusAttributeString
    */
-  @ApiModelProperty(value = "A string to indicate if a invoice status")
+  @Schema(description = "A string to indicate if a invoice status")
   /**
    * A string to indicate if a invoice status
    *
@@ -411,7 +412,7 @@ public class Allocation {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *

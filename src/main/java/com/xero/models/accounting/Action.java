@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** Action */
@@ -94,9 +94,9 @@ public class Action {
    *
    * @return name
    */
-  @ApiModelProperty(
+  @Schema(
       example = "UseMulticurrency",
-      value = "Name of the actions for this organisation")
+      description = "Name of the actions for this organisation")
   /**
    * Name of the actions for this organisation
    *
@@ -131,7 +131,7 @@ public class Action {
    *
    * @return status
    */
-  @ApiModelProperty(value = "Status of the action for this organisation")
+  @Schema(description = "Status of the action for this organisation")
   /**
    * Status of the action for this organisation
    *

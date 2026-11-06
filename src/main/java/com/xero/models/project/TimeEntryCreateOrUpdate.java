@@ -13,10 +13,11 @@ package com.xero.models.project;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** TimeEntryCreateOrUpdate */
 public class TimeEntryCreateOrUpdate {
@@ -53,10 +54,10 @@ public class TimeEntryCreateOrUpdate {
    *
    * @return userId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      required = true,
-      value = "The xero user identifier of the person logging the time.")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The xero user identifier of the person logging the time.")
   /**
    * The xero user identifier of the person logging the time.
    *
@@ -91,10 +92,10 @@ public class TimeEntryCreateOrUpdate {
    *
    * @return taskId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      required = true,
-      value = "Identifier of the task that time entry is logged against.")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Identifier of the task that time entry is logged against.")
   /**
    * Identifier of the task that time entry is logged against.
    *
@@ -129,9 +130,9 @@ public class TimeEntryCreateOrUpdate {
    *
    * @return dateUtc
    */
-  @ApiModelProperty(
-      required = true,
-      value = "Date time entry is logged on. UTC Date Time in ISO-8601 format.")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Date time entry is logged on. UTC Date Time in ISO-8601 format.")
   /**
    * Date time entry is logged on. UTC Date Time in ISO-8601 format.
    *
@@ -166,9 +167,9 @@ public class TimeEntryCreateOrUpdate {
    *
    * @return duration
    */
-  @ApiModelProperty(
-      required = true,
-      value = "Number of minutes to be logged. Duration is between 1 and 59940 inclusively.")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Number of minutes to be logged. Duration is between 1 and 59940 inclusively.")
   /**
    * Number of minutes to be logged. Duration is between 1 and 59940 inclusively.
    *
@@ -203,8 +204,8 @@ public class TimeEntryCreateOrUpdate {
    *
    * @return description
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "An optional description of the time entry, will be set to null if not provided during"
               + " update.")
   /**

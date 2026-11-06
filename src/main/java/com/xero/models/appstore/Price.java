@@ -13,7 +13,7 @@ package com.xero.models.appstore;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -46,7 +46,7 @@ public class Price {
    *
    * @return amount
    */
-  @ApiModelProperty(required = true, value = "The net (before tax) amount.")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The net (before tax) amount.")
   /**
    * The net (before tax) amount.
    *
@@ -81,7 +81,7 @@ public class Price {
    *
    * @return currency
    */
-  @ApiModelProperty(required = true, value = "The currency of the price.")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The currency of the price.")
   /**
    * The currency of the price.
    *
@@ -116,7 +116,7 @@ public class Price {
    *
    * @return id
    */
-  @ApiModelProperty(required = true, value = "The unique identifier of the price.")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The unique identifier of the price.")
   /**
    * The unique identifier of the price.
    *

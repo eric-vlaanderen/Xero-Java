@@ -1,15 +1,17 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.accounting.*;
+import com.xero.models.accounting.PaymentServices;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class AccountingApiPaymentServicesTest {
 
@@ -21,7 +23,7 @@ public class AccountingApiPaymentServicesTest {
     
     private static boolean setUpIsDone = false;
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -56,13 +58,13 @@ public class AccountingApiPaymentServicesTest {
         PaymentServices paymentServices = new PaymentServices();
         PaymentServices response = accountingApi.createPaymentService(accessToken,xeroTenantId,paymentServices, null);
 
-        assertThat(response.getPaymentServices().get(0).getPaymentServiceID(), is(equalTo(UUID.fromString("54b3b4f6-0443-4fba-bcd1-61ec0c35ca55"))));
-        assertThat(response.getPaymentServices().get(0).getPaymentServiceName(), is(equalTo("PayUpNow")));
-        assertThat(response.getPaymentServices().get(0).getPaymentServiceUrl(), is(equalTo("https://www.payupnow.com/")));
-        assertThat(response.getPaymentServices().get(0).getPayNowText(), is(equalTo("Time To Pay")));
-        assertThat(response.getPaymentServices().get(0).getPaymentServiceType(), is(equalTo("Custom")));
-        assertThat(response.getPaymentServices().get(0).getValidationErrors().get(0).getMessage(), is(equalTo("Payment service could not be found")));
-        //System.out.println(response.getPaymentServices().get(0).toString());
+        assertThat(response.getPaymentServices().getFirst().getPaymentServiceID(), is(equalTo(UUID.fromString("54b3b4f6-0443-4fba-bcd1-61ec0c35ca55"))));
+        assertThat(response.getPaymentServices().getFirst().getPaymentServiceName(), is(equalTo("PayUpNow")));
+        assertThat(response.getPaymentServices().getFirst().getPaymentServiceUrl(), is(equalTo("https://www.payupnow.com/")));
+        assertThat(response.getPaymentServices().getFirst().getPayNowText(), is(equalTo("Time To Pay")));
+        assertThat(response.getPaymentServices().getFirst().getPaymentServiceType(), is(equalTo("Custom")));
+        assertThat(response.getPaymentServices().getFirst().getValidationErrors().getFirst().getMessage(), is(equalTo("Payment service could not be found")));
+        //System.out.println(response.getPaymentServices().getFirst().toString());
     }
 
     @Test
@@ -70,11 +72,11 @@ public class AccountingApiPaymentServicesTest {
         System.out.println("@Test - getPaymentServices");
         PaymentServices response = accountingApi.getPaymentServices(accessToken,xeroTenantId);
 
-        assertThat(response.getPaymentServices().get(0).getPaymentServiceID(), is(equalTo(UUID.fromString("54b3b4f6-0443-4fba-bcd1-61ec0c35ca55"))));
-        assertThat(response.getPaymentServices().get(0).getPaymentServiceName(), is(equalTo("PayUpNow")));
-        assertThat(response.getPaymentServices().get(0).getPaymentServiceUrl(), is(equalTo("https://www.payupnow.com/")));
-        assertThat(response.getPaymentServices().get(0).getPayNowText(), is(equalTo("Time To Pay")));
-        assertThat(response.getPaymentServices().get(0).getPaymentServiceType(), is(equalTo("Custom")));
-        //System.out.println(response.getPaymentServices().get(0).toString());
+        assertThat(response.getPaymentServices().getFirst().getPaymentServiceID(), is(equalTo(UUID.fromString("54b3b4f6-0443-4fba-bcd1-61ec0c35ca55"))));
+        assertThat(response.getPaymentServices().getFirst().getPaymentServiceName(), is(equalTo("PayUpNow")));
+        assertThat(response.getPaymentServices().getFirst().getPaymentServiceUrl(), is(equalTo("https://www.payupnow.com/")));
+        assertThat(response.getPaymentServices().getFirst().getPayNowText(), is(equalTo("Time To Pay")));
+        assertThat(response.getPaymentServices().getFirst().getPaymentServiceType(), is(equalTo("Custom")));
+        //System.out.println(response.getPaymentServices().getFirst().toString());
     }
 }

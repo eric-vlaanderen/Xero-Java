@@ -1,17 +1,21 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrollnz.*;
+import com.xero.models.payrollnz.EarningsRate;
 import com.xero.models.payrollnz.EarningsRate.EarningsTypeEnum;
 import com.xero.models.payrollnz.EarningsRate.RateTypeEnum;
+import com.xero.models.payrollnz.EarningsRateObject;
+import com.xero.models.payrollnz.EarningsRates;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollNzApiEarningRatesTest {
 
@@ -21,7 +25,7 @@ public class PayrollNzApiEarningRatesTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -43,13 +47,13 @@ public class PayrollNzApiEarningRatesTest {
         int page = 1;
         EarningsRates response = payrollNzApi.getEarningsRates(accessToken, xeroTenantId, page);
         
-        assertThat(response.getEarningsRates().get(0).getEarningsRateID(),is(equalTo(UUID.fromString("f9d8f5b5-9049-47f4-8541-35e200f750a5"))));
-        assertThat(response.getEarningsRates().get(0).getExpenseAccountID(), is(equalTo(UUID.fromString("1c91e520-a12b-45cc-8194-99950858e5bf"))));
-        assertThat(response.getEarningsRates().get(0).getName(), is(equalTo("Ordinary Time")));
-        assertThat(response.getEarningsRates().get(0).getEarningsType(), is(equalTo(com.xero.models.payrollnz.EarningsRate.EarningsTypeEnum.REGULAREARNINGS)));
-        assertThat(response.getEarningsRates().get(0).getCurrentRecord(), is(equalTo(true)));
-        assertThat(response.getEarningsRates().get(0).getRateType(), is(equalTo(com.xero.models.payrollnz.EarningsRate.RateTypeEnum.RATEPERUNIT)));
-        assertThat(response.getEarningsRates().get(0).getTypeOfUnits(), is(equalTo("hours")));
+        assertThat(response.getEarningsRates().getFirst().getEarningsRateID(),is(equalTo(UUID.fromString("f9d8f5b5-9049-47f4-8541-35e200f750a5"))));
+        assertThat(response.getEarningsRates().getFirst().getExpenseAccountID(), is(equalTo(UUID.fromString("1c91e520-a12b-45cc-8194-99950858e5bf"))));
+        assertThat(response.getEarningsRates().getFirst().getName(), is(equalTo("Ordinary Time")));
+        assertThat(response.getEarningsRates().getFirst().getEarningsType(), is(equalTo(com.xero.models.payrollnz.EarningsRate.EarningsTypeEnum.REGULAREARNINGS)));
+        assertThat(response.getEarningsRates().getFirst().getCurrentRecord(), is(equalTo(true)));
+        assertThat(response.getEarningsRates().getFirst().getRateType(), is(equalTo(com.xero.models.payrollnz.EarningsRate.RateTypeEnum.RATEPERUNIT)));
+        assertThat(response.getEarningsRates().getFirst().getTypeOfUnits(), is(equalTo("hours")));
         assertThat(response.getEarningsRates().get(2).getEarningsRateID(),is(equalTo(UUID.fromString("6e5a4cf2-aa38-4558-a46e-f6998dad239b"))));
         assertThat(response.getEarningsRates().get(2).getExpenseAccountID(), is(equalTo(UUID.fromString("1c91e520-a12b-45cc-8194-99950858e5bf"))));
         assertThat(response.getEarningsRates().get(2).getName(), is(equalTo("Directors Fees")));

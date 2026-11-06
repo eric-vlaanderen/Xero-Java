@@ -13,14 +13,14 @@ package com.xero.models.payrollauv2;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** The object returned for a bad request */
-@ApiModel(description = "The object returned for a bad request")
+@Schema(description = "The object returned for a bad request")
 public class Problem {
   StringUtil util = new StringUtil();
 
@@ -58,7 +58,7 @@ public class Problem {
    *
    * @return type
    */
-  @ApiModelProperty(example = "application/problem+json", value = "The type of error format")
+  @Schema(example = "application/problem+json", description = "The type of error format")
   /**
    * The type of error format
    *
@@ -93,7 +93,7 @@ public class Problem {
    *
    * @return title
    */
-  @ApiModelProperty(example = "BadRequest", value = "The type of the error")
+  @Schema(example = "BadRequest", description = "The type of the error")
   /**
    * The type of the error
    *
@@ -128,7 +128,7 @@ public class Problem {
    *
    * @return status
    */
-  @ApiModelProperty(example = "400", value = "The error status code")
+  @Schema(example = "400", description = "The error status code")
   /**
    * The error status code
    *
@@ -163,7 +163,7 @@ public class Problem {
    *
    * @return detail
    */
-  @ApiModelProperty(example = "Validation error occurred.", value = "A description of the error")
+  @Schema(example = "Validation error occurred.", description = "A description of the error")
   /**
    * A description of the error
    *
@@ -198,7 +198,7 @@ public class Problem {
    *
    * @return instance
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * instance
    *
@@ -247,7 +247,7 @@ public class Problem {
    *
    * @return invalidFields
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * invalidFields
    *

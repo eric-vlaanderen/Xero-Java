@@ -15,16 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** Overpayment */
 public class Overpayment {
@@ -215,7 +216,7 @@ public class Overpayment {
    *
    * @return type
    */
-  @ApiModelProperty(value = "See Overpayment Types")
+  @Schema(description = "See Overpayment Types")
   /**
    * See Overpayment Types
    *
@@ -250,7 +251,7 @@ public class Overpayment {
    *
    * @return contact
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * contact
    *
@@ -285,7 +286,7 @@ public class Overpayment {
    *
    * @return date
    */
-  @ApiModelProperty(value = "The date the overpayment is created YYYY-MM-DD")
+  @Schema(description = "The date the overpayment is created YYYY-MM-DD")
   /**
    * The date the overpayment is created YYYY-MM-DD
    *
@@ -349,7 +350,7 @@ public class Overpayment {
    *
    * @return status
    */
-  @ApiModelProperty(value = "See Overpayment Status Codes")
+  @Schema(description = "See Overpayment Status Codes")
   /**
    * See Overpayment Status Codes
    *
@@ -384,7 +385,7 @@ public class Overpayment {
    *
    * @return lineAmountTypes
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * lineAmountTypes
    *
@@ -433,7 +434,7 @@ public class Overpayment {
    *
    * @return lineItems
    */
-  @ApiModelProperty(value = "See Overpayment Line Items")
+  @Schema(description = "See Overpayment Line Items")
   /**
    * See Overpayment Line Items
    *
@@ -468,7 +469,7 @@ public class Overpayment {
    *
    * @return subTotal
    */
-  @ApiModelProperty(value = "The subtotal of the overpayment excluding taxes")
+  @Schema(description = "The subtotal of the overpayment excluding taxes")
   /**
    * The subtotal of the overpayment excluding taxes
    *
@@ -503,7 +504,7 @@ public class Overpayment {
    *
    * @return totalTax
    */
-  @ApiModelProperty(value = "The total tax on the overpayment")
+  @Schema(description = "The total tax on the overpayment")
   /**
    * The total tax on the overpayment
    *
@@ -538,7 +539,7 @@ public class Overpayment {
    *
    * @return total
    */
-  @ApiModelProperty(value = "The total of the overpayment (subtotal + total tax)")
+  @Schema(description = "The total of the overpayment (subtotal + total tax)")
   /**
    * The total of the overpayment (subtotal + total tax)
    *
@@ -562,9 +563,9 @@ public class Overpayment {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(1573755038314)/",
-      value = "UTC timestamp of last update to the overpayment")
+      description = "UTC timestamp of last update to the overpayment")
   /**
    * UTC timestamp of last update to the overpayment
    *
@@ -595,9 +596,9 @@ public class Overpayment {
    *
    * @return updatedDateUTCString
    */
-  @ApiModelProperty(
+  @Schema(
       example = "2019-11-14T18:10:38Z",
-      value = "UTC ISO-8601 formatted timestamp of last update to the overpayment")
+      description = "UTC ISO-8601 formatted timestamp of last update to the overpayment")
   /**
    * UTC ISO-8601 formatted timestamp of last update to the overpayment
    *
@@ -623,7 +624,7 @@ public class Overpayment {
    *
    * @return currencyCode
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * currencyCode
    *
@@ -658,7 +659,7 @@ public class Overpayment {
    *
    * @return overpaymentID
    */
-  @ApiModelProperty(value = "Xero generated unique identifier")
+  @Schema(description = "Xero generated unique identifier")
   /**
    * Xero generated unique identifier
    *
@@ -695,8 +696,8 @@ public class Overpayment {
    *
    * @return currencyRate
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The currency rate for a multicurrency overpayment. If no rate is specified, the XE.com"
               + " day rate is used")
   /**
@@ -735,7 +736,7 @@ public class Overpayment {
    *
    * @return remainingCredit
    */
-  @ApiModelProperty(value = "The remaining credit balance on the overpayment")
+  @Schema(description = "The remaining credit balance on the overpayment")
   /**
    * The remaining credit balance on the overpayment
    *
@@ -784,7 +785,7 @@ public class Overpayment {
    *
    * @return allocations
    */
-  @ApiModelProperty(value = "See Allocations")
+  @Schema(description = "See Allocations")
   /**
    * See Allocations
    *
@@ -819,7 +820,7 @@ public class Overpayment {
    *
    * @return appliedAmount
    */
-  @ApiModelProperty(example = "2.0", value = "The amount of applied to an invoice")
+  @Schema(example = "2.0", description = "The amount of applied to an invoice")
   /**
    * The amount of applied to an invoice
    *
@@ -868,7 +869,7 @@ public class Overpayment {
    *
    * @return payments
    */
-  @ApiModelProperty(value = "See Payments")
+  @Schema(description = "See Payments")
   /**
    * See Payments
    *
@@ -892,9 +893,9 @@ public class Overpayment {
    *
    * @return hasAttachments
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "boolean to indicate if a overpayment has an attachment")
+      description = "boolean to indicate if a overpayment has an attachment")
   /**
    * boolean to indicate if a overpayment has an attachment
    *
@@ -920,7 +921,7 @@ public class Overpayment {
    *
    * @return reference
    */
-  @ApiModelProperty(example = "Ref for payment", value = "An optional description for Overpayment")
+  @Schema(example = "Ref for payment", description = "An optional description for Overpayment")
   /**
    * An optional description for Overpayment
    *
@@ -969,7 +970,7 @@ public class Overpayment {
    *
    * @return attachments
    */
-  @ApiModelProperty(value = "See Attachments")
+  @Schema(description = "See Attachments")
   /**
    * See Attachments
    *

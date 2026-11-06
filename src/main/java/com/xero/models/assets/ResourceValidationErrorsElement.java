@@ -13,7 +13,7 @@ package com.xero.models.assets;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** ResourceValidationErrorsElement */
@@ -51,7 +51,7 @@ public class ResourceValidationErrorsElement {
    *
    * @return resourceName
    */
-  @ApiModelProperty(value = "The field name of the erroneous field")
+  @Schema(description = "The field name of the erroneous field")
   /**
    * The field name of the erroneous field
    *
@@ -86,7 +86,7 @@ public class ResourceValidationErrorsElement {
    *
    * @return localisedMessage
    */
-  @ApiModelProperty(value = "Explanation of the resource validation error")
+  @Schema(description = "Explanation of the resource validation error")
   /**
    * Explanation of the resource validation error
    *
@@ -121,7 +121,7 @@ public class ResourceValidationErrorsElement {
    *
    * @return type
    */
-  @ApiModelProperty(value = "Internal type of the resource error message")
+  @Schema(description = "Internal type of the resource error message")
   /**
    * Internal type of the resource error message
    *
@@ -156,7 +156,7 @@ public class ResourceValidationErrorsElement {
    *
    * @return title
    */
-  @ApiModelProperty(value = "Title of the resource validation error")
+  @Schema(description = "Title of the resource validation error")
   /**
    * Title of the resource validation error
    *
@@ -191,7 +191,7 @@ public class ResourceValidationErrorsElement {
    *
    * @return detail
    */
-  @ApiModelProperty(value = "Detail of the resource validation error")
+  @Schema(description = "Detail of the resource validation error")
   /**
    * Detail of the resource validation error
    *

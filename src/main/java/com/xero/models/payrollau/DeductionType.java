@@ -15,11 +15,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** DeductionType */
 public class DeductionType {
@@ -121,7 +122,7 @@ public class DeductionType {
    *
    * @return name
    */
-  @ApiModelProperty(example = "PTO", value = "Name of the earnings rate (max length = 100)")
+  @Schema(example = "PTO", description = "Name of the earnings rate (max length = 100)")
   /**
    * Name of the earnings rate (max length &#x3D; 100)
    *
@@ -156,7 +157,7 @@ public class DeductionType {
    *
    * @return accountCode
    */
-  @ApiModelProperty(example = "720", value = "See Accounts")
+  @Schema(example = "720", description = "See Accounts")
   /**
    * See Accounts
    *
@@ -193,9 +194,9 @@ public class DeductionType {
    *
    * @return reducesTax
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value =
+      description =
           "Indicates that this is a pre-tax deduction that will reduce the amount of tax you"
               + " withhold from an employee.")
   /**
@@ -236,9 +237,9 @@ public class DeductionType {
    *
    * @return reducesSuper
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value =
+      description =
           "Most deductions don’t reduce your superannuation guarantee contribution liability, so"
               + " typically you will not set any value for this.")
   /**
@@ -277,9 +278,9 @@ public class DeductionType {
    *
    * @return isExemptFromW1
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "Boolean to determine if the deduction type is reportable or exempt from W1")
+      description = "Boolean to determine if the deduction type is reportable or exempt from W1")
   /**
    * Boolean to determine if the deduction type is reportable or exempt from W1
    *
@@ -314,7 +315,7 @@ public class DeductionType {
    *
    * @return deductionTypeID
    */
-  @ApiModelProperty(example = "e0eb6747-7c17-4075-b804-989f8d4e5d39", value = "Xero identifier")
+  @Schema(example = "e0eb6747-7c17-4075-b804-989f8d4e5d39", description = "Xero identifier")
   /**
    * Xero identifier
    *
@@ -338,7 +339,7 @@ public class DeductionType {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1583967733054+0000)/", value = "Last modified timestamp")
+  @Schema(example = "/Date(1583967733054+0000)/", description = "Last modified timestamp")
   /**
    * Last modified timestamp
    *
@@ -380,7 +381,7 @@ public class DeductionType {
    *
    * @return deductionCategory
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * deductionCategory
    *
@@ -415,7 +416,7 @@ public class DeductionType {
    *
    * @return currentRecord
    */
-  @ApiModelProperty(example = "true", value = "Is the current record")
+  @Schema(example = "true", description = "Is the current record")
   /**
    * Is the current record
    *

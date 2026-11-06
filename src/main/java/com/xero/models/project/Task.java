@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -143,9 +143,9 @@ public class Task {
    *
    * @return taskId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      value = "Identifier of the task.")
+      description = "Identifier of the task.")
   /**
    * Identifier of the task.
    *
@@ -180,7 +180,7 @@ public class Task {
    *
    * @return name
    */
-  @ApiModelProperty(value = "Name of the task.")
+  @Schema(description = "Name of the task.")
   /**
    * Name of the task.
    *
@@ -215,7 +215,7 @@ public class Task {
    *
    * @return rate
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * rate
    *
@@ -250,7 +250,7 @@ public class Task {
    *
    * @return chargeType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * chargeType
    *
@@ -285,7 +285,7 @@ public class Task {
    *
    * @return estimateMinutes
    */
-  @ApiModelProperty(value = "An estimated time to perform the task")
+  @Schema(description = "An estimated time to perform the task")
   /**
    * An estimated time to perform the task
    *
@@ -320,9 +320,9 @@ public class Task {
    *
    * @return projectId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      value = "Identifier of the project task belongs to.")
+      description = "Identifier of the project task belongs to.")
   /**
    * Identifier of the project task belongs to.
    *
@@ -359,8 +359,8 @@ public class Task {
    *
    * @return totalMinutes
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Total minutes which have been logged against the task. Logged by assigning a time entry"
               + " to a task")
   /**
@@ -399,7 +399,7 @@ public class Task {
    *
    * @return totalAmount
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * totalAmount
    *
@@ -434,7 +434,7 @@ public class Task {
    *
    * @return minutesInvoiced
    */
-  @ApiModelProperty(value = "Minutes on this task which have been invoiced.")
+  @Schema(description = "Minutes on this task which have been invoiced.")
   /**
    * Minutes on this task which have been invoiced.
    *
@@ -469,7 +469,7 @@ public class Task {
    *
    * @return minutesToBeInvoiced
    */
-  @ApiModelProperty(value = "Minutes on this task which have not been invoiced.")
+  @Schema(description = "Minutes on this task which have not been invoiced.")
   /**
    * Minutes on this task which have not been invoiced.
    *
@@ -504,7 +504,7 @@ public class Task {
    *
    * @return fixedMinutes
    */
-  @ApiModelProperty(value = "Minutes logged against this task if its charge type is `FIXED`.")
+  @Schema(description = "Minutes logged against this task if its charge type is `FIXED`.")
   /**
    * Minutes logged against this task if its charge type is &#x60;FIXED&#x60;.
    *
@@ -539,8 +539,8 @@ public class Task {
    *
    * @return nonChargeableMinutes
    */
-  @ApiModelProperty(
-      value = "Minutes logged against this task if its charge type is `NON_CHARGEABLE`.")
+  @Schema(
+      description = "Minutes logged against this task if its charge type is `NON_CHARGEABLE`.")
   /**
    * Minutes logged against this task if its charge type is &#x60;NON_CHARGEABLE&#x60;.
    *
@@ -575,7 +575,7 @@ public class Task {
    *
    * @return amountToBeInvoiced
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * amountToBeInvoiced
    *
@@ -610,7 +610,7 @@ public class Task {
    *
    * @return amountInvoiced
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * amountInvoiced
    *
@@ -653,8 +653,8 @@ public class Task {
    *
    * @return status
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Status of the task. When a task of ChargeType is `FIXED` and the rate amount is invoiced"
               + " the status will be set to `INVOICED` and can't be modified. A task with"
               + " ChargeType of `TIME` or `NON_CHARGEABLE` cannot have a status of `INVOICED`. A"

@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -50,7 +50,7 @@ public class Error {
    *
    * @return errorNumber
    */
-  @ApiModelProperty(value = "Exception number")
+  @Schema(description = "Exception number")
   /**
    * Exception number
    *
@@ -85,7 +85,7 @@ public class Error {
    *
    * @return type
    */
-  @ApiModelProperty(value = "Exception type")
+  @Schema(description = "Exception type")
   /**
    * Exception type
    *
@@ -120,7 +120,7 @@ public class Error {
    *
    * @return message
    */
-  @ApiModelProperty(value = "Exception message")
+  @Schema(description = "Exception message")
   /**
    * Exception message
    *
@@ -169,7 +169,7 @@ public class Error {
    *
    * @return elements
    */
-  @ApiModelProperty(value = "Array of Elements of validation Errors")
+  @Schema(description = "Array of Elements of validation Errors")
   /**
    * Array of Elements of validation Errors
    *

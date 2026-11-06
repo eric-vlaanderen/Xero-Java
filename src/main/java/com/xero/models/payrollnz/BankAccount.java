@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** BankAccount */
@@ -112,7 +112,7 @@ public class BankAccount {
    *
    * @return accountName
    */
-  @ApiModelProperty(required = true, value = "Bank account name (max length = 32)")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Bank account name (max length = 32)")
   /**
    * Bank account name (max length &#x3D; 32)
    *
@@ -147,7 +147,7 @@ public class BankAccount {
    *
    * @return accountNumber
    */
-  @ApiModelProperty(required = true, value = "Bank account number (digits only; max length = 8)")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Bank account number (digits only; max length = 8)")
   /**
    * Bank account number (digits only; max length &#x3D; 8)
    *
@@ -182,7 +182,7 @@ public class BankAccount {
    *
    * @return sortCode
    */
-  @ApiModelProperty(required = true, value = "Bank account sort code (6 digits)")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Bank account sort code (6 digits)")
   /**
    * Bank account sort code (6 digits)
    *
@@ -217,7 +217,7 @@ public class BankAccount {
    *
    * @return particulars
    */
-  @ApiModelProperty(value = "Particulars that appear on the statement.")
+  @Schema(description = "Particulars that appear on the statement.")
   /**
    * Particulars that appear on the statement.
    *
@@ -252,7 +252,7 @@ public class BankAccount {
    *
    * @return code
    */
-  @ApiModelProperty(value = "Code of a transaction that appear on the statement.")
+  @Schema(description = "Code of a transaction that appear on the statement.")
   /**
    * Code of a transaction that appear on the statement.
    *
@@ -287,7 +287,7 @@ public class BankAccount {
    *
    * @return dollarAmount
    */
-  @ApiModelProperty(value = "Dollar amount of a transaction.")
+  @Schema(description = "Dollar amount of a transaction.")
   /**
    * Dollar amount of a transaction.
    *
@@ -322,8 +322,8 @@ public class BankAccount {
    *
    * @return reference
    */
-  @ApiModelProperty(
-      value = "Statement Text/reference for a transaction that appear on the statement.")
+  @Schema(
+      description = "Statement Text/reference for a transaction that appear on the statement.")
   /**
    * Statement Text/reference for a transaction that appear on the statement.
    *
@@ -358,8 +358,8 @@ public class BankAccount {
    *
    * @return calculationType
    */
-  @ApiModelProperty(
-      value = "Calculation type for the transaction can be 'Fixed Amount' or 'Balance'")
+  @Schema(
+      description = "Calculation type for the transaction can be 'Fixed Amount' or 'Balance'")
   /**
    * Calculation type for the transaction can be &#39;Fixed Amount&#39; or &#39;Balance&#39;
    *

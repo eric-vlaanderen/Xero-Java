@@ -13,7 +13,7 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** WorkingWeek */
@@ -57,7 +57,7 @@ public class WorkingWeek {
    *
    * @return monday
    */
-  @ApiModelProperty(required = true, value = "The number of hours worked on a Monday")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The number of hours worked on a Monday")
   /**
    * The number of hours worked on a Monday
    *
@@ -92,7 +92,7 @@ public class WorkingWeek {
    *
    * @return tuesday
    */
-  @ApiModelProperty(required = true, value = "The number of hours worked on a Tuesday")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The number of hours worked on a Tuesday")
   /**
    * The number of hours worked on a Tuesday
    *
@@ -127,7 +127,7 @@ public class WorkingWeek {
    *
    * @return wednesday
    */
-  @ApiModelProperty(required = true, value = "The number of hours worked on a Wednesday")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The number of hours worked on a Wednesday")
   /**
    * The number of hours worked on a Wednesday
    *
@@ -162,7 +162,7 @@ public class WorkingWeek {
    *
    * @return thursday
    */
-  @ApiModelProperty(required = true, value = "The number of hours worked on a Thursday")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The number of hours worked on a Thursday")
   /**
    * The number of hours worked on a Thursday
    *
@@ -197,7 +197,7 @@ public class WorkingWeek {
    *
    * @return friday
    */
-  @ApiModelProperty(required = true, value = "The number of hours worked on a Friday")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The number of hours worked on a Friday")
   /**
    * The number of hours worked on a Friday
    *
@@ -232,7 +232,7 @@ public class WorkingWeek {
    *
    * @return saturday
    */
-  @ApiModelProperty(required = true, value = "The number of hours worked on a Saturday")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The number of hours worked on a Saturday")
   /**
    * The number of hours worked on a Saturday
    *
@@ -267,7 +267,7 @@ public class WorkingWeek {
    *
    * @return sunday
    */
-  @ApiModelProperty(required = true, value = "The number of hours worked on a Sunday")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The number of hours worked on a Sunday")
   /**
    * The number of hours worked on a Sunday
    *

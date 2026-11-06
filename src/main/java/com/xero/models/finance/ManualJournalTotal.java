@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** ManualJournalTotal */
@@ -39,7 +39,7 @@ public class ManualJournalTotal {
    *
    * @return total
    */
-  @ApiModelProperty(value = "Total value of manual journals.")
+  @Schema(description = "Total value of manual journals.")
   /**
    * Total value of manual journals.
    *

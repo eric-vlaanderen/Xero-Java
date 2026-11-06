@@ -1,18 +1,16 @@
 package com.xero.api;
 
-import com.xero.models.payrollau.Timesheets;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
 import com.xero.models.accounting.Element;
 import com.xero.models.assets.FieldValidationErrorsElement;
 import com.xero.models.bankfeeds.FeedConnection;
 import com.xero.models.bankfeeds.FeedConnections;
 import com.xero.models.bankfeeds.Statement;
 import com.xero.models.bankfeeds.Statements;
+import io.swagger.v3.oas.annotations.media.Schema;
 
-import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /** handle bad request exception  */
 public class XeroBadRequestException extends XeroException {
@@ -236,7 +234,7 @@ public class XeroBadRequestException extends XeroException {
      * Exception number
      * @return statusCode
     **/
-    @ApiModelProperty(value = "Status Code")
+    @Schema(description = "Status Code")
     public Integer getStatusCode() {
       return statusCode;
     }
@@ -261,7 +259,7 @@ public class XeroBadRequestException extends XeroException {
      * Exception type
      * @return type
     **/
-    @ApiModelProperty(value = "API set type")
+    @Schema(description = "API set type")
     public String getType() {
       return type;
     }
@@ -286,7 +284,7 @@ public class XeroBadRequestException extends XeroException {
      * Exception message
      * @return message
     **/
-    @ApiModelProperty(value = "Exception message")
+    @Schema(description = "Exception message")
     public String getMessage() {
       return message;
     }
@@ -323,7 +321,7 @@ public class XeroBadRequestException extends XeroException {
      * Array of Elements of validation Errors
      * @return elements
     **/
-    @ApiModelProperty(value = "Array of Elements of validation Errors")
+    @Schema(description = "Array of Elements of validation Errors")
     public List<Element> getElements() {
       return elements;
     }
@@ -360,7 +358,7 @@ public class XeroBadRequestException extends XeroException {
     * Array of Statements Items of Errors Array
     * @return statementItems
     **/
-    @ApiModelProperty(value = "Array of Statement Items with Errors Array")
+    @Schema(description = "Array of Statement Items with Errors Array")
     public List<Statement> getStatementItems() {
       return statementItems;
     }
@@ -397,7 +395,7 @@ public class XeroBadRequestException extends XeroException {
     * Array of FeedConnection of Errors Array
     * @return statementItems
     **/
-    @ApiModelProperty(value = "Array of FeedConnection Items with Errors Array")
+    @Schema(description = "Array of FeedConnection Items with Errors Array")
     public List<FeedConnection> getFeedConnectionItems() {
       return feedConnectionItems;
     }
@@ -434,7 +432,7 @@ public class XeroBadRequestException extends XeroException {
     * Array of Assets Errors Array
     * @return List&lt;FieldValidationErrorsElement&gt;
     **/
-    @ApiModelProperty(value = "Array of FieldValidationErrorElement")
+    @Schema(description = "Array of FieldValidationErrorElement")
     public List<FieldValidationErrorsElement> getFieldValidationErrorsElements() {
       return fieldValidationErrorsElements;
     }
@@ -459,7 +457,7 @@ public class XeroBadRequestException extends XeroException {
      * Exception type
      * @return com.xero.models.payrolluk.Problem
     **/
-    @ApiModelProperty(value = "UK Payroll problem")
+    @Schema(description = "UK Payroll problem")
     public com.xero.models.payrolluk.Problem getPayrollUkProblem() {
       return payrollUkProblem;
     }
@@ -484,7 +482,7 @@ public class XeroBadRequestException extends XeroException {
      * Exception type
      * @return com.xero.models.payrollnz.Problem
     **/
-    @ApiModelProperty(value = "NZ Payroll problem")
+    @Schema(description = "NZ Payroll problem")
     public com.xero.models.payrollnz.Problem getPayrollNzProblem() {
       return payrollNzProblem;
     }
@@ -509,7 +507,7 @@ public class XeroBadRequestException extends XeroException {
      * Exception type
      * @return com.xero.models.payrollauv2.Problem
     **/
-    @ApiModelProperty(value = "AU Payroll V2 problem")
+    @Schema(description = "AU Payroll V2 problem")
     public com.xero.models.payrollauv2.Problem getPayrollAuV2Problem() {
       return payrollAuV2Problem;
     }
@@ -546,7 +544,7 @@ public class XeroBadRequestException extends XeroException {
     * Array of FeedConnection of Errors Array
     * @return statementItems
     **/
-    @ApiModelProperty(value = "Array of FeedConnection Items with Errors Array")
+    @Schema(description = "Array of FeedConnection Items with Errors Array")
     public List<com.xero.models.payrollau.Employee> getEmployeeItems() {
       return employeeItems;
     }
@@ -583,7 +581,7 @@ public class XeroBadRequestException extends XeroException {
     * Array of PayItems with Validation Error Array
     * @return payItems
     **/
-    @ApiModelProperty(value = "Array of PayItems with Validation Array")
+    @Schema(description = "Array of PayItems with Validation Array")
     public List<com.xero.models.payrollau.PayItem> getPayItemItems() {
       return payItemItems;
     }
@@ -620,7 +618,7 @@ public class XeroBadRequestException extends XeroException {
     * Array of PayRun with Validation Error Array
     * @return payRunItems
     **/
-    @ApiModelProperty(value = "Array of PayRun with Validation Array")
+    @Schema(description = "Array of PayRun with Validation Array")
     public List<com.xero.models.payrollau.PayRun> getPayRunItems() {
       return payRunItems;
     }
@@ -657,7 +655,7 @@ public class XeroBadRequestException extends XeroException {
     * Array of PayrollCalendar with Validation Error Array
     * @return payrollCalendarItems
     **/
-    @ApiModelProperty(value = "Array of PayrollCalendar with Validation Array")
+    @Schema(description = "Array of PayrollCalendar with Validation Array")
     public List<com.xero.models.payrollau.PayrollCalendar> getPayrollCalendarItems() {
       return payrollCalendarItems;
     }
@@ -695,7 +693,7 @@ public class XeroBadRequestException extends XeroException {
     * Array of SuperFund with Validation Error Array
     * @return superFundItems
     **/
-    @ApiModelProperty(value = "Array of SuperFund with Validation Array")
+    @Schema(description = "Array of SuperFund with Validation Array")
     public List<com.xero.models.payrollau.SuperFund> getSuperFundItems() {
       return superFundItems;
     }
@@ -732,7 +730,7 @@ public class XeroBadRequestException extends XeroException {
     * Array of Timesheet with Validation Error Array
     * @return timesheetItems
     **/
-    @ApiModelProperty(value = "Array of Timesheet with Validation Array")
+    @Schema(description = "Array of Timesheet with Validation Array")
     public List<com.xero.models.payrollau.Timesheet> getTimesheetItems() {
       return timesheetItems;
     }

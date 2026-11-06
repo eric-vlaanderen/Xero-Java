@@ -13,7 +13,7 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -52,7 +52,7 @@ public class PaymentLine {
    *
    * @return paymentLineID
    */
-  @ApiModelProperty(value = "Xero identifier for payroll payment line")
+  @Schema(description = "Xero identifier for payroll payment line")
   /**
    * Xero identifier for payroll payment line
    *
@@ -87,7 +87,7 @@ public class PaymentLine {
    *
    * @return amount
    */
-  @ApiModelProperty(value = "The amount of the payment line")
+  @Schema(description = "The amount of the payment line")
   /**
    * The amount of the payment line
    *
@@ -122,7 +122,7 @@ public class PaymentLine {
    *
    * @return accountNumber
    */
-  @ApiModelProperty(value = "The account number")
+  @Schema(description = "The account number")
   /**
    * The account number
    *
@@ -157,7 +157,7 @@ public class PaymentLine {
    *
    * @return sortCode
    */
-  @ApiModelProperty(value = "The account sort code")
+  @Schema(description = "The account sort code")
   /**
    * The account sort code
    *
@@ -192,7 +192,7 @@ public class PaymentLine {
    *
    * @return accountName
    */
-  @ApiModelProperty(value = "The account name")
+  @Schema(description = "The account name")
   /**
    * The account name
    *

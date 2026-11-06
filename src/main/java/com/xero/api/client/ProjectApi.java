@@ -12,45 +12,23 @@
 
 package com.xero.api.client;
 
-import com.fasterxml.jackson.core.type.TypeReference;
+import tools.jackson.core.type.TypeReference;
 import com.google.api.client.auth.oauth2.BearerToken;
 import com.google.api.client.auth.oauth2.Credential;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpContent;
-import com.google.api.client.http.HttpHeaders;
-import com.google.api.client.http.HttpMethods;
-import com.google.api.client.http.HttpRequestFactory;
-import com.google.api.client.http.HttpResponse;
-import com.google.api.client.http.HttpResponseException;
-import com.google.api.client.http.HttpTransport;
+import com.google.api.client.http.*;
 import com.xero.api.ApiClient;
 import com.xero.api.XeroApiExceptionHandler;
-import com.xero.models.project.ChargeType;
-import com.xero.models.project.Project;
-import com.xero.models.project.ProjectCreateOrUpdate;
-import com.xero.models.project.ProjectPatch;
-import com.xero.models.project.ProjectUsers;
-import com.xero.models.project.Projects;
-import com.xero.models.project.Task;
-import com.xero.models.project.TaskCreateOrUpdate;
-import com.xero.models.project.Tasks;
-import com.xero.models.project.TimeEntries;
-import com.xero.models.project.TimeEntry;
-import com.xero.models.project.TimeEntryCreateOrUpdate;
+import com.xero.models.project.*;
 import jakarta.ws.rs.core.UriBuilder;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.*;
 
 /** ProjectApi has methods for interacting with all endpoints in the API set */
 public class ProjectApi {
@@ -828,7 +806,7 @@ public class ProjectApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -848,7 +826,7 @@ public class ProjectApi {
       Object value = pageSize;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -979,7 +957,7 @@ public class ProjectApi {
       Object value = projectIds;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -999,7 +977,7 @@ public class ProjectApi {
       Object value = contactID;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1019,7 +997,7 @@ public class ProjectApi {
       Object value = states;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1039,7 +1017,7 @@ public class ProjectApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1059,7 +1037,7 @@ public class ProjectApi {
       Object value = pageSize;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1306,7 +1284,7 @@ public class ProjectApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1326,7 +1304,7 @@ public class ProjectApi {
       Object value = pageSize;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1346,7 +1324,7 @@ public class ProjectApi {
       Object value = taskIds;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1366,7 +1344,7 @@ public class ProjectApi {
       Object value = chargeType;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1554,7 +1532,7 @@ public class ProjectApi {
       Object value = userId;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1574,7 +1552,7 @@ public class ProjectApi {
       Object value = taskId;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1594,7 +1572,7 @@ public class ProjectApi {
       Object value = invoiceId;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1614,7 +1592,7 @@ public class ProjectApi {
       Object value = contactId;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1634,7 +1612,7 @@ public class ProjectApi {
       Object value = page;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1654,7 +1632,7 @@ public class ProjectApi {
       Object value = pageSize;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1674,7 +1652,7 @@ public class ProjectApi {
       Object value = states;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1694,7 +1672,7 @@ public class ProjectApi {
       Object value = isChargeable;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1714,7 +1692,7 @@ public class ProjectApi {
       Object value = dateAfterUtc;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());
@@ -1734,7 +1712,7 @@ public class ProjectApi {
       Object value = dateBeforeUtc;
       if (value instanceof Collection) {
         List valueList = new ArrayList<>((Collection) value);
-        if (!valueList.isEmpty() && valueList.get(0) instanceof UUID) {
+        if (!valueList.isEmpty() && valueList.getFirst() instanceof UUID) {
           List<String> list = new ArrayList<String>();
           for (int i = 0; i < valueList.size(); i++) {
             list.add(valueList.get(i).toString());

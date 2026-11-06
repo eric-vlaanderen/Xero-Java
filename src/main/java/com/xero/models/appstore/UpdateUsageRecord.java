@@ -13,12 +13,12 @@ package com.xero.models.appstore;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** Data transfer object for public update usage end point */
-@ApiModel(description = "Data transfer object for public update usage end point")
+@Schema(description = "Data transfer object for public update usage end point")
 public class UpdateUsageRecord {
   StringUtil util = new StringUtil();
 
@@ -43,9 +43,9 @@ public class UpdateUsageRecord {
    *
    * @return quantity
    */
-  @ApiModelProperty(
-      required = true,
-      value =
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description =
           "The new quantity for the usage record. Must be a whole number that is greater than or"
               + " equal to 0")
   /**

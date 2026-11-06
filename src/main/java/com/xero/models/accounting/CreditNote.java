@@ -15,16 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** CreditNote */
 public class CreditNote {
@@ -254,7 +255,7 @@ public class CreditNote {
    *
    * @return type
    */
-  @ApiModelProperty(value = "See Credit Note Types")
+  @Schema(description = "See Credit Note Types")
   /**
    * See Credit Note Types
    *
@@ -289,7 +290,7 @@ public class CreditNote {
    *
    * @return contact
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * contact
    *
@@ -326,8 +327,8 @@ public class CreditNote {
    *
    * @return date
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The date the credit note is issued YYYY-MM-DD. If the Date element is not specified then"
               + " it will default to the current date based on the timezone setting of the"
               + " organisation")
@@ -398,7 +399,7 @@ public class CreditNote {
    *
    * @return dueDate
    */
-  @ApiModelProperty(value = "Date invoice is due – YYYY-MM-DD")
+  @Schema(description = "Date invoice is due – YYYY-MM-DD")
   /**
    * Date invoice is due – YYYY-MM-DD
    *
@@ -462,7 +463,7 @@ public class CreditNote {
    *
    * @return status
    */
-  @ApiModelProperty(value = "See Credit Note Status Codes")
+  @Schema(description = "See Credit Note Status Codes")
   /**
    * See Credit Note Status Codes
    *
@@ -497,7 +498,7 @@ public class CreditNote {
    *
    * @return lineAmountTypes
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * lineAmountTypes
    *
@@ -546,7 +547,7 @@ public class CreditNote {
    *
    * @return lineItems
    */
-  @ApiModelProperty(value = "See Invoice Line Items")
+  @Schema(description = "See Invoice Line Items")
   /**
    * See Invoice Line Items
    *
@@ -581,7 +582,7 @@ public class CreditNote {
    *
    * @return subTotal
    */
-  @ApiModelProperty(value = "The subtotal of the credit note excluding taxes")
+  @Schema(description = "The subtotal of the credit note excluding taxes")
   /**
    * The subtotal of the credit note excluding taxes
    *
@@ -616,7 +617,7 @@ public class CreditNote {
    *
    * @return totalTax
    */
-  @ApiModelProperty(value = "The total tax on the credit note")
+  @Schema(description = "The total tax on the credit note")
   /**
    * The total tax on the credit note
    *
@@ -651,7 +652,7 @@ public class CreditNote {
    *
    * @return total
    */
-  @ApiModelProperty(value = "The total of the Credit Note(subtotal + total tax)")
+  @Schema(description = "The total of the Credit Note(subtotal + total tax)")
   /**
    * The total of the Credit Note(subtotal + total tax)
    *
@@ -675,7 +676,7 @@ public class CreditNote {
    *
    * @return ciSDeduction
    */
-  @ApiModelProperty(value = "CIS deduction for UK contractors")
+  @Schema(description = "CIS deduction for UK contractors")
   /**
    * CIS deduction for UK contractors
    *
@@ -690,7 +691,7 @@ public class CreditNote {
    *
    * @return ciSRate
    */
-  @ApiModelProperty(value = "CIS Deduction rate for the organisation")
+  @Schema(description = "CIS Deduction rate for the organisation")
   /**
    * CIS Deduction rate for the organisation
    *
@@ -705,9 +706,9 @@ public class CreditNote {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(1573755038314)/",
-      value = "UTC timestamp of last update to the credit note")
+      description = "UTC timestamp of last update to the credit note")
   /**
    * UTC timestamp of last update to the credit note
    *
@@ -738,9 +739,9 @@ public class CreditNote {
    *
    * @return updatedDateUTCString
    */
-  @ApiModelProperty(
+  @Schema(
       example = "2019-11-14T18:10:38Z",
-      value = "UTC ISO-8601 formatted timestamp of last update to the credit note")
+      description = "UTC ISO-8601 formatted timestamp of last update to the credit note")
   /**
    * UTC ISO-8601 formatted timestamp of last update to the credit note
    *
@@ -766,7 +767,7 @@ public class CreditNote {
    *
    * @return currencyCode
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * currencyCode
    *
@@ -801,7 +802,7 @@ public class CreditNote {
    *
    * @return fullyPaidOnDate
    */
-  @ApiModelProperty(value = "Date when credit note was fully paid(UTC format)")
+  @Schema(description = "Date when credit note was fully paid(UTC format)")
   /**
    * Date when credit note was fully paid(UTC format)
    *
@@ -865,7 +866,7 @@ public class CreditNote {
    *
    * @return creditNoteID
    */
-  @ApiModelProperty(value = "Xero generated unique identifier")
+  @Schema(description = "Xero generated unique identifier")
   /**
    * Xero generated unique identifier
    *
@@ -902,8 +903,8 @@ public class CreditNote {
    *
    * @return creditNoteNumber
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "ACCRECCREDIT – Unique alpha numeric code identifying credit note (when missing will"
               + " auto-generate from your Organisation Invoice Settings)")
   /**
@@ -942,7 +943,7 @@ public class CreditNote {
    *
    * @return reference
    */
-  @ApiModelProperty(value = "ACCRECCREDIT only – additional reference number")
+  @Schema(description = "ACCRECCREDIT only – additional reference number")
   /**
    * ACCRECCREDIT only – additional reference number
    *
@@ -979,8 +980,8 @@ public class CreditNote {
    *
    * @return sentToContact
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Boolean to set whether the credit note in the Xero app should be marked as “sent”. This"
               + " can be set only on credit notes that have been approved")
   /**
@@ -1021,8 +1022,8 @@ public class CreditNote {
    *
    * @return currencyRate
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day"
               + " rate is used")
   /**
@@ -1061,7 +1062,7 @@ public class CreditNote {
    *
    * @return remainingCredit
    */
-  @ApiModelProperty(value = "The remaining credit balance on the Credit Note")
+  @Schema(description = "The remaining credit balance on the Credit Note")
   /**
    * The remaining credit balance on the Credit Note
    *
@@ -1110,7 +1111,7 @@ public class CreditNote {
    *
    * @return allocations
    */
-  @ApiModelProperty(value = "See Allocations")
+  @Schema(description = "See Allocations")
   /**
    * See Allocations
    *
@@ -1145,7 +1146,7 @@ public class CreditNote {
    *
    * @return appliedAmount
    */
-  @ApiModelProperty(example = "2.0", value = "The amount of applied to an invoice")
+  @Schema(example = "2.0", description = "The amount of applied to an invoice")
   /**
    * The amount of applied to an invoice
    *
@@ -1194,7 +1195,7 @@ public class CreditNote {
    *
    * @return payments
    */
-  @ApiModelProperty(value = "See Payments")
+  @Schema(description = "See Payments")
   /**
    * See Payments
    *
@@ -1229,7 +1230,7 @@ public class CreditNote {
    *
    * @return brandingThemeID
    */
-  @ApiModelProperty(value = "See BrandingThemes")
+  @Schema(description = "See BrandingThemes")
   /**
    * See BrandingThemes
    *
@@ -1264,7 +1265,7 @@ public class CreditNote {
    *
    * @return statusAttributeString
    */
-  @ApiModelProperty(value = "A string to indicate if a invoice status")
+  @Schema(description = "A string to indicate if a invoice status")
   /**
    * A string to indicate if a invoice status
    *
@@ -1299,9 +1300,9 @@ public class CreditNote {
    *
    * @return hasAttachments
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "boolean to indicate if a credit note has an attachment")
+      description = "boolean to indicate if a credit note has an attachment")
   /**
    * boolean to indicate if a credit note has an attachment
    *
@@ -1336,9 +1337,9 @@ public class CreditNote {
    *
    * @return hasErrors
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "A boolean to indicate if a credit note has an validation errors")
+      description = "A boolean to indicate if a credit note has an validation errors")
   /**
    * A boolean to indicate if a credit note has an validation errors
    *
@@ -1387,7 +1388,7 @@ public class CreditNote {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *
@@ -1436,7 +1437,7 @@ public class CreditNote {
    *
    * @return warnings
    */
-  @ApiModelProperty(value = "Displays array of warning messages from the API")
+  @Schema(description = "Displays array of warning messages from the API")
   /**
    * Displays array of warning messages from the API
    *
@@ -1485,7 +1486,7 @@ public class CreditNote {
    *
    * @return invoiceAddresses
    */
-  @ApiModelProperty(value = "An array of addresses used to auto calculate sales tax")
+  @Schema(description = "An array of addresses used to auto calculate sales tax")
   /**
    * An array of addresses used to auto calculate sales tax
    *

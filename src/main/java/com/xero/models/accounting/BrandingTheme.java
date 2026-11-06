@@ -15,11 +15,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** BrandingTheme */
 public class BrandingTheme {
@@ -106,7 +107,7 @@ public class BrandingTheme {
    *
    * @return brandingThemeID
    */
-  @ApiModelProperty(value = "Xero identifier")
+  @Schema(description = "Xero identifier")
   /**
    * Xero identifier
    *
@@ -141,7 +142,7 @@ public class BrandingTheme {
    *
    * @return name
    */
-  @ApiModelProperty(value = "Name of branding theme")
+  @Schema(description = "Name of branding theme")
   /**
    * Name of branding theme
    *
@@ -176,8 +177,8 @@ public class BrandingTheme {
    *
    * @return logoUrl
    */
-  @ApiModelProperty(
-      value = "The location of the image file used as the logo on this branding theme")
+  @Schema(
+      description = "The location of the image file used as the logo on this branding theme")
   /**
    * The location of the image file used as the logo on this branding theme
    *
@@ -212,7 +213,7 @@ public class BrandingTheme {
    *
    * @return type
    */
-  @ApiModelProperty(value = "Always INVOICE")
+  @Schema(description = "Always INVOICE")
   /**
    * Always INVOICE
    *
@@ -247,8 +248,8 @@ public class BrandingTheme {
    *
    * @return sortOrder
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Integer – ranked order of branding theme. The default branding theme has a value of 0")
   /**
    * Integer – ranked order of branding theme. The default branding theme has a value of 0
@@ -273,9 +274,9 @@ public class BrandingTheme {
    *
    * @return createdDateUTC
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(1573755038314)/",
-      value = "UTC timestamp of creation date of branding theme")
+      description = "UTC timestamp of creation date of branding theme")
   /**
    * UTC timestamp of creation date of branding theme
    *

@@ -1,15 +1,19 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrollnz.*;
+import com.xero.models.payrollnz.Benefit;
+import com.xero.models.payrollnz.SuperannuationObject;
+import com.xero.models.payrollnz.Superannuations;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollNzApiSuperannuationsTest {
 
@@ -19,7 +23,7 @@ public class PayrollNzApiSuperannuationsTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -41,13 +45,13 @@ public class PayrollNzApiSuperannuationsTest {
         int page = 1;
         Superannuations response = payrollNzApi.getSuperannuations(accessToken, xeroTenantId, page);
         
-        assertThat(response.getBenefits().get(0).getId(), is(equalTo(UUID.fromString("563273ea-0dae-4f82-86a4-e0db77c008ea"))));
-        assertThat(response.getBenefits().get(0).getLiabilityAccountId(), is(equalTo(UUID.fromString("fa5cdc43-643b-4ad8-b4ac-3ffe0d0f4488"))));
-        assertThat(response.getBenefits().get(0).getExpenseAccountId(), is(equalTo(UUID.fromString("b343c3b0-5941-4166-82b4-dd926622e0e2"))));
-        assertThat(response.getBenefits().get(0).getName(), is(equalTo("KiwiSaver")));
-        assertThat(response.getBenefits().get(0).getCurrentRecord(), is(equalTo(true)));
-        assertThat(response.getBenefits().get(0).getPercentage(), is(equalTo(3.0)));
-        assertThat(response.getBenefits().get(0).getCalculationTypeNZ(), is(equalTo(com.xero.models.payrollnz.Benefit.CalculationTypeNZEnum.PERCENTAGEOFTAXABLEEARNINGS)));
+        assertThat(response.getBenefits().getFirst().getId(), is(equalTo(UUID.fromString("563273ea-0dae-4f82-86a4-e0db77c008ea"))));
+        assertThat(response.getBenefits().getFirst().getLiabilityAccountId(), is(equalTo(UUID.fromString("fa5cdc43-643b-4ad8-b4ac-3ffe0d0f4488"))));
+        assertThat(response.getBenefits().getFirst().getExpenseAccountId(), is(equalTo(UUID.fromString("b343c3b0-5941-4166-82b4-dd926622e0e2"))));
+        assertThat(response.getBenefits().getFirst().getName(), is(equalTo("KiwiSaver")));
+        assertThat(response.getBenefits().getFirst().getCurrentRecord(), is(equalTo(true)));
+        assertThat(response.getBenefits().getFirst().getPercentage(), is(equalTo(3.0)));
+        assertThat(response.getBenefits().getFirst().getCalculationTypeNZ(), is(equalTo(com.xero.models.payrollnz.Benefit.CalculationTypeNZEnum.PERCENTAGEOFTAXABLEEARNINGS)));
 
         //System.out.println(response.toString());
     }

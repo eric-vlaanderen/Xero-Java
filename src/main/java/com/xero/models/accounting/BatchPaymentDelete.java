@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -43,9 +43,9 @@ public class BatchPaymentDelete {
    *
    * @return batchPaymentID
    */
-  @ApiModelProperty(
-      required = true,
-      value = "The Xero generated unique identifier for the bank transaction (read-only)")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The Xero generated unique identifier for the bank transaction (read-only)")
   /**
    * The Xero generated unique identifier for the bank transaction (read-only)
    *
@@ -80,7 +80,7 @@ public class BatchPaymentDelete {
    *
    * @return status
    */
-  @ApiModelProperty(required = true, value = "The status of the batch payment.")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The status of the batch payment.")
   /**
    * The status of the batch payment.
    *

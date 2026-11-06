@@ -15,16 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** Organisation */
 public class Organisation {
@@ -759,9 +760,9 @@ public class Organisation {
    *
    * @return organisationID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "8be9db36-3598-4755-ba5c-c2dbc8c4a7a2",
-      value = "Unique Xero identifier")
+      description = "Unique Xero identifier")
   /**
    * Unique Xero identifier
    *
@@ -796,7 +797,7 @@ public class Organisation {
    *
    * @return apIKey
    */
-  @ApiModelProperty(value = "Display a unique key used for Xero-to-Xero transactions")
+  @Schema(description = "Display a unique key used for Xero-to-Xero transactions")
   /**
    * Display a unique key used for Xero-to-Xero transactions
    *
@@ -831,7 +832,7 @@ public class Organisation {
    *
    * @return name
    */
-  @ApiModelProperty(value = "Display name of organisation shown in Xero")
+  @Schema(description = "Display name of organisation shown in Xero")
   /**
    * Display name of organisation shown in Xero
    *
@@ -866,7 +867,7 @@ public class Organisation {
    *
    * @return legalName
    */
-  @ApiModelProperty(value = "Organisation name shown on Reports")
+  @Schema(description = "Organisation name shown on Reports")
   /**
    * Organisation name shown on Reports
    *
@@ -901,8 +902,8 @@ public class Organisation {
    *
    * @return paysTax
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Boolean to describe if organisation is registered with a local tax authority i.e. true,"
               + " false")
   /**
@@ -939,7 +940,7 @@ public class Organisation {
    *
    * @return version
    */
-  @ApiModelProperty(value = "See Version Types")
+  @Schema(description = "See Version Types")
   /**
    * See Version Types
    *
@@ -974,7 +975,7 @@ public class Organisation {
    *
    * @return organisationType
    */
-  @ApiModelProperty(value = "Organisation Type")
+  @Schema(description = "Organisation Type")
   /**
    * Organisation Type
    *
@@ -1009,7 +1010,7 @@ public class Organisation {
    *
    * @return baseCurrency
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * baseCurrency
    *
@@ -1044,7 +1045,7 @@ public class Organisation {
    *
    * @return countryCode
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * countryCode
    *
@@ -1079,7 +1080,7 @@ public class Organisation {
    *
    * @return isDemoCompany
    */
-  @ApiModelProperty(value = "Boolean to describe if organisation is a demo company.")
+  @Schema(description = "Boolean to describe if organisation is a demo company.")
   /**
    * Boolean to describe if organisation is a demo company.
    *
@@ -1114,8 +1115,8 @@ public class Organisation {
    *
    * @return organisationStatus
    */
-  @ApiModelProperty(
-      value = "Will be set to ACTIVE if you can connect to organisation via the Xero API")
+  @Schema(
+      description = "Will be set to ACTIVE if you can connect to organisation via the Xero API")
   /**
    * Will be set to ACTIVE if you can connect to organisation via the Xero API
    *
@@ -1150,7 +1151,7 @@ public class Organisation {
    *
    * @return registrationNumber
    */
-  @ApiModelProperty(value = "Shows for New Zealand, Australian and UK organisations")
+  @Schema(description = "Shows for New Zealand, Australian and UK organisations")
   /**
    * Shows for New Zealand, Australian and UK organisations
    *
@@ -1185,7 +1186,7 @@ public class Organisation {
    *
    * @return employerIdentificationNumber
    */
-  @ApiModelProperty(value = "Shown if set. US Only.")
+  @Schema(description = "Shown if set. US Only.")
   /**
    * Shown if set. US Only.
    *
@@ -1222,8 +1223,8 @@ public class Organisation {
    *
    * @return taxNumber
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Shown if set. Displays in the Xero UI as Tax File Number (AU), GST Number (NZ), VAT"
               + " Number (UK) and Tax ID Number (US & Global).")
   /**
@@ -1262,7 +1263,7 @@ public class Organisation {
    *
    * @return financialYearEndDay
    */
-  @ApiModelProperty(value = "Calendar day e.g. 0-31")
+  @Schema(description = "Calendar day e.g. 0-31")
   /**
    * Calendar day e.g. 0-31
    *
@@ -1297,7 +1298,7 @@ public class Organisation {
    *
    * @return financialYearEndMonth
    */
-  @ApiModelProperty(value = "Calendar Month e.g. 1-12")
+  @Schema(description = "Calendar Month e.g. 1-12")
   /**
    * Calendar Month e.g. 1-12
    *
@@ -1332,7 +1333,7 @@ public class Organisation {
    *
    * @return salesTaxBasis
    */
-  @ApiModelProperty(value = "The accounting basis used for tax returns. See Sales Tax Basis")
+  @Schema(description = "The accounting basis used for tax returns. See Sales Tax Basis")
   /**
    * The accounting basis used for tax returns. See Sales Tax Basis
    *
@@ -1367,8 +1368,8 @@ public class Organisation {
    *
    * @return salesTaxPeriod
    */
-  @ApiModelProperty(
-      value = "The frequency with which tax returns are processed. See Sales Tax Period")
+  @Schema(
+      description = "The frequency with which tax returns are processed. See Sales Tax Period")
   /**
    * The frequency with which tax returns are processed. See Sales Tax Period
    *
@@ -1403,7 +1404,7 @@ public class Organisation {
    *
    * @return defaultSalesTax
    */
-  @ApiModelProperty(value = "The default for LineAmountTypes on sales transactions")
+  @Schema(description = "The default for LineAmountTypes on sales transactions")
   /**
    * The default for LineAmountTypes on sales transactions
    *
@@ -1438,7 +1439,7 @@ public class Organisation {
    *
    * @return defaultPurchasesTax
    */
-  @ApiModelProperty(value = "The default for LineAmountTypes on purchase transactions")
+  @Schema(description = "The default for LineAmountTypes on purchase transactions")
   /**
    * The default for LineAmountTypes on purchase transactions
    *
@@ -1473,7 +1474,7 @@ public class Organisation {
    *
    * @return periodLockDate
    */
-  @ApiModelProperty(value = "Shown if set. See lock dates")
+  @Schema(description = "Shown if set. See lock dates")
   /**
    * Shown if set. See lock dates
    *
@@ -1537,7 +1538,7 @@ public class Organisation {
    *
    * @return endOfYearLockDate
    */
-  @ApiModelProperty(value = "Shown if set. See lock dates")
+  @Schema(description = "Shown if set. See lock dates")
   /**
    * Shown if set. See lock dates
    *
@@ -1590,9 +1591,9 @@ public class Organisation {
    *
    * @return createdDateUTC
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(1573755038314)/",
-      value = "Timestamp when the organisation was created in Xero")
+      description = "Timestamp when the organisation was created in Xero")
   /**
    * Timestamp when the organisation was created in Xero
    *
@@ -1634,7 +1635,7 @@ public class Organisation {
    *
    * @return timezone
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * timezone
    *
@@ -1669,7 +1670,7 @@ public class Organisation {
    *
    * @return organisationEntityType
    */
-  @ApiModelProperty(value = "Organisation Entity Type")
+  @Schema(description = "Organisation Entity Type")
   /**
    * Organisation Entity Type
    *
@@ -1704,7 +1705,7 @@ public class Organisation {
    *
    * @return shortCode
    */
-  @ApiModelProperty(value = "A unique identifier for the organisation. Potential uses.")
+  @Schema(description = "A unique identifier for the organisation. Potential uses.")
   /**
    * A unique identifier for the organisation. Potential uses.
    *
@@ -1741,8 +1742,8 @@ public class Organisation {
    *
    * @return propertyClass
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Organisation Classes describe which plan the Xero organisation is on (e.g. DEMO, TRIAL,"
               + " PREMIUM)")
   /**
@@ -1783,8 +1784,8 @@ public class Organisation {
    *
    * @return edition
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "BUSINESS or PARTNER. Partner edition organisations are sold exclusively through"
               + " accounting partners and have restricted functionality (e.g. no access to"
               + " invoicing)")
@@ -1824,7 +1825,7 @@ public class Organisation {
    *
    * @return lineOfBusiness
    */
-  @ApiModelProperty(value = "Description of business type as defined in Organisation settings")
+  @Schema(description = "Description of business type as defined in Organisation settings")
   /**
    * Description of business type as defined in Organisation settings
    *
@@ -1873,7 +1874,7 @@ public class Organisation {
    *
    * @return addresses
    */
-  @ApiModelProperty(value = "Address details for organisation – see Addresses")
+  @Schema(description = "Address details for organisation – see Addresses")
   /**
    * Address details for organisation – see Addresses
    *
@@ -1922,7 +1923,7 @@ public class Organisation {
    *
    * @return phones
    */
-  @ApiModelProperty(value = "Phones details for organisation – see Phones")
+  @Schema(description = "Phones details for organisation – see Phones")
   /**
    * Phones details for organisation – see Phones
    *
@@ -1977,8 +1978,8 @@ public class Organisation {
    *
    * @return externalLinks
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Organisation profile links for popular services such as Facebook,Twitter, GooglePlus and"
               + " LinkedIn. You can also add link to your website here. Shown if Organisation"
               + " settings  is updated in Xero. See ExternalLinks below")
@@ -2020,7 +2021,7 @@ public class Organisation {
    *
    * @return paymentTerms
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * paymentTerms
    *

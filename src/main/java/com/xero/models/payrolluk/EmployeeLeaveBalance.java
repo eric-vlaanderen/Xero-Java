@@ -13,7 +13,7 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -49,7 +49,7 @@ public class EmployeeLeaveBalance {
    *
    * @return name
    */
-  @ApiModelProperty(example = "Holiday", value = "Name of the leave type.")
+  @Schema(example = "Holiday", description = "Name of the leave type.")
   /**
    * Name of the leave type.
    *
@@ -84,7 +84,7 @@ public class EmployeeLeaveBalance {
    *
    * @return leaveTypeID
    */
-  @ApiModelProperty(value = "The Xero identifier for leave type")
+  @Schema(description = "The Xero identifier for leave type")
   /**
    * The Xero identifier for leave type
    *
@@ -119,7 +119,7 @@ public class EmployeeLeaveBalance {
    *
    * @return balance
    */
-  @ApiModelProperty(value = "The employees current balance for the corresponding leave type.")
+  @Schema(description = "The employees current balance for the corresponding leave type.")
   /**
    * The employees current balance for the corresponding leave type.
    *
@@ -154,7 +154,7 @@ public class EmployeeLeaveBalance {
    *
    * @return typeOfUnits
    */
-  @ApiModelProperty(example = "hours", value = "The type of the units of the leave.")
+  @Schema(example = "hours", description = "The type of the units of the leave.")
   /**
    * The type of the units of the leave.
    *

@@ -13,7 +13,7 @@ package com.xero.models.file;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -61,7 +61,7 @@ public class FileObject {
    *
    * @return name
    */
-  @ApiModelProperty(example = "File2.jpg", value = "File Name")
+  @Schema(example = "File2.jpg", description = "File Name")
   /**
    * File Name
    *
@@ -96,9 +96,9 @@ public class FileObject {
    *
    * @return mimeType
    */
-  @ApiModelProperty(
+  @Schema(
       example = "image/jpeg",
-      value = "MimeType of the file (image/png, image/jpeg, application/pdf, etc..)")
+      description = "MimeType of the file (image/png, image/jpeg, application/pdf, etc..)")
   /**
    * MimeType of the file (image/png, image/jpeg, application/pdf, etc..)
    *
@@ -133,7 +133,7 @@ public class FileObject {
    *
    * @return size
    */
-  @ApiModelProperty(example = "3615", value = "Numeric value in bytes")
+  @Schema(example = "3615", description = "Numeric value in bytes")
   /**
    * Numeric value in bytes
    *
@@ -168,7 +168,7 @@ public class FileObject {
    *
    * @return createdDateUtc
    */
-  @ApiModelProperty(example = "2020-12-03T19:04:58.6970000", value = "Created date in UTC")
+  @Schema(example = "2020-12-03T19:04:58.6970000", description = "Created date in UTC")
   /**
    * Created date in UTC
    *
@@ -203,7 +203,7 @@ public class FileObject {
    *
    * @return updatedDateUtc
    */
-  @ApiModelProperty(example = "2020-12-03T19:04:58.6970000", value = "Updated date in UTC")
+  @Schema(example = "2020-12-03T19:04:58.6970000", description = "Updated date in UTC")
   /**
    * Updated date in UTC
    *
@@ -238,7 +238,7 @@ public class FileObject {
    *
    * @return user
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * user
    *
@@ -273,7 +273,7 @@ public class FileObject {
    *
    * @return id
    */
-  @ApiModelProperty(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", value = "File object's UUID")
+  @Schema(example = "d290f1ee-6c54-4b01-90e6-d701748f0851", description = "File object's UUID")
   /**
    * File object&#39;s UUID
    *
@@ -308,9 +308,9 @@ public class FileObject {
    *
    * @return folderId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "0f8ccf21-7267-4268-9167-a1e2c40c84c8",
-      value = "Folder relation object's UUID")
+      description = "Folder relation object's UUID")
   /**
    * Folder relation object&#39;s UUID
    *

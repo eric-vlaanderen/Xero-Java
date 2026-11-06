@@ -13,16 +13,17 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** Timesheet */
 public class Timesheet {
@@ -71,10 +72,10 @@ public class Timesheet {
    *
    * @return employeeID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "72a0d0c2-0cf8-4f0b-ade1-33231f47b41b",
-      required = true,
-      value = "The Xero identifier for an employee")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The Xero identifier for an employee")
   /**
    * The Xero identifier for an employee
    *
@@ -109,10 +110,10 @@ public class Timesheet {
    *
    * @return startDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(322560000000+0000)/",
-      required = true,
-      value = "Period start date (YYYY-MM-DD)")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Period start date (YYYY-MM-DD)")
   /**
    * Period start date (YYYY-MM-DD)
    *
@@ -176,10 +177,10 @@ public class Timesheet {
    *
    * @return endDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(322560000000+0000)/",
-      required = true,
-      value = "Period end date (YYYY-MM-DD)")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Period end date (YYYY-MM-DD)")
   /**
    * Period end date (YYYY-MM-DD)
    *
@@ -243,7 +244,7 @@ public class Timesheet {
    *
    * @return status
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * status
    *
@@ -278,7 +279,7 @@ public class Timesheet {
    *
    * @return hours
    */
-  @ApiModelProperty(example = "31.0", value = "Timesheet total hours")
+  @Schema(example = "31.0", description = "Timesheet total hours")
   /**
    * Timesheet total hours
    *
@@ -313,9 +314,9 @@ public class Timesheet {
    *
    * @return timesheetID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "049765fc-4506-48fb-bf88-3578dec0ec47",
-      value = "The Xero identifier for a Payroll Timesheet")
+      description = "The Xero identifier for a Payroll Timesheet")
   /**
    * The Xero identifier for a Payroll Timesheet
    *
@@ -364,7 +365,7 @@ public class Timesheet {
    *
    * @return timesheetLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * timesheetLines
    *
@@ -388,7 +389,7 @@ public class Timesheet {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1583967733054+0000)/", value = "Last modified timestamp")
+  @Schema(example = "/Date(1583967733054+0000)/", description = "Last modified timestamp")
   /**
    * Last modified timestamp
    *
@@ -444,7 +445,7 @@ public class Timesheet {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *

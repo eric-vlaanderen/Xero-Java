@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -77,7 +77,7 @@ public class Element {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Array of Validation Error message")
+  @Schema(description = "Array of Validation Error message")
   /**
    * Array of Validation Error message
    *
@@ -112,7 +112,7 @@ public class Element {
    *
    * @return batchPaymentID
    */
-  @ApiModelProperty(value = "Unique ID for batch payment object with validation error")
+  @Schema(description = "Unique ID for batch payment object with validation error")
   /**
    * Unique ID for batch payment object with validation error
    *
@@ -147,7 +147,7 @@ public class Element {
    *
    * @return bankTransactionID
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * bankTransactionID
    *
@@ -182,7 +182,7 @@ public class Element {
    *
    * @return creditNoteID
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * creditNoteID
    *
@@ -217,7 +217,7 @@ public class Element {
    *
    * @return contactID
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * contactID
    *
@@ -252,7 +252,7 @@ public class Element {
    *
    * @return invoiceID
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * invoiceID
    *
@@ -287,7 +287,7 @@ public class Element {
    *
    * @return itemID
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * itemID
    *
@@ -322,7 +322,7 @@ public class Element {
    *
    * @return purchaseOrderID
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * purchaseOrderID
    *

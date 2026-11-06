@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** Phone */
@@ -109,7 +109,7 @@ public class Phone {
    *
    * @return phoneType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * phoneType
    *
@@ -144,7 +144,7 @@ public class Phone {
    *
    * @return phoneNumber
    */
-  @ApiModelProperty(value = "max length = 50")
+  @Schema(description = "max length = 50")
   /**
    * max length &#x3D; 50
    *
@@ -179,7 +179,7 @@ public class Phone {
    *
    * @return phoneAreaCode
    */
-  @ApiModelProperty(value = "max length = 10")
+  @Schema(description = "max length = 10")
   /**
    * max length &#x3D; 10
    *
@@ -214,7 +214,7 @@ public class Phone {
    *
    * @return phoneCountryCode
    */
-  @ApiModelProperty(value = "max length = 20")
+  @Schema(description = "max length = 20")
   /**
    * max length &#x3D; 20
    *

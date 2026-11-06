@@ -13,16 +13,17 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** PayRun */
 public class PayRun {
@@ -92,10 +93,10 @@ public class PayRun {
    *
    * @return payrollCalendarID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "bfac31bd-ea62-4fc8-a5e7-7965d9504b15",
-      required = true,
-      value = "Xero identifier for pay run")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Xero identifier for pay run")
   /**
    * Xero identifier for pay run
    *
@@ -130,9 +131,9 @@ public class PayRun {
    *
    * @return payRunID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "bba1d10f-63b1-4692-b5c5-a99f869523a4",
-      value = "Xero identifier for pay run")
+      description = "Xero identifier for pay run")
   /**
    * Xero identifier for pay run
    *
@@ -167,9 +168,9 @@ public class PayRun {
    *
    * @return payRunPeriodStartDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(322560000000+0000)/",
-      value = "Period Start Date for the PayRun (YYYY-MM-DD)")
+      description = "Period Start Date for the PayRun (YYYY-MM-DD)")
   /**
    * Period Start Date for the PayRun (YYYY-MM-DD)
    *
@@ -233,9 +234,9 @@ public class PayRun {
    *
    * @return payRunPeriodEndDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(322560000000+0000)/",
-      value = "Period End Date for the PayRun (YYYY-MM-DD)")
+      description = "Period End Date for the PayRun (YYYY-MM-DD)")
   /**
    * Period End Date for the PayRun (YYYY-MM-DD)
    *
@@ -299,7 +300,7 @@ public class PayRun {
    *
    * @return payRunStatus
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * payRunStatus
    *
@@ -334,9 +335,9 @@ public class PayRun {
    *
    * @return paymentDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(322560000000+0000)/",
-      value = "Payment Date for the PayRun (YYYY-MM-DD)")
+      description = "Payment Date for the PayRun (YYYY-MM-DD)")
   /**
    * Payment Date for the PayRun (YYYY-MM-DD)
    *
@@ -400,7 +401,7 @@ public class PayRun {
    *
    * @return payslipMessage
    */
-  @ApiModelProperty(example = "Thanks for being awesome", value = "Payslip message for the PayRun")
+  @Schema(example = "Thanks for being awesome", description = "Payslip message for the PayRun")
   /**
    * Payslip message for the PayRun
    *
@@ -424,7 +425,7 @@ public class PayRun {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1583967733054+0000)/", value = "Last modified timestamp")
+  @Schema(example = "/Date(1583967733054+0000)/", description = "Last modified timestamp")
   /**
    * Last modified timestamp
    *
@@ -480,7 +481,7 @@ public class PayRun {
    *
    * @return payslips
    */
-  @ApiModelProperty(value = "The payslips in the payrun")
+  @Schema(description = "The payslips in the payrun")
   /**
    * The payslips in the payrun
    *
@@ -515,7 +516,7 @@ public class PayRun {
    *
    * @return wages
    */
-  @ApiModelProperty(example = "1060.5", value = "The total Wages for the Payrun")
+  @Schema(example = "1060.5", description = "The total Wages for the Payrun")
   /**
    * The total Wages for the Payrun
    *
@@ -550,7 +551,7 @@ public class PayRun {
    *
    * @return deductions
    */
-  @ApiModelProperty(example = "0.0", value = "The total Deductions for the Payrun")
+  @Schema(example = "0.0", description = "The total Deductions for the Payrun")
   /**
    * The total Deductions for the Payrun
    *
@@ -585,7 +586,7 @@ public class PayRun {
    *
    * @return tax
    */
-  @ApiModelProperty(example = "198.0", value = "The total Tax for the Payrun")
+  @Schema(example = "198.0", description = "The total Tax for the Payrun")
   /**
    * The total Tax for the Payrun
    *
@@ -620,7 +621,7 @@ public class PayRun {
    *
    * @return _super
    */
-  @ApiModelProperty(example = "75.6", value = "The total Super for the Payrun")
+  @Schema(example = "75.6", description = "The total Super for the Payrun")
   /**
    * The total Super for the Payrun
    *
@@ -655,7 +656,7 @@ public class PayRun {
    *
    * @return reimbursement
    */
-  @ApiModelProperty(example = "0.0", value = "The total Reimbursements for the Payrun")
+  @Schema(example = "0.0", description = "The total Reimbursements for the Payrun")
   /**
    * The total Reimbursements for the Payrun
    *
@@ -690,7 +691,7 @@ public class PayRun {
    *
    * @return netPay
    */
-  @ApiModelProperty(example = "862.5", value = "The total NetPay for the Payrun")
+  @Schema(example = "862.5", description = "The total NetPay for the Payrun")
   /**
    * The total NetPay for the Payrun
    *
@@ -739,7 +740,7 @@ public class PayRun {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *

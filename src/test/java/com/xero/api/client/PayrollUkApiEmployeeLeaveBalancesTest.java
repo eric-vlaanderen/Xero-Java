@@ -1,15 +1,17 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrolluk.*;
+import com.xero.models.payrolluk.EmployeeLeaveBalances;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollUkApiEmployeeLeaveBalancesTest {
 
@@ -19,7 +21,7 @@ public class PayrollUkApiEmployeeLeaveBalancesTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -45,10 +47,10 @@ public class PayrollUkApiEmployeeLeaveBalancesTest {
         assertThat(response.getPagination().getPageSize() , is(equalTo(100)));
         assertThat(response.getPagination().getPageCount() , is(equalTo(1)));
         assertThat(response.getPagination().getItemCount() , is(equalTo(2)));
-        assertThat(response.getLeaveBalances().get(0).getLeaveTypeID(), is(equalTo(UUID.fromString("ed08dffe-788e-4b24-9630-f0fa2f4d164c"))));
-        assertThat(response.getLeaveBalances().get(0).getName() , is(equalTo("Holiday")));
-        assertThat(response.getLeaveBalances().get(0).getBalance() , is(equalTo(32.0)));
-        assertThat(response.getLeaveBalances().get(0).getTypeOfUnits() , is(equalTo("Hours")));
+        assertThat(response.getLeaveBalances().getFirst().getLeaveTypeID(), is(equalTo(UUID.fromString("ed08dffe-788e-4b24-9630-f0fa2f4d164c"))));
+        assertThat(response.getLeaveBalances().getFirst().getName() , is(equalTo("Holiday")));
+        assertThat(response.getLeaveBalances().getFirst().getBalance() , is(equalTo(32.0)));
+        assertThat(response.getLeaveBalances().getFirst().getTypeOfUnits() , is(equalTo("Hours")));
       
         //System.out.println(response.toString());
     }

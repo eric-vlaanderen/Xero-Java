@@ -13,7 +13,7 @@ package com.xero.models.file;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -55,7 +55,7 @@ public class Folders {
    *
    * @return folders
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * folders
    *

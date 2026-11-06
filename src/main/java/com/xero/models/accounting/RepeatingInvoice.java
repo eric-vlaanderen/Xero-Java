@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -204,7 +204,7 @@ public class RepeatingInvoice {
    *
    * @return type
    */
-  @ApiModelProperty(value = "See Invoice Types")
+  @Schema(description = "See Invoice Types")
   /**
    * See Invoice Types
    *
@@ -239,7 +239,7 @@ public class RepeatingInvoice {
    *
    * @return contact
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * contact
    *
@@ -274,7 +274,7 @@ public class RepeatingInvoice {
    *
    * @return schedule
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * schedule
    *
@@ -323,7 +323,7 @@ public class RepeatingInvoice {
    *
    * @return lineItems
    */
-  @ApiModelProperty(value = "See LineItems")
+  @Schema(description = "See LineItems")
   /**
    * See LineItems
    *
@@ -358,7 +358,7 @@ public class RepeatingInvoice {
    *
    * @return lineAmountTypes
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * lineAmountTypes
    *
@@ -393,7 +393,7 @@ public class RepeatingInvoice {
    *
    * @return reference
    */
-  @ApiModelProperty(value = "ACCREC only – additional reference number")
+  @Schema(description = "ACCREC only – additional reference number")
   /**
    * ACCREC only – additional reference number
    *
@@ -428,7 +428,7 @@ public class RepeatingInvoice {
    *
    * @return brandingThemeID
    */
-  @ApiModelProperty(value = "See BrandingThemes")
+  @Schema(description = "See BrandingThemes")
   /**
    * See BrandingThemes
    *
@@ -463,7 +463,7 @@ public class RepeatingInvoice {
    *
    * @return currencyCode
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * currencyCode
    *
@@ -498,7 +498,7 @@ public class RepeatingInvoice {
    *
    * @return status
    */
-  @ApiModelProperty(value = "One of the following - DRAFT or AUTHORISED – See Invoice Status Codes")
+  @Schema(description = "One of the following - DRAFT or AUTHORISED – See Invoice Status Codes")
   /**
    * One of the following - DRAFT or AUTHORISED – See Invoice Status Codes
    *
@@ -533,7 +533,7 @@ public class RepeatingInvoice {
    *
    * @return subTotal
    */
-  @ApiModelProperty(value = "Total of invoice excluding taxes")
+  @Schema(description = "Total of invoice excluding taxes")
   /**
    * Total of invoice excluding taxes
    *
@@ -568,7 +568,7 @@ public class RepeatingInvoice {
    *
    * @return totalTax
    */
-  @ApiModelProperty(value = "Total tax on invoice")
+  @Schema(description = "Total tax on invoice")
   /**
    * Total tax on invoice
    *
@@ -603,7 +603,7 @@ public class RepeatingInvoice {
    *
    * @return total
    */
-  @ApiModelProperty(value = "Total of Invoice tax inclusive (i.e. SubTotal + TotalTax)")
+  @Schema(description = "Total of Invoice tax inclusive (i.e. SubTotal + TotalTax)")
   /**
    * Total of Invoice tax inclusive (i.e. SubTotal + TotalTax)
    *
@@ -638,7 +638,7 @@ public class RepeatingInvoice {
    *
    * @return repeatingInvoiceID
    */
-  @ApiModelProperty(value = "Xero generated unique identifier for repeating invoice template")
+  @Schema(description = "Xero generated unique identifier for repeating invoice template")
   /**
    * Xero generated unique identifier for repeating invoice template
    *
@@ -673,7 +673,7 @@ public class RepeatingInvoice {
    *
    * @return ID
    */
-  @ApiModelProperty(value = "Xero generated unique identifier for repeating invoice template")
+  @Schema(description = "Xero generated unique identifier for repeating invoice template")
   /**
    * Xero generated unique identifier for repeating invoice template
    *
@@ -697,9 +697,9 @@ public class RepeatingInvoice {
    *
    * @return hasAttachments
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "Boolean to indicate if an invoice has an attachment")
+      description = "Boolean to indicate if an invoice has an attachment")
   /**
    * Boolean to indicate if an invoice has an attachment
    *
@@ -739,7 +739,7 @@ public class RepeatingInvoice {
    *
    * @return attachments
    */
-  @ApiModelProperty(value = "Displays array of attachments from the API")
+  @Schema(description = "Displays array of attachments from the API")
   /**
    * Displays array of attachments from the API
    *
@@ -774,9 +774,9 @@ public class RepeatingInvoice {
    *
    * @return approvedForSending
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "Boolean to indicate whether the invoice has been approved for sending")
+      description = "Boolean to indicate whether the invoice has been approved for sending")
   /**
    * Boolean to indicate whether the invoice has been approved for sending
    *
@@ -811,9 +811,9 @@ public class RepeatingInvoice {
    *
    * @return sendCopy
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "Boolean to indicate whether a copy is sent to sender's email")
+      description = "Boolean to indicate whether a copy is sent to sender's email")
   /**
    * Boolean to indicate whether a copy is sent to sender&#39;s email
    *
@@ -848,9 +848,9 @@ public class RepeatingInvoice {
    *
    * @return markAsSent
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "Boolean to indicate whether the invoice in the Xero app displays as \"sent\"")
+      description = "Boolean to indicate whether the invoice in the Xero app displays as \"sent\"")
   /**
    * Boolean to indicate whether the invoice in the Xero app displays as \&quot;sent\&quot;
    *
@@ -885,9 +885,9 @@ public class RepeatingInvoice {
    *
    * @return includePDF
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "Boolean to indicate whether to include PDF attachment")
+      description = "Boolean to indicate whether to include PDF attachment")
   /**
    * Boolean to indicate whether to include PDF attachment
    *

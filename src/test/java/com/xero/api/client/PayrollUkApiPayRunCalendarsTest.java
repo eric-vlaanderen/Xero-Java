@@ -1,15 +1,21 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrolluk.*;
-import org.threeten.bp.*;
+import com.xero.models.payrolluk.PayRunCalendar;
+import com.xero.models.payrolluk.PayRunCalendarObject;
+import com.xero.models.payrolluk.PayRunCalendars;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollUkApiPayRunCalendarsTest {
 
@@ -19,7 +25,7 @@ public class PayrollUkApiPayRunCalendarsTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -42,13 +48,13 @@ public class PayrollUkApiPayRunCalendarsTest {
         UUID employeeId = UUID.fromString("cdfb8371-0b21-4b8a-8903-1024df6c391e"); 
         PayRunCalendars response = payrollUkApi.getPayRunCalendars(accessToken, xeroTenantId, page);
         
-        assertThat(response.getPayRunCalendars().get(0).getPayrollCalendarID(),is(equalTo(UUID.fromString("216d80e6-af55-47b1-b718-9457c3f5d2fe"))));
-        assertThat(response.getPayRunCalendars().get(0).getCalendarType(), is(equalTo(com.xero.models.payrolluk.PayRunCalendar.CalendarTypeEnum.WEEKLY)));
-        assertThat(response.getPayRunCalendars().get(0).getName() , is(equalTo("Weekly ")));
-        assertThat(response.getPayRunCalendars().get(0).getPeriodStartDate(),  is(equalTo(LocalDate.of(2020, 02, 10))));
-        assertThat(response.getPayRunCalendars().get(0).getPeriodEndDate(),  is(equalTo(LocalDate.of(2020, 02, 16))));
-        assertThat(response.getPayRunCalendars().get(0).getPaymentDate(),  is(equalTo(LocalDate.of(2020, 02, 17))));
-        assertThat(response.getPayRunCalendars().get(0).getUpdatedDateUTC(), is(equalTo(LocalDateTime.of(2020, 02, 13, 16, 53 ,54))));  
+        assertThat(response.getPayRunCalendars().getFirst().getPayrollCalendarID(),is(equalTo(UUID.fromString("216d80e6-af55-47b1-b718-9457c3f5d2fe"))));
+        assertThat(response.getPayRunCalendars().getFirst().getCalendarType(), is(equalTo(com.xero.models.payrolluk.PayRunCalendar.CalendarTypeEnum.WEEKLY)));
+        assertThat(response.getPayRunCalendars().getFirst().getName() , is(equalTo("Weekly ")));
+        assertThat(response.getPayRunCalendars().getFirst().getPeriodStartDate(),  is(equalTo(LocalDate.of(2020, 02, 10))));
+        assertThat(response.getPayRunCalendars().getFirst().getPeriodEndDate(),  is(equalTo(LocalDate.of(2020, 02, 16))));
+        assertThat(response.getPayRunCalendars().getFirst().getPaymentDate(),  is(equalTo(LocalDate.of(2020, 02, 17))));
+        assertThat(response.getPayRunCalendars().getFirst().getUpdatedDateUTC(), is(equalTo(LocalDateTime.of(2020, 02, 13, 16, 53 ,54))));  
       
         //System.out.println(response.toString());
     }

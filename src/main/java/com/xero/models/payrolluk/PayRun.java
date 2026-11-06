@@ -15,12 +15,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** PayRun */
 public class PayRun {
@@ -243,7 +244,7 @@ public class PayRun {
    *
    * @return payRunID
    */
-  @ApiModelProperty(value = "Xero unique identifier for the pay run")
+  @Schema(description = "Xero unique identifier for the pay run")
   /**
    * Xero unique identifier for the pay run
    *
@@ -278,7 +279,7 @@ public class PayRun {
    *
    * @return payrollCalendarID
    */
-  @ApiModelProperty(value = "Xero unique identifier for the payroll calendar")
+  @Schema(description = "Xero unique identifier for the payroll calendar")
   /**
    * Xero unique identifier for the payroll calendar
    *
@@ -313,7 +314,7 @@ public class PayRun {
    *
    * @return periodStartDate
    */
-  @ApiModelProperty(value = "Period start date of the payroll calendar")
+  @Schema(description = "Period start date of the payroll calendar")
   /**
    * Period start date of the payroll calendar
    *
@@ -348,7 +349,7 @@ public class PayRun {
    *
    * @return periodEndDate
    */
-  @ApiModelProperty(value = "Period end date of the payroll calendar")
+  @Schema(description = "Period end date of the payroll calendar")
   /**
    * Period end date of the payroll calendar
    *
@@ -383,7 +384,7 @@ public class PayRun {
    *
    * @return paymentDate
    */
-  @ApiModelProperty(value = "Payment date of the pay run")
+  @Schema(description = "Payment date of the pay run")
   /**
    * Payment date of the pay run
    *
@@ -418,7 +419,7 @@ public class PayRun {
    *
    * @return totalCost
    */
-  @ApiModelProperty(value = "Total cost of the pay run")
+  @Schema(description = "Total cost of the pay run")
   /**
    * Total cost of the pay run
    *
@@ -453,7 +454,7 @@ public class PayRun {
    *
    * @return totalPay
    */
-  @ApiModelProperty(value = "Total pay of the pay run")
+  @Schema(description = "Total pay of the pay run")
   /**
    * Total pay of the pay run
    *
@@ -488,7 +489,7 @@ public class PayRun {
    *
    * @return payRunStatus
    */
-  @ApiModelProperty(value = "Pay run status")
+  @Schema(description = "Pay run status")
   /**
    * Pay run status
    *
@@ -523,7 +524,7 @@ public class PayRun {
    *
    * @return payRunType
    */
-  @ApiModelProperty(value = "Pay run type")
+  @Schema(description = "Pay run type")
   /**
    * Pay run type
    *
@@ -558,7 +559,7 @@ public class PayRun {
    *
    * @return calendarType
    */
-  @ApiModelProperty(value = "Calendar type of the pay run")
+  @Schema(description = "Calendar type of the pay run")
   /**
    * Calendar type of the pay run
    *
@@ -593,7 +594,7 @@ public class PayRun {
    *
    * @return postedDateTime
    */
-  @ApiModelProperty(value = "Posted date time of the pay run")
+  @Schema(description = "Posted date time of the pay run")
   /**
    * Posted date time of the pay run
    *
@@ -642,7 +643,7 @@ public class PayRun {
    *
    * @return paySlips
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * paySlips
    *

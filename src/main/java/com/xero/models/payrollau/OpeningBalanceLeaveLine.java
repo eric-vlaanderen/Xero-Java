@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -43,9 +43,9 @@ public class OpeningBalanceLeaveLine {
    *
    * @return leaveTypeID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "742998cb-7584-4ecf-aa88-d694f59c50f9",
-      value = "Xero leave type identifier")
+      description = "Xero leave type identifier")
   /**
    * Xero leave type identifier
    *
@@ -80,7 +80,7 @@ public class OpeningBalanceLeaveLine {
    *
    * @return numberOfUnits
    */
-  @ApiModelProperty(example = "2.5", value = "Number of units for leave line.")
+  @Schema(example = "2.5", description = "Number of units for leave line.")
   /**
    * Number of units for leave line.
    *

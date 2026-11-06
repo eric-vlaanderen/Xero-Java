@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** CISOrgSetting */
@@ -45,8 +45,8 @@ public class CISOrgSetting {
    *
    * @return ciSContractorEnabled
    */
-  @ApiModelProperty(
-      value = "true or false - Boolean that describes if the organisation is a CIS Contractor")
+  @Schema(
+      description = "true or false - Boolean that describes if the organisation is a CIS Contractor")
   /**
    * true or false - Boolean that describes if the organisation is a CIS Contractor
    *
@@ -81,8 +81,8 @@ public class CISOrgSetting {
    *
    * @return ciSSubContractorEnabled
    */
-  @ApiModelProperty(
-      value = "true or false - Boolean that describes if the organisation is a CIS SubContractor")
+  @Schema(
+      description = "true or false - Boolean that describes if the organisation is a CIS SubContractor")
   /**
    * true or false - Boolean that describes if the organisation is a CIS SubContractor
    *
@@ -106,7 +106,7 @@ public class CISOrgSetting {
    *
    * @return rate
    */
-  @ApiModelProperty(value = "CIS Deduction rate for the organisation")
+  @Schema(description = "CIS Deduction rate for the organisation")
   /**
    * CIS Deduction rate for the organisation
    *

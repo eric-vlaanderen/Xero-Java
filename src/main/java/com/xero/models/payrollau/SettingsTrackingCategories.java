@@ -13,12 +13,12 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** Tracking categories for Employees and Timesheets */
-@ApiModel(description = "Tracking categories for Employees and Timesheets")
+@Schema(description = "Tracking categories for Employees and Timesheets")
 public class SettingsTrackingCategories {
   StringUtil util = new StringUtil();
 
@@ -45,7 +45,7 @@ public class SettingsTrackingCategories {
    *
    * @return employeeGroups
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * employeeGroups
    *
@@ -81,7 +81,7 @@ public class SettingsTrackingCategories {
    *
    * @return timesheetCategories
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * timesheetCategories
    *

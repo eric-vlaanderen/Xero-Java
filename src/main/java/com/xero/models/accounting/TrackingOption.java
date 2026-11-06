@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -104,8 +104,8 @@ public class TrackingOption {
    *
    * @return trackingOptionID
    */
-  @ApiModelProperty(
-      value = "The Xero identifier for a tracking option e.g. ae777a87-5ef3-4fa0-a4f0-d10e1f13073a")
+  @Schema(
+      description = "The Xero identifier for a tracking option e.g. ae777a87-5ef3-4fa0-a4f0-d10e1f13073a")
   /**
    * The Xero identifier for a tracking option e.g. ae777a87-5ef3-4fa0-a4f0-d10e1f13073a
    *
@@ -140,8 +140,8 @@ public class TrackingOption {
    *
    * @return name
    */
-  @ApiModelProperty(
-      value = "The name of the tracking option e.g. Marketing, East (max length = 100)")
+  @Schema(
+      description = "The name of the tracking option e.g. Marketing, East (max length = 100)")
   /**
    * The name of the tracking option e.g. Marketing, East (max length &#x3D; 100)
    *
@@ -176,7 +176,7 @@ public class TrackingOption {
    *
    * @return status
    */
-  @ApiModelProperty(value = "The status of a tracking option")
+  @Schema(description = "The status of a tracking option")
   /**
    * The status of a tracking option
    *
@@ -211,8 +211,8 @@ public class TrackingOption {
    *
    * @return trackingCategoryID
    */
-  @ApiModelProperty(
-      value = "Filter by a tracking category e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9")
+  @Schema(
+      description = "Filter by a tracking category e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9")
   /**
    * Filter by a tracking category e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
    *

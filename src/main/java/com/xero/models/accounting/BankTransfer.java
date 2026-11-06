@@ -15,16 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** BankTransfer */
 public class BankTransfer {
@@ -147,7 +148,7 @@ public class BankTransfer {
    *
    * @return fromBankAccount
    */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "")
   /**
    * fromBankAccount
    *
@@ -182,7 +183,7 @@ public class BankTransfer {
    *
    * @return toBankAccount
    */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "")
   /**
    * toBankAccount
    *
@@ -217,7 +218,7 @@ public class BankTransfer {
    *
    * @return amount
    */
-  @ApiModelProperty(required = true, value = "amount of the transaction")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "amount of the transaction")
   /**
    * amount of the transaction
    *
@@ -252,7 +253,7 @@ public class BankTransfer {
    *
    * @return date
    */
-  @ApiModelProperty(value = "The date of the Transfer YYYY-MM-DD")
+  @Schema(description = "The date of the Transfer YYYY-MM-DD")
   /**
    * The date of the Transfer YYYY-MM-DD
    *
@@ -305,7 +306,7 @@ public class BankTransfer {
    *
    * @return bankTransferID
    */
-  @ApiModelProperty(value = "The identifier of the Bank Transfer")
+  @Schema(description = "The identifier of the Bank Transfer")
   /**
    * The identifier of the Bank Transfer
    *
@@ -320,7 +321,7 @@ public class BankTransfer {
    *
    * @return currencyRate
    */
-  @ApiModelProperty(value = "The currency rate")
+  @Schema(description = "The currency rate")
   /**
    * The currency rate
    *
@@ -335,7 +336,7 @@ public class BankTransfer {
    *
    * @return fromBankTransactionID
    */
-  @ApiModelProperty(value = "The Bank Transaction ID for the source account")
+  @Schema(description = "The Bank Transaction ID for the source account")
   /**
    * The Bank Transaction ID for the source account
    *
@@ -350,7 +351,7 @@ public class BankTransfer {
    *
    * @return toBankTransactionID
    */
-  @ApiModelProperty(value = "The Bank Transaction ID for the destination account")
+  @Schema(description = "The Bank Transaction ID for the destination account")
   /**
    * The Bank Transaction ID for the destination account
    *
@@ -376,9 +377,9 @@ public class BankTransfer {
    *
    * @return fromIsReconciled
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "The Bank Transaction boolean to show if it is reconciled for the source account")
+      description = "The Bank Transaction boolean to show if it is reconciled for the source account")
   /**
    * The Bank Transaction boolean to show if it is reconciled for the source account
    *
@@ -413,9 +414,9 @@ public class BankTransfer {
    *
    * @return toIsReconciled
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value =
+      description =
           "The Bank Transaction boolean to show if it is reconciled for the destination account")
   /**
    * The Bank Transaction boolean to show if it is reconciled for the destination account
@@ -451,7 +452,7 @@ public class BankTransfer {
    *
    * @return reference
    */
-  @ApiModelProperty(value = "Reference for the transactions.")
+  @Schema(description = "Reference for the transactions.")
   /**
    * Reference for the transactions.
    *
@@ -475,9 +476,9 @@ public class BankTransfer {
    *
    * @return hasAttachments
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "Boolean to indicate if a Bank Transfer has an attachment")
+      description = "Boolean to indicate if a Bank Transfer has an attachment")
   /**
    * Boolean to indicate if a Bank Transfer has an attachment
    *
@@ -492,9 +493,9 @@ public class BankTransfer {
    *
    * @return createdDateUTC
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(1573755038314)/",
-      value = "UTC timestamp of creation date of bank transfer")
+      description = "UTC timestamp of creation date of bank transfer")
   /**
    * UTC timestamp of creation date of bank transfer
    *
@@ -525,8 +526,8 @@ public class BankTransfer {
    *
    * @return status
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "AUTHORISED or DELETED (read-only). New bank transfers will have a status of AUTHORISED.")
   /**
    * AUTHORISED or DELETED (read-only). New bank transfers will have a status of AUTHORISED.
@@ -570,8 +571,8 @@ public class BankTransfer {
    *
    * @return fromTracking
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Optional Tracking Category for the source account – see Tracking. A bank transfer can"
               + " have a maximum of 2 tracking categories per account.")
   /**
@@ -627,8 +628,8 @@ public class BankTransfer {
    *
    * @return toTracking
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Optional Tracking Category for the destination account – see Tracking. A bank transfer"
               + " can have a maximum of 2 tracking categories per account.")
   /**
@@ -681,7 +682,7 @@ public class BankTransfer {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *

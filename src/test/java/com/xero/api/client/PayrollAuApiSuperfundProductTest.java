@@ -1,14 +1,17 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrollau.*;
+import com.xero.models.payrollau.SuperFundProducts;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+
 public class PayrollAuApiSuperfundProductTest {
 
 	ApiClient defaultClient; 
@@ -17,7 +20,7 @@ public class PayrollAuApiSuperfundProductTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -39,9 +42,9 @@ public class PayrollAuApiSuperfundProductTest {
         
         SuperFundProducts response = payrollAuApi.getSuperfundProducts(accessToken, xeroTenantId, null, null);
         
-        assertThat(response.getSuperFundProducts().get(0).getABN(), is(equalTo("24248426878")));        
-        assertThat(response.getSuperFundProducts().get(0).getUSI(), is(equalTo("OSF0001AU")));        
-        assertThat(response.getSuperFundProducts().get(0).getProductName(), is(equalTo("Accumulate Plus (Commonwealth Bank Group Super)")));        
+        assertThat(response.getSuperFundProducts().getFirst().getABN(), is(equalTo("24248426878")));        
+        assertThat(response.getSuperFundProducts().getFirst().getUSI(), is(equalTo("OSF0001AU")));        
+        assertThat(response.getSuperFundProducts().getFirst().getProductName(), is(equalTo("Accumulate Plus (Commonwealth Bank Group Super)")));        
        //System.out.println(response.toString());
     }
 }

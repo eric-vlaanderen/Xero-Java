@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -228,9 +228,9 @@ public class BookDepreciationSetting {
    *
    * @return depreciationMethod
    */
-  @ApiModelProperty(
+  @Schema(
       example = "StraightLine",
-      value = "The method of depreciation applied to this asset. See Depreciation Methods")
+      description = "The method of depreciation applied to this asset. See Depreciation Methods")
   /**
    * The method of depreciation applied to this asset. See Depreciation Methods
    *
@@ -265,9 +265,9 @@ public class BookDepreciationSetting {
    *
    * @return averagingMethod
    */
-  @ApiModelProperty(
+  @Schema(
       example = "ActualDays",
-      value = "The method of averaging applied to this asset. See Averaging Methods")
+      description = "The method of averaging applied to this asset. See Averaging Methods")
   /**
    * The method of averaging applied to this asset. See Averaging Methods
    *
@@ -302,7 +302,7 @@ public class BookDepreciationSetting {
    *
    * @return depreciationRate
    */
-  @ApiModelProperty(example = "0.05", value = "The rate of depreciation (e.g. 0.05)")
+  @Schema(example = "0.05", description = "The rate of depreciation (e.g. 0.05)")
   /**
    * The rate of depreciation (e.g. 0.05)
    *
@@ -337,7 +337,7 @@ public class BookDepreciationSetting {
    *
    * @return effectiveLifeYears
    */
-  @ApiModelProperty(example = "5", value = "Effective life of the asset in years (e.g. 5)")
+  @Schema(example = "5", description = "Effective life of the asset in years (e.g. 5)")
   /**
    * Effective life of the asset in years (e.g. 5)
    *
@@ -373,7 +373,7 @@ public class BookDepreciationSetting {
    *
    * @return depreciationCalculationMethod
    */
-  @ApiModelProperty(example = "None", value = "See Depreciation Calculation Methods")
+  @Schema(example = "None", description = "See Depreciation Calculation Methods")
   /**
    * See Depreciation Calculation Methods
    *
@@ -409,9 +409,9 @@ public class BookDepreciationSetting {
    *
    * @return depreciableObjectId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "68f17094-af97-4f1b-b36b-013b45b6ad3c",
-      value = "Unique Xero identifier for the depreciable object")
+      description = "Unique Xero identifier for the depreciable object")
   /**
    * Unique Xero identifier for the depreciable object
    *
@@ -446,7 +446,7 @@ public class BookDepreciationSetting {
    *
    * @return depreciableObjectType
    */
-  @ApiModelProperty(example = "Asset", value = "The type of asset object")
+  @Schema(example = "Asset", description = "The type of asset object")
   /**
    * The type of asset object
    *
@@ -481,9 +481,9 @@ public class BookDepreciationSetting {
    *
    * @return bookEffectiveDateOfChangeId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "68f17094-af97-4f1b-b36b-013b45b6ad3c",
-      value = "Unique Xero identifier for the effective date change")
+      description = "Unique Xero identifier for the effective date change")
   /**
    * Unique Xero identifier for the effective date change
    *

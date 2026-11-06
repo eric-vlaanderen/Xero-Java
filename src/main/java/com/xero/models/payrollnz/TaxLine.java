@@ -13,7 +13,7 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -52,7 +52,7 @@ public class TaxLine {
    *
    * @return taxLineID
    */
-  @ApiModelProperty(value = "Xero identifier for payroll tax line")
+  @Schema(description = "Xero identifier for payroll tax line")
   /**
    * Xero identifier for payroll tax line
    *
@@ -87,7 +87,7 @@ public class TaxLine {
    *
    * @return description
    */
-  @ApiModelProperty(value = "Tax line description")
+  @Schema(description = "Tax line description")
   /**
    * Tax line description
    *
@@ -122,7 +122,7 @@ public class TaxLine {
    *
    * @return amount
    */
-  @ApiModelProperty(value = "The amount of the tax line")
+  @Schema(description = "The amount of the tax line")
   /**
    * The amount of the tax line
    *
@@ -157,7 +157,7 @@ public class TaxLine {
    *
    * @return globalTaxTypeID
    */
-  @ApiModelProperty(value = "Tax type ID")
+  @Schema(description = "Tax type ID")
   /**
    * Tax type ID
    *
@@ -192,7 +192,7 @@ public class TaxLine {
    *
    * @return manualAdjustment
    */
-  @ApiModelProperty(value = "Identifies if the tax line is a manual adjustment")
+  @Schema(description = "Identifies if the tax line is a manual adjustment")
   /**
    * Identifies if the tax line is a manual adjustment
    *

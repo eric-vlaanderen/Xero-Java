@@ -15,16 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** Journal */
 public class Journal {
@@ -189,7 +190,7 @@ public class Journal {
    *
    * @return journalID
    */
-  @ApiModelProperty(value = "Xero identifier")
+  @Schema(description = "Xero identifier")
   /**
    * Xero identifier
    *
@@ -224,7 +225,7 @@ public class Journal {
    *
    * @return journalDate
    */
-  @ApiModelProperty(value = "Date the journal was posted")
+  @Schema(description = "Date the journal was posted")
   /**
    * Date the journal was posted
    *
@@ -288,7 +289,7 @@ public class Journal {
    *
    * @return journalNumber
    */
-  @ApiModelProperty(value = "Xero generated journal number")
+  @Schema(description = "Xero generated journal number")
   /**
    * Xero generated journal number
    *
@@ -312,7 +313,7 @@ public class Journal {
    *
    * @return createdDateUTC
    */
-  @ApiModelProperty(example = "/Date(1573755038314)/", value = "Created date UTC format")
+  @Schema(example = "/Date(1573755038314)/", description = "Created date UTC format")
   /**
    * Created date UTC format
    *
@@ -354,7 +355,7 @@ public class Journal {
    *
    * @return reference
    */
-  @ApiModelProperty(value = "reference field for additional indetifying information")
+  @Schema(description = "reference field for additional indetifying information")
   /**
    * reference field for additional indetifying information
    *
@@ -389,7 +390,7 @@ public class Journal {
    *
    * @return sourceID
    */
-  @ApiModelProperty(value = "The identifier for the source transaction (e.g. InvoiceID)")
+  @Schema(description = "The identifier for the source transaction (e.g. InvoiceID)")
   /**
    * The identifier for the source transaction (e.g. InvoiceID)
    *
@@ -424,8 +425,8 @@ public class Journal {
    *
    * @return sourceType
    */
-  @ApiModelProperty(
-      value = "The journal source type. The type of transaction that created the journal")
+  @Schema(
+      description = "The journal source type. The type of transaction that created the journal")
   /**
    * The journal source type. The type of transaction that created the journal
    *
@@ -474,7 +475,7 @@ public class Journal {
    *
    * @return journalLines
    */
-  @ApiModelProperty(value = "See JournalLines")
+  @Schema(description = "See JournalLines")
   /**
    * See JournalLines
    *

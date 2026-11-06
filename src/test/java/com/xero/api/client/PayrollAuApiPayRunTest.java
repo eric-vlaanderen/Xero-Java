@@ -1,18 +1,22 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrollau.*;
+import com.xero.models.payrollau.PayRun;
+import com.xero.models.payrollau.PayRuns;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 
-import org.threeten.bp.*;
 import java.io.IOException;
-import java.util.UUID;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollAuApiPayRunTest {
 
@@ -22,7 +26,7 @@ public class PayrollAuApiPayRunTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -44,19 +48,19 @@ public class PayrollAuApiPayRunTest {
         
         PayRuns response = payrollAuApi.getPayRuns(accessToken, xeroTenantId, null, null, null, null);
         
-        assertThat(response.getPayRuns().get(0).getPayrollCalendarID(), is(equalTo(UUID.fromString("78bb86b9-e1ea-47ac-b75d-f087a81931de"))));
-        assertThat(response.getPayRuns().get(0).getPayRunID(), is(equalTo(UUID.fromString("5de420bb-4ad2-405c-beb1-2610bcc2144e"))));
-        assertThat(response.getPayRuns().get(0).getPayRunPeriodStartDateAsDate(), is(equalTo(LocalDate.of(2019,11,01))));
-        assertThat(response.getPayRuns().get(0).getPayRunPeriodEndDateAsDate(), is(equalTo(LocalDate.of(2019,11,07))));
-        assertThat(response.getPayRuns().get(0).getPayRunStatus(), is(equalTo(com.xero.models.payrollau.PayRunStatus.POSTED)));
-        assertThat(response.getPayRuns().get(0).getPaymentDateAsDate(), is(equalTo(LocalDate.of(2019,11,8))));
-        assertThat(response.getPayRuns().get(0).getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-11-13T02:09:30Z"))));    
-        assertThat(response.getPayRuns().get(0).getWages(), is(equalTo(200.0)));
-        assertThat(response.getPayRuns().get(0).getDeductions(), is(equalTo(33.0)));
-        assertThat(response.getPayRuns().get(0).getTax(), is(equalTo(78.0)));
-        assertThat(response.getPayRuns().get(0).getNetPay() , is(equalTo(89.0)));
-        assertThat(response.getPayRuns().get(0).getSuper() , is(equalTo(0.00)));
-        assertThat(response.getPayRuns().get(0).getReimbursement() , is(equalTo(22.00)));
+        assertThat(response.getPayRuns().getFirst().getPayrollCalendarID(), is(equalTo(UUID.fromString("78bb86b9-e1ea-47ac-b75d-f087a81931de"))));
+        assertThat(response.getPayRuns().getFirst().getPayRunID(), is(equalTo(UUID.fromString("5de420bb-4ad2-405c-beb1-2610bcc2144e"))));
+        assertThat(response.getPayRuns().getFirst().getPayRunPeriodStartDateAsDate(), is(equalTo(LocalDate.of(2019,11,01))));
+        assertThat(response.getPayRuns().getFirst().getPayRunPeriodEndDateAsDate(), is(equalTo(LocalDate.of(2019,11,07))));
+        assertThat(response.getPayRuns().getFirst().getPayRunStatus(), is(equalTo(com.xero.models.payrollau.PayRunStatus.POSTED)));
+        assertThat(response.getPayRuns().getFirst().getPaymentDateAsDate(), is(equalTo(LocalDate.of(2019,11,8))));
+        assertThat(response.getPayRuns().getFirst().getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-11-13T02:09:30Z"))));    
+        assertThat(response.getPayRuns().getFirst().getWages(), is(equalTo(200.0)));
+        assertThat(response.getPayRuns().getFirst().getDeductions(), is(equalTo(33.0)));
+        assertThat(response.getPayRuns().getFirst().getTax(), is(equalTo(78.0)));
+        assertThat(response.getPayRuns().getFirst().getNetPay() , is(equalTo(89.0)));
+        assertThat(response.getPayRuns().getFirst().getSuper() , is(equalTo(0.00)));
+        assertThat(response.getPayRuns().getFirst().getReimbursement() , is(equalTo(22.00)));
         //System.out.println(response.toString());
     }
 
@@ -67,32 +71,32 @@ public class PayrollAuApiPayRunTest {
         UUID payRunId = UUID.fromString("cdfb8371-0b21-4b8a-8903-1024df6c391e");
         PayRuns response = payrollAuApi.getPayRun(accessToken, xeroTenantId, payRunId);
         
-        assertThat(response.getPayRuns().get(0).getPayrollCalendarID(), is(equalTo(UUID.fromString("78bb86b9-e1ea-47ac-b75d-f087a81931de"))));
-        assertThat(response.getPayRuns().get(0).getPayRunID(), is(equalTo(UUID.fromString("21d6317b-5319-4b3d-8d78-48904db6b665"))));
-        assertThat(response.getPayRuns().get(0).getPayRunPeriodStartDateAsDate(), is(equalTo(LocalDate.of(2019,11,1))));
-        assertThat(response.getPayRuns().get(0).getPayRunPeriodEndDateAsDate(), is(equalTo(LocalDate.of(2019,11,7))));
-        assertThat(response.getPayRuns().get(0).getPayRunStatus(), is(equalTo(com.xero.models.payrollau.PayRunStatus.POSTED)));
-        assertThat(response.getPayRuns().get(0).getPaymentDateAsDate(), is(equalTo(LocalDate.of(2019,11,8))));
-        assertThat(response.getPayRuns().get(0).getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-11-14T00:42:35Z"))));    
-        assertThat(response.getPayRuns().get(0).getWages(), is(equalTo(205.4)));
-        assertThat(response.getPayRuns().get(0).getDeductions(), is(equalTo(37.0)));
-        assertThat(response.getPayRuns().get(0).getTax(), is(equalTo(0.0)));
-        assertThat(response.getPayRuns().get(0).getSuper(), is(equalTo(0.0)));
-        assertThat(response.getPayRuns().get(0).getReimbursement(), is(equalTo(77.0)));
-        assertThat(response.getPayRuns().get(0).getNetPay(), is(equalTo(168.4)));
-        assertThat(response.getPayRuns().get(0).getPayslips().get(0).getEmployeeID(), is(equalTo(UUID.fromString("cdfb8371-0b21-4b8a-8903-1024df6c391e"))));
-        assertThat(response.getPayRuns().get(0).getPayslips().get(0).getPayslipID(), is(equalTo(UUID.fromString("c81e8bcc-56b0-4740-b46b-767753a6ee45"))));
-        assertThat(response.getPayRuns().get(0).getPayslips().get(0).getFirstName(), is(equalTo("Albus")));
-        assertThat(response.getPayRuns().get(0).getPayslips().get(0).getLastName(), is(equalTo("Dumbledore")));
-        assertThat(response.getPayRuns().get(0).getPayslips().get(0).getEmployeeGroup(), is(equalTo("foo")));
-        assertThat(response.getPayRuns().get(0).getPayslips().get(0).getDeductions(), is(equalTo(4.0)));
-        assertThat(response.getPayRuns().get(0).getPayslips().get(0).getTax(), is(equalTo(0.0)));
-        assertThat(response.getPayRuns().get(0).getPayslips().get(0).getReimbursements(), is(equalTo(55.0)));
-        assertThat(response.getPayRuns().get(0).getPayslips().get(0).getNetPay(), is(equalTo(1.4)));
-        assertThat(response.getPayRuns().get(0).getPayslips().get(0).getWages(), is(equalTo(5.4)));
-        assertThat(response.getPayRuns().get(0).getPayslips().get(0).getReimbursements(), is(equalTo(55.0)));
-        assertThat(response.getPayRuns().get(0).getPayslips().get(0).getSuper(), is(equalTo(0.0)));
-        assertThat(response.getPayRuns().get(0).getPayslips().get(0).getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-11-14T00:42:35Z")))); 
+        assertThat(response.getPayRuns().getFirst().getPayrollCalendarID(), is(equalTo(UUID.fromString("78bb86b9-e1ea-47ac-b75d-f087a81931de"))));
+        assertThat(response.getPayRuns().getFirst().getPayRunID(), is(equalTo(UUID.fromString("21d6317b-5319-4b3d-8d78-48904db6b665"))));
+        assertThat(response.getPayRuns().getFirst().getPayRunPeriodStartDateAsDate(), is(equalTo(LocalDate.of(2019,11,1))));
+        assertThat(response.getPayRuns().getFirst().getPayRunPeriodEndDateAsDate(), is(equalTo(LocalDate.of(2019,11,7))));
+        assertThat(response.getPayRuns().getFirst().getPayRunStatus(), is(equalTo(com.xero.models.payrollau.PayRunStatus.POSTED)));
+        assertThat(response.getPayRuns().getFirst().getPaymentDateAsDate(), is(equalTo(LocalDate.of(2019,11,8))));
+        assertThat(response.getPayRuns().getFirst().getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-11-14T00:42:35Z"))));    
+        assertThat(response.getPayRuns().getFirst().getWages(), is(equalTo(205.4)));
+        assertThat(response.getPayRuns().getFirst().getDeductions(), is(equalTo(37.0)));
+        assertThat(response.getPayRuns().getFirst().getTax(), is(equalTo(0.0)));
+        assertThat(response.getPayRuns().getFirst().getSuper(), is(equalTo(0.0)));
+        assertThat(response.getPayRuns().getFirst().getReimbursement(), is(equalTo(77.0)));
+        assertThat(response.getPayRuns().getFirst().getNetPay(), is(equalTo(168.4)));
+        assertThat(response.getPayRuns().getFirst().getPayslips().getFirst().getEmployeeID(), is(equalTo(UUID.fromString("cdfb8371-0b21-4b8a-8903-1024df6c391e"))));
+        assertThat(response.getPayRuns().getFirst().getPayslips().getFirst().getPayslipID(), is(equalTo(UUID.fromString("c81e8bcc-56b0-4740-b46b-767753a6ee45"))));
+        assertThat(response.getPayRuns().getFirst().getPayslips().getFirst().getFirstName(), is(equalTo("Albus")));
+        assertThat(response.getPayRuns().getFirst().getPayslips().getFirst().getLastName(), is(equalTo("Dumbledore")));
+        assertThat(response.getPayRuns().getFirst().getPayslips().getFirst().getEmployeeGroup(), is(equalTo("foo")));
+        assertThat(response.getPayRuns().getFirst().getPayslips().getFirst().getDeductions(), is(equalTo(4.0)));
+        assertThat(response.getPayRuns().getFirst().getPayslips().getFirst().getTax(), is(equalTo(0.0)));
+        assertThat(response.getPayRuns().getFirst().getPayslips().getFirst().getReimbursements(), is(equalTo(55.0)));
+        assertThat(response.getPayRuns().getFirst().getPayslips().getFirst().getNetPay(), is(equalTo(1.4)));
+        assertThat(response.getPayRuns().getFirst().getPayslips().getFirst().getWages(), is(equalTo(5.4)));
+        assertThat(response.getPayRuns().getFirst().getPayslips().getFirst().getReimbursements(), is(equalTo(55.0)));
+        assertThat(response.getPayRuns().getFirst().getPayslips().getFirst().getSuper(), is(equalTo(0.0)));
+        assertThat(response.getPayRuns().getFirst().getPayslips().getFirst().getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-11-14T00:42:35Z")))); 
         
         //System.out.println(response.toString());
     }
@@ -104,13 +108,13 @@ public class PayrollAuApiPayRunTest {
         List<PayRun> payRuns = new ArrayList<>();
         PayRuns response = payrollAuApi.createPayRun(accessToken, xeroTenantId, payRuns, null);
         
-        assertThat(response.getPayRuns().get(0).getPayrollCalendarID(), is(equalTo(UUID.fromString("78bb86b9-e1ea-47ac-b75d-f087a81931de"))));
-        assertThat(response.getPayRuns().get(0).getPayRunID(), is(equalTo(UUID.fromString("d1348fab-f47a-4697-beea-922ee262407a"))));
-        assertThat(response.getPayRuns().get(0).getPayRunPeriodStartDateAsDate(), is(equalTo(LocalDate.of(2019,11,1))));
-        assertThat(response.getPayRuns().get(0).getPayRunPeriodEndDateAsDate(), is(equalTo(LocalDate.of(2019,11,7))));
-        assertThat(response.getPayRuns().get(0).getPayRunStatus(), is(equalTo(com.xero.models.payrollau.PayRunStatus.DRAFT)));
-        assertThat(response.getPayRuns().get(0).getPaymentDateAsDate(), is(equalTo(LocalDate.of(2019,11,8))));
-        assertThat(response.getPayRuns().get(0).getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-11-13T22:56:58.311Z"))));     
+        assertThat(response.getPayRuns().getFirst().getPayrollCalendarID(), is(equalTo(UUID.fromString("78bb86b9-e1ea-47ac-b75d-f087a81931de"))));
+        assertThat(response.getPayRuns().getFirst().getPayRunID(), is(equalTo(UUID.fromString("d1348fab-f47a-4697-beea-922ee262407a"))));
+        assertThat(response.getPayRuns().getFirst().getPayRunPeriodStartDateAsDate(), is(equalTo(LocalDate.of(2019,11,1))));
+        assertThat(response.getPayRuns().getFirst().getPayRunPeriodEndDateAsDate(), is(equalTo(LocalDate.of(2019,11,7))));
+        assertThat(response.getPayRuns().getFirst().getPayRunStatus(), is(equalTo(com.xero.models.payrollau.PayRunStatus.DRAFT)));
+        assertThat(response.getPayRuns().getFirst().getPaymentDateAsDate(), is(equalTo(LocalDate.of(2019,11,8))));
+        assertThat(response.getPayRuns().getFirst().getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-11-13T22:56:58.311Z"))));     
         //System.out.println(response.toString());
     }
 
@@ -122,13 +126,13 @@ public class PayrollAuApiPayRunTest {
         List<PayRun> payRuns = new ArrayList<>();
         PayRuns response = payrollAuApi.updatePayRun(accessToken, xeroTenantId,payRunId, payRuns, null);
         
-        assertThat(response.getPayRuns().get(0).getPayrollCalendarID(), is(equalTo(UUID.fromString("78bb86b9-e1ea-47ac-b75d-f087a81931de"))));
-        assertThat(response.getPayRuns().get(0).getPayRunID(), is(equalTo(UUID.fromString("f8fcda54-643f-4406-902a-d7b020d0a036"))));
-        assertThat(response.getPayRuns().get(0).getPayRunPeriodStartDateAsDate(), is(equalTo(LocalDate.of(2019,11,1))));
-        assertThat(response.getPayRuns().get(0).getPayRunPeriodEndDateAsDate(), is(equalTo(LocalDate.of(2019,11,7))));
-        assertThat(response.getPayRuns().get(0).getPayRunStatus(), is(equalTo(com.xero.models.payrollau.PayRunStatus.POSTED)));
-        assertThat(response.getPayRuns().get(0).getPaymentDateAsDate(), is(equalTo(LocalDate.of(2019,11,8))));
-        assertThat(response.getPayRuns().get(0).getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-11-14T00:58:13Z"))));     
+        assertThat(response.getPayRuns().getFirst().getPayrollCalendarID(), is(equalTo(UUID.fromString("78bb86b9-e1ea-47ac-b75d-f087a81931de"))));
+        assertThat(response.getPayRuns().getFirst().getPayRunID(), is(equalTo(UUID.fromString("f8fcda54-643f-4406-902a-d7b020d0a036"))));
+        assertThat(response.getPayRuns().getFirst().getPayRunPeriodStartDateAsDate(), is(equalTo(LocalDate.of(2019,11,1))));
+        assertThat(response.getPayRuns().getFirst().getPayRunPeriodEndDateAsDate(), is(equalTo(LocalDate.of(2019,11,7))));
+        assertThat(response.getPayRuns().getFirst().getPayRunStatus(), is(equalTo(com.xero.models.payrollau.PayRunStatus.POSTED)));
+        assertThat(response.getPayRuns().getFirst().getPaymentDateAsDate(), is(equalTo(LocalDate.of(2019,11,8))));
+        assertThat(response.getPayRuns().getFirst().getUpdatedDateUTCAsDate(), is(equalTo(OffsetDateTime.parse("2019-11-14T00:58:13Z"))));     
        
        //System.out.println(response.toString());
     }

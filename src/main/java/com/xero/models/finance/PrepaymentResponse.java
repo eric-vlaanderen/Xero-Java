@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -51,7 +51,7 @@ public class PrepaymentResponse {
    *
    * @return prepaymentId
    */
-  @ApiModelProperty(value = "Xero Identifier of prepayment")
+  @Schema(description = "Xero Identifier of prepayment")
   /**
    * Xero Identifier of prepayment
    *
@@ -86,7 +86,7 @@ public class PrepaymentResponse {
    *
    * @return contact
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * contact
    *
@@ -121,8 +121,8 @@ public class PrepaymentResponse {
    *
    * @return total
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Total of Invoice tax inclusive (i.e. SubTotal + TotalTax); Not included in summary mode")
   /**
    * Total of Invoice tax inclusive (i.e. SubTotal + TotalTax); Not included in summary mode
@@ -172,7 +172,7 @@ public class PrepaymentResponse {
    *
    * @return lineItems
    */
-  @ApiModelProperty(value = "Not included in summary mode")
+  @Schema(description = "Not included in summary mode")
   /**
    * Not included in summary mode
    *

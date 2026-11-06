@@ -1,16 +1,21 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.accounting.*;
+import com.xero.models.accounting.BatchPayment;
+import com.xero.models.accounting.BatchPayments;
+import com.xero.models.accounting.HistoryRecord;
+import com.xero.models.accounting.HistoryRecords;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.time.OffsetDateTime;
 
 import java.io.File;
-import org.threeten.bp.*;
 import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class AccountingApiBatchPaymentTest {
 	ApiClient defaultClient; 
@@ -22,7 +27,7 @@ public class AccountingApiBatchPaymentTest {
 
 	private static boolean setUpIsDone = false;
 
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -61,8 +66,8 @@ public class AccountingApiBatchPaymentTest {
 		String where = null;
 		String order = null;
 		BatchPayments batchPayments = accountingApi.getBatchPayments(accessToken,xeroTenantId,ifModifiedSince, where, order);
-    	assertThat(batchPayments.getBatchPayments().get(0).getBatchPaymentID().toString(), is(equalTo("d0e9bbbf-5b8a-48b6-906a-035591fcb061")));	
-		assertThat(batchPayments.getBatchPayments().get(0).getReference(), is(equalTo("Hello World")));	
+    	assertThat(batchPayments.getBatchPayments().getFirst().getBatchPaymentID().toString(), is(equalTo("d0e9bbbf-5b8a-48b6-906a-035591fcb061")));	
+		assertThat(batchPayments.getBatchPayments().getFirst().getReference(), is(equalTo("Hello World")));	
 		//System.out.println(batchPayments.getBatchPayments().toString());
 	}
 
@@ -74,8 +79,8 @@ public class AccountingApiBatchPaymentTest {
 		BatchPayment createBatchPayment = new BatchPayment();
 		createBatchPayments.addBatchPaymentsItem(createBatchPayment);		
 		BatchPayments newBatchPayments = accountingApi.createBatchPayment(accessToken,xeroTenantId,createBatchPayments, false, null);
-		assertThat(newBatchPayments.getBatchPayments().get(0).getBatchPaymentID().toString(), is(equalTo("d318c343-208e-49fe-b04a-45642349bcf1")));	
-		assertThat(newBatchPayments.getBatchPayments().get(0).getReference(), is(equalTo("Foobar123")));	
+		assertThat(newBatchPayments.getBatchPayments().getFirst().getBatchPaymentID().toString(), is(equalTo("d318c343-208e-49fe-b04a-45642349bcf1")));	
+		assertThat(newBatchPayments.getBatchPayments().getFirst().getReference(), is(equalTo("Foobar123")));	
 		//System.out.println(newBatchPayments.getBatchPayments().toString());
 	}
 
@@ -85,8 +90,8 @@ public class AccountingApiBatchPaymentTest {
 		UUID batchPaymentID = UUID.fromString("297c2dc5-cc47-4afd-8ec8-74990b8761e9");	
 
 		HistoryRecords hr = accountingApi.getBatchPaymentHistory(accessToken,xeroTenantId,batchPaymentID);
-		assertThat(hr.getHistoryRecords().get(0).getUser(), is(equalTo("Buzz Lightyear")));		
-		assertThat(hr.getHistoryRecords().get(0).getChanges(), is(equalTo("Approved")));		
+		assertThat(hr.getHistoryRecords().getFirst().getUser(), is(equalTo("Buzz Lightyear")));		
+		assertThat(hr.getHistoryRecords().getFirst().getChanges(), is(equalTo("Approved")));		
 		//System.out.println(hr.getHistoryRecords().toString());		
 	}
 
@@ -100,7 +105,7 @@ public class AccountingApiBatchPaymentTest {
 		newHistoryRecord.setDetails("Hello World");
 		newHistoryRecords.addHistoryRecordsItem(newHistoryRecord);
 		HistoryRecords newHistory = accountingApi.createBatchPaymentHistoryRecord(accessToken,xeroTenantId,batchPaymentID,newHistoryRecords,null);
-		assertThat(newHistory.getHistoryRecords().get(0).getDetails(), is(equalTo("Hello World")));		
+		assertThat(newHistory.getHistoryRecords().getFirst().getDetails(), is(equalTo("Hello World")));		
 		//System.out.println(newHistory.getHistoryRecords().toString());		
 	}
 }

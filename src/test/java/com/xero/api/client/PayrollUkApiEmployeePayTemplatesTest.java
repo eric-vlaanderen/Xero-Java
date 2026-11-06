@@ -1,15 +1,22 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrolluk.*;
+import com.xero.models.payrolluk.EarningsTemplate;
+import com.xero.models.payrolluk.EarningsTemplateObject;
+import com.xero.models.payrolluk.EmployeePayTemplateObject;
+import com.xero.models.payrolluk.EmployeePayTemplates;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollUkApiEmployeePayTemplatesTest {
 
@@ -19,7 +26,7 @@ public class PayrollUkApiEmployeePayTemplatesTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -42,11 +49,11 @@ public class PayrollUkApiEmployeePayTemplatesTest {
         EmployeePayTemplateObject response = payrollUkApi.getEmployeePayTemplate(accessToken, xeroTenantId, employeeId);
         
         assertThat(response.getPayTemplate().getEmployeeID(), is(equalTo(UUID.fromString("aad6b292-7b94-408b-93f6-e489867e3fb0"))));
-        assertThat(response.getPayTemplate().getEarningTemplates().get(0).getPayTemplateEarningID(), is(equalTo(UUID.fromString("4e2a0753-56b9-423d-8068-624473bd1c00"))));
-        assertThat(response.getPayTemplate().getEarningTemplates().get(0).getEarningsRateID(), is(equalTo(UUID.fromString("87f5b43a-cf51-4b74-92de-94c819e82d27"))));        
-        assertThat(response.getPayTemplate().getEarningTemplates().get(0).getRatePerUnit(), is(equalTo(25.0)));
-        assertThat(response.getPayTemplate().getEarningTemplates().get(0).getNumberOfUnits(), is(equalTo(10.0)));
-        assertThat(response.getPayTemplate().getEarningTemplates().get(0).getName(), is(equalTo("Regular Hours")));
+        assertThat(response.getPayTemplate().getEarningTemplates().getFirst().getPayTemplateEarningID(), is(equalTo(UUID.fromString("4e2a0753-56b9-423d-8068-624473bd1c00"))));
+        assertThat(response.getPayTemplate().getEarningTemplates().getFirst().getEarningsRateID(), is(equalTo(UUID.fromString("87f5b43a-cf51-4b74-92de-94c819e82d27"))));        
+        assertThat(response.getPayTemplate().getEarningTemplates().getFirst().getRatePerUnit(), is(equalTo(25.0)));
+        assertThat(response.getPayTemplate().getEarningTemplates().getFirst().getNumberOfUnits(), is(equalTo(10.0)));
+        assertThat(response.getPayTemplate().getEarningTemplates().getFirst().getName(), is(equalTo("Regular Hours")));
 
         //System.out.println(response.toString());
     }
@@ -77,11 +84,11 @@ public class PayrollUkApiEmployeePayTemplatesTest {
         List<EarningsTemplate> earningsTemplate = new ArrayList<>();
         EmployeePayTemplates response = payrollUkApi.createMultipleEmployeeEarningsTemplate(accessToken, xeroTenantId, employeeId, earningsTemplate, null);
          
-        assertThat(response.getEarningTemplates().get(0).getPayTemplateEarningID(), is(equalTo(UUID.fromString("6b32533d-1111-4a92-ac52-7641315a1719"))));
-        assertThat(response.getEarningTemplates().get(0).getEarningsRateID(), is(equalTo(UUID.fromString("87f5b43a-cf51-4b74-92de-94c819e82d27"))));
-        assertThat(response.getEarningTemplates().get(0).getRatePerUnit(), is(equalTo(20.0)));
-        assertThat(response.getEarningTemplates().get(0).getNumberOfUnits(), is(equalTo(8.0)));
-        assertThat(response.getEarningTemplates().get(0).getName(), is(equalTo("Regular Hours")));
+        assertThat(response.getEarningTemplates().getFirst().getPayTemplateEarningID(), is(equalTo(UUID.fromString("6b32533d-1111-4a92-ac52-7641315a1719"))));
+        assertThat(response.getEarningTemplates().getFirst().getEarningsRateID(), is(equalTo(UUID.fromString("87f5b43a-cf51-4b74-92de-94c819e82d27"))));
+        assertThat(response.getEarningTemplates().getFirst().getRatePerUnit(), is(equalTo(20.0)));
+        assertThat(response.getEarningTemplates().getFirst().getNumberOfUnits(), is(equalTo(8.0)));
+        assertThat(response.getEarningTemplates().getFirst().getName(), is(equalTo("Regular Hours")));
         assertThat(response.getEarningTemplates().get(1).getPayTemplateEarningID(), is(equalTo(UUID.fromString("b8b16366-6a60-4b72-97c1-57af555da375"))));
         assertThat(response.getEarningTemplates().get(1).getEarningsRateID(), is(equalTo(UUID.fromString("973365f3-66b2-4c33-8ae6-14b75f78f68b"))));
         assertThat(response.getEarningTemplates().get(1).getRatePerUnit(), is(equalTo(20.0)));

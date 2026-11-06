@@ -13,14 +13,14 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Balance supplied for each account that has a value as at the conversion date. */
-@ApiModel(
+@Schema(
     description = "Balance supplied for each account that has a value as at the conversion date.")
 public class ConversionBalances {
   StringUtil util = new StringUtil();
@@ -50,7 +50,7 @@ public class ConversionBalances {
    *
    * @return accountCode
    */
-  @ApiModelProperty(value = "The account code for a account")
+  @Schema(description = "The account code for a account")
   /**
    * The account code for a account
    *
@@ -85,8 +85,8 @@ public class ConversionBalances {
    *
    * @return balance
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The opening balances of the account. Debits are positive, credits are negative values")
   /**
    * The opening balances of the account. Debits are positive, credits are negative values
@@ -136,7 +136,7 @@ public class ConversionBalances {
    *
    * @return balanceDetails
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * balanceDetails
    *

@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -52,10 +52,10 @@ public class DeductionLine {
    *
    * @return deductionTypeID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "59cd9d04-4521-4cc3-93ac-7841651ff407",
-      required = true,
-      value = "Xero deduction type identifier")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Xero deduction type identifier")
   /**
    * Xero deduction type identifier
    *
@@ -90,7 +90,7 @@ public class DeductionLine {
    *
    * @return calculationType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * calculationType
    *
@@ -125,7 +125,7 @@ public class DeductionLine {
    *
    * @return amount
    */
-  @ApiModelProperty(example = "10.0", value = "Deduction type amount")
+  @Schema(example = "10.0", description = "Deduction type amount")
   /**
    * Deduction type amount
    *
@@ -160,7 +160,7 @@ public class DeductionLine {
    *
    * @return percentage
    */
-  @ApiModelProperty(example = "10.0", value = "The Percentage of the Deduction")
+  @Schema(example = "10.0", description = "The Percentage of the Deduction")
   /**
    * The Percentage of the Deduction
    *
@@ -195,7 +195,7 @@ public class DeductionLine {
    *
    * @return numberOfUnits
    */
-  @ApiModelProperty(example = "10.0", value = "Deduction number of units")
+  @Schema(example = "10.0", description = "Deduction number of units")
   /**
    * Deduction number of units
    *

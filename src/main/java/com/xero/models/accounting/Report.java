@@ -15,12 +15,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import org.threeten.bp.OffsetDateTime;
 
 /** Report */
 public class Report {
@@ -107,7 +108,7 @@ public class Report {
    *
    * @return reportName
    */
-  @ApiModelProperty(value = "See Prepayment Types")
+  @Schema(description = "See Prepayment Types")
   /**
    * See Prepayment Types
    *
@@ -142,7 +143,7 @@ public class Report {
    *
    * @return reportType
    */
-  @ApiModelProperty(value = "See Prepayment Types")
+  @Schema(description = "See Prepayment Types")
   /**
    * See Prepayment Types
    *
@@ -177,7 +178,7 @@ public class Report {
    *
    * @return reportTitle
    */
-  @ApiModelProperty(value = "See Prepayment Types")
+  @Schema(description = "See Prepayment Types")
   /**
    * See Prepayment Types
    *
@@ -212,7 +213,7 @@ public class Report {
    *
    * @return reportDate
    */
-  @ApiModelProperty(value = "Date of report")
+  @Schema(description = "Date of report")
   /**
    * Date of report
    *
@@ -236,7 +237,7 @@ public class Report {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1573755038314)/", value = "Updated Date")
+  @Schema(example = "/Date(1573755038314)/", description = "Updated Date")
   /**
    * Updated Date
    *
@@ -292,7 +293,7 @@ public class Report {
    *
    * @return contacts
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * contacts
    *

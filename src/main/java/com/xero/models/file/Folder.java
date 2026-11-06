@@ -13,7 +13,7 @@ package com.xero.models.file;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -52,7 +52,7 @@ public class Folder {
    *
    * @return name
    */
-  @ApiModelProperty(example = "assets", value = "The name of the folder")
+  @Schema(example = "assets", description = "The name of the folder")
   /**
    * The name of the folder
    *
@@ -87,7 +87,7 @@ public class Folder {
    *
    * @return fileCount
    */
-  @ApiModelProperty(example = "5", value = "The number of files in the folder")
+  @Schema(example = "5", description = "The number of files in the folder")
   /**
    * The number of files in the folder
    *
@@ -122,9 +122,9 @@ public class Folder {
    *
    * @return email
    */
-  @ApiModelProperty(
+  @Schema(
       example = "foo@bar.com",
-      value =
+      description =
           "The email address used to email files to the inbox. Only the inbox will have this"
               + " element.")
   /**
@@ -161,9 +161,9 @@ public class Folder {
    *
    * @return isInbox
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      value = "to indicate if the folder is the Inbox. The Inbox cannot be renamed or deleted.")
+      description = "to indicate if the folder is the Inbox. The Inbox cannot be renamed or deleted.")
   /**
    * to indicate if the folder is the Inbox. The Inbox cannot be renamed or deleted.
    *
@@ -198,9 +198,9 @@ public class Folder {
    *
    * @return id
    */
-  @ApiModelProperty(
+  @Schema(
       example = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c",
-      value = "Xero unique identifier for a folder  Files")
+      description = "Xero unique identifier for a folder  Files")
   /**
    * Xero unique identifier for a folder Files
    *

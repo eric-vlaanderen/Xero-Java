@@ -15,10 +15,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** EmployeeStatutoryLeaveSummary */
 public class EmployeeStatutoryLeaveSummary {
@@ -173,7 +174,7 @@ public class EmployeeStatutoryLeaveSummary {
    *
    * @return statutoryLeaveID
    */
-  @ApiModelProperty(value = "The unique identifier (guid) of a statutory leave.")
+  @Schema(description = "The unique identifier (guid) of a statutory leave.")
   /**
    * The unique identifier (guid) of a statutory leave.
    *
@@ -208,7 +209,7 @@ public class EmployeeStatutoryLeaveSummary {
    *
    * @return employeeID
    */
-  @ApiModelProperty(value = "The unique identifier (guid) of the employee")
+  @Schema(description = "The unique identifier (guid) of the employee")
   /**
    * The unique identifier (guid) of the employee
    *
@@ -243,7 +244,7 @@ public class EmployeeStatutoryLeaveSummary {
    *
    * @return type
    */
-  @ApiModelProperty(value = "The category of statutory leave")
+  @Schema(description = "The category of statutory leave")
   /**
    * The category of statutory leave
    *
@@ -278,7 +279,7 @@ public class EmployeeStatutoryLeaveSummary {
    *
    * @return startDate
    */
-  @ApiModelProperty(value = "The date when the leave starts")
+  @Schema(description = "The date when the leave starts")
   /**
    * The date when the leave starts
    *
@@ -313,7 +314,7 @@ public class EmployeeStatutoryLeaveSummary {
    *
    * @return endDate
    */
-  @ApiModelProperty(value = "The date when the leave ends")
+  @Schema(description = "The date when the leave ends")
   /**
    * The date when the leave ends
    *
@@ -348,7 +349,7 @@ public class EmployeeStatutoryLeaveSummary {
    *
    * @return isEntitled
    */
-  @ApiModelProperty(value = "Whether the leave was entitled to receive payment")
+  @Schema(description = "Whether the leave was entitled to receive payment")
   /**
    * Whether the leave was entitled to receive payment
    *
@@ -383,7 +384,7 @@ public class EmployeeStatutoryLeaveSummary {
    *
    * @return status
    */
-  @ApiModelProperty(value = "The status of the leave")
+  @Schema(description = "The status of the leave")
   /**
    * The status of the leave
    *

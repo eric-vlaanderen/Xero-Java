@@ -1,26 +1,23 @@
 package com.xero.api;
 
-import static org.hamcrest.Matchers.is;
-import static org.mockito.Mockito.when;
-
 import com.google.api.client.http.HttpHeaders;
 import com.google.api.client.http.HttpResponseException;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.when;
 
 public class XeroExceptionsTest {
 
     private AutoCloseable closeable;
     @InjectMocks
     private static XeroApiExceptionHandler xeroApiExceptionHandler;
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
     @Mock
     private com.xero.models.accounting.Error error;
     @Mock
@@ -32,12 +29,12 @@ public class XeroExceptionsTest {
 
     private final String objectType = "objectType";
 
-    @Before
+    @BeforeEach
     public void setUp() {
         closeable = MockitoAnnotations.openMocks(this);
     }
 
-    @After
+    @AfterEach
     public void tearDown() throws Exception {
         closeable.close();
     }
@@ -46,20 +43,26 @@ public class XeroExceptionsTest {
     public void testXeroBadRequestException() {
         Exception e = new Exception();
         // XeroBadRequestException extends XeroException so we can catch either
-        expectedException.expect(XeroException.class);
-        expectedException.expect(is(new XeroBadRequestException(objectType, error, e)));
+        XeroException exception = assertThrows(
+            XeroException.class,
+            () ->
+                xeroApiExceptionHandler.validationError(objectType, error, e)
+        );
+        assertEquals(new XeroBadRequestException(objectType, error, e), exception);
 
-        xeroApiExceptionHandler.validationError(objectType, error, e);
+
     }
 
     @Test
     public void testXeroMethodNotAllowedException() {
         Exception e = new Exception();
         // XeroMethodNotAllowedException extends XeroException so we can catch either
-        expectedException.expect(XeroException.class);
-        expectedException.expect(is(new XeroMethodNotAllowedException(objectType, problem, e)));
-
-        xeroApiExceptionHandler.validationError(405, objectType, problem, e);
+        XeroException exception = assertThrows(
+            XeroException.class,
+            () ->
+                xeroApiExceptionHandler.validationError(405, objectType, problem, e)
+        );
+        assertEquals(new XeroMethodNotAllowedException(objectType, problem, e), exception);
     }
 
     @Test
@@ -68,13 +71,14 @@ public class XeroExceptionsTest {
         String message = "Unauthorized - check your scopes and confirm access to this resource";
 
         // XeroUnauthorizedException extends XeroAuthenticationException and XeroException so we can catch either
-        expectedException.expect(XeroException.class);
-        expectedException.expect(XeroAuthenticationException.class);
-        expectedException.expect(XeroUnauthorizedException.class);
-        expectedException.expectMessage(message);
-
         when(httpResponseException.getStatusCode()).thenReturn(statusCode);
-        xeroApiExceptionHandler.execute(httpResponseException);
+        XeroUnauthorizedException exception = assertThrows(
+            XeroUnauthorizedException.class,
+            () ->
+                xeroApiExceptionHandler.execute(httpResponseException)
+        );
+        assertEquals(statusCode, exception.getStatusCode());
+        assertEquals(message, exception.getMessage());
     }
 
     @Test
@@ -83,13 +87,14 @@ public class XeroExceptionsTest {
         String message = "Forbidden - authentication unsuccessful";
 
         // XeroForbiddenException extends XeroAuthenticationException and XeroException so we can catch either
-        expectedException.expect(XeroException.class);
-        expectedException.expect(XeroAuthenticationException.class);
-        expectedException.expect(XeroForbiddenException.class);
-        expectedException.expectMessage(message);
-
         when(httpResponseException.getStatusCode()).thenReturn(statusCode);
-        xeroApiExceptionHandler.execute(httpResponseException);
+        XeroForbiddenException exception = assertThrows(
+            XeroForbiddenException.class,
+            () ->
+                xeroApiExceptionHandler.execute(httpResponseException)
+        );
+        assertEquals(statusCode, exception.getStatusCode());
+        assertEquals(message, exception.getMessage());
     }
 
     @Test
@@ -98,12 +103,14 @@ public class XeroExceptionsTest {
         String message = "The resource you're looking for cannot be found";
 
         // XeroNotFoundException extends XeroException so we can catch either
-        expectedException.expect(XeroException.class);
-        expectedException.expect(XeroNotFoundException.class);
-        expectedException.expectMessage(message);
-
         when(httpResponseException.getStatusCode()).thenReturn(statusCode);
-        xeroApiExceptionHandler.execute(httpResponseException);
+        XeroNotFoundException exception = assertThrows(
+            XeroNotFoundException.class,
+            () ->
+                xeroApiExceptionHandler.execute(httpResponseException)
+        );
+        assertEquals(statusCode, exception.getStatusCode());
+        assertEquals(message, exception.getMessage());
     }
 
     @Test
@@ -112,14 +119,17 @@ public class XeroExceptionsTest {
         String message = "You've exceeded the per [any] rate limit";
 
         // XeroRateLimitException extends XeroException so we can catch either
-        expectedException.expect(XeroException.class);
-        expectedException.expect(XeroRateLimitException.class);
-        expectedException.expectMessage(message);
-
         when(httpResponseException.getStatusCode()).thenReturn(statusCode);
-        when(httpResponseException.getHeaders()).thenReturn(httpHeaders);
         when(httpHeaders.getFirstHeaderStringValue("X-Rate-Limit-Problem")).thenReturn("[any]");
-        xeroApiExceptionHandler.execute(httpResponseException);
+        when(httpResponseException.getHeaders()).thenReturn(httpHeaders);
+        XeroRateLimitException exception = assertThrows(
+            XeroRateLimitException.class,
+            () ->
+                xeroApiExceptionHandler.execute(httpResponseException)
+        );
+        assertEquals(statusCode, exception.getStatusCode());
+        assertEquals(message, exception.getMessage());
+
     }
 
     @Test
@@ -128,18 +138,19 @@ public class XeroExceptionsTest {
         String message = "You've exceeded the per [minute] rate limit";
 
         // XeroMinuteRateLimitException extends XeroRateLimitException so we can catch either
-        expectedException.expect(XeroException.class);
-        expectedException.expect(XeroMinuteRateLimitException.class);
-        expectedException.expect(XeroRateLimitException.class);
-        expectedException.expectMessage(message);
-
         when(httpResponseException.getStatusCode()).thenReturn(statusCode);
-        when(httpResponseException.getHeaders()).thenReturn(httpHeaders);
         when(httpHeaders.getFirstHeaderStringValue("X-Rate-Limit-Problem")).thenReturn("[minute]");
         when(httpHeaders.getFirstHeaderStringValue("X-MinLimit-Remaining")).thenReturn("0");
         when(httpHeaders.getFirstHeaderStringValue("X-DayLimit-Remaining")).thenReturn("10");
         when(httpHeaders.getFirstHeaderStringValue("X-AppMinLimit-Remaining")).thenReturn("10");
-        xeroApiExceptionHandler.execute(httpResponseException);
+        when(httpResponseException.getHeaders()).thenReturn(httpHeaders);
+        XeroMinuteRateLimitException exception = assertThrows(
+            XeroMinuteRateLimitException.class,
+            () ->
+                xeroApiExceptionHandler.execute(httpResponseException)
+        );
+        assertEquals(statusCode, exception.getStatusCode());
+        assertEquals(message, exception.getMessage());
     }
 
     @Test
@@ -148,18 +159,19 @@ public class XeroExceptionsTest {
         String message = "You've exceeded the per [day] rate limit";
 
         // XeroDailyRateLimitException extends XeroRateLimitException so we can catch either
-        expectedException.expect(XeroException.class);
-        expectedException.expect(XeroDailyRateLimitException.class);
-        expectedException.expect(XeroRateLimitException.class);
-        expectedException.expectMessage(message);
-
         when(httpResponseException.getStatusCode()).thenReturn(statusCode);
         when(httpResponseException.getHeaders()).thenReturn(httpHeaders);
         when(httpHeaders.getFirstHeaderStringValue("X-Rate-Limit-Problem")).thenReturn("[day]");
         when(httpHeaders.getFirstHeaderStringValue("X-MinLimit-Remaining")).thenReturn("10");
         when(httpHeaders.getFirstHeaderStringValue("X-DayLimit-Remaining")).thenReturn("0");
         when(httpHeaders.getFirstHeaderStringValue("X-AppMinLimit-Remaining")).thenReturn("10");
-        xeroApiExceptionHandler.execute(httpResponseException);
+        XeroDailyRateLimitException exception = assertThrows(
+            XeroDailyRateLimitException.class,
+            () ->
+                xeroApiExceptionHandler.execute(httpResponseException)
+        );
+        assertEquals(statusCode, exception.getStatusCode());
+        assertEquals(message, exception.getMessage());
     }
 
     @Test
@@ -168,18 +180,19 @@ public class XeroExceptionsTest {
         String message = "You've exceeded the per [app] rate limit";
 
         // XeroAppMinuteRateLimitException extends XeroRateLimitException so we can catch either
-        expectedException.expect(XeroException.class);
-        expectedException.expect(XeroAppMinuteRateLimitException.class);
-        expectedException.expect(XeroRateLimitException.class);
-        expectedException.expectMessage(message);
-
         when(httpResponseException.getStatusCode()).thenReturn(statusCode);
         when(httpResponseException.getHeaders()).thenReturn(httpHeaders);
         when(httpHeaders.getFirstHeaderStringValue("X-Rate-Limit-Problem")).thenReturn("[app]");
         when(httpHeaders.getFirstHeaderStringValue("X-MinLimit-Remaining")).thenReturn("10");
         when(httpHeaders.getFirstHeaderStringValue("X-DayLimit-Remaining")).thenReturn("10");
         when(httpHeaders.getFirstHeaderStringValue("X-AppMinLimit-Remaining")).thenReturn("0");
-        xeroApiExceptionHandler.execute(httpResponseException);
+        XeroAppMinuteRateLimitException exception = assertThrows(
+            XeroAppMinuteRateLimitException.class,
+            () ->
+                xeroApiExceptionHandler.execute(httpResponseException)
+        );
+        assertEquals(statusCode, exception.getStatusCode());
+        assertEquals(message, exception.getMessage());
     }
 
     @Test
@@ -188,12 +201,14 @@ public class XeroExceptionsTest {
         String message = "An error occurred in Xero. Check the API Status page http://status.developer.xero.com for current service status.";
 
         // XeroServerErrorException extends XeroException so we can catch either
-        expectedException.expect(XeroException.class);
-        expectedException.expect(XeroServerErrorException.class);
-        expectedException.expectMessage(message);
-
         when(httpResponseException.getStatusCode()).thenReturn(statusCode);
-        xeroApiExceptionHandler.execute(httpResponseException);
+        XeroServerErrorException exception = assertThrows(
+            XeroServerErrorException.class,
+            () ->
+                xeroApiExceptionHandler.execute(httpResponseException)
+        );
+        assertEquals(statusCode, exception.getStatusCode());
+        assertEquals(message, exception.getMessage());
     }
 
     @Test
@@ -202,12 +217,14 @@ public class XeroExceptionsTest {
         String message = "The method you have called has not been implemented";
 
         // XeroNotImplementedException extends XeroException so we can catch either
-        expectedException.expect(XeroException.class);
-        expectedException.expect(XeroNotImplementedException.class);
-        expectedException.expectMessage(message);
-
         when(httpResponseException.getStatusCode()).thenReturn(statusCode);
-        xeroApiExceptionHandler.execute(httpResponseException);
+        XeroNotImplementedException exception = assertThrows(
+            XeroNotImplementedException.class,
+            () ->
+                xeroApiExceptionHandler.execute(httpResponseException)
+        );
+        assertEquals(statusCode, exception.getStatusCode());
+        assertEquals(message, exception.getMessage());
     }
 
 
@@ -217,11 +234,13 @@ public class XeroExceptionsTest {
         int statusCode = 503;
 
         // XeroNotAvailableException extends XeroException so we can catch either
-        expectedException.expect(XeroException.class);
-        expectedException.expect(XeroNotAvailableException.class);
-
         when(httpResponseException.getStatusCode()).thenReturn(statusCode);
-        xeroApiExceptionHandler.execute(httpResponseException);
+        XeroNotAvailableException exception = assertThrows(
+            XeroNotAvailableException.class,
+            () ->
+                xeroApiExceptionHandler.execute(httpResponseException)
+        );
+        assertEquals(statusCode, exception.getStatusCode());
     }
 
     @Test
@@ -230,13 +249,14 @@ public class XeroExceptionsTest {
         String message = "Unknown http status code 1";
 
         // XeroApiException extends XeroException so we can catch either
-        expectedException.expect(XeroException.class);
-        expectedException.expect(XeroApiException.class);
-        expectedException.expectMessage(message);
-
         when(httpResponseException.getStatusMessage()).thenReturn(message);
         when(httpResponseException.getStatusCode()).thenReturn(statusCode);
-        xeroApiExceptionHandler.execute(httpResponseException);
+        XeroApiException exception = assertThrows(
+            XeroApiException.class,
+            () ->
+                xeroApiExceptionHandler.execute(httpResponseException)
+        );
+        assertEquals(message, exception.getMessage());
     }
 
 }

@@ -13,13 +13,13 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 /** The object returned for a bad request */
-@ApiModel(description = "The object returned for a bad request")
+@Schema(description = "The object returned for a bad request")
 public class ModelAPIException {
   StringUtil util = new StringUtil();
 
@@ -48,7 +48,7 @@ public class ModelAPIException {
    *
    * @return errorNumber
    */
-  @ApiModelProperty(example = "16", value = "The error number")
+  @Schema(example = "16", description = "The error number")
   /**
    * The error number
    *
@@ -83,7 +83,7 @@ public class ModelAPIException {
    *
    * @return type
    */
-  @ApiModelProperty(example = "QueryParseException", value = "The type of error")
+  @Schema(example = "QueryParseException", description = "The type of error")
   /**
    * The type of error
    *
@@ -118,9 +118,9 @@ public class ModelAPIException {
    *
    * @return message
    */
-  @ApiModelProperty(
+  @Schema(
       example = "No property or field 'hi' exists in type 'Employee' (at index 0)",
-      value = "The message describing the error")
+      description = "The message describing the error")
   /**
    * The message describing the error
    *

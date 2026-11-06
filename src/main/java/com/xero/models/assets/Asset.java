@@ -13,10 +13,11 @@ package com.xero.models.assets;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** Asset */
 public class Asset {
@@ -86,9 +87,9 @@ public class Asset {
    *
    * @return assetId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "3b5b3a38-5649-495f-87a1-14a4e5918634",
-      value = "The Xero-generated Id for the asset")
+      description = "The Xero-generated Id for the asset")
   /**
    * The Xero-generated Id for the asset
    *
@@ -123,7 +124,7 @@ public class Asset {
    *
    * @return assetName
    */
-  @ApiModelProperty(example = "Awesome Truck 3", required = true, value = "The name of the asset")
+  @Schema(example = "Awesome Truck 3", requiredMode = Schema.RequiredMode.REQUIRED, description = "The name of the asset")
   /**
    * The name of the asset
    *
@@ -158,9 +159,9 @@ public class Asset {
    *
    * @return assetTypeId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "3b5b3a38-5649-495f-87a1-14a4e5918634",
-      value = "The Xero-generated Id for the asset type")
+      description = "The Xero-generated Id for the asset type")
   /**
    * The Xero-generated Id for the asset type
    *
@@ -195,7 +196,7 @@ public class Asset {
    *
    * @return assetNumber
    */
-  @ApiModelProperty(example = "FA-0013", value = "Must be unique.")
+  @Schema(example = "FA-0013", description = "Must be unique.")
   /**
    * Must be unique.
    *
@@ -230,7 +231,7 @@ public class Asset {
    *
    * @return purchaseDate
    */
-  @ApiModelProperty(value = "The date the asset was purchased YYYY-MM-DD")
+  @Schema(description = "The date the asset was purchased YYYY-MM-DD")
   /**
    * The date the asset was purchased YYYY-MM-DD
    *
@@ -265,7 +266,7 @@ public class Asset {
    *
    * @return purchasePrice
    */
-  @ApiModelProperty(example = "1000.0000", value = "The purchase price of the asset")
+  @Schema(example = "1000.0000", description = "The purchase price of the asset")
   /**
    * The purchase price of the asset
    *
@@ -300,7 +301,7 @@ public class Asset {
    *
    * @return disposalDate
    */
-  @ApiModelProperty(value = "The date the asset was disposed")
+  @Schema(description = "The date the asset was disposed")
   /**
    * The date the asset was disposed
    *
@@ -335,7 +336,7 @@ public class Asset {
    *
    * @return disposalPrice
    */
-  @ApiModelProperty(example = "1.0000", value = "The price the asset was disposed at")
+  @Schema(example = "1.0000", description = "The price the asset was disposed at")
   /**
    * The price the asset was disposed at
    *
@@ -370,7 +371,7 @@ public class Asset {
    *
    * @return assetStatus
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * assetStatus
    *
@@ -405,9 +406,9 @@ public class Asset {
    *
    * @return warrantyExpiryDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "ca4c6b39-4f4f-43e8-98da-5e1f350a6694",
-      value = "The date the asset’s warranty expires (if needed) YYYY-MM-DD")
+      description = "The date the asset’s warranty expires (if needed) YYYY-MM-DD")
   /**
    * The date the asset’s warranty expires (if needed) YYYY-MM-DD
    *
@@ -442,9 +443,9 @@ public class Asset {
    *
    * @return serialNumber
    */
-  @ApiModelProperty(
+  @Schema(
       example = "ca4c6b39-4f4f-43e8-98da-5e1f350a6694",
-      value = "The asset's serial number")
+      description = "The asset's serial number")
   /**
    * The asset&#39;s serial number
    *
@@ -479,7 +480,7 @@ public class Asset {
    *
    * @return bookDepreciationSetting
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * bookDepreciationSetting
    *
@@ -514,7 +515,7 @@ public class Asset {
    *
    * @return bookDepreciationDetail
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * bookDepreciationDetail
    *
@@ -553,9 +554,9 @@ public class Asset {
    *
    * @return canRollback
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      value =
+      description =
           "Boolean to indicate whether depreciation can be rolled back for this asset individually."
               + " This is true if it doesn't have 'legacy' journal entries and if there is no lock"
               + " period that would prevent this asset from rolling back.")
@@ -597,7 +598,7 @@ public class Asset {
    *
    * @return accountingBookValue
    */
-  @ApiModelProperty(example = "0", value = "The accounting value of the asset")
+  @Schema(example = "0", description = "The accounting value of the asset")
   /**
    * The accounting value of the asset
    *
@@ -632,7 +633,7 @@ public class Asset {
    *
    * @return isDeleteEnabledForDate
    */
-  @ApiModelProperty(example = "true", value = "Boolean to indicate whether delete is enabled")
+  @Schema(example = "true", description = "Boolean to indicate whether delete is enabled")
   /**
    * Boolean to indicate whether delete is enabled
    *

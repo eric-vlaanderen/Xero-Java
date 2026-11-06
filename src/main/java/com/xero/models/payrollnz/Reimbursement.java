@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -222,7 +222,7 @@ public class Reimbursement {
    *
    * @return reimbursementID
    */
-  @ApiModelProperty(value = "Xero unique identifier for a reimbursement")
+  @Schema(description = "Xero unique identifier for a reimbursement")
   /**
    * Xero unique identifier for a reimbursement
    *
@@ -257,7 +257,7 @@ public class Reimbursement {
    *
    * @return name
    */
-  @ApiModelProperty(required = true, value = "Name of the reimbursement")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Name of the reimbursement")
   /**
    * Name of the reimbursement
    *
@@ -292,9 +292,9 @@ public class Reimbursement {
    *
    * @return accountID
    */
-  @ApiModelProperty(
-      required = true,
-      value = "Xero unique identifier for the account used for the reimbursement")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Xero unique identifier for the account used for the reimbursement")
   /**
    * Xero unique identifier for the account used for the reimbursement
    *
@@ -329,7 +329,7 @@ public class Reimbursement {
    *
    * @return currentRecord
    */
-  @ApiModelProperty(value = "Indicates that whether the reimbursement is active")
+  @Schema(description = "Indicates that whether the reimbursement is active")
   /**
    * Indicates that whether the reimbursement is active
    *
@@ -364,7 +364,7 @@ public class Reimbursement {
    *
    * @return reimbursementCategory
    */
-  @ApiModelProperty(value = "See Reimbursement Categories")
+  @Schema(description = "See Reimbursement Categories")
   /**
    * See Reimbursement Categories
    *
@@ -399,7 +399,7 @@ public class Reimbursement {
    *
    * @return calculationType
    */
-  @ApiModelProperty(value = "See Calculation Types")
+  @Schema(description = "See Calculation Types")
   /**
    * See Calculation Types
    *
@@ -434,8 +434,8 @@ public class Reimbursement {
    *
    * @return standardAmount
    */
-  @ApiModelProperty(
-      value = "Optional Fixed Rate Amount. Applicable when calculation type is Fixed Amount")
+  @Schema(
+      description = "Optional Fixed Rate Amount. Applicable when calculation type is Fixed Amount")
   /**
    * Optional Fixed Rate Amount. Applicable when calculation type is Fixed Amount
    *
@@ -470,8 +470,8 @@ public class Reimbursement {
    *
    * @return standardTypeOfUnits
    */
-  @ApiModelProperty(
-      value = "Optional Type Of Units. Applicable when calculation type is Rate Per Unit")
+  @Schema(
+      description = "Optional Type Of Units. Applicable when calculation type is Rate Per Unit")
   /**
    * Optional Type Of Units. Applicable when calculation type is Rate Per Unit
    *
@@ -506,8 +506,8 @@ public class Reimbursement {
    *
    * @return standardRatePerUnit
    */
-  @ApiModelProperty(
-      value = "Optional Rate Per Unit. Applicable when calculation type is Rate Per Unit")
+  @Schema(
+      description = "Optional Rate Per Unit. Applicable when calculation type is Rate Per Unit")
   /**
    * Optional Rate Per Unit. Applicable when calculation type is Rate Per Unit
    *

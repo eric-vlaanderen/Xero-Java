@@ -15,9 +15,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
-import org.threeten.bp.LocalDate;
 
 /** LeavePeriod */
 public class LeavePeriod {
@@ -101,7 +102,7 @@ public class LeavePeriod {
    *
    * @return periodStartDate
    */
-  @ApiModelProperty(value = "The Pay Period Start Date (YYYY-MM-DD)")
+  @Schema(description = "The Pay Period Start Date (YYYY-MM-DD)")
   /**
    * The Pay Period Start Date (YYYY-MM-DD)
    *
@@ -136,7 +137,7 @@ public class LeavePeriod {
    *
    * @return periodEndDate
    */
-  @ApiModelProperty(value = "The Pay Period End Date (YYYY-MM-DD)")
+  @Schema(description = "The Pay Period End Date (YYYY-MM-DD)")
   /**
    * The Pay Period End Date (YYYY-MM-DD)
    *
@@ -171,7 +172,7 @@ public class LeavePeriod {
    *
    * @return numberOfUnits
    */
-  @ApiModelProperty(value = "The Number of Units for the leave")
+  @Schema(description = "The Number of Units for the leave")
   /**
    * The Number of Units for the leave
    *
@@ -206,7 +207,7 @@ public class LeavePeriod {
    *
    * @return periodStatus
    */
-  @ApiModelProperty(value = "Period Status")
+  @Schema(description = "Period Status")
   /**
    * Period Status
    *

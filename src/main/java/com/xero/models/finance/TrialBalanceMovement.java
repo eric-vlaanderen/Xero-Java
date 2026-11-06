@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** TrialBalanceMovement */
@@ -48,7 +48,7 @@ public class TrialBalanceMovement {
    *
    * @return debits
    */
-  @ApiModelProperty(value = "Debit amount")
+  @Schema(description = "Debit amount")
   /**
    * Debit amount
    *
@@ -83,7 +83,7 @@ public class TrialBalanceMovement {
    *
    * @return credits
    */
-  @ApiModelProperty(value = "Credit amount")
+  @Schema(description = "Credit amount")
   /**
    * Credit amount
    *
@@ -118,7 +118,7 @@ public class TrialBalanceMovement {
    *
    * @return movement
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * movement
    *
@@ -155,8 +155,8 @@ public class TrialBalanceMovement {
    *
    * @return signedMovement
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Value of movement. Expense and Asset accounts code debits as positive. Revenue,"
               + " Liability, and Equity accounts code debits as negative")
   /**

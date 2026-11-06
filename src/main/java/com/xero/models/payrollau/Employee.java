@@ -15,16 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** Employee */
 public class Employee {
@@ -287,7 +288,7 @@ public class Employee {
    *
    * @return firstName
    */
-  @ApiModelProperty(example = "Karen", required = true, value = "First name of employee")
+  @Schema(example = "Karen", requiredMode = Schema.RequiredMode.REQUIRED, description = "First name of employee")
   /**
    * First name of employee
    *
@@ -322,7 +323,7 @@ public class Employee {
    *
    * @return lastName
    */
-  @ApiModelProperty(example = "Jones", required = true, value = "Last name of employee")
+  @Schema(example = "Jones", requiredMode = Schema.RequiredMode.REQUIRED, description = "Last name of employee")
   /**
    * Last name of employee
    *
@@ -357,10 +358,10 @@ public class Employee {
    *
    * @return dateOfBirth
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(322560000000+0000)/",
-      required = true,
-      value = "Date of birth of the employee (YYYY-MM-DD)")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Date of birth of the employee (YYYY-MM-DD)")
   /**
    * Date of birth of the employee (YYYY-MM-DD)
    *
@@ -424,7 +425,7 @@ public class Employee {
    *
    * @return homeAddress
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * homeAddress
    *
@@ -459,9 +460,9 @@ public class Employee {
    *
    * @return startDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(320284900000+0000)/",
-      value = "Start date for an employee (YYYY-MM-DD)")
+      description = "Start date for an employee (YYYY-MM-DD)")
   /**
    * Start date for an employee (YYYY-MM-DD)
    *
@@ -525,7 +526,7 @@ public class Employee {
    *
    * @return title
    */
-  @ApiModelProperty(example = "Mrs", value = "Title of the employee")
+  @Schema(example = "Mrs", description = "Title of the employee")
   /**
    * Title of the employee
    *
@@ -560,7 +561,7 @@ public class Employee {
    *
    * @return middleNames
    */
-  @ApiModelProperty(example = "Adena", value = "Middle name(s) of the employee")
+  @Schema(example = "Adena", description = "Middle name(s) of the employee")
   /**
    * Middle name(s) of the employee
    *
@@ -595,7 +596,7 @@ public class Employee {
    *
    * @return email
    */
-  @ApiModelProperty(example = "developer@me.com", value = "The email address for the employee")
+  @Schema(example = "developer@me.com", description = "The email address for the employee")
   /**
    * The email address for the employee
    *
@@ -630,7 +631,7 @@ public class Employee {
    *
    * @return gender
    */
-  @ApiModelProperty(example = "F", value = "The employee’s gender. See Employee Gender")
+  @Schema(example = "F", description = "The employee’s gender. See Employee Gender")
   /**
    * The employee’s gender. See Employee Gender
    *
@@ -665,7 +666,7 @@ public class Employee {
    *
    * @return phone
    */
-  @ApiModelProperty(example = "415-555-1212", value = "Employee phone number")
+  @Schema(example = "415-555-1212", description = "Employee phone number")
   /**
    * Employee phone number
    *
@@ -700,7 +701,7 @@ public class Employee {
    *
    * @return mobile
    */
-  @ApiModelProperty(example = "415-234-5678", value = "Employee mobile number")
+  @Schema(example = "415-234-5678", description = "Employee mobile number")
   /**
    * Employee mobile number
    *
@@ -735,7 +736,7 @@ public class Employee {
    *
    * @return twitterUserName
    */
-  @ApiModelProperty(example = "xeroapi", value = "Employee’s twitter name")
+  @Schema(example = "xeroapi", description = "Employee’s twitter name")
   /**
    * Employee’s twitter name
    *
@@ -770,9 +771,9 @@ public class Employee {
    *
    * @return isAuthorisedToApproveLeave
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "Authorised to approve other employees' leave requests")
+      description = "Authorised to approve other employees' leave requests")
   /**
    * Authorised to approve other employees&#39; leave requests
    *
@@ -807,7 +808,7 @@ public class Employee {
    *
    * @return isAuthorisedToApproveTimesheets
    */
-  @ApiModelProperty(example = "true", value = "Authorised to approve timesheets")
+  @Schema(example = "true", description = "Authorised to approve timesheets")
   /**
    * Authorised to approve timesheets
    *
@@ -842,7 +843,7 @@ public class Employee {
    *
    * @return jobTitle
    */
-  @ApiModelProperty(example = "Manager", value = "JobTitle of the employee")
+  @Schema(example = "Manager", description = "JobTitle of the employee")
   /**
    * JobTitle of the employee
    *
@@ -877,7 +878,7 @@ public class Employee {
    *
    * @return classification
    */
-  @ApiModelProperty(example = "99383", value = "Employees classification")
+  @Schema(example = "99383", description = "Employees classification")
   /**
    * Employees classification
    *
@@ -912,7 +913,7 @@ public class Employee {
    *
    * @return ordinaryEarningsRateID
    */
-  @ApiModelProperty(value = "Xero unique identifier for earnings rate")
+  @Schema(description = "Xero unique identifier for earnings rate")
   /**
    * Xero unique identifier for earnings rate
    *
@@ -947,9 +948,9 @@ public class Employee {
    *
    * @return payrollCalendarID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "2ee8e5cc-9835-40d5-bb18-09fdb118db9c",
-      value = "Xero unique identifier for payroll calendar for the employee")
+      description = "Xero unique identifier for payroll calendar for the employee")
   /**
    * Xero unique identifier for payroll calendar for the employee
    *
@@ -986,9 +987,9 @@ public class Employee {
    *
    * @return employeeGroupName
    */
-  @ApiModelProperty(
+  @Schema(
       example = "marketing",
-      value =
+      description =
           "The Employee Group allows you to report on payroll expenses and liabilities for each"
               + " group of employees")
   /**
@@ -1027,9 +1028,9 @@ public class Employee {
    *
    * @return employeeID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "4ff1e5cc-9835-40d5-bb18-09fdb118db9c",
-      value = "Xero unique identifier for an Employee")
+      description = "Xero unique identifier for an Employee")
   /**
    * Xero unique identifier for an Employee
    *
@@ -1064,9 +1065,9 @@ public class Employee {
    *
    * @return terminationDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(1584662400000+0000)/",
-      value = "Employee Termination Date (YYYY-MM-DD)")
+      description = "Employee Termination Date (YYYY-MM-DD)")
   /**
    * Employee Termination Date (YYYY-MM-DD)
    *
@@ -1156,9 +1157,9 @@ public class Employee {
    *
    * @return terminationReason
    */
-  @ApiModelProperty(
+  @Schema(
       example = "F",
-      value =
+      description =
           "* `V` Voluntary cessation - An employee resignation, retirement, domestic or pressing"
               + " necessity or abandonment of employment * `I` Ill health - An employee resignation"
               + " due to medical condition that prevents the continuation of employment, such as"
@@ -1248,7 +1249,7 @@ public class Employee {
    *
    * @return bankAccounts
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * bankAccounts
    *
@@ -1283,7 +1284,7 @@ public class Employee {
    *
    * @return payTemplate
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * payTemplate
    *
@@ -1318,7 +1319,7 @@ public class Employee {
    *
    * @return openingBalances
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * openingBalances
    *
@@ -1353,7 +1354,7 @@ public class Employee {
    *
    * @return taxDeclaration
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * taxDeclaration
    *
@@ -1388,7 +1389,7 @@ public class Employee {
    *
    * @return incomeType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * incomeType
    *
@@ -1423,7 +1424,7 @@ public class Employee {
    *
    * @return employmentType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * employmentType
    *
@@ -1458,7 +1459,7 @@ public class Employee {
    *
    * @return countryOfResidence
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * countryOfResidence
    *
@@ -1495,9 +1496,9 @@ public class Employee {
    *
    * @return isSTP2Qualified
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      value =
+      description =
           "Indicates if the employee has been updated for STP Phase 2 compliance. Doesn't indicate"
               + " that the employee is payable.")
   /**
@@ -1550,7 +1551,7 @@ public class Employee {
    *
    * @return leaveBalances
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * leaveBalances
    *
@@ -1599,7 +1600,7 @@ public class Employee {
    *
    * @return superMemberships
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * superMemberships
    *
@@ -1634,7 +1635,7 @@ public class Employee {
    *
    * @return status
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * status
    *
@@ -1658,7 +1659,7 @@ public class Employee {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1583967733054+0000)/", value = "Last modified timestamp")
+  @Schema(example = "/Date(1583967733054+0000)/", description = "Last modified timestamp")
   /**
    * Last modified timestamp
    *
@@ -1714,7 +1715,7 @@ public class Employee {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *

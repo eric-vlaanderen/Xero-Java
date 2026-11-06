@@ -15,13 +15,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** LinkedTransaction */
 public class LinkedTransaction {
@@ -241,8 +242,8 @@ public class LinkedTransaction {
    *
    * @return sourceTransactionID
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Filter by the SourceTransactionID. Get all the linked transactions created from a"
               + " particular ACCPAY invoice")
   /**
@@ -281,7 +282,7 @@ public class LinkedTransaction {
    *
    * @return sourceLineItemID
    */
-  @ApiModelProperty(value = "The line item identifier from the source transaction.")
+  @Schema(description = "The line item identifier from the source transaction.")
   /**
    * The line item identifier from the source transaction.
    *
@@ -320,8 +321,8 @@ public class LinkedTransaction {
    *
    * @return contactID
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Filter by the combination of ContactID and Status. Get all the linked transactions that"
               + " have been assigned to a particular customer and have a particular status e.g. GET"
               + " /LinkedTransactions?ContactID=4bb34b03-3378-4bb2-a0ed-6345abf3224e&Status=APPROVED.")
@@ -365,8 +366,8 @@ public class LinkedTransaction {
    *
    * @return targetTransactionID
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Filter by the TargetTransactionID. Get all the linked transactions  allocated to a"
               + " particular ACCREC invoice")
   /**
@@ -407,8 +408,8 @@ public class LinkedTransaction {
    *
    * @return targetLineItemID
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The line item identifier from the target transaction. It is possible  to link multiple"
               + " billable expenses to the same TargetLineItemID.")
   /**
@@ -449,8 +450,8 @@ public class LinkedTransaction {
    *
    * @return linkedTransactionID
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The Xero identifier for an Linked Transaction"
               + " e.g./LinkedTransactions/297c2dc5-cc47-4afd-8ec8-74990b8761e9")
   /**
@@ -493,8 +494,8 @@ public class LinkedTransaction {
    *
    * @return status
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Filter by the combination of ContactID and Status. Get all the linked transactions that"
               + " have been assigned to a particular customer and have a particular status e.g. GET"
               + " /LinkedTransactions?ContactID=4bb34b03-3378-4bb2-a0ed-6345abf3224e&Status=APPROVED.")
@@ -536,8 +537,8 @@ public class LinkedTransaction {
    *
    * @return type
    */
-  @ApiModelProperty(
-      value = "This will always be BILLABLEEXPENSE. More types may be added in future.")
+  @Schema(
+      description = "This will always be BILLABLEEXPENSE. More types may be added in future.")
   /**
    * This will always be BILLABLEEXPENSE. More types may be added in future.
    *
@@ -561,9 +562,9 @@ public class LinkedTransaction {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(1573755038314)/",
-      value = "The last modified date in UTC format")
+      description = "The last modified date in UTC format")
   /**
    * The last modified date in UTC format
    *
@@ -608,8 +609,8 @@ public class LinkedTransaction {
    *
    * @return sourceTransactionTypeCode
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The Type of the source tranasction. This will be ACCPAY if the linked transaction was"
               + " created from an invoice and SPEND if it was created from a bank transaction.")
   /**
@@ -663,7 +664,7 @@ public class LinkedTransaction {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *

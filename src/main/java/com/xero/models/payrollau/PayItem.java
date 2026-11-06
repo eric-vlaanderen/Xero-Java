@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -64,7 +64,7 @@ public class PayItem {
    *
    * @return earningsRates
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * earningsRates
    *
@@ -113,7 +113,7 @@ public class PayItem {
    *
    * @return deductionTypes
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * deductionTypes
    *
@@ -162,7 +162,7 @@ public class PayItem {
    *
    * @return leaveTypes
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * leaveTypes
    *
@@ -211,7 +211,7 @@ public class PayItem {
    *
    * @return reimbursementTypes
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * reimbursementTypes
    *

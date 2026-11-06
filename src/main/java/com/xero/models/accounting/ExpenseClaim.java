@@ -15,14 +15,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
 
 /** ExpenseClaim */
 public class ExpenseClaim {
@@ -139,7 +140,7 @@ public class ExpenseClaim {
    *
    * @return expenseClaimID
    */
-  @ApiModelProperty(value = "Xero generated unique identifier for an expense claim")
+  @Schema(description = "Xero generated unique identifier for an expense claim")
   /**
    * Xero generated unique identifier for an expense claim
    *
@@ -174,7 +175,7 @@ public class ExpenseClaim {
    *
    * @return status
    */
-  @ApiModelProperty(value = "Current status of an expense claim – see status types")
+  @Schema(description = "Current status of an expense claim – see status types")
   /**
    * Current status of an expense claim – see status types
    *
@@ -223,7 +224,7 @@ public class ExpenseClaim {
    *
    * @return payments
    */
-  @ApiModelProperty(value = "See Payments")
+  @Schema(description = "See Payments")
   /**
    * See Payments
    *
@@ -258,7 +259,7 @@ public class ExpenseClaim {
    *
    * @return user
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * user
    *
@@ -307,7 +308,7 @@ public class ExpenseClaim {
    *
    * @return receipts
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * receipts
    *
@@ -331,7 +332,7 @@ public class ExpenseClaim {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1573755038314)/", value = "Last modified date UTC format")
+  @Schema(example = "/Date(1573755038314)/", description = "Last modified date UTC format")
   /**
    * Last modified date UTC format
    *
@@ -362,7 +363,7 @@ public class ExpenseClaim {
    *
    * @return total
    */
-  @ApiModelProperty(value = "The total of an expense claim being paid")
+  @Schema(description = "The total of an expense claim being paid")
   /**
    * The total of an expense claim being paid
    *
@@ -377,7 +378,7 @@ public class ExpenseClaim {
    *
    * @return amountDue
    */
-  @ApiModelProperty(value = "The amount due to be paid for an expense claim")
+  @Schema(description = "The amount due to be paid for an expense claim")
   /**
    * The amount due to be paid for an expense claim
    *
@@ -392,7 +393,7 @@ public class ExpenseClaim {
    *
    * @return amountPaid
    */
-  @ApiModelProperty(value = "The amount still to pay for an expense claim")
+  @Schema(description = "The amount still to pay for an expense claim")
   /**
    * The amount still to pay for an expense claim
    *
@@ -407,7 +408,7 @@ public class ExpenseClaim {
    *
    * @return paymentDueDate
    */
-  @ApiModelProperty(value = "The date when the expense claim is due to be paid YYYY-MM-DD")
+  @Schema(description = "The date when the expense claim is due to be paid YYYY-MM-DD")
   /**
    * The date when the expense claim is due to be paid YYYY-MM-DD
    *
@@ -438,7 +439,7 @@ public class ExpenseClaim {
    *
    * @return reportingDate
    */
-  @ApiModelProperty(value = "The date the expense claim will be reported in Xero YYYY-MM-DD")
+  @Schema(description = "The date the expense claim will be reported in Xero YYYY-MM-DD")
   /**
    * The date the expense claim will be reported in Xero YYYY-MM-DD
    *
@@ -480,8 +481,8 @@ public class ExpenseClaim {
    *
    * @return receiptID
    */
-  @ApiModelProperty(
-      value = "The Xero identifier for the Receipt e.g. e59a2c7f-1306-4078-a0f3-73537afcbba9")
+  @Schema(
+      description = "The Xero identifier for the Receipt e.g. e59a2c7f-1306-4078-a0f3-73537afcbba9")
   /**
    * The Xero identifier for the Receipt e.g. e59a2c7f-1306-4078-a0f3-73537afcbba9
    *

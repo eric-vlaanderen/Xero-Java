@@ -13,12 +13,13 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** Employment */
 public class Employment {
@@ -58,9 +59,9 @@ public class Employment {
    *
    * @return payrollCalendarID
    */
-  @ApiModelProperty(
-      required = true,
-      value = "Xero unique identifier for the payroll calendar of the employee")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Xero unique identifier for the payroll calendar of the employee")
   /**
    * Xero unique identifier for the payroll calendar of the employee
    *
@@ -95,7 +96,7 @@ public class Employment {
    *
    * @return startDate
    */
-  @ApiModelProperty(required = true, value = "Start date of the employment (YYYY-MM-DD)")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Start date of the employment (YYYY-MM-DD)")
   /**
    * Start date of the employment (YYYY-MM-DD)
    *
@@ -130,7 +131,7 @@ public class Employment {
    *
    * @return employeeNumber
    */
-  @ApiModelProperty(example = "7", required = true, value = "The employment number of the employee")
+  @Schema(example = "7", requiredMode = Schema.RequiredMode.REQUIRED, description = "The employment number of the employee")
   /**
    * The employment number of the employee
    *
@@ -165,7 +166,7 @@ public class Employment {
    *
    * @return niCategory
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * niCategory
    *
@@ -211,7 +212,7 @@ public class Employment {
    *
    * @return niCategories
    */
-  @ApiModelProperty(required = true, value = "The employee's NI categories")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The employee's NI categories")
   /**
    * The employee&#39;s NI categories
    *
@@ -260,7 +261,7 @@ public class Employment {
    *
    * @return contracts
    */
-  @ApiModelProperty(value = "The employee's contracts")
+  @Schema(description = "The employee's contracts")
   /**
    * The employee&#39;s contracts
    *

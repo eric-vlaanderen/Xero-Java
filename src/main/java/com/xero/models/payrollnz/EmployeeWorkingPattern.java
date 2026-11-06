@@ -13,10 +13,11 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** EmployeeWorkingPattern */
 public class EmployeeWorkingPattern {
@@ -44,7 +45,7 @@ public class EmployeeWorkingPattern {
    *
    * @return payeeWorkingPatternID
    */
-  @ApiModelProperty(required = true, value = "The Xero identifier for for Employee working pattern")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The Xero identifier for for Employee working pattern")
   /**
    * The Xero identifier for for Employee working pattern
    *
@@ -79,9 +80,9 @@ public class EmployeeWorkingPattern {
    *
    * @return effectiveFrom
    */
-  @ApiModelProperty(
-      required = true,
-      value = "The effective date of the corresponding salary and wages")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The effective date of the corresponding salary and wages")
   /**
    * The effective date of the corresponding salary and wages
    *

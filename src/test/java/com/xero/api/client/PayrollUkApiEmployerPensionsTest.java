@@ -1,17 +1,21 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrolluk.*;
+import com.xero.models.payrolluk.Benefit;
 import com.xero.models.payrolluk.Benefit.CalculationTypeEnum;
 import com.xero.models.payrolluk.Benefit.CategoryEnum;
+import com.xero.models.payrolluk.BenefitObject;
+import com.xero.models.payrolluk.Benefits;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollUkApiEmployerPensionsTest {
 
@@ -21,7 +25,7 @@ public class PayrollUkApiEmployerPensionsTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -42,15 +46,15 @@ public class PayrollUkApiEmployerPensionsTest {
         int page = 1;
         Benefits response = payrollUkApi.getBenefits(accessToken, xeroTenantId, page);
         
-        assertThat(response.getBenefits().get(0).getId(), is(equalTo(UUID.fromString("17ee7e28-9f4c-4675-9590-cc0547c9f7ac"))));
-        assertThat(response.getBenefits().get(0).getLiabilityAccountId(), is(equalTo(UUID.fromString("d659ebbf-0760-4e07-a1fb-8de6b9ecdff9"))));
-        assertThat(response.getBenefits().get(0).getExpenseAccountId(), is(equalTo(UUID.fromString("edda7154-dfc8-4486-a82b-e5e955408eaa"))));
-        assertThat(response.getBenefits().get(0).getName(), is(equalTo("Mind The Gap Pensions")));
-        assertThat(response.getBenefits().get(0).getCategory(), is(equalTo(CategoryEnum.STAKEHOLDERPENSION)));
-        assertThat(response.getBenefits().get(0).getPercentage(), is(equalTo(3.0)));
-        assertThat(response.getBenefits().get(0).getCalculationType(), is(equalTo(com.xero.models.payrolluk.Benefit.CalculationTypeEnum.PERCENTAGEOFGROSS)));
-        assertThat(response.getBenefits().get(0).getCurrentRecord(), is(equalTo(true)));
-        assertThat(response.getBenefits().get(0).getShowBalanceToEmployee(), is(equalTo(false)));
+        assertThat(response.getBenefits().getFirst().getId(), is(equalTo(UUID.fromString("17ee7e28-9f4c-4675-9590-cc0547c9f7ac"))));
+        assertThat(response.getBenefits().getFirst().getLiabilityAccountId(), is(equalTo(UUID.fromString("d659ebbf-0760-4e07-a1fb-8de6b9ecdff9"))));
+        assertThat(response.getBenefits().getFirst().getExpenseAccountId(), is(equalTo(UUID.fromString("edda7154-dfc8-4486-a82b-e5e955408eaa"))));
+        assertThat(response.getBenefits().getFirst().getName(), is(equalTo("Mind The Gap Pensions")));
+        assertThat(response.getBenefits().getFirst().getCategory(), is(equalTo(CategoryEnum.STAKEHOLDERPENSION)));
+        assertThat(response.getBenefits().getFirst().getPercentage(), is(equalTo(3.0)));
+        assertThat(response.getBenefits().getFirst().getCalculationType(), is(equalTo(com.xero.models.payrolluk.Benefit.CalculationTypeEnum.PERCENTAGEOFGROSS)));
+        assertThat(response.getBenefits().getFirst().getCurrentRecord(), is(equalTo(true)));
+        assertThat(response.getBenefits().getFirst().getShowBalanceToEmployee(), is(equalTo(false)));
         
         //System.out.println(response.toString());
     }

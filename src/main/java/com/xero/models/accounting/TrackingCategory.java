@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -112,8 +112,8 @@ public class TrackingCategory {
    *
    * @return trackingCategoryID
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The Xero identifier for a tracking category e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9")
   /**
    * The Xero identifier for a tracking category e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
@@ -149,8 +149,8 @@ public class TrackingCategory {
    *
    * @return trackingOptionID
    */
-  @ApiModelProperty(
-      value = "The Xero identifier for a tracking option e.g. dc54c220-0140-495a-b925-3246adc0075f")
+  @Schema(
+      description = "The Xero identifier for a tracking option e.g. dc54c220-0140-495a-b925-3246adc0075f")
   /**
    * The Xero identifier for a tracking option e.g. dc54c220-0140-495a-b925-3246adc0075f
    *
@@ -185,8 +185,8 @@ public class TrackingCategory {
    *
    * @return name
    */
-  @ApiModelProperty(
-      value = "The name of the tracking category e.g. Department, Region (max length = 100)")
+  @Schema(
+      description = "The name of the tracking category e.g. Department, Region (max length = 100)")
   /**
    * The name of the tracking category e.g. Department, Region (max length &#x3D; 100)
    *
@@ -221,8 +221,8 @@ public class TrackingCategory {
    *
    * @return option
    */
-  @ApiModelProperty(
-      value = "The option name of the tracking option e.g. East, West (max length = 100)")
+  @Schema(
+      description = "The option name of the tracking option e.g. East, West (max length = 100)")
   /**
    * The option name of the tracking option e.g. East, West (max length &#x3D; 100)
    *
@@ -257,7 +257,7 @@ public class TrackingCategory {
    *
    * @return status
    */
-  @ApiModelProperty(value = "The status of a tracking category")
+  @Schema(description = "The status of a tracking category")
   /**
    * The status of a tracking category
    *
@@ -306,7 +306,7 @@ public class TrackingCategory {
    *
    * @return options
    */
-  @ApiModelProperty(value = "See Tracking Options")
+  @Schema(description = "See Tracking Options")
   /**
    * See Tracking Options
    *

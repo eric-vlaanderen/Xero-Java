@@ -13,10 +13,11 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** PaymentResponse */
 public class PaymentResponse {
@@ -68,7 +69,7 @@ public class PaymentResponse {
    *
    * @return paymentId
    */
-  @ApiModelProperty(value = "Xero Identifier of payment")
+  @Schema(description = "Xero Identifier of payment")
   /**
    * Xero Identifier of payment
    *
@@ -103,8 +104,8 @@ public class PaymentResponse {
    *
    * @return batchPaymentId
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Xero Identifier of batch payment. Present if the payment was created as part of a"
               + " batch.")
   /**
@@ -141,7 +142,7 @@ public class PaymentResponse {
    *
    * @return date
    */
-  @ApiModelProperty(value = "Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06")
+  @Schema(description = "Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06")
   /**
    * Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06
    *
@@ -176,7 +177,7 @@ public class PaymentResponse {
    *
    * @return amount
    */
-  @ApiModelProperty(value = "The amount of the payment")
+  @Schema(description = "The amount of the payment")
   /**
    * The amount of the payment
    *
@@ -211,7 +212,7 @@ public class PaymentResponse {
    *
    * @return bankAmount
    */
-  @ApiModelProperty(value = "The bank amount of the payment")
+  @Schema(description = "The bank amount of the payment")
   /**
    * The bank amount of the payment
    *
@@ -248,8 +249,8 @@ public class PaymentResponse {
    *
    * @return currencyRate
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Exchange rate when payment is received. Only used for non base currency invoices and"
               + " credit notes e.g. 0.7500")
   /**
@@ -288,7 +289,7 @@ public class PaymentResponse {
    *
    * @return invoice
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * invoice
    *
@@ -323,7 +324,7 @@ public class PaymentResponse {
    *
    * @return creditNote
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * creditNote
    *
@@ -358,7 +359,7 @@ public class PaymentResponse {
    *
    * @return prepayment
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * prepayment
    *
@@ -393,7 +394,7 @@ public class PaymentResponse {
    *
    * @return overpayment
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * overpayment
    *

@@ -13,13 +13,14 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** SuperFund */
 public class SuperFund {
@@ -80,9 +81,9 @@ public class SuperFund {
    *
    * @return superFundID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "bfac31bd-ea62-4fc8-a5e7-7965d9504b15",
-      value = "Xero identifier for a super fund")
+      description = "Xero identifier for a super fund")
   /**
    * Xero identifier for a super fund
    *
@@ -117,7 +118,7 @@ public class SuperFund {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "")
   /**
    * type
    *
@@ -152,11 +153,11 @@ public class SuperFund {
    *
    * @return name
    */
-  @ApiModelProperty(
+  @Schema(
       example =
           "MLC Navigator Retirement Plan - Superannuation Service (including Series 2) (MLC"
               + " Superannuation Fund)",
-      value = "Name of the super fund")
+      description = "Name of the super fund")
   /**
    * Name of the super fund
    *
@@ -191,7 +192,7 @@ public class SuperFund {
    *
    * @return ABN
    */
-  @ApiModelProperty(example = "40022701955", value = "ABN of the self managed super fund")
+  @Schema(example = "40022701955", description = "ABN of the self managed super fund")
   /**
    * ABN of the self managed super fund
    *
@@ -226,7 +227,7 @@ public class SuperFund {
    *
    * @return BSB
    */
-  @ApiModelProperty(example = "234324", value = "BSB of the self managed super fund")
+  @Schema(example = "234324", description = "BSB of the self managed super fund")
   /**
    * BSB of the self managed super fund
    *
@@ -261,9 +262,9 @@ public class SuperFund {
    *
    * @return accountNumber
    */
-  @ApiModelProperty(
+  @Schema(
       example = "234234234",
-      value = "The account number for the self managed super fund.")
+      description = "The account number for the self managed super fund.")
   /**
    * The account number for the self managed super fund.
    *
@@ -298,9 +299,9 @@ public class SuperFund {
    *
    * @return accountName
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Money account",
-      value = "The account name for the self managed super fund.")
+      description = "The account name for the self managed super fund.")
   /**
    * The account name for the self managed super fund.
    *
@@ -335,9 +336,9 @@ public class SuperFund {
    *
    * @return electronicServiceAddress
    */
-  @ApiModelProperty(
+  @Schema(
       example = "12345678",
-      value = "The electronic service address for the self managed super fund.")
+      description = "The electronic service address for the self managed super fund.")
   /**
    * The electronic service address for the self managed super fund.
    *
@@ -372,9 +373,9 @@ public class SuperFund {
    *
    * @return employerNumber
    */
-  @ApiModelProperty(
+  @Schema(
       example = "324324",
-      value = "Some funds assign a unique number to each employer")
+      description = "Some funds assign a unique number to each employer")
   /**
    * Some funds assign a unique number to each employer
    *
@@ -413,9 +414,9 @@ public class SuperFund {
    *
    * @return SPIN
    */
-  @ApiModelProperty(
+  @Schema(
       example = "4545445454",
-      value =
+      description =
           "The SPIN of the Regulated SuperFund. This field has been deprecated. It will only be"
               + " present for legacy superfunds. New superfunds will not have a SPIN value. The USI"
               + " field should be used instead of SPIN.")
@@ -457,7 +458,7 @@ public class SuperFund {
    *
    * @return USI
    */
-  @ApiModelProperty(example = "40022701955001", value = "The USI of the Regulated SuperFund")
+  @Schema(example = "40022701955001", description = "The USI of the Regulated SuperFund")
   /**
    * The USI of the Regulated SuperFund
    *
@@ -481,7 +482,7 @@ public class SuperFund {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1583967733054+0000)/", value = "Last modified timestamp")
+  @Schema(example = "/Date(1583967733054+0000)/", description = "Last modified timestamp")
   /**
    * Last modified timestamp
    *
@@ -537,7 +538,7 @@ public class SuperFund {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *

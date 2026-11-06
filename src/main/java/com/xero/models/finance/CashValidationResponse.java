@@ -13,10 +13,11 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** CashValidationResponse */
 public class CashValidationResponse {
@@ -53,7 +54,7 @@ public class CashValidationResponse {
    *
    * @return accountId
    */
-  @ApiModelProperty(value = "The Xero identifier for an account")
+  @Schema(description = "The Xero identifier for an account")
   /**
    * The Xero identifier for an account
    *
@@ -88,7 +89,7 @@ public class CashValidationResponse {
    *
    * @return statementBalance
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * statementBalance
    *
@@ -125,8 +126,8 @@ public class CashValidationResponse {
    *
    * @return statementBalanceDate
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "UTC Date when the last bank statement item was entered into Xero. This date is"
               + " represented in ISO 8601 format.")
   /**
@@ -165,7 +166,7 @@ public class CashValidationResponse {
    *
    * @return bankStatement
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * bankStatement
    *
@@ -200,7 +201,7 @@ public class CashValidationResponse {
    *
    * @return cashAccount
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * cashAccount
    *

@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** BankStatementResponse */
@@ -42,7 +42,7 @@ public class BankStatementResponse {
    *
    * @return statementLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * statementLines
    *
@@ -77,7 +77,7 @@ public class BankStatementResponse {
    *
    * @return currentStatement
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * currentStatement
    *

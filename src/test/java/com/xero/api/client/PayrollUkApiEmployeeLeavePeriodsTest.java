@@ -1,16 +1,19 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrolluk.*;
+import com.xero.models.payrolluk.LeavePeriods;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.time.LocalDate;
+import java.time.Month;
 
-import org.threeten.bp.*;
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollUkApiEmployeeLeavePeriodsTest {
 
@@ -20,7 +23,7 @@ public class PayrollUkApiEmployeeLeavePeriodsTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -44,9 +47,9 @@ public class PayrollUkApiEmployeeLeavePeriodsTest {
         LocalDate endDate = LocalDate.of(2020, Month.MARCH, 30);
         LeavePeriods response = payrollUkApi.getEmployeeLeavePeriods(accessToken, xeroTenantId, employeeId, startDate, endDate);
         
-        assertThat(response.getPeriods().get(0).getPeriodStartDate(),  is(equalTo(LocalDate.of(2020, 02, 24))));
-        assertThat(response.getPeriods().get(0).getPeriodEndDate(),  is(equalTo(LocalDate.of(2020, 03, 01))));
-        assertThat(response.getPeriods().get(0).getNumberOfUnits() , is(equalTo(40.0)));
+        assertThat(response.getPeriods().getFirst().getPeriodStartDate(),  is(equalTo(LocalDate.of(2020, 02, 24))));
+        assertThat(response.getPeriods().getFirst().getPeriodEndDate(),  is(equalTo(LocalDate.of(2020, 03, 01))));
+        assertThat(response.getPeriods().getFirst().getNumberOfUnits() , is(equalTo(40.0)));
         
         //System.out.println(response.toString());
     }

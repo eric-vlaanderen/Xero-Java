@@ -13,10 +13,11 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** Employment */
 public class Employment {
@@ -53,9 +54,9 @@ public class Employment {
    *
    * @return payrollCalendarID
    */
-  @ApiModelProperty(
-      required = true,
-      value = "Xero unique identifier for the payroll calendar of the employee")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Xero unique identifier for the payroll calendar of the employee")
   /**
    * Xero unique identifier for the payroll calendar of the employee
    *
@@ -90,8 +91,8 @@ public class Employment {
    *
    * @return payRunCalendarID
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Xero unique identifier for the payrun calendar for the employee (Deprecated in version"
               + " 1.1.6)")
   /**
@@ -128,7 +129,7 @@ public class Employment {
    *
    * @return startDate
    */
-  @ApiModelProperty(required = true, value = "Start date of the employment (YYYY-MM-DD)")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Start date of the employment (YYYY-MM-DD)")
   /**
    * Start date of the employment (YYYY-MM-DD)
    *
@@ -163,10 +164,10 @@ public class Employment {
    *
    * @return engagementType
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Permanent",
-      required = true,
-      value = "Engagement type of the employee")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Engagement type of the employee")
   /**
    * Engagement type of the employee
    *
@@ -201,9 +202,9 @@ public class Employment {
    *
    * @return fixedTermEndDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Sun Jan 19 00:00:00 UTC 2020",
-      value = "End date for an employee with a fixed-term engagement type")
+      description = "End date for an employee with a fixed-term engagement type")
   /**
    * End date for an employee with a fixed-term engagement type
    *

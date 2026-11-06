@@ -15,12 +15,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** Statement */
 public class Statement {
@@ -125,9 +126,9 @@ public class Statement {
    *
    * @return id
    */
-  @ApiModelProperty(
+  @Schema(
       example = "ba4f3127-5e46-427d-80ea-dea2fcd26afe",
-      value = "GUID used to identify the Statement.")
+      description = "GUID used to identify the Statement.")
   /**
    * GUID used to identify the Statement.
    *
@@ -164,9 +165,9 @@ public class Statement {
    *
    * @return feedConnectionId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "87cb0dc8-fa32-409c-b622-19f8de8dcc83",
-      value =
+      description =
           "The Xero generated feed connection Id that identifies the Xero Bank Account Container"
               + " into which the statement should be delivered. This is obtained by calling GET"
               + " FeedConnections.")
@@ -206,7 +207,7 @@ public class Statement {
    *
    * @return status
    */
-  @ApiModelProperty(example = "PENDING", value = "Current status of statements")
+  @Schema(example = "PENDING", description = "Current status of statements")
   /**
    * Current status of statements
    *
@@ -241,9 +242,9 @@ public class Statement {
    *
    * @return startDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Fri Jul 27 00:00:00 UTC 2018",
-      value =
+      description =
           "Opening balance date (can be no older than one year from the current date) ISO-8601"
               + " YYYY-MM-DD")
   /**
@@ -280,9 +281,9 @@ public class Statement {
    *
    * @return endDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Fri Jul 27 00:00:00 UTC 2018",
-      value = "Closing balance date ISO-8601 YYYY-MM-DD")
+      description = "Closing balance date ISO-8601 YYYY-MM-DD")
   /**
    * Closing balance date ISO-8601 YYYY-MM-DD
    *
@@ -317,7 +318,7 @@ public class Statement {
    *
    * @return startBalance
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * startBalance
    *
@@ -352,7 +353,7 @@ public class Statement {
    *
    * @return endBalance
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * endBalance
    *
@@ -401,7 +402,7 @@ public class Statement {
    *
    * @return statementLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * statementLines
    *
@@ -450,7 +451,7 @@ public class Statement {
    *
    * @return errors
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * errors
    *
@@ -485,7 +486,7 @@ public class Statement {
    *
    * @return statementLineCount
    */
-  @ApiModelProperty(example = "1", value = "")
+  @Schema(example = "1", description = "")
   /**
    * statementLineCount
    *

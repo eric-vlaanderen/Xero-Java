@@ -13,11 +13,12 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** PayslipSummary */
 public class PayslipSummary {
@@ -75,9 +76,9 @@ public class PayslipSummary {
    *
    * @return employeeID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "4729f087-8eec-49c1-8294-4d11a5a0a37c",
-      value = "The Xero identifier for an employee")
+      description = "The Xero identifier for an employee")
   /**
    * The Xero identifier for an employee
    *
@@ -112,9 +113,9 @@ public class PayslipSummary {
    *
    * @return payslipID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "f3c0874d-7cdd-459a-a95c-d90d51decc42",
-      value = "Xero identifier for the payslip")
+      description = "Xero identifier for the payslip")
   /**
    * Xero identifier for the payslip
    *
@@ -149,7 +150,7 @@ public class PayslipSummary {
    *
    * @return firstName
    */
-  @ApiModelProperty(example = "Karen", value = "First name of employee")
+  @Schema(example = "Karen", description = "First name of employee")
   /**
    * First name of employee
    *
@@ -184,7 +185,7 @@ public class PayslipSummary {
    *
    * @return lastName
    */
-  @ApiModelProperty(example = "Jones", value = "Last name of employee")
+  @Schema(example = "Jones", description = "Last name of employee")
   /**
    * Last name of employee
    *
@@ -219,7 +220,7 @@ public class PayslipSummary {
    *
    * @return employeeGroup
    */
-  @ApiModelProperty(example = "Marketing", value = "Employee group name")
+  @Schema(example = "Marketing", description = "Employee group name")
   /**
    * Employee group name
    *
@@ -254,7 +255,7 @@ public class PayslipSummary {
    *
    * @return wages
    */
-  @ApiModelProperty(example = "1060.5", value = "The Wages for the Payslip")
+  @Schema(example = "1060.5", description = "The Wages for the Payslip")
   /**
    * The Wages for the Payslip
    *
@@ -289,7 +290,7 @@ public class PayslipSummary {
    *
    * @return deductions
    */
-  @ApiModelProperty(example = "0.0", value = "The Deductions for the Payslip")
+  @Schema(example = "0.0", description = "The Deductions for the Payslip")
   /**
    * The Deductions for the Payslip
    *
@@ -324,7 +325,7 @@ public class PayslipSummary {
    *
    * @return tax
    */
-  @ApiModelProperty(example = "198.0", value = "The Tax for the Payslip")
+  @Schema(example = "198.0", description = "The Tax for the Payslip")
   /**
    * The Tax for the Payslip
    *
@@ -359,7 +360,7 @@ public class PayslipSummary {
    *
    * @return _super
    */
-  @ApiModelProperty(example = "75.6", value = "The Super for the Payslip")
+  @Schema(example = "75.6", description = "The Super for the Payslip")
   /**
    * The Super for the Payslip
    *
@@ -394,7 +395,7 @@ public class PayslipSummary {
    *
    * @return reimbursements
    */
-  @ApiModelProperty(example = "0.0", value = "The Reimbursements for the Payslip")
+  @Schema(example = "0.0", description = "The Reimbursements for the Payslip")
   /**
    * The Reimbursements for the Payslip
    *
@@ -429,7 +430,7 @@ public class PayslipSummary {
    *
    * @return netPay
    */
-  @ApiModelProperty(example = "862.5", value = "The NetPay for the Payslip")
+  @Schema(example = "862.5", description = "The NetPay for the Payslip")
   /**
    * The NetPay for the Payslip
    *
@@ -453,7 +454,7 @@ public class PayslipSummary {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1583967733054+0000)/", value = "Last modified timestamp")
+  @Schema(example = "/Date(1583967733054+0000)/", description = "Last modified timestamp")
   /**
    * Last modified timestamp
    *

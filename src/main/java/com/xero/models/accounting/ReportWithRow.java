@@ -13,12 +13,13 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import org.threeten.bp.OffsetDateTime;
 
 /** ReportWithRow */
 public class ReportWithRow {
@@ -67,7 +68,7 @@ public class ReportWithRow {
    *
    * @return reportID
    */
-  @ApiModelProperty(value = "ID of the Report")
+  @Schema(description = "ID of the Report")
   /**
    * ID of the Report
    *
@@ -102,7 +103,7 @@ public class ReportWithRow {
    *
    * @return reportName
    */
-  @ApiModelProperty(value = "Name of the report")
+  @Schema(description = "Name of the report")
   /**
    * Name of the report
    *
@@ -137,7 +138,7 @@ public class ReportWithRow {
    *
    * @return reportTitle
    */
-  @ApiModelProperty(value = "Title of the report")
+  @Schema(description = "Title of the report")
   /**
    * Title of the report
    *
@@ -172,7 +173,7 @@ public class ReportWithRow {
    *
    * @return reportType
    */
-  @ApiModelProperty(value = "The type of report (BalanceSheet,ProfitLoss, etc)")
+  @Schema(description = "The type of report (BalanceSheet,ProfitLoss, etc)")
   /**
    * The type of report (BalanceSheet,ProfitLoss, etc)
    *
@@ -224,8 +225,8 @@ public class ReportWithRow {
    *
    * @return reportTitles
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Report titles array (3 to 4 strings with the report name, orgnisation name and time"
               + " frame of report)")
   /**
@@ -264,7 +265,7 @@ public class ReportWithRow {
    *
    * @return reportDate
    */
-  @ApiModelProperty(value = "Date of report")
+  @Schema(description = "Date of report")
   /**
    * Date of report
    *
@@ -313,7 +314,7 @@ public class ReportWithRow {
    *
    * @return rows
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * rows
    *
@@ -337,7 +338,7 @@ public class ReportWithRow {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1573755038314)/", value = "Updated Date")
+  @Schema(example = "/Date(1573755038314)/", description = "Updated Date")
   /**
    * Updated Date
    *
@@ -393,7 +394,7 @@ public class ReportWithRow {
    *
    * @return fields
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * fields
    *

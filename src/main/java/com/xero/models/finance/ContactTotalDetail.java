@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** ContactTotalDetail */
@@ -45,7 +45,7 @@ public class ContactTotalDetail {
    *
    * @return totalPaid
    */
-  @ApiModelProperty(value = "Total paid invoice and cash value for the contact within the period.")
+  @Schema(description = "Total paid invoice and cash value for the contact within the period.")
   /**
    * Total paid invoice and cash value for the contact within the period.
    *
@@ -80,7 +80,7 @@ public class ContactTotalDetail {
    *
    * @return totalOutstanding
    */
-  @ApiModelProperty(value = "Total outstanding invoice value for the contact within the period.")
+  @Schema(description = "Total outstanding invoice value for the contact within the period.")
   /**
    * Total outstanding invoice value for the contact within the period.
    *
@@ -115,7 +115,7 @@ public class ContactTotalDetail {
    *
    * @return totalCreditedUnApplied
    */
-  @ApiModelProperty(value = "Total unapplied credited value for the contact within the period.")
+  @Schema(description = "Total unapplied credited value for the contact within the period.")
   /**
    * Total unapplied credited value for the contact within the period.
    *

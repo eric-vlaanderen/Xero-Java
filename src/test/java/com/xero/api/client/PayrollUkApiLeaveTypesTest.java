@@ -1,15 +1,20 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrolluk.*;
-import org.threeten.bp.*;
+import com.xero.models.payrolluk.LeaveType;
+import com.xero.models.payrolluk.LeaveTypeObject;
+import com.xero.models.payrolluk.LeaveTypes;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.time.LocalDateTime;
+
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollUkApiLeaveTypesTest {
 
@@ -19,7 +24,7 @@ public class PayrollUkApiLeaveTypesTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -41,13 +46,13 @@ public class PayrollUkApiLeaveTypesTest {
         int page = 1;
         LeaveTypes response = payrollUkApi.getLeaveTypes(accessToken, xeroTenantId, page, true);
         
-        assertThat(response.getLeaveTypes().get(0).getLeaveTypeID(),is(equalTo(UUID.fromString("ed08dffe-788e-4b24-9630-f0fa2f4d164c"))));
-        assertThat(response.getLeaveTypes().get(0).getName(), is(equalTo("Holiday")));
-        assertThat(response.getLeaveTypes().get(0).getIsPaidLeave(), is(equalTo(true)));
-        assertThat(response.getLeaveTypes().get(0).getShowOnPayslip(), is(equalTo(true)));
-        assertThat(response.getLeaveTypes().get(0).getIsActive(), is(equalTo(true)));
-        assertThat(response.getLeaveTypes().get(0).getIsStatutoryLeave(), is(equalTo(false)));
-        assertThat(response.getLeaveTypes().get(0).getUpdatedDateUTC(), is(equalTo(LocalDateTime.parse("2020-02-13T15:56:11"))));
+        assertThat(response.getLeaveTypes().getFirst().getLeaveTypeID(),is(equalTo(UUID.fromString("ed08dffe-788e-4b24-9630-f0fa2f4d164c"))));
+        assertThat(response.getLeaveTypes().getFirst().getName(), is(equalTo("Holiday")));
+        assertThat(response.getLeaveTypes().getFirst().getIsPaidLeave(), is(equalTo(true)));
+        assertThat(response.getLeaveTypes().getFirst().getShowOnPayslip(), is(equalTo(true)));
+        assertThat(response.getLeaveTypes().getFirst().getIsActive(), is(equalTo(true)));
+        assertThat(response.getLeaveTypes().getFirst().getIsStatutoryLeave(), is(equalTo(false)));
+        assertThat(response.getLeaveTypes().getFirst().getUpdatedDateUTC(), is(equalTo(LocalDateTime.parse("2020-02-13T15:56:11"))));
 
         //System.out.println(response.toString());
     }

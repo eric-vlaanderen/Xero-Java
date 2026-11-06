@@ -15,16 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** BatchPayment */
 public class BatchPayment {
@@ -200,7 +201,7 @@ public class BatchPayment {
    *
    * @return account
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * account
    *
@@ -239,8 +240,8 @@ public class BatchPayment {
    *
    * @return reference
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "(NZ Only) Optional references for the batch payment transaction. It will also show with"
               + " the batch payment transaction in the bank reconciliation Find & Match screen."
               + " Depending on your individual bank, the detail may also show on the bank statement"
@@ -287,8 +288,8 @@ public class BatchPayment {
    *
    * @return particulars
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "(NZ Only) Optional references for the batch payment transaction. It will also show with"
               + " the batch payment transaction in the bank reconciliation Find & Match screen."
               + " Depending on your individual bank, the detail may also show on the bank statement"
@@ -335,8 +336,8 @@ public class BatchPayment {
    *
    * @return code
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "(NZ Only) Optional references for the batch payment transaction. It will also show with"
               + " the batch payment transaction in the bank reconciliation Find & Match screen."
               + " Depending on your individual bank, the detail may also show on the bank statement"
@@ -385,8 +386,8 @@ public class BatchPayment {
    *
    * @return details
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "(Non-NZ Only) These details are sent to the org’s bank as a reference for the batch"
               + " payment transaction. They will also show with the batch payment transaction in"
               + " the bank reconciliation Find & Match screen. Depending on your individual bank,"
@@ -432,7 +433,7 @@ public class BatchPayment {
    *
    * @return narrative
    */
-  @ApiModelProperty(value = "(UK Only) Only shows on the statement line in Xero. Max length =18")
+  @Schema(description = "(UK Only) Only shows on the statement line in Xero. Max length =18")
   /**
    * (UK Only) Only shows on the statement line in Xero. Max length &#x3D;18
    *
@@ -456,8 +457,8 @@ public class BatchPayment {
    *
    * @return batchPaymentID
    */
-  @ApiModelProperty(
-      value = "The Xero generated unique identifier for the bank transaction (read-only)")
+  @Schema(
+      description = "The Xero generated unique identifier for the bank transaction (read-only)")
   /**
    * The Xero generated unique identifier for the bank transaction (read-only)
    *
@@ -483,7 +484,7 @@ public class BatchPayment {
    *
    * @return dateString
    */
-  @ApiModelProperty(value = "Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06")
+  @Schema(description = "Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06")
   /**
    * Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06
    *
@@ -518,7 +519,7 @@ public class BatchPayment {
    *
    * @return date
    */
-  @ApiModelProperty(value = "Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06")
+  @Schema(description = "Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06")
   /**
    * Date the payment is being made (YYYY-MM-DD) e.g. 2009-09-06
    *
@@ -584,8 +585,8 @@ public class BatchPayment {
    *
    * @return amount
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The amount of the payment. Must be less than or equal to the outstanding amount owing on"
               + " the invoice e.g. 200.00")
   /**
@@ -638,7 +639,7 @@ public class BatchPayment {
    *
    * @return payments
    */
-  @ApiModelProperty(value = "An array of payments")
+  @Schema(description = "An array of payments")
   /**
    * An array of payments
    *
@@ -662,8 +663,8 @@ public class BatchPayment {
    *
    * @return type
    */
-  @ApiModelProperty(
-      value = "PAYBATCH for bill payments or RECBATCH for sales invoice payments (read-only)")
+  @Schema(
+      description = "PAYBATCH for bill payments or RECBATCH for sales invoice payments (read-only)")
   /**
    * PAYBATCH for bill payments or RECBATCH for sales invoice payments (read-only)
    *
@@ -679,8 +680,8 @@ public class BatchPayment {
    *
    * @return status
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "AUTHORISED or DELETED (read-only). New batch payments will have a status of AUTHORISED."
               + " It is not possible to delete batch payments via the API.")
   /**
@@ -698,7 +699,7 @@ public class BatchPayment {
    *
    * @return totalAmount
    */
-  @ApiModelProperty(value = "The total of the payments that make up the batch (read-only)")
+  @Schema(description = "The total of the payments that make up the batch (read-only)")
   /**
    * The total of the payments that make up the batch (read-only)
    *
@@ -713,9 +714,9 @@ public class BatchPayment {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(1573755038314)/",
-      value = "UTC timestamp of last update to the payment")
+      description = "UTC timestamp of last update to the payment")
   /**
    * UTC timestamp of last update to the payment
    *
@@ -746,8 +747,8 @@ public class BatchPayment {
    *
    * @return isReconciled
    */
-  @ApiModelProperty(
-      value = "Booelan that tells you if the batch payment has been reconciled (read-only)")
+  @Schema(
+      description = "Booelan that tells you if the batch payment has been reconciled (read-only)")
   /**
    * Booelan that tells you if the batch payment has been reconciled (read-only)
    *
@@ -787,7 +788,7 @@ public class BatchPayment {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *

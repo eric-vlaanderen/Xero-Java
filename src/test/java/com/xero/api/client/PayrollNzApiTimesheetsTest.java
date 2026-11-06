@@ -1,16 +1,21 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
 import com.xero.models.payrollnz.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-import org.threeten.bp.*;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollNzApiTimesheetsTest {
 
@@ -20,7 +25,7 @@ public class PayrollNzApiTimesheetsTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -43,14 +48,14 @@ public class PayrollNzApiTimesheetsTest {
         int page = 1;
         Timesheets response = payrollNzApi.getTimesheets(accessToken, xeroTenantId, page,"","","","","");
         
-        assertThat(response.getTimesheets().get(0).getTimesheetID(),is(equalTo(UUID.fromString("f2a2aff0-9944-411e-bc58-44f22304188d"))));
-        assertThat(response.getTimesheets().get(0).getPayrollCalendarID(),is(equalTo(UUID.fromString("f6931b89-d9c8-4f25-b4fa-268b5fd24197"))));
-        assertThat(response.getTimesheets().get(0).getEmployeeID(),is(equalTo(UUID.fromString("272a7559-1b8f-4d3a-977b-d05578cb9546"))));
-        assertThat(response.getTimesheets().get(0).getStartDate(), is(equalTo(LocalDate.of(2020, 8, 01))));
-        assertThat(response.getTimesheets().get(0).getEndDate(), is(equalTo(LocalDate.of(2020, 8, 31))));
-        assertThat(response.getTimesheets().get(0).getStatus(), is(equalTo(com.xero.models.payrollnz.Timesheet.StatusEnum.DRAFT)));
-        assertThat(response.getTimesheets().get(0).getTotalHours(), is(equalTo(17.0)));
-        assertThat(response.getTimesheets().get(0).getUpdatedDateUTC(), is(equalTo(LocalDateTime.of(2020, 8, 28, 20, 50 ,40) )));  
+        assertThat(response.getTimesheets().getFirst().getTimesheetID(),is(equalTo(UUID.fromString("f2a2aff0-9944-411e-bc58-44f22304188d"))));
+        assertThat(response.getTimesheets().getFirst().getPayrollCalendarID(),is(equalTo(UUID.fromString("f6931b89-d9c8-4f25-b4fa-268b5fd24197"))));
+        assertThat(response.getTimesheets().getFirst().getEmployeeID(),is(equalTo(UUID.fromString("272a7559-1b8f-4d3a-977b-d05578cb9546"))));
+        assertThat(response.getTimesheets().getFirst().getStartDate(), is(equalTo(LocalDate.of(2020, 8, 01))));
+        assertThat(response.getTimesheets().getFirst().getEndDate(), is(equalTo(LocalDate.of(2020, 8, 31))));
+        assertThat(response.getTimesheets().getFirst().getStatus(), is(equalTo(com.xero.models.payrollnz.Timesheet.StatusEnum.DRAFT)));
+        assertThat(response.getTimesheets().getFirst().getTotalHours(), is(equalTo(17.0)));
+        assertThat(response.getTimesheets().getFirst().getUpdatedDateUTC(), is(equalTo(LocalDateTime.of(2020, 8, 28, 20, 50 ,40) )));  
 
         //System.out.println(response.toString());
     }
@@ -71,10 +76,10 @@ public class PayrollNzApiTimesheetsTest {
         assertThat(response.getTimesheet().getStatus(), is(equalTo(com.xero.models.payrollnz.Timesheet.StatusEnum.DRAFT)));
         assertThat(response.getTimesheet().getTotalHours(), is(equalTo(17.0)));
         assertThat(response.getTimesheet().getUpdatedDateUTC(), is(equalTo(LocalDateTime.of(2020, 8, 28, 20, 50 ,40) )));  
-        assertThat(response.getTimesheet().getTimesheetLines().get(0).getTimesheetLineID(),is(equalTo(UUID.fromString("3397aab1-6cac-4804-a72b-00f396b04a08"))));
-        assertThat(response.getTimesheet().getTimesheetLines().get(0).getEarningsRateID(),is(equalTo(UUID.fromString("f9d8f5b5-9049-47f4-8541-35e200f750a5"))));
-        assertThat(response.getTimesheet().getTimesheetLines().get(0).getDate(),  is(equalTo(LocalDate.of(2020, 8, 01))));
-        assertThat(response.getTimesheet().getTimesheetLines().get(0).getNumberOfUnits(),  is(equalTo(7.0)));
+        assertThat(response.getTimesheet().getTimesheetLines().getFirst().getTimesheetLineID(),is(equalTo(UUID.fromString("3397aab1-6cac-4804-a72b-00f396b04a08"))));
+        assertThat(response.getTimesheet().getTimesheetLines().getFirst().getEarningsRateID(),is(equalTo(UUID.fromString("f9d8f5b5-9049-47f4-8541-35e200f750a5"))));
+        assertThat(response.getTimesheet().getTimesheetLines().getFirst().getDate(),  is(equalTo(LocalDate.of(2020, 8, 01))));
+        assertThat(response.getTimesheet().getTimesheetLines().getFirst().getNumberOfUnits(),  is(equalTo(7.0)));
 
         //System.out.println(response.toString());
     }
@@ -107,10 +112,10 @@ public class PayrollNzApiTimesheetsTest {
         assertThat(response.getTimesheet().getStatus(), is(equalTo(com.xero.models.payrollnz.Timesheet.StatusEnum.DRAFT)));
         assertThat(response.getTimesheet().getTotalHours(), is(equalTo(14.0)));
         assertThat(response.getTimesheet().getUpdatedDateUTC(), is(equalTo(LocalDateTime.of(2020, 8, 28, 21, 07 ,41).plusNanos(967621800) )));  
-        assertThat(response.getTimesheet().getTimesheetLines().get(0).getTimesheetLineID(),is(equalTo(UUID.fromString("ebeda184-6f42-4c44-a19c-3c0308578153"))));
-        assertThat(response.getTimesheet().getTimesheetLines().get(0).getEarningsRateID(),is(equalTo(UUID.fromString("f9d8f5b5-9049-47f4-8541-35e200f750a5"))));
-        assertThat(response.getTimesheet().getTimesheetLines().get(0).getDate(),  is(equalTo(LocalDate.of(2020, 04, 15))));
-        assertThat(response.getTimesheet().getTimesheetLines().get(0).getNumberOfUnits(),  is(equalTo(6.0)));
+        assertThat(response.getTimesheet().getTimesheetLines().getFirst().getTimesheetLineID(),is(equalTo(UUID.fromString("ebeda184-6f42-4c44-a19c-3c0308578153"))));
+        assertThat(response.getTimesheet().getTimesheetLines().getFirst().getEarningsRateID(),is(equalTo(UUID.fromString("f9d8f5b5-9049-47f4-8541-35e200f750a5"))));
+        assertThat(response.getTimesheet().getTimesheetLines().getFirst().getDate(),  is(equalTo(LocalDate.of(2020, 04, 15))));
+        assertThat(response.getTimesheet().getTimesheetLines().getFirst().getNumberOfUnits(),  is(equalTo(6.0)));
 
         //System.out.println(response.toString());
     }

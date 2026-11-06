@@ -13,13 +13,14 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.ZoneId;
 
 /** SuperannuationLine */
 public class SuperannuationLine {
@@ -68,9 +69,9 @@ public class SuperannuationLine {
    *
    * @return superMembershipID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "e0eb6747-7c17-4075-b804-989f8d4e5d39",
-      value = "Xero identifier for payroll super fund membership ID.")
+      description = "Xero identifier for payroll super fund membership ID.")
   /**
    * Xero identifier for payroll super fund membership ID.
    *
@@ -105,7 +106,7 @@ public class SuperannuationLine {
    *
    * @return contributionType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * contributionType
    *
@@ -140,7 +141,7 @@ public class SuperannuationLine {
    *
    * @return calculationType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * calculationType
    *
@@ -175,7 +176,7 @@ public class SuperannuationLine {
    *
    * @return minimumMonthlyEarnings
    */
-  @ApiModelProperty(example = "100.5", value = "Superannuation minimum monthly earnings.")
+  @Schema(example = "100.5", description = "Superannuation minimum monthly earnings.")
   /**
    * Superannuation minimum monthly earnings.
    *
@@ -210,7 +211,7 @@ public class SuperannuationLine {
    *
    * @return expenseAccountCode
    */
-  @ApiModelProperty(example = "450", value = "Superannuation expense account code.")
+  @Schema(example = "450", description = "Superannuation expense account code.")
   /**
    * Superannuation expense account code.
    *
@@ -245,7 +246,7 @@ public class SuperannuationLine {
    *
    * @return liabilityAccountCode
    */
-  @ApiModelProperty(example = "650", value = "Superannuation liability account code")
+  @Schema(example = "650", description = "Superannuation liability account code")
   /**
    * Superannuation liability account code
    *
@@ -280,9 +281,9 @@ public class SuperannuationLine {
    *
    * @return paymentDateForThisPeriod
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(322560000000+0000)/",
-      value = "Superannuation payment date for the current period (YYYY-MM-DD)")
+      description = "Superannuation payment date for the current period (YYYY-MM-DD)")
   /**
    * Superannuation payment date for the current period (YYYY-MM-DD)
    *
@@ -347,7 +348,7 @@ public class SuperannuationLine {
    *
    * @return percentage
    */
-  @ApiModelProperty(example = "4.0", value = "Superannuation percentage")
+  @Schema(example = "4.0", description = "Superannuation percentage")
   /**
    * Superannuation percentage
    *
@@ -382,7 +383,7 @@ public class SuperannuationLine {
    *
    * @return amount
    */
-  @ApiModelProperty(example = "10.5", value = "Superannuation amount")
+  @Schema(example = "10.5", description = "Superannuation amount")
   /**
    * Superannuation amount
    *

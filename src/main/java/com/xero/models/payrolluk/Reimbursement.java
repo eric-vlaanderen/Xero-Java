@@ -13,7 +13,7 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -49,7 +49,7 @@ public class Reimbursement {
    *
    * @return reimbursementID
    */
-  @ApiModelProperty(value = "Xero unique identifier for a reimbursement")
+  @Schema(description = "Xero unique identifier for a reimbursement")
   /**
    * Xero unique identifier for a reimbursement
    *
@@ -84,7 +84,7 @@ public class Reimbursement {
    *
    * @return name
    */
-  @ApiModelProperty(required = true, value = "Name of the reimbursement")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Name of the reimbursement")
   /**
    * Name of the reimbursement
    *
@@ -119,9 +119,9 @@ public class Reimbursement {
    *
    * @return accountID
    */
-  @ApiModelProperty(
-      required = true,
-      value = "Xero unique identifier for the account used for the reimbursement")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Xero unique identifier for the account used for the reimbursement")
   /**
    * Xero unique identifier for the account used for the reimbursement
    *
@@ -156,7 +156,7 @@ public class Reimbursement {
    *
    * @return currentRecord
    */
-  @ApiModelProperty(value = "Indicates that whether the reimbursement is active")
+  @Schema(description = "Indicates that whether the reimbursement is active")
   /**
    * Indicates that whether the reimbursement is active
    *

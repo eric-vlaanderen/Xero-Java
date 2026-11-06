@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -99,7 +99,7 @@ public class PaymentMethod {
    *
    * @return paymentMethod
    */
-  @ApiModelProperty(required = true, value = "The payment method code")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The payment method code")
   /**
    * The payment method code
    *
@@ -148,7 +148,7 @@ public class PaymentMethod {
    *
    * @return bankAccounts
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * bankAccounts
    *

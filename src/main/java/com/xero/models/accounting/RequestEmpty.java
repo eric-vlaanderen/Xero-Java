@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** RequestEmpty */
@@ -39,7 +39,7 @@ public class RequestEmpty {
    *
    * @return status
    */
-  @ApiModelProperty(value = "Need at least one field to create an empty JSON payload")
+  @Schema(description = "Need at least one field to create an empty JSON payload")
   /**
    * Need at least one field to create an empty JSON payload
    *

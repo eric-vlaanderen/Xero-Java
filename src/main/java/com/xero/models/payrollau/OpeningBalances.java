@@ -13,14 +13,15 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.ZoneId;
 
 /** OpeningBalances */
 public class OpeningBalances {
@@ -67,9 +68,9 @@ public class OpeningBalances {
    *
    * @return openingBalanceDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(322560000000+0000)/",
-      value = "Opening Balance Date. (YYYY-MM-DD)")
+      description = "Opening Balance Date. (YYYY-MM-DD)")
   /**
    * Opening Balance Date. (YYYY-MM-DD)
    *
@@ -133,7 +134,7 @@ public class OpeningBalances {
    *
    * @return tax
    */
-  @ApiModelProperty(example = "4333d5cd-53a5-4c31-98e5-a8b4e5676b0b", value = "Opening Balance tax")
+  @Schema(example = "4333d5cd-53a5-4c31-98e5-a8b4e5676b0b", description = "Opening Balance tax")
   /**
    * Opening Balance tax
    *
@@ -182,7 +183,7 @@ public class OpeningBalances {
    *
    * @return earningsLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * earningsLines
    *
@@ -231,7 +232,7 @@ public class OpeningBalances {
    *
    * @return deductionLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * deductionLines
    *
@@ -280,7 +281,7 @@ public class OpeningBalances {
    *
    * @return superLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * superLines
    *
@@ -329,7 +330,7 @@ public class OpeningBalances {
    *
    * @return reimbursementLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * reimbursementLines
    *
@@ -378,7 +379,7 @@ public class OpeningBalances {
    *
    * @return leaveLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * leaveLines
    *
@@ -429,7 +430,7 @@ public class OpeningBalances {
    *
    * @return paidLeaveEarningsLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * paidLeaveEarningsLines
    *

@@ -13,10 +13,11 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDateTime;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDateTime;
 
 /** LeaveType */
 public class LeaveType {
@@ -62,7 +63,7 @@ public class LeaveType {
    *
    * @return leaveID
    */
-  @ApiModelProperty(value = "Xero unique identifier for the leave")
+  @Schema(description = "Xero unique identifier for the leave")
   /**
    * Xero unique identifier for the leave
    *
@@ -97,7 +98,7 @@ public class LeaveType {
    *
    * @return leaveTypeID
    */
-  @ApiModelProperty(value = "Xero unique identifier for the leave type")
+  @Schema(description = "Xero unique identifier for the leave type")
   /**
    * Xero unique identifier for the leave type
    *
@@ -132,7 +133,7 @@ public class LeaveType {
    *
    * @return name
    */
-  @ApiModelProperty(required = true, value = "Name of the leave type")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Name of the leave type")
   /**
    * Name of the leave type
    *
@@ -167,9 +168,9 @@ public class LeaveType {
    *
    * @return isPaidLeave
    */
-  @ApiModelProperty(
-      required = true,
-      value = "Indicate that an employee will be paid when taking this type of leave")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Indicate that an employee will be paid when taking this type of leave")
   /**
    * Indicate that an employee will be paid when taking this type of leave
    *
@@ -204,9 +205,9 @@ public class LeaveType {
    *
    * @return showOnPayslip
    */
-  @ApiModelProperty(
-      required = true,
-      value = "Indicate that a balance for this leave type to be shown on the employee’s payslips")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Indicate that a balance for this leave type to be shown on the employee’s payslips")
   /**
    * Indicate that a balance for this leave type to be shown on the employee’s payslips
    *
@@ -241,7 +242,7 @@ public class LeaveType {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(value = "UTC timestamp of last update to the leave type note")
+  @Schema(description = "UTC timestamp of last update to the leave type note")
   /**
    * UTC timestamp of last update to the leave type note
    *
@@ -276,7 +277,7 @@ public class LeaveType {
    *
    * @return isActive
    */
-  @ApiModelProperty(value = "Shows whether the leave type is active or not")
+  @Schema(description = "Shows whether the leave type is active or not")
   /**
    * Shows whether the leave type is active or not
    *
@@ -311,7 +312,7 @@ public class LeaveType {
    *
    * @return isStatutoryLeave
    */
-  @ApiModelProperty(value = "Shows whether the leave type is a statutory leave type or not")
+  @Schema(description = "Shows whether the leave type is a statutory leave type or not")
   /**
    * Shows whether the leave type is a statutory leave type or not
    *

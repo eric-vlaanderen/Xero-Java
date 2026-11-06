@@ -13,15 +13,15 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /**
  * The raw AccountsReceivable(sales invoices) and AccountsPayable(bills) outstanding and overdue
  * amounts, not converted to base currency (read only)
  */
-@ApiModel(
+@Schema(
     description =
         "The raw AccountsReceivable(sales invoices) and AccountsPayable(bills) outstanding and"
             + " overdue amounts, not converted to base currency (read only)")
@@ -50,7 +50,7 @@ public class Balances {
    *
    * @return accountsReceivable
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * accountsReceivable
    *
@@ -85,7 +85,7 @@ public class Balances {
    *
    * @return accountsPayable
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * accountsPayable
    *

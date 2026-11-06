@@ -13,13 +13,14 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.LocalDateTime;
 
 /** EmployeeLeave */
 public class EmployeeLeave {
@@ -62,7 +63,7 @@ public class EmployeeLeave {
    *
    * @return leaveID
    */
-  @ApiModelProperty(value = "The Xero identifier for LeaveType")
+  @Schema(description = "The Xero identifier for LeaveType")
   /**
    * The Xero identifier for LeaveType
    *
@@ -97,7 +98,7 @@ public class EmployeeLeave {
    *
    * @return leaveTypeID
    */
-  @ApiModelProperty(required = true, value = "The Xero identifier for LeaveType")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The Xero identifier for LeaveType")
   /**
    * The Xero identifier for LeaveType
    *
@@ -132,7 +133,7 @@ public class EmployeeLeave {
    *
    * @return description
    */
-  @ApiModelProperty(required = true, value = "The description of the leave  (max length = 50)")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The description of the leave  (max length = 50)")
   /**
    * The description of the leave (max length &#x3D; 50)
    *
@@ -167,7 +168,7 @@ public class EmployeeLeave {
    *
    * @return startDate
    */
-  @ApiModelProperty(required = true, value = "Start date of the leave (YYYY-MM-DD)")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Start date of the leave (YYYY-MM-DD)")
   /**
    * Start date of the leave (YYYY-MM-DD)
    *
@@ -202,7 +203,7 @@ public class EmployeeLeave {
    *
    * @return endDate
    */
-  @ApiModelProperty(required = true, value = "End date of the leave (YYYY-MM-DD)")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "End date of the leave (YYYY-MM-DD)")
   /**
    * End date of the leave (YYYY-MM-DD)
    *
@@ -257,8 +258,8 @@ public class EmployeeLeave {
    *
    * @return periods
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The leave period information. The StartDate, EndDate and NumberOfUnits needs to be"
               + " specified when you do not want to calculate NumberOfUnits automatically. Using"
               + " incorrect period StartDate and EndDate will result in automatic computation of"
@@ -301,7 +302,7 @@ public class EmployeeLeave {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(value = "UTC timestamp of last update to the leave type note")
+  @Schema(description = "UTC timestamp of last update to the leave type note")
   /**
    * UTC timestamp of last update to the leave type note
    *

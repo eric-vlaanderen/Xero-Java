@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** SuperFundProduct */
@@ -48,7 +48,7 @@ public class SuperFundProduct {
    *
    * @return ABN
    */
-  @ApiModelProperty(example = "839182848805", value = "The ABN of the Regulated SuperFund")
+  @Schema(example = "839182848805", description = "The ABN of the Regulated SuperFund")
   /**
    * The ABN of the Regulated SuperFund
    *
@@ -83,7 +83,7 @@ public class SuperFundProduct {
    *
    * @return USI
    */
-  @ApiModelProperty(example = "839182848805001", value = "The USI of the Regulated SuperFund")
+  @Schema(example = "839182848805001", description = "The USI of the Regulated SuperFund")
   /**
    * The USI of the Regulated SuperFund
    *
@@ -120,9 +120,9 @@ public class SuperFundProduct {
    *
    * @return SPIN
    */
-  @ApiModelProperty(
+  @Schema(
       example = "NML0117AU",
-      value =
+      description =
           "The SPIN of the Regulated SuperFund. This field has been deprecated. New superfunds will"
               + " not have a SPIN value. The USI field should be used instead of SPIN")
   /**
@@ -161,11 +161,11 @@ public class SuperFundProduct {
    *
    * @return productName
    */
-  @ApiModelProperty(
+  @Schema(
       example =
           "MLC Navigator Retirement Plan - Superannuation Service (including Series 2) (MLC"
               + " Superannuation Fund)",
-      value = "The name of the Regulated SuperFund")
+      description = "The name of the Regulated SuperFund")
   /**
    * The name of the Regulated SuperFund
    *

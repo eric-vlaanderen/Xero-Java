@@ -13,10 +13,11 @@ package com.xero.models.assets;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.math.BigDecimal;
 import java.util.Objects;
-import org.threeten.bp.LocalDate;
 
 /** BookDepreciationDetail */
 public class BookDepreciationDetail {
@@ -76,9 +77,9 @@ public class BookDepreciationDetail {
    *
    * @return currentCapitalGain
    */
-  @ApiModelProperty(
+  @Schema(
       example = "5.25",
-      value =
+      description =
           "When an asset is disposed, this will be the sell price minus the purchase price if a"
               + " profit was made.")
   /**
@@ -119,9 +120,9 @@ public class BookDepreciationDetail {
    *
    * @return currentGainLoss
    */
-  @ApiModelProperty(
+  @Schema(
       example = "10.5",
-      value =
+      description =
           "When an asset is disposed, this will be the lowest one of sell price or purchase price,"
               + " minus the current book value.")
   /**
@@ -160,7 +161,7 @@ public class BookDepreciationDetail {
    *
    * @return depreciationStartDate
    */
-  @ApiModelProperty(value = "YYYY-MM-DD")
+  @Schema(description = "YYYY-MM-DD")
   /**
    * YYYY-MM-DD
    *
@@ -195,9 +196,9 @@ public class BookDepreciationDetail {
    *
    * @return costLimit
    */
-  @ApiModelProperty(
+  @Schema(
       example = "9000.0",
-      value =
+      description =
           "The value of the asset you want to depreciate, if this is less than the cost of the"
               + " asset.")
   /**
@@ -234,9 +235,9 @@ public class BookDepreciationDetail {
    *
    * @return residualValue
    */
-  @ApiModelProperty(
+  @Schema(
       example = "10000.0",
-      value = "The value of the asset remaining when you've fully depreciated it.")
+      description = "The value of the asset remaining when you've fully depreciated it.")
   /**
    * The value of the asset remaining when you&#39;ve fully depreciated it.
    *
@@ -271,9 +272,9 @@ public class BookDepreciationDetail {
    *
    * @return priorAccumDepreciationAmount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "0.45",
-      value = "All depreciation prior to the current financial year.")
+      description = "All depreciation prior to the current financial year.")
   /**
    * All depreciation prior to the current financial year.
    *
@@ -309,9 +310,9 @@ public class BookDepreciationDetail {
    *
    * @return currentAccumDepreciationAmount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "5.0",
-      value = "All depreciation occurring in the current financial year.")
+      description = "All depreciation occurring in the current financial year.")
   /**
    * All depreciation occurring in the current financial year.
    *
@@ -348,8 +349,8 @@ public class BookDepreciationDetail {
    *
    * @return businessUseCapitalGain
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "(New Zealand Orgs Only) The portion of capital gain realised from the disposal of a"
               + " fixed asset that is attributable to its business use.")
   /**
@@ -392,8 +393,8 @@ public class BookDepreciationDetail {
    *
    * @return businessUseCurrentGainLoss
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "(New Zealand Orgs Only) Represents the gain or loss from the disposal of the business"
               + " use portion of a fixed asset. This value records the financial result (profit or"
               + " loss) related specifically to the asset’s business use.")
@@ -437,8 +438,8 @@ public class BookDepreciationDetail {
    *
    * @return privateUseCapitalGain
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "(New Zealand Orgs Only) The portion of capital gain realised from the disposal of a"
               + " fixed asset that is attributable to its private (non-business) use.")
   /**
@@ -481,8 +482,8 @@ public class BookDepreciationDetail {
    *
    * @return privateUseCurrentGainLoss
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "(New Zealand Orgs Only) Represents the gain or loss from the disposal of the private use"
               + " portion of a fixed asset. This value records the financial result (profit or"
               + " loss) related specifically to the asset’s private use.")
@@ -524,7 +525,7 @@ public class BookDepreciationDetail {
    *
    * @return initialDeductionPercentage
    */
-  @ApiModelProperty(value = "(New Zealand Orgs Only) The Investment Boost deduction percentage.")
+  @Schema(description = "(New Zealand Orgs Only) The Investment Boost deduction percentage.")
   /**
    * (New Zealand Orgs Only) The Investment Boost deduction percentage.
    *

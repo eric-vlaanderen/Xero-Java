@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -51,8 +51,8 @@ public class BalanceSheetAccountType {
    *
    * @return accountType
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The type of the account. See <a"
               + " href='https://developer.xero.com/documentation/api/types#AccountTypes'>Account"
               + " Types</a>")
@@ -111,8 +111,8 @@ public class BalanceSheetAccountType {
    *
    * @return accounts
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "A list of all accounts of this type. Refer to the Account section below for each account"
               + " element detail.")
   /**
@@ -151,7 +151,7 @@ public class BalanceSheetAccountType {
    *
    * @return total
    */
-  @ApiModelProperty(value = "Total value of all the accounts in this type")
+  @Schema(description = "Total value of all the accounts in this type")
   /**
    * Total value of all the accounts in this type
    *

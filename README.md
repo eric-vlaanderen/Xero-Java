@@ -271,7 +271,7 @@ public class Callback extends HttpServlet {
                 store.saveItem(response, "access_token", verifiedJWT.getToken());
                 store.saveItem(response, "refresh_token", tokenResponse.getRefreshToken());
                 store.saveItem(response, "expires_in_seconds", tokenResponse.getExpiresInSeconds().toString());
-                store.saveItem(response, "xero_tenant_id", connection.get(0).getTenantId().toString());
+                store.saveItem(response, "xero_tenant_id", connection.getFirst().getTenantId().toString());
 
                 response.sendRedirect("./AuthenticatedResource");
             } catch (Exception e) {
@@ -554,7 +554,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.threeten.bp.OffsetDateTime;
+import java.time.OffsetDateTime;
 
 import com.xero.api.ApiClient;
 import com.xero.api.XeroApiException;
@@ -598,7 +598,7 @@ public class AuthenticatedResource extends HttpServlet {
 			acct.setCode("66000");
 			acct.setType(com.xero.models.accounting.AccountType.EXPENSE);
 			Accounts newAccount = accountingApi.createAccount(accessToken,xeroTenantId,acct);
-			System.out.println("New account created: " + newAccount.getAccounts().get(0).getName());
+			System.out.println("New account created: " + newAccount.getAccounts().getFirst().getName());
 
 			/* READ ACCOUNT using a WHERE clause */
 			String where = "Status==\"ACTIVE\"&&Type==\"BANK\"";
@@ -606,19 +606,19 @@ public class AuthenticatedResource extends HttpServlet {
 
 			/* READ ACCOUNT using the ID */
 			Accounts accounts = accountingApi.getAccounts(accessToken,xeroTenantId,null, null, null);
-			UUID accountID = accounts.getAccounts().get(0).getAccountID();
+			UUID accountID = accounts.getAccounts().getFirst().getAccountID();
 			Accounts oneAccount = accountingApi.getAccount(accessToken,xeroTenantId,accountID);
 										
 			/* UPDATE ACCOUNT */
-			UUID newAccountID = newAccount.getAccounts().get(0).getAccountID();
-			newAccount.getAccounts().get(0).setDescription("Monsters Inc.");
-			newAccount.getAccounts().get(0).setStatus(null);
+			UUID newAccountID = newAccount.getAccounts().getFirst().getAccountID();
+			newAccount.getAccounts().getFirst().setDescription("Monsters Inc.");
+			newAccount.getAccounts().getFirst().setStatus(null);
 			Accounts updateAccount = accountingApi.updateAccount(accessToken,xeroTenantId,newAccountID, newAccount);
 
 			/* DELETE ACCOUNT */
-			UUID deleteAccountID = newAccount.getAccounts().get(0).getAccountID();
+			UUID deleteAccountID = newAccount.getAccounts().getFirst().getAccountID();
 			Accounts deleteAccount = accountingApi.deleteAccount(accessToken,xeroTenantId,deleteAccountID);
-			System.out.println("Delete account - Status? : " + deleteAccount.getAccounts().get(0).getStatus());
+			System.out.println("Delete account - Status? : " + deleteAccount.getAccounts().getFirst().getStatus());
 
 			// GET INVOICE MODIFIED in LAST 24 HOURS
 			OffsetDateTime invModified = OffsetDateTime.now();

@@ -15,16 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** Prepayment */
 public class Prepayment {
@@ -224,7 +225,7 @@ public class Prepayment {
    *
    * @return type
    */
-  @ApiModelProperty(value = "See Prepayment Types")
+  @Schema(description = "See Prepayment Types")
   /**
    * See Prepayment Types
    *
@@ -259,7 +260,7 @@ public class Prepayment {
    *
    * @return contact
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * contact
    *
@@ -294,7 +295,7 @@ public class Prepayment {
    *
    * @return date
    */
-  @ApiModelProperty(value = "The date the prepayment is created YYYY-MM-DD")
+  @Schema(description = "The date the prepayment is created YYYY-MM-DD")
   /**
    * The date the prepayment is created YYYY-MM-DD
    *
@@ -358,7 +359,7 @@ public class Prepayment {
    *
    * @return status
    */
-  @ApiModelProperty(value = "See Prepayment Status Codes")
+  @Schema(description = "See Prepayment Status Codes")
   /**
    * See Prepayment Status Codes
    *
@@ -393,7 +394,7 @@ public class Prepayment {
    *
    * @return lineAmountTypes
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * lineAmountTypes
    *
@@ -442,7 +443,7 @@ public class Prepayment {
    *
    * @return lineItems
    */
-  @ApiModelProperty(value = "See Prepayment Line Items")
+  @Schema(description = "See Prepayment Line Items")
   /**
    * See Prepayment Line Items
    *
@@ -477,7 +478,7 @@ public class Prepayment {
    *
    * @return subTotal
    */
-  @ApiModelProperty(value = "The subtotal of the prepayment excluding taxes")
+  @Schema(description = "The subtotal of the prepayment excluding taxes")
   /**
    * The subtotal of the prepayment excluding taxes
    *
@@ -512,7 +513,7 @@ public class Prepayment {
    *
    * @return totalTax
    */
-  @ApiModelProperty(value = "The total tax on the prepayment")
+  @Schema(description = "The total tax on the prepayment")
   /**
    * The total tax on the prepayment
    *
@@ -547,7 +548,7 @@ public class Prepayment {
    *
    * @return total
    */
-  @ApiModelProperty(value = "The total of the prepayment(subtotal + total tax)")
+  @Schema(description = "The total of the prepayment(subtotal + total tax)")
   /**
    * The total of the prepayment(subtotal + total tax)
    *
@@ -571,7 +572,7 @@ public class Prepayment {
    *
    * @return reference
    */
-  @ApiModelProperty(value = "Returns Invoice number field. Reference field isn't available.")
+  @Schema(description = "Returns Invoice number field. Reference field isn't available.")
   /**
    * Returns Invoice number field. Reference field isn&#39;t available.
    *
@@ -586,7 +587,7 @@ public class Prepayment {
    *
    * @return invoiceNumber
    */
-  @ApiModelProperty(value = "Returns Invoice number for prepayment receive document only.")
+  @Schema(description = "Returns Invoice number for prepayment receive document only.")
   /**
    * Returns Invoice number for prepayment receive document only.
    *
@@ -601,9 +602,9 @@ public class Prepayment {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(1573755038314)/",
-      value = "UTC timestamp of last update to the prepayment")
+      description = "UTC timestamp of last update to the prepayment")
   /**
    * UTC timestamp of last update to the prepayment
    *
@@ -634,9 +635,9 @@ public class Prepayment {
    *
    * @return updatedDateUTCString
    */
-  @ApiModelProperty(
+  @Schema(
       example = "2019-11-14T18:10:38Z",
-      value = "UTC ISO-8601 formatted timestamp of last update to the prepayment")
+      description = "UTC ISO-8601 formatted timestamp of last update to the prepayment")
   /**
    * UTC ISO-8601 formatted timestamp of last update to the prepayment
    *
@@ -662,7 +663,7 @@ public class Prepayment {
    *
    * @return currencyCode
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * currencyCode
    *
@@ -697,7 +698,7 @@ public class Prepayment {
    *
    * @return prepaymentID
    */
-  @ApiModelProperty(value = "Xero generated unique identifier")
+  @Schema(description = "Xero generated unique identifier")
   /**
    * Xero generated unique identifier
    *
@@ -721,8 +722,8 @@ public class Prepayment {
    *
    * @return brandingThemeID
    */
-  @ApiModelProperty(
-      value = "The unique identifier of the branding template applied to a receive prepayment")
+  @Schema(
+      description = "The unique identifier of the branding template applied to a receive prepayment")
   /**
    * The unique identifier of the branding template applied to a receive prepayment
    *
@@ -750,8 +751,8 @@ public class Prepayment {
    *
    * @return currencyRate
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The currency rate for a multicurrency prepayment. If no rate is specified, the XE.com"
               + " day rate is used")
   /**
@@ -790,7 +791,7 @@ public class Prepayment {
    *
    * @return remainingCredit
    */
-  @ApiModelProperty(value = "The remaining credit balance on the prepayment")
+  @Schema(description = "The remaining credit balance on the prepayment")
   /**
    * The remaining credit balance on the prepayment
    *
@@ -839,7 +840,7 @@ public class Prepayment {
    *
    * @return allocations
    */
-  @ApiModelProperty(value = "See Allocations")
+  @Schema(description = "See Allocations")
   /**
    * See Allocations
    *
@@ -888,7 +889,7 @@ public class Prepayment {
    *
    * @return payments
    */
-  @ApiModelProperty(value = "See Payments")
+  @Schema(description = "See Payments")
   /**
    * See Payments
    *
@@ -923,7 +924,7 @@ public class Prepayment {
    *
    * @return appliedAmount
    */
-  @ApiModelProperty(example = "2.0", value = "The amount of applied to an invoice")
+  @Schema(example = "2.0", description = "The amount of applied to an invoice")
   /**
    * The amount of applied to an invoice
    *
@@ -947,9 +948,9 @@ public class Prepayment {
    *
    * @return hasAttachments
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "boolean to indicate if a prepayment has an attachment")
+      description = "boolean to indicate if a prepayment has an attachment")
   /**
    * boolean to indicate if a prepayment has an attachment
    *
@@ -989,7 +990,7 @@ public class Prepayment {
    *
    * @return attachments
    */
-  @ApiModelProperty(value = "See Attachments")
+  @Schema(description = "See Attachments")
   /**
    * See Attachments
    *

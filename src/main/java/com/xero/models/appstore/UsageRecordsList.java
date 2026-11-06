@@ -13,14 +13,14 @@ package com.xero.models.appstore;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /** Response to get usage record */
-@ApiModel(description = "Response to get usage record")
+@Schema(description = "Response to get usage record")
 public class UsageRecordsList {
   StringUtil util = new StringUtil();
 
@@ -54,7 +54,7 @@ public class UsageRecordsList {
    *
    * @return usageRecords
    */
-  @ApiModelProperty(required = true, value = "A collection of usage records")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "A collection of usage records")
   /**
    * A collection of usage records
    *

@@ -1,14 +1,19 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrolluk.*;
+import com.xero.models.payrolluk.Reimbursement;
+import com.xero.models.payrolluk.ReimbursementObject;
+import com.xero.models.payrolluk.Reimbursements;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollUkApiReimbursementsTest {
 
@@ -18,7 +23,7 @@ public class PayrollUkApiReimbursementsTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -41,10 +46,10 @@ public class PayrollUkApiReimbursementsTest {
         int page = 1;
         Reimbursements response = payrollUkApi.getReimbursements(accessToken, xeroTenantId, page);
         
-        assertThat(response.getReimbursements().get(0).getReimbursementID(),is(equalTo(UUID.fromString("fef6115f-1606-4a74-be54-312d46b0eb0e"))));
-        assertThat(response.getReimbursements().get(0).getName(), is(equalTo("Travel Allowance")));
-        assertThat(response.getReimbursements().get(0).getAccountID(),is(equalTo(UUID.fromString("c7b73345-7f25-428a-bb97-7b20a1470a53"))));
-        assertThat(response.getReimbursements().get(0).getCurrentRecord(), is(equalTo(true)));
+        assertThat(response.getReimbursements().getFirst().getReimbursementID(),is(equalTo(UUID.fromString("fef6115f-1606-4a74-be54-312d46b0eb0e"))));
+        assertThat(response.getReimbursements().getFirst().getName(), is(equalTo("Travel Allowance")));
+        assertThat(response.getReimbursements().getFirst().getAccountID(),is(equalTo(UUID.fromString("c7b73345-7f25-428a-bb97-7b20a1470a53"))));
+        assertThat(response.getReimbursements().getFirst().getCurrentRecord(), is(equalTo(true)));
         
         //System.out.println(response.toString());
     }

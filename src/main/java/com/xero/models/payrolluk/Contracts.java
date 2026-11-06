@@ -13,10 +13,11 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** Contracts */
 public class Contracts {
@@ -61,10 +62,10 @@ public class Contracts {
    *
    * @return startDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Mon Dec 02 00:00:00 UTC 2024",
-      required = true,
-      value =
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description =
           "The contract start date of the employee. This will be locked once an employee has been"
               + " paid and cannot be changed (YYYY-MM-DD)")
   /**
@@ -103,7 +104,7 @@ public class Contracts {
    *
    * @return employmentStatus
    */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "")
   /**
    * employmentStatus
    *
@@ -138,7 +139,7 @@ public class Contracts {
    *
    * @return contractType
    */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "")
   /**
    * contractType
    *
@@ -175,8 +176,8 @@ public class Contracts {
    *
    * @return publicKey
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The public key of the contract. Public key is required if the intention is to edit an"
               + " existing contract. If no key is supplied a new contract will be created")
   /**
@@ -215,8 +216,8 @@ public class Contracts {
    *
    * @return isFixedTerm
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "describes whether the contract is fixed term (required if trying to create Fixed term"
               + " contract)")
   /**
@@ -255,9 +256,9 @@ public class Contracts {
    *
    * @return fixedTermEndDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Sat Nov 01 00:00:00 UTC 2025",
-      value =
+      description =
           "The fixed term end date of the employee. Not required if isFixedTerm is false or not"
               + " provided (required if trying to create Fixed term contract)")
   /**
@@ -296,7 +297,7 @@ public class Contracts {
    *
    * @return developmentalRoleDetails
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * developmentalRoleDetails
    *

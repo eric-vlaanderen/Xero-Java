@@ -13,12 +13,13 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.Objects;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.ZoneId;
 
 /** LeavePeriod */
 public class LeavePeriod {
@@ -52,7 +53,7 @@ public class LeavePeriod {
    *
    * @return numberOfUnits
    */
-  @ApiModelProperty(example = "22.8", value = "The Number of Units for the leave")
+  @Schema(example = "22.8", description = "The Number of Units for the leave")
   /**
    * The Number of Units for the leave
    *
@@ -87,9 +88,9 @@ public class LeavePeriod {
    *
    * @return payPeriodEndDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(322560000000+0000)/",
-      value = "The Pay Period End Date (YYYY-MM-DD)")
+      description = "The Pay Period End Date (YYYY-MM-DD)")
   /**
    * The Pay Period End Date (YYYY-MM-DD)
    *
@@ -153,9 +154,9 @@ public class LeavePeriod {
    *
    * @return payPeriodStartDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(322560000000+0000)/",
-      value = "The Pay Period Start Date (YYYY-MM-DD)")
+      description = "The Pay Period Start Date (YYYY-MM-DD)")
   /**
    * The Pay Period Start Date (YYYY-MM-DD)
    *
@@ -219,7 +220,7 @@ public class LeavePeriod {
    *
    * @return leavePeriodStatus
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * leavePeriodStatus
    *

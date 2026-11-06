@@ -13,7 +13,7 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -47,7 +47,7 @@ public class Superannuations {
    *
    * @return pagination
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * pagination
    *
@@ -82,7 +82,7 @@ public class Superannuations {
    *
    * @return problem
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * problem
    *
@@ -131,7 +131,7 @@ public class Superannuations {
    *
    * @return benefits
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * benefits
    *

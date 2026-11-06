@@ -1,16 +1,18 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrolluk.*;
+import com.xero.models.payrolluk.EmployeeStatutoryLeavesSummaries;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.time.LocalDate;
 
-import org.threeten.bp.*;
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollUkApiEmployeeStatutoryLeavesSummaryTest {
 
@@ -20,7 +22,7 @@ public class PayrollUkApiEmployeeStatutoryLeavesSummaryTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -42,13 +44,13 @@ public class PayrollUkApiEmployeeStatutoryLeavesSummaryTest {
         UUID employeeId = UUID.fromString("cdfb8371-0b21-4b8a-8903-1024df6c391e");
         EmployeeStatutoryLeavesSummaries response = payrollUkApi.getStatutoryLeaveSummary(accessToken, xeroTenantId, employeeId, false);
         
-        assertThat(response.getStatutoryLeaves().get(0).getEmployeeID(),  is(equalTo(UUID.fromString("aad6b292-7b94-408b-93f6-e489867e3fb0"))));
-        assertThat(response.getStatutoryLeaves().get(0).getStatutoryLeaveID(),  is(equalTo(UUID.fromString("17f4c3c7-d65c-4572-9118-03798f26f813"))));
-        assertThat(response.getStatutoryLeaves().get(0).getType(), is(equalTo(com.xero.models.payrolluk.EmployeeStatutoryLeaveSummary.TypeEnum.SICK)));
-        assertThat(response.getStatutoryLeaves().get(0).getStartDate(), is(equalTo(LocalDate.of(2020, 03, 28))));
-        assertThat(response.getStatutoryLeaves().get(0).getEndDate(), is(equalTo(LocalDate.of(2020, 04, 01))));
-        assertThat(response.getStatutoryLeaves().get(0).getIsEntitled(), is(equalTo(false)));
-        assertThat(response.getStatutoryLeaves().get(0).getStatus(), is(equalTo(com.xero.models.payrolluk.EmployeeStatutoryLeaveSummary.StatusEnum.PENDING)));
+        assertThat(response.getStatutoryLeaves().getFirst().getEmployeeID(),  is(equalTo(UUID.fromString("aad6b292-7b94-408b-93f6-e489867e3fb0"))));
+        assertThat(response.getStatutoryLeaves().getFirst().getStatutoryLeaveID(),  is(equalTo(UUID.fromString("17f4c3c7-d65c-4572-9118-03798f26f813"))));
+        assertThat(response.getStatutoryLeaves().getFirst().getType(), is(equalTo(com.xero.models.payrolluk.EmployeeStatutoryLeaveSummary.TypeEnum.SICK)));
+        assertThat(response.getStatutoryLeaves().getFirst().getStartDate(), is(equalTo(LocalDate.of(2020, 03, 28))));
+        assertThat(response.getStatutoryLeaves().getFirst().getEndDate(), is(equalTo(LocalDate.of(2020, 04, 01))));
+        assertThat(response.getStatutoryLeaves().getFirst().getIsEntitled(), is(equalTo(false)));
+        assertThat(response.getStatutoryLeaves().getFirst().getStatus(), is(equalTo(com.xero.models.payrolluk.EmployeeStatutoryLeaveSummary.StatusEnum.PENDING)));
 
         //System.out.println(response.toString());
     }

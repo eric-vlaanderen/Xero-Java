@@ -13,100 +13,102 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** Budgets */
+/**
+ * Budgets
+ */
 public class Budgets {
-  StringUtil util = new StringUtil();
+    StringUtil util = new StringUtil();
 
-  @JsonProperty("Budgets")
-  private List<Budget> budgets = new ArrayList<Budget>();
+    @JsonProperty("Budgets")
+    private List<Budget> budgets = new ArrayList<Budget>();
 
-  /**
-   * budgets
-   *
-   * @param budgets List&lt;Budget&gt;
-   * @return Budgets
-   */
-  public Budgets budgets(List<Budget> budgets) {
-    this.budgets = budgets;
-    return this;
-  }
+    /**
+     * Budgets
+     */
+    public Budgets() {}
 
-  /**
-   * budgets
-   *
-   * @param budgetsItem Budget
-   * @return Budgets
-   */
-  public Budgets addBudgetsItem(Budget budgetsItem) {
-    if (this.budgets == null) {
-      this.budgets = new ArrayList<Budget>();
+    /**
+     * budgets
+     *
+     * @param budgets List&lt;Budget&gt;
+     * @return Budgets
+     */
+    public Budgets budgets(List<Budget> budgets) {
+        this.budgets = budgets;
+        return this;
     }
-    this.budgets.add(budgetsItem);
-    return this;
-  }
 
-  /**
-   * Get budgets
-   *
-   * @return budgets
-   */
-  @ApiModelProperty(value = "")
-  /**
-   * budgets
-   *
-   * @return budgets List<Budget>
-   */
-  public List<Budget> getBudgets() {
-    return budgets;
-  }
-
-  /**
-   * budgets
-   *
-   * @param budgets List&lt;Budget&gt;
-   */
-  public void setBudgets(List<Budget> budgets) {
-    this.budgets = budgets;
-  }
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * budgets
+     *
+     * @param budgetsItem Budget
+     * @return Budgets
+     */
+    public Budgets addBudgetsItem(Budget budgetsItem) {
+        if (this.budgets == null) {
+            this.budgets = new ArrayList<Budget>();
+        }
+        this.budgets.add(budgetsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+
+    /**
+     * budgets
+     *
+     * @return budgets List&gt;Budget&lt;
+     */
+    @Schema(description = "")
+    public List<Budget> getBudgets() {
+        return budgets;
     }
-    Budgets budgets = (Budgets) o;
-    return Objects.equals(this.budgets, budgets.budgets);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(budgets);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Budgets {\n");
-    sb.append("    budgets: ").append(toIndentedString(budgets)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * budgets
+     *
+     * @param budgets List&lt;Budget&gt;
+     */
+    public void setBudgets(List<Budget> budgets) {
+        this.budgets = budgets;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Budgets budgets = (Budgets) o;
+        return Objects.equals(this.budgets, budgets.budgets);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(budgets);
+    }
+
+    @Override
+    public String toString() {
+        return "class Budgets {\n" +
+            "    budgets: " + toIndentedString(budgets) + "\n" +
+            "}";
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

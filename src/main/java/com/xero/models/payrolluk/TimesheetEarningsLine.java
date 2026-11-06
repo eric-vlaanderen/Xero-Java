@@ -13,7 +13,7 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -55,7 +55,7 @@ public class TimesheetEarningsLine {
    *
    * @return earningsRateID
    */
-  @ApiModelProperty(value = "Xero identifier for payroll timesheet earnings rate")
+  @Schema(description = "Xero identifier for payroll timesheet earnings rate")
   /**
    * Xero identifier for payroll timesheet earnings rate
    *
@@ -90,7 +90,7 @@ public class TimesheetEarningsLine {
    *
    * @return ratePerUnit
    */
-  @ApiModelProperty(value = "Rate per unit for timesheet earnings line")
+  @Schema(description = "Rate per unit for timesheet earnings line")
   /**
    * Rate per unit for timesheet earnings line
    *
@@ -125,7 +125,7 @@ public class TimesheetEarningsLine {
    *
    * @return numberOfUnits
    */
-  @ApiModelProperty(value = "Timesheet earnings number of units")
+  @Schema(description = "Timesheet earnings number of units")
   /**
    * Timesheet earnings number of units
    *
@@ -160,8 +160,8 @@ public class TimesheetEarningsLine {
    *
    * @return fixedAmount
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Timesheet earnings fixed amount. Only applicable if the EarningsRate RateType is Fixed")
   /**
    * Timesheet earnings fixed amount. Only applicable if the EarningsRate RateType is Fixed
@@ -197,7 +197,7 @@ public class TimesheetEarningsLine {
    *
    * @return amount
    */
-  @ApiModelProperty(value = "The amount of the timesheet earnings line.")
+  @Schema(description = "The amount of the timesheet earnings line.")
   /**
    * The amount of the timesheet earnings line.
    *
@@ -232,8 +232,8 @@ public class TimesheetEarningsLine {
    *
    * @return isLinkedToTimesheet
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Identifies if the timesheet earnings is taken from the timesheet. False for leave"
               + " earnings line")
   /**

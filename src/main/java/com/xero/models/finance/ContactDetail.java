@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -63,8 +63,8 @@ public class ContactDetail {
    *
    * @return contactId
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "ID of the contact associated with the transactions.    Transactions with no contact will"
               + " be grouped under the special ID: 86793108-198C-46D8-90A3-43C1D12686CE.   "
               + " Transactions that are receive or spend bank transfers will be grouped under the"
@@ -113,8 +113,8 @@ public class ContactDetail {
    *
    * @return name
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Name of the contact associated with the transactions.    If no contact is associated"
               + " with the transactions this will appear as “None Provided”,    For receive or"
               + " spend bank transfer transactions, this will appear as “Bank Transfer”.")
@@ -156,7 +156,7 @@ public class ContactDetail {
    *
    * @return total
    */
-  @ApiModelProperty(value = "Total value for the contact")
+  @Schema(description = "Total value for the contact")
   /**
    * Total value for the contact
    *
@@ -191,7 +191,7 @@ public class ContactDetail {
    *
    * @return totalDetail
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * totalDetail
    *
@@ -226,7 +226,7 @@ public class ContactDetail {
    *
    * @return totalOther
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * totalOther
    *
@@ -275,7 +275,7 @@ public class ContactDetail {
    *
    * @return accountCodes
    */
-  @ApiModelProperty(value = "A list of account codes involved in transactions.")
+  @Schema(description = "A list of account codes involved in transactions.")
   /**
    * A list of account codes involved in transactions.
    *

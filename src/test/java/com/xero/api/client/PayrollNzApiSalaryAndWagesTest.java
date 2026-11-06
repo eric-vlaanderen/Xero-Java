@@ -1,18 +1,22 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrollnz.*;
+import com.xero.models.payrollnz.SalaryAndWage;
 import com.xero.models.payrollnz.SalaryAndWage.PaymentTypeEnum;
 import com.xero.models.payrollnz.SalaryAndWage.StatusEnum;
+import com.xero.models.payrollnz.SalaryAndWageObject;
+import com.xero.models.payrollnz.SalaryAndWages;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.time.LocalDate;
 
-import org.threeten.bp.*;
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollNzApiSalaryAndWagesTest {
 
@@ -22,7 +26,7 @@ public class PayrollNzApiSalaryAndWagesTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -44,16 +48,16 @@ public class PayrollNzApiSalaryAndWagesTest {
         UUID employeeId = UUID.fromString("cdfb8371-0b21-4b8a-8903-1024df6c391e");
         SalaryAndWages response =  payrollNzApi.getEmployeeSalaryAndWages(accessToken, xeroTenantId, employeeId, 1);
         
-        assertThat(response.getSalaryAndWages().get(0).getSalaryAndWagesID(), is(equalTo(UUID.fromString("b0026f5a-fa8e-43aa-95e4-cec3c0972e39"))));
-        assertThat(response.getSalaryAndWages().get(0).getEarningsRateID(), is(equalTo(UUID.fromString("f9d8f5b5-9049-47f4-8541-35e200f750a5"))));
-        assertThat(response.getSalaryAndWages().get(0).getNumberOfUnitsPerWeek(), is(equalTo(0.0)));
-        assertThat(response.getSalaryAndWages().get(0).getRatePerUnit(), is(equalTo(25.0)));
-        assertThat(response.getSalaryAndWages().get(0).getNumberOfUnitsPerDay(), is(equalTo(0.0)));
-        assertThat(response.getSalaryAndWages().get(0).getDaysPerWeek(), is(equalTo(0.0)));
-        assertThat(response.getSalaryAndWages().get(0).getEffectiveFrom(), is(equalTo(LocalDate.of(2019, 02, 07))));        
-        assertThat(response.getSalaryAndWages().get(0).getAnnualSalary(), is(equalTo(25.0)));
-        assertThat(response.getSalaryAndWages().get(0).getStatus() , is(equalTo(com.xero.models.payrollnz.SalaryAndWage.StatusEnum.ACTIVE)));
-        assertThat(response.getSalaryAndWages().get(0).getPaymentType() , is(equalTo(com.xero.models.payrollnz.SalaryAndWage.PaymentTypeEnum.HOURLY)));
+        assertThat(response.getSalaryAndWages().getFirst().getSalaryAndWagesID(), is(equalTo(UUID.fromString("b0026f5a-fa8e-43aa-95e4-cec3c0972e39"))));
+        assertThat(response.getSalaryAndWages().getFirst().getEarningsRateID(), is(equalTo(UUID.fromString("f9d8f5b5-9049-47f4-8541-35e200f750a5"))));
+        assertThat(response.getSalaryAndWages().getFirst().getNumberOfUnitsPerWeek(), is(equalTo(0.0)));
+        assertThat(response.getSalaryAndWages().getFirst().getRatePerUnit(), is(equalTo(25.0)));
+        assertThat(response.getSalaryAndWages().getFirst().getNumberOfUnitsPerDay(), is(equalTo(0.0)));
+        assertThat(response.getSalaryAndWages().getFirst().getDaysPerWeek(), is(equalTo(0.0)));
+        assertThat(response.getSalaryAndWages().getFirst().getEffectiveFrom(), is(equalTo(LocalDate.of(2019, 02, 07))));        
+        assertThat(response.getSalaryAndWages().getFirst().getAnnualSalary(), is(equalTo(25.0)));
+        assertThat(response.getSalaryAndWages().getFirst().getStatus() , is(equalTo(com.xero.models.payrollnz.SalaryAndWage.StatusEnum.ACTIVE)));
+        assertThat(response.getSalaryAndWages().getFirst().getPaymentType() , is(equalTo(com.xero.models.payrollnz.SalaryAndWage.PaymentTypeEnum.HOURLY)));
 
         //System.out.println(response.toString());
     }
@@ -94,16 +98,16 @@ public class PayrollNzApiSalaryAndWagesTest {
         UUID salaryAndWagesId = UUID.fromString("cdfb8371-0b21-4b8a-8903-1024df6c391e");
         SalaryAndWages response =  payrollNzApi.getEmployeeSalaryAndWage(accessToken, xeroTenantId, employeeId, salaryAndWagesId);
         
-        assertThat(response.getSalaryAndWages().get(0).getSalaryAndWagesID(), is(equalTo(UUID.fromString("b0026f5a-fa8e-43aa-95e4-cec3c0972e39"))));
-        assertThat(response.getSalaryAndWages().get(0).getEarningsRateID(), is(equalTo(UUID.fromString("f9d8f5b5-9049-47f4-8541-35e200f750a5"))));
-        assertThat(response.getSalaryAndWages().get(0).getNumberOfUnitsPerWeek(), is(equalTo(0.0)));
-        assertThat(response.getSalaryAndWages().get(0).getRatePerUnit(), is(equalTo(25.0)));
-        assertThat(response.getSalaryAndWages().get(0).getNumberOfUnitsPerDay(), is(equalTo(0.0)));
-        assertThat(response.getSalaryAndWages().get(0).getDaysPerWeek(), is(equalTo(0.0)));
-        assertThat(response.getSalaryAndWages().get(0).getEffectiveFrom(), is(equalTo(LocalDate.of(2019, 02, 07))));        
-        assertThat(response.getSalaryAndWages().get(0).getAnnualSalary(), is(equalTo(25.0)));
-        assertThat(response.getSalaryAndWages().get(0).getStatus() , is(equalTo(com.xero.models.payrollnz.SalaryAndWage.StatusEnum.ACTIVE)));
-        assertThat(response.getSalaryAndWages().get(0).getPaymentType() , is(equalTo(com.xero.models.payrollnz.SalaryAndWage.PaymentTypeEnum.HOURLY)));
+        assertThat(response.getSalaryAndWages().getFirst().getSalaryAndWagesID(), is(equalTo(UUID.fromString("b0026f5a-fa8e-43aa-95e4-cec3c0972e39"))));
+        assertThat(response.getSalaryAndWages().getFirst().getEarningsRateID(), is(equalTo(UUID.fromString("f9d8f5b5-9049-47f4-8541-35e200f750a5"))));
+        assertThat(response.getSalaryAndWages().getFirst().getNumberOfUnitsPerWeek(), is(equalTo(0.0)));
+        assertThat(response.getSalaryAndWages().getFirst().getRatePerUnit(), is(equalTo(25.0)));
+        assertThat(response.getSalaryAndWages().getFirst().getNumberOfUnitsPerDay(), is(equalTo(0.0)));
+        assertThat(response.getSalaryAndWages().getFirst().getDaysPerWeek(), is(equalTo(0.0)));
+        assertThat(response.getSalaryAndWages().getFirst().getEffectiveFrom(), is(equalTo(LocalDate.of(2019, 02, 07))));        
+        assertThat(response.getSalaryAndWages().getFirst().getAnnualSalary(), is(equalTo(25.0)));
+        assertThat(response.getSalaryAndWages().getFirst().getStatus() , is(equalTo(com.xero.models.payrollnz.SalaryAndWage.StatusEnum.ACTIVE)));
+        assertThat(response.getSalaryAndWages().getFirst().getPaymentType() , is(equalTo(com.xero.models.payrollnz.SalaryAndWage.PaymentTypeEnum.HOURLY)));
 
         //System.out.println(response.toString());
     }

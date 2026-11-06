@@ -13,7 +13,7 @@ package com.xero.models.project;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** TaskCreateOrUpdate */
@@ -48,7 +48,7 @@ public class TaskCreateOrUpdate {
    *
    * @return name
    */
-  @ApiModelProperty(required = true, value = "Name of the task. Max length 100 characters.")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Name of the task. Max length 100 characters.")
   /**
    * Name of the task. Max length 100 characters.
    *
@@ -83,7 +83,7 @@ public class TaskCreateOrUpdate {
    *
    * @return rate
    */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "")
   /**
    * rate
    *
@@ -118,7 +118,7 @@ public class TaskCreateOrUpdate {
    *
    * @return chargeType
    */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "")
   /**
    * chargeType
    *
@@ -153,7 +153,7 @@ public class TaskCreateOrUpdate {
    *
    * @return estimateMinutes
    */
-  @ApiModelProperty(value = "An estimated time to perform the task")
+  @Schema(description = "An estimated time to perform the task")
   /**
    * An estimated time to perform the task
    *

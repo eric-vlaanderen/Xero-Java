@@ -13,16 +13,17 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** LeaveApplication */
 public class LeaveApplication {
@@ -77,9 +78,9 @@ public class LeaveApplication {
    *
    * @return leaveApplicationID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "e0eb6747-7c17-4075-b804-989f8d4e5d39",
-      value = "The Xero identifier for Payroll Employee")
+      description = "The Xero identifier for Payroll Employee")
   /**
    * The Xero identifier for Payroll Employee
    *
@@ -114,9 +115,9 @@ public class LeaveApplication {
    *
    * @return employeeID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "fb4ebd68-6568-41eb-96ab-628a0f54b4b8",
-      value = "The Xero identifier for Payroll Employee")
+      description = "The Xero identifier for Payroll Employee")
   /**
    * The Xero identifier for Payroll Employee
    *
@@ -151,9 +152,9 @@ public class LeaveApplication {
    *
    * @return leaveTypeID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "742998cb-7584-4ecf-aa88-d694f59c50f9",
-      value = "The Xero identifier for Leave Type")
+      description = "The Xero identifier for Leave Type")
   /**
    * The Xero identifier for Leave Type
    *
@@ -188,7 +189,7 @@ public class LeaveApplication {
    *
    * @return title
    */
-  @ApiModelProperty(example = "Annual Leave", value = "The title of the leave")
+  @Schema(example = "Annual Leave", description = "The title of the leave")
   /**
    * The title of the leave
    *
@@ -223,9 +224,9 @@ public class LeaveApplication {
    *
    * @return startDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(322560000000+0000)/",
-      value = "Start date of the leave (YYYY-MM-DD)")
+      description = "Start date of the leave (YYYY-MM-DD)")
   /**
    * Start date of the leave (YYYY-MM-DD)
    *
@@ -289,9 +290,9 @@ public class LeaveApplication {
    *
    * @return endDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(322560000000+0000)/",
-      value = "End date of the leave (YYYY-MM-DD)")
+      description = "End date of the leave (YYYY-MM-DD)")
   /**
    * End date of the leave (YYYY-MM-DD)
    *
@@ -355,7 +356,7 @@ public class LeaveApplication {
    *
    * @return description
    */
-  @ApiModelProperty(example = "My leave", value = "The Description of the Leave")
+  @Schema(example = "My leave", description = "The Description of the Leave")
   /**
    * The Description of the Leave
    *
@@ -390,7 +391,7 @@ public class LeaveApplication {
    *
    * @return payOutType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * payOutType
    *
@@ -439,7 +440,7 @@ public class LeaveApplication {
    *
    * @return leavePeriods
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * leavePeriods
    *
@@ -463,7 +464,7 @@ public class LeaveApplication {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1583967733054+0000)/", value = "Last modified timestamp")
+  @Schema(example = "/Date(1583967733054+0000)/", description = "Last modified timestamp")
   /**
    * Last modified timestamp
    *
@@ -519,7 +520,7 @@ public class LeaveApplication {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *

@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** TotalOther */
@@ -45,8 +45,8 @@ public class TotalOther {
    *
    * @return totalOutstandingAged
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Total outstanding invoice value within the period where the invoices are more than 90"
               + " days old")
   /**
@@ -83,7 +83,7 @@ public class TotalOther {
    *
    * @return totalVoided
    */
-  @ApiModelProperty(value = "Total voided value.")
+  @Schema(description = "Total voided value.")
   /**
    * Total voided value.
    *
@@ -118,7 +118,7 @@ public class TotalOther {
    *
    * @return totalCredited
    */
-  @ApiModelProperty(value = "Total credited value.")
+  @Schema(description = "Total credited value.")
   /**
    * Total credited value.
    *

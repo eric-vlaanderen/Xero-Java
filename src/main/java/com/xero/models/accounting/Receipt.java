@@ -15,16 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** Receipt */
 public class Receipt {
@@ -159,7 +160,7 @@ public class Receipt {
    *
    * @return date
    */
-  @ApiModelProperty(value = "Date of receipt – YYYY-MM-DD")
+  @Schema(description = "Date of receipt – YYYY-MM-DD")
   /**
    * Date of receipt – YYYY-MM-DD
    *
@@ -223,7 +224,7 @@ public class Receipt {
    *
    * @return contact
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * contact
    *
@@ -272,7 +273,7 @@ public class Receipt {
    *
    * @return lineItems
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * lineItems
    *
@@ -307,7 +308,7 @@ public class Receipt {
    *
    * @return user
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * user
    *
@@ -342,7 +343,7 @@ public class Receipt {
    *
    * @return reference
    */
-  @ApiModelProperty(value = "Additional reference number")
+  @Schema(description = "Additional reference number")
   /**
    * Additional reference number
    *
@@ -377,7 +378,7 @@ public class Receipt {
    *
    * @return lineAmountTypes
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * lineAmountTypes
    *
@@ -412,7 +413,7 @@ public class Receipt {
    *
    * @return subTotal
    */
-  @ApiModelProperty(value = "Total of receipt excluding taxes")
+  @Schema(description = "Total of receipt excluding taxes")
   /**
    * Total of receipt excluding taxes
    *
@@ -447,7 +448,7 @@ public class Receipt {
    *
    * @return totalTax
    */
-  @ApiModelProperty(value = "Total tax on receipt")
+  @Schema(description = "Total tax on receipt")
   /**
    * Total tax on receipt
    *
@@ -482,7 +483,7 @@ public class Receipt {
    *
    * @return total
    */
-  @ApiModelProperty(value = "Total of receipt tax inclusive (i.e. SubTotal + TotalTax)")
+  @Schema(description = "Total of receipt tax inclusive (i.e. SubTotal + TotalTax)")
   /**
    * Total of receipt tax inclusive (i.e. SubTotal + TotalTax)
    *
@@ -517,7 +518,7 @@ public class Receipt {
    *
    * @return receiptID
    */
-  @ApiModelProperty(value = "Xero generated unique identifier for receipt")
+  @Schema(description = "Xero generated unique identifier for receipt")
   /**
    * Xero generated unique identifier for receipt
    *
@@ -552,7 +553,7 @@ public class Receipt {
    *
    * @return status
    */
-  @ApiModelProperty(value = "Current status of receipt – see status types")
+  @Schema(description = "Current status of receipt – see status types")
   /**
    * Current status of receipt – see status types
    *
@@ -576,8 +577,8 @@ public class Receipt {
    *
    * @return receiptNumber
    */
-  @ApiModelProperty(
-      value = "Xero generated sequence number for receipt in current claim for a given user")
+  @Schema(
+      description = "Xero generated sequence number for receipt in current claim for a given user")
   /**
    * Xero generated sequence number for receipt in current claim for a given user
    *
@@ -592,7 +593,7 @@ public class Receipt {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1573755038314)/", value = "Last modified date UTC format")
+  @Schema(example = "/Date(1573755038314)/", description = "Last modified date UTC format")
   /**
    * Last modified date UTC format
    *
@@ -623,7 +624,7 @@ public class Receipt {
    *
    * @return hasAttachments
    */
-  @ApiModelProperty(example = "false", value = "boolean to indicate if a receipt has an attachment")
+  @Schema(example = "false", description = "boolean to indicate if a receipt has an attachment")
   /**
    * boolean to indicate if a receipt has an attachment
    *
@@ -638,8 +639,8 @@ public class Receipt {
    *
    * @return url
    */
-  @ApiModelProperty(
-      value = "URL link to a source document – shown as “Go to [appName]” in the Xero app")
+  @Schema(
+      description = "URL link to a source document – shown as “Go to [appName]” in the Xero app")
   /**
    * URL link to a source document – shown as “Go to [appName]” in the Xero app
    *
@@ -679,7 +680,7 @@ public class Receipt {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *
@@ -728,7 +729,7 @@ public class Receipt {
    *
    * @return warnings
    */
-  @ApiModelProperty(value = "Displays array of warning messages from the API")
+  @Schema(description = "Displays array of warning messages from the API")
   /**
    * Displays array of warning messages from the API
    *
@@ -777,7 +778,7 @@ public class Receipt {
    *
    * @return attachments
    */
-  @ApiModelProperty(value = "Displays array of attachments from the API")
+  @Schema(description = "Displays array of attachments from the API")
   /**
    * Displays array of attachments from the API
    *

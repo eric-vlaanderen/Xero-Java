@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** InvoiceAddress */
@@ -115,8 +115,8 @@ public class InvoiceAddress {
    *
    * @return invoiceAddressType
    */
-  @ApiModelProperty(
-      value = "Indicates whether the address is defined as origin (FROM) or destination (TO)")
+  @Schema(
+      description = "Indicates whether the address is defined as origin (FROM) or destination (TO)")
   /**
    * Indicates whether the address is defined as origin (FROM) or destination (TO)
    *
@@ -151,7 +151,7 @@ public class InvoiceAddress {
    *
    * @return addressLine1
    */
-  @ApiModelProperty(value = "First line of a physical address")
+  @Schema(description = "First line of a physical address")
   /**
    * First line of a physical address
    *
@@ -186,7 +186,7 @@ public class InvoiceAddress {
    *
    * @return addressLine2
    */
-  @ApiModelProperty(value = "Second line of a physical address")
+  @Schema(description = "Second line of a physical address")
   /**
    * Second line of a physical address
    *
@@ -221,7 +221,7 @@ public class InvoiceAddress {
    *
    * @return addressLine3
    */
-  @ApiModelProperty(value = "Third line of a physical address")
+  @Schema(description = "Third line of a physical address")
   /**
    * Third line of a physical address
    *
@@ -256,7 +256,7 @@ public class InvoiceAddress {
    *
    * @return addressLine4
    */
-  @ApiModelProperty(value = "Fourth line of a physical address")
+  @Schema(description = "Fourth line of a physical address")
   /**
    * Fourth line of a physical address
    *
@@ -291,7 +291,7 @@ public class InvoiceAddress {
    *
    * @return city
    */
-  @ApiModelProperty(value = "City of a physical address")
+  @Schema(description = "City of a physical address")
   /**
    * City of a physical address
    *
@@ -326,7 +326,7 @@ public class InvoiceAddress {
    *
    * @return region
    */
-  @ApiModelProperty(value = "Region or state of a physical address")
+  @Schema(description = "Region or state of a physical address")
   /**
    * Region or state of a physical address
    *
@@ -361,7 +361,7 @@ public class InvoiceAddress {
    *
    * @return postalCode
    */
-  @ApiModelProperty(value = "Postal code of a physical address")
+  @Schema(description = "Postal code of a physical address")
   /**
    * Postal code of a physical address
    *
@@ -396,7 +396,7 @@ public class InvoiceAddress {
    *
    * @return country
    */
-  @ApiModelProperty(value = "Country of a physical address")
+  @Schema(description = "Country of a physical address")
   /**
    * Country of a physical address
    *

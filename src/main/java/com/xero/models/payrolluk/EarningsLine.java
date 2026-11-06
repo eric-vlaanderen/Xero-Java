@@ -13,7 +13,7 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -64,7 +64,7 @@ public class EarningsLine {
    *
    * @return earningsLineID
    */
-  @ApiModelProperty(value = "Xero identifier for payroll earnings line")
+  @Schema(description = "Xero identifier for payroll earnings line")
   /**
    * Xero identifier for payroll earnings line
    *
@@ -99,7 +99,7 @@ public class EarningsLine {
    *
    * @return earningsRateID
    */
-  @ApiModelProperty(value = "Xero identifier for payroll earnings rate")
+  @Schema(description = "Xero identifier for payroll earnings rate")
   /**
    * Xero identifier for payroll earnings rate
    *
@@ -134,7 +134,7 @@ public class EarningsLine {
    *
    * @return displayName
    */
-  @ApiModelProperty(value = "name of earnings rate for display in UI")
+  @Schema(description = "name of earnings rate for display in UI")
   /**
    * name of earnings rate for display in UI
    *
@@ -169,7 +169,7 @@ public class EarningsLine {
    *
    * @return ratePerUnit
    */
-  @ApiModelProperty(value = "Rate per unit for earnings line")
+  @Schema(description = "Rate per unit for earnings line")
   /**
    * Rate per unit for earnings line
    *
@@ -204,7 +204,7 @@ public class EarningsLine {
    *
    * @return numberOfUnits
    */
-  @ApiModelProperty(value = "Earnings number of units")
+  @Schema(description = "Earnings number of units")
   /**
    * Earnings number of units
    *
@@ -239,8 +239,8 @@ public class EarningsLine {
    *
    * @return fixedAmount
    */
-  @ApiModelProperty(
-      value = "Earnings fixed amount. Only applicable if the EarningsRate RateType is Fixed")
+  @Schema(
+      description = "Earnings fixed amount. Only applicable if the EarningsRate RateType is Fixed")
   /**
    * Earnings fixed amount. Only applicable if the EarningsRate RateType is Fixed
    *
@@ -275,7 +275,7 @@ public class EarningsLine {
    *
    * @return amount
    */
-  @ApiModelProperty(value = "The amount of the earnings line.")
+  @Schema(description = "The amount of the earnings line.")
   /**
    * The amount of the earnings line.
    *
@@ -310,8 +310,8 @@ public class EarningsLine {
    *
    * @return isLinkedToTimesheet
    */
-  @ApiModelProperty(
-      value = "Identifies if the earnings is taken from the timesheet. False for earnings line")
+  @Schema(
+      description = "Identifies if the earnings is taken from the timesheet. False for earnings line")
   /**
    * Identifies if the earnings is taken from the timesheet. False for earnings line
    *
@@ -346,7 +346,7 @@ public class EarningsLine {
    *
    * @return isAverageDailyPayRate
    */
-  @ApiModelProperty(value = "Identifies if the earnings is using an average daily pay rate")
+  @Schema(description = "Identifies if the earnings is using an average daily pay rate")
   /**
    * Identifies if the earnings is using an average daily pay rate
    *

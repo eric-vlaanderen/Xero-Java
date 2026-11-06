@@ -1,16 +1,22 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrollnz.*;
+import com.xero.models.payrollnz.Address;
+import com.xero.models.payrollnz.Employee;
+import com.xero.models.payrollnz.EmployeeObject;
+import com.xero.models.payrollnz.Employees;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-import org.threeten.bp.*;
 import java.io.IOException;
 import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollNzApiEmployeeTest {
 
@@ -20,7 +26,7 @@ public class PayrollNzApiEmployeeTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -41,19 +47,19 @@ public class PayrollNzApiEmployeeTest {
        
         Employees response =  payrollNzApi.getEmployees(accessToken, xeroTenantId, null,1);
         
-        assertThat(response.getEmployees().get(0).getEmployeeID(), is(equalTo(UUID.fromString("68342973-c405-4b86-b5d3-d7b877c27995"))));
-        assertThat(response.getEmployees().get(0).getFirstName(), is(equalTo("Casual")));
-        assertThat(response.getEmployees().get(0).getLastName(), is(equalTo("Worker")));
-        assertThat(response.getEmployees().get(0).getDateOfBirth(), is(equalTo(LocalDate.of(1990, 12, 01))));
-        assertThat(response.getEmployees().get(0).getAddress().getAddressLine1(), is(equalTo("30 King ST")));
-        assertThat(response.getEmployees().get(0).getAddress().getCity(), is(equalTo("Rangiora")));
-        assertThat(response.getEmployees().get(0).getAddress().getPostCode(), is(equalTo("7400")));
-        assertThat(response.getEmployees().get(0).getAddress().getCountryName(), is(equalTo("NEW ZEALAND")));
-        assertThat(response.getEmployees().get(0).getGender() , is(equalTo(com.xero.models.payrollnz.Employee.GenderEnum.M)));
-        assertThat(response.getEmployees().get(0).getStartDate() , is(equalTo(LocalDate.of(2019, 02, 07))));
-        assertThat(response.getEmployees().get(0).getPayrollCalendarID(), is(equalTo(UUID.fromString("9aa56064-990f-4ad3-a189-d966d8f6a030"))));        
-        assertThat(response.getEmployees().get(0).getUpdatedDateUTC(), is(equalTo(LocalDateTime.of(2019, 9, 24, 05, 8, 45) )));  
-        assertThat(response.getEmployees().get(0).getCreatedDateUTC(), is(equalTo(LocalDateTime.of(2019, 9, 22, 23, 58, 23) )));  
+        assertThat(response.getEmployees().getFirst().getEmployeeID(), is(equalTo(UUID.fromString("68342973-c405-4b86-b5d3-d7b877c27995"))));
+        assertThat(response.getEmployees().getFirst().getFirstName(), is(equalTo("Casual")));
+        assertThat(response.getEmployees().getFirst().getLastName(), is(equalTo("Worker")));
+        assertThat(response.getEmployees().getFirst().getDateOfBirth(), is(equalTo(LocalDate.of(1990, 12, 01))));
+        assertThat(response.getEmployees().getFirst().getAddress().getAddressLine1(), is(equalTo("30 King ST")));
+        assertThat(response.getEmployees().getFirst().getAddress().getCity(), is(equalTo("Rangiora")));
+        assertThat(response.getEmployees().getFirst().getAddress().getPostCode(), is(equalTo("7400")));
+        assertThat(response.getEmployees().getFirst().getAddress().getCountryName(), is(equalTo("NEW ZEALAND")));
+        assertThat(response.getEmployees().getFirst().getGender() , is(equalTo(com.xero.models.payrollnz.Employee.GenderEnum.M)));
+        assertThat(response.getEmployees().getFirst().getStartDate() , is(equalTo(LocalDate.of(2019, 02, 07))));
+        assertThat(response.getEmployees().getFirst().getPayrollCalendarID(), is(equalTo(UUID.fromString("9aa56064-990f-4ad3-a189-d966d8f6a030"))));        
+        assertThat(response.getEmployees().getFirst().getUpdatedDateUTC(), is(equalTo(LocalDateTime.of(2019, 9, 24, 05, 8, 45) )));  
+        assertThat(response.getEmployees().getFirst().getCreatedDateUTC(), is(equalTo(LocalDateTime.of(2019, 9, 22, 23, 58, 23) )));  
         
         //System.out.println(response.toString());
     }

@@ -1,14 +1,18 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrolluk.*;
+import com.xero.models.payrolluk.PaymentMethod;
+import com.xero.models.payrolluk.PaymentMethodObject;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import java.io.IOException;
-import java.util.*;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollUkApiPaymentMethodsTest {
 
@@ -18,7 +22,7 @@ public class PayrollUkApiPaymentMethodsTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -42,9 +46,9 @@ public class PayrollUkApiPaymentMethodsTest {
         PaymentMethodObject response = payrollUkApi.getEmployeePaymentMethod(accessToken, xeroTenantId, employeeId);
         
         assertThat(response.getPaymentMethod().getPaymentMethod(), is(equalTo(com.xero.models.payrolluk.PaymentMethod.PaymentMethodEnum.ELECTRONICALLY)));
-        assertThat(response.getPaymentMethod().getBankAccounts().get(0).getAccountName(), is(equalTo("Oliver Furniss - Santander")));
-        assertThat(response.getPaymentMethod().getBankAccounts().get(0).getAccountNumber(), is(equalTo("12345678")));
-        assertThat(response.getPaymentMethod().getBankAccounts().get(0).getSortCode(), is(equalTo("111111")));
+        assertThat(response.getPaymentMethod().getBankAccounts().getFirst().getAccountName(), is(equalTo("Oliver Furniss - Santander")));
+        assertThat(response.getPaymentMethod().getBankAccounts().getFirst().getAccountNumber(), is(equalTo("12345678")));
+        assertThat(response.getPaymentMethod().getBankAccounts().getFirst().getSortCode(), is(equalTo("111111")));
 
         //System.out.println(response.toString());
     }
@@ -60,9 +64,9 @@ public class PayrollUkApiPaymentMethodsTest {
         PaymentMethodObject response = payrollUkApi.createEmployeePaymentMethod(accessToken, xeroTenantId, employeeId, paymentMethod, null);
         
         assertThat(response.getPaymentMethod().getPaymentMethod(), is(equalTo(com.xero.models.payrolluk.PaymentMethod.PaymentMethodEnum.ELECTRONICALLY)));
-        assertThat(response.getPaymentMethod().getBankAccounts().get(0).getAccountName(), is(equalTo("Sid BofA")));
-        assertThat(response.getPaymentMethod().getBankAccounts().get(0).getAccountNumber(), is(equalTo("24987654")));
-        assertThat(response.getPaymentMethod().getBankAccounts().get(0).getSortCode(), is(equalTo("287654")));
+        assertThat(response.getPaymentMethod().getBankAccounts().getFirst().getAccountName(), is(equalTo("Sid BofA")));
+        assertThat(response.getPaymentMethod().getBankAccounts().getFirst().getAccountNumber(), is(equalTo("24987654")));
+        assertThat(response.getPaymentMethod().getBankAccounts().getFirst().getSortCode(), is(equalTo("287654")));
 
         //System.out.println(response.toString());
     }

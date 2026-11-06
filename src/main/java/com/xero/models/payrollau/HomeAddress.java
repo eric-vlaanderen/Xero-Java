@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** HomeAddress */
@@ -54,10 +54,10 @@ public class HomeAddress {
    *
    * @return addressLine1
    */
-  @ApiModelProperty(
+  @Schema(
       example = "123 Main St",
-      required = true,
-      value = "Address line 1 for employee home address")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Address line 1 for employee home address")
   /**
    * Address line 1 for employee home address
    *
@@ -92,7 +92,7 @@ public class HomeAddress {
    *
    * @return addressLine2
    */
-  @ApiModelProperty(example = "Apt 4", value = "Address line 2 for employee home address")
+  @Schema(example = "Apt 4", description = "Address line 2 for employee home address")
   /**
    * Address line 2 for employee home address
    *
@@ -127,7 +127,7 @@ public class HomeAddress {
    *
    * @return city
    */
-  @ApiModelProperty(example = "St. Kilda", value = "Suburb for employee home address")
+  @Schema(example = "St. Kilda", description = "Suburb for employee home address")
   /**
    * Suburb for employee home address
    *
@@ -162,7 +162,7 @@ public class HomeAddress {
    *
    * @return region
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * region
    *
@@ -197,7 +197,7 @@ public class HomeAddress {
    *
    * @return postalCode
    */
-  @ApiModelProperty(example = "3182", value = "PostCode for employee home address")
+  @Schema(example = "3182", description = "PostCode for employee home address")
   /**
    * PostCode for employee home address
    *
@@ -232,7 +232,7 @@ public class HomeAddress {
    *
    * @return country
    */
-  @ApiModelProperty(example = "AUSTRALIA", value = "Country of HomeAddress")
+  @Schema(example = "AUSTRALIA", description = "Country of HomeAddress")
   /**
    * Country of HomeAddress
    *

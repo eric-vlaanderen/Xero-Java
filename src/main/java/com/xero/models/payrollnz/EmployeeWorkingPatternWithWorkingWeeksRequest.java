@@ -13,11 +13,12 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import org.threeten.bp.LocalDate;
 
 /** EmployeeWorkingPatternWithWorkingWeeksRequest */
 public class EmployeeWorkingPatternWithWorkingWeeksRequest {
@@ -45,9 +46,9 @@ public class EmployeeWorkingPatternWithWorkingWeeksRequest {
    *
    * @return effectiveFrom
    */
-  @ApiModelProperty(
-      required = true,
-      value = "The effective date of the corresponding salary and wages")
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The effective date of the corresponding salary and wages")
   /**
    * The effective date of the corresponding salary and wages
    *
@@ -95,7 +96,7 @@ public class EmployeeWorkingPatternWithWorkingWeeksRequest {
    *
    * @return workingWeeks
    */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "")
   /**
    * workingWeeks
    *

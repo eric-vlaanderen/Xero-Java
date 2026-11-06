@@ -13,7 +13,7 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -76,7 +76,7 @@ public class PayslipLines {
    *
    * @return earningsLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * earningsLines
    *
@@ -125,7 +125,7 @@ public class PayslipLines {
    *
    * @return leaveEarningsLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * leaveEarningsLines
    *
@@ -174,7 +174,7 @@ public class PayslipLines {
    *
    * @return timesheetEarningsLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * timesheetEarningsLines
    *
@@ -223,7 +223,7 @@ public class PayslipLines {
    *
    * @return deductionLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * deductionLines
    *
@@ -272,7 +272,7 @@ public class PayslipLines {
    *
    * @return leaveAccrualLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * leaveAccrualLines
    *
@@ -321,7 +321,7 @@ public class PayslipLines {
    *
    * @return reimbursementLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * reimbursementLines
    *
@@ -370,7 +370,7 @@ public class PayslipLines {
    *
    * @return superannuationLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * superannuationLines
    *
@@ -419,7 +419,7 @@ public class PayslipLines {
    *
    * @return taxLines
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * taxLines
    *

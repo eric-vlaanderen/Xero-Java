@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -75,9 +75,9 @@ public class JournalLine {
    *
    * @return journalLineID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "7be9db36-3598-4755-ba5c-c2dbc8c4a7a2",
-      value = "Xero identifier for Journal")
+      description = "Xero identifier for Journal")
   /**
    * Xero identifier for Journal
    *
@@ -112,7 +112,7 @@ public class JournalLine {
    *
    * @return accountID
    */
-  @ApiModelProperty(example = "ceef66a5-a545-413b-9312-78a53caadbc4", value = "See Accounts")
+  @Schema(example = "ceef66a5-a545-413b-9312-78a53caadbc4", description = "See Accounts")
   /**
    * See Accounts
    *
@@ -147,7 +147,7 @@ public class JournalLine {
    *
    * @return accountCode
    */
-  @ApiModelProperty(example = "90.0", value = "See Accounts")
+  @Schema(example = "90.0", description = "See Accounts")
   /**
    * See Accounts
    *
@@ -182,7 +182,7 @@ public class JournalLine {
    *
    * @return accountType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * accountType
    *
@@ -217,7 +217,7 @@ public class JournalLine {
    *
    * @return accountName
    */
-  @ApiModelProperty(example = "Checking Account", value = "See AccountCodes")
+  @Schema(example = "Checking Account", description = "See AccountCodes")
   /**
    * See AccountCodes
    *
@@ -252,9 +252,9 @@ public class JournalLine {
    *
    * @return description
    */
-  @ApiModelProperty(
+  @Schema(
       example = "My business checking account",
-      value = "The description from the source transaction line item. Only returned if populated.")
+      description = "The description from the source transaction line item. Only returned if populated.")
   /**
    * The description from the source transaction line item. Only returned if populated.
    *
@@ -289,9 +289,9 @@ public class JournalLine {
    *
    * @return netAmount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "4130.98",
-      value =
+      description =
           "Net amount of journal line. This will be a positive value for a debit and negative for a"
               + " credit")
   /**
@@ -328,9 +328,9 @@ public class JournalLine {
    *
    * @return grossAmount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "4130.98",
-      value = "Gross amount of journal line (NetAmount + TaxAmount).")
+      description = "Gross amount of journal line (NetAmount + TaxAmount).")
   /**
    * Gross amount of journal line (NetAmount + TaxAmount).
    *
@@ -354,7 +354,7 @@ public class JournalLine {
    *
    * @return taxAmount
    */
-  @ApiModelProperty(example = "0.0", value = "Total tax on a journal line")
+  @Schema(example = "0.0", description = "Total tax on a journal line")
   /**
    * Total tax on a journal line
    *
@@ -380,7 +380,7 @@ public class JournalLine {
    *
    * @return taxType
    */
-  @ApiModelProperty(value = "The tax type from taxRates")
+  @Schema(description = "The tax type from taxRates")
   /**
    * The tax type from taxRates
    *
@@ -415,7 +415,7 @@ public class JournalLine {
    *
    * @return taxName
    */
-  @ApiModelProperty(example = "Tax Exempt", value = "see TaxRates")
+  @Schema(example = "Tax Exempt", description = "see TaxRates")
   /**
    * see TaxRates
    *
@@ -467,8 +467,8 @@ public class JournalLine {
    *
    * @return trackingCategories
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Optional Tracking Category – see Tracking. Any JournalLine can have a maximum of 2"
               + " <TrackingCategory> elements.")
   /**

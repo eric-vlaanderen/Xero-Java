@@ -13,10 +13,11 @@ package com.xero.models.assets;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** Setting */
 public class Setting {
@@ -62,9 +63,9 @@ public class Setting {
    *
    * @return assetNumberPrefix
    */
-  @ApiModelProperty(
+  @Schema(
       example = "FA-",
-      value = "The prefix used for fixed asset numbers (“FA-” by default)")
+      description = "The prefix used for fixed asset numbers (“FA-” by default)")
   /**
    * The prefix used for fixed asset numbers (“FA-” by default)
    *
@@ -99,7 +100,7 @@ public class Setting {
    *
    * @return assetNumberSequence
    */
-  @ApiModelProperty(example = "0022", value = "The next available sequence number")
+  @Schema(example = "0022", description = "The next available sequence number")
   /**
    * The next available sequence number
    *
@@ -134,8 +135,8 @@ public class Setting {
    *
    * @return assetStartDate
    */
-  @ApiModelProperty(
-      value = "The date depreciation calculations started on registered fixed assets in Xero")
+  @Schema(
+      description = "The date depreciation calculations started on registered fixed assets in Xero")
   /**
    * The date depreciation calculations started on registered fixed assets in Xero
    *
@@ -170,7 +171,7 @@ public class Setting {
    *
    * @return lastDepreciationDate
    */
-  @ApiModelProperty(value = "The last depreciation date")
+  @Schema(description = "The last depreciation date")
   /**
    * The last depreciation date
    *
@@ -205,9 +206,9 @@ public class Setting {
    *
    * @return defaultGainOnDisposalAccountId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "346ddb97-739a-4274-b43b-66aa3218d17c",
-      value = "Default account that gains are posted to")
+      description = "Default account that gains are posted to")
   /**
    * Default account that gains are posted to
    *
@@ -242,9 +243,9 @@ public class Setting {
    *
    * @return defaultLossOnDisposalAccountId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "1b798541-24e2-4855-9309-c023a0b576f3",
-      value = "Default account that losses are posted to")
+      description = "Default account that losses are posted to")
   /**
    * Default account that losses are posted to
    *
@@ -279,9 +280,9 @@ public class Setting {
    *
    * @return defaultCapitalGainOnDisposalAccountId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "6d6a0bdb-e118-45d8-a023-2ad617ec1cb7",
-      value = "Default account that capital gains are posted to")
+      description = "Default account that capital gains are posted to")
   /**
    * Default account that capital gains are posted to
    *
@@ -316,7 +317,7 @@ public class Setting {
    *
    * @return optInForTax
    */
-  @ApiModelProperty(example = "false", value = "opt in for tax calculation")
+  @Schema(example = "false", description = "opt in for tax calculation")
   /**
    * opt in for tax calculation
    *

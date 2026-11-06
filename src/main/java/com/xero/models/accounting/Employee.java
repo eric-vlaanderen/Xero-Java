@@ -15,13 +15,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** Employee */
 public class Employee {
@@ -123,8 +124,8 @@ public class Employee {
    *
    * @return employeeID
    */
-  @ApiModelProperty(
-      value = "The Xero identifier for an employee e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9")
+  @Schema(
+      description = "The Xero identifier for an employee e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9")
   /**
    * The Xero identifier for an employee e.g. 297c2dc5-cc47-4afd-8ec8-74990b8761e9
    *
@@ -159,7 +160,7 @@ public class Employee {
    *
    * @return status
    */
-  @ApiModelProperty(value = "Current status of an employee – see contact status types")
+  @Schema(description = "Current status of an employee – see contact status types")
   /**
    * Current status of an employee – see contact status types
    *
@@ -194,7 +195,7 @@ public class Employee {
    *
    * @return firstName
    */
-  @ApiModelProperty(value = "First name of an employee (max length = 255)")
+  @Schema(description = "First name of an employee (max length = 255)")
   /**
    * First name of an employee (max length &#x3D; 255)
    *
@@ -229,7 +230,7 @@ public class Employee {
    *
    * @return lastName
    */
-  @ApiModelProperty(value = "Last name of an employee (max length = 255)")
+  @Schema(description = "Last name of an employee (max length = 255)")
   /**
    * Last name of an employee (max length &#x3D; 255)
    *
@@ -264,7 +265,7 @@ public class Employee {
    *
    * @return externalLink
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * externalLink
    *
@@ -288,7 +289,7 @@ public class Employee {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1573755038314)/", value = "")
+  @Schema(example = "/Date(1573755038314)/", description = "")
   /**
    * updatedDateUTC
    *
@@ -330,7 +331,7 @@ public class Employee {
    *
    * @return statusAttributeString
    */
-  @ApiModelProperty(example = "ERROR", value = "A string to indicate if a invoice status")
+  @Schema(example = "ERROR", description = "A string to indicate if a invoice status")
   /**
    * A string to indicate if a invoice status
    *
@@ -379,7 +380,7 @@ public class Employee {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *

@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** EmployeeStatutoryLeaveBalance */
@@ -153,7 +153,7 @@ public class EmployeeStatutoryLeaveBalance {
    *
    * @return leaveType
    */
-  @ApiModelProperty(value = "The type of statutory leave")
+  @Schema(description = "The type of statutory leave")
   /**
    * The type of statutory leave
    *
@@ -188,8 +188,8 @@ public class EmployeeStatutoryLeaveBalance {
    *
    * @return balanceRemaining
    */
-  @ApiModelProperty(
-      value = "The balance remaining for the corresponding leave type as of specified date.")
+  @Schema(
+      description = "The balance remaining for the corresponding leave type as of specified date.")
   /**
    * The balance remaining for the corresponding leave type as of specified date.
    *
@@ -224,7 +224,7 @@ public class EmployeeStatutoryLeaveBalance {
    *
    * @return units
    */
-  @ApiModelProperty(value = "The units will be \"Hours\"")
+  @Schema(description = "The units will be \"Hours\"")
   /**
    * The units will be \&quot;Hours\&quot;
    *

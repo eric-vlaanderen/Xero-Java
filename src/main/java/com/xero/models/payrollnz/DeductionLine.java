@@ -13,7 +13,7 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -52,7 +52,7 @@ public class DeductionLine {
    *
    * @return deductionTypeID
    */
-  @ApiModelProperty(value = "Xero identifier for payroll deduction")
+  @Schema(description = "Xero identifier for payroll deduction")
   /**
    * Xero identifier for payroll deduction
    *
@@ -87,7 +87,7 @@ public class DeductionLine {
    *
    * @return displayName
    */
-  @ApiModelProperty(value = "name of earnings rate for display in UI")
+  @Schema(description = "name of earnings rate for display in UI")
   /**
    * name of earnings rate for display in UI
    *
@@ -122,7 +122,7 @@ public class DeductionLine {
    *
    * @return amount
    */
-  @ApiModelProperty(value = "The amount of the deduction line")
+  @Schema(description = "The amount of the deduction line")
   /**
    * The amount of the deduction line
    *
@@ -157,7 +157,7 @@ public class DeductionLine {
    *
    * @return subjectToTax
    */
-  @ApiModelProperty(value = "Identifies if the deduction is subject to tax")
+  @Schema(description = "Identifies if the deduction is subject to tax")
   /**
    * Identifies if the deduction is subject to tax
    *
@@ -192,7 +192,7 @@ public class DeductionLine {
    *
    * @return percentage
    */
-  @ApiModelProperty(value = "Deduction rate percentage")
+  @Schema(description = "Deduction rate percentage")
   /**
    * Deduction rate percentage
    *

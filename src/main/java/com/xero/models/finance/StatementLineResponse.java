@@ -13,12 +13,13 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** StatementLineResponse */
 public class StatementLineResponse {
@@ -82,7 +83,7 @@ public class StatementLineResponse {
    *
    * @return statementLineId
    */
-  @ApiModelProperty(value = "Xero Identifier of statement line")
+  @Schema(description = "Xero Identifier of statement line")
   /**
    * Xero Identifier of statement line
    *
@@ -117,7 +118,7 @@ public class StatementLineResponse {
    *
    * @return postedDate
    */
-  @ApiModelProperty(value = "Date of when statement line was posted")
+  @Schema(description = "Date of when statement line was posted")
   /**
    * Date of when statement line was posted
    *
@@ -152,7 +153,7 @@ public class StatementLineResponse {
    *
    * @return payee
    */
-  @ApiModelProperty(value = "Payee description of statement line")
+  @Schema(description = "Payee description of statement line")
   /**
    * Payee description of statement line
    *
@@ -187,7 +188,7 @@ public class StatementLineResponse {
    *
    * @return reference
    */
-  @ApiModelProperty(value = "Reference description of statement line")
+  @Schema(description = "Reference description of statement line")
   /**
    * Reference description of statement line
    *
@@ -222,7 +223,7 @@ public class StatementLineResponse {
    *
    * @return notes
    */
-  @ApiModelProperty(value = "Notes description of statement line")
+  @Schema(description = "Notes description of statement line")
   /**
    * Notes description of statement line
    *
@@ -257,7 +258,7 @@ public class StatementLineResponse {
    *
    * @return chequeNo
    */
-  @ApiModelProperty(value = "Cheque number of statement line")
+  @Schema(description = "Cheque number of statement line")
   /**
    * Cheque number of statement line
    *
@@ -292,7 +293,7 @@ public class StatementLineResponse {
    *
    * @return amount
    */
-  @ApiModelProperty(value = "Amount of statement line")
+  @Schema(description = "Amount of statement line")
   /**
    * Amount of statement line
    *
@@ -327,7 +328,7 @@ public class StatementLineResponse {
    *
    * @return transactionDate
    */
-  @ApiModelProperty(value = "Transaction date of statement line")
+  @Schema(description = "Transaction date of statement line")
   /**
    * Transaction date of statement line
    *
@@ -362,7 +363,7 @@ public class StatementLineResponse {
    *
    * @return type
    */
-  @ApiModelProperty(value = "Type of statement line")
+  @Schema(description = "Type of statement line")
   /**
    * Type of statement line
    *
@@ -397,7 +398,7 @@ public class StatementLineResponse {
    *
    * @return isReconciled
    */
-  @ApiModelProperty(value = "Boolean to show if statement line is reconciled")
+  @Schema(description = "Boolean to show if statement line is reconciled")
   /**
    * Boolean to show if statement line is reconciled
    *
@@ -432,7 +433,7 @@ public class StatementLineResponse {
    *
    * @return isDuplicate
    */
-  @ApiModelProperty(value = "Boolean to show if statement line is duplicate")
+  @Schema(description = "Boolean to show if statement line is duplicate")
   /**
    * Boolean to show if statement line is duplicate
    *
@@ -467,7 +468,7 @@ public class StatementLineResponse {
    *
    * @return isDeleted
    */
-  @ApiModelProperty(value = "Boolean to show if statement line is deleted")
+  @Schema(description = "Boolean to show if statement line is deleted")
   /**
    * Boolean to show if statement line is deleted
    *
@@ -516,7 +517,7 @@ public class StatementLineResponse {
    *
    * @return payments
    */
-  @ApiModelProperty(value = "List of payments associated with reconciled statement lines")
+  @Schema(description = "List of payments associated with reconciled statement lines")
   /**
    * List of payments associated with reconciled statement lines
    *
@@ -566,7 +567,7 @@ public class StatementLineResponse {
    *
    * @return bankTransactions
    */
-  @ApiModelProperty(value = "List of bank transactions associated with reconciled statement lines")
+  @Schema(description = "List of bank transactions associated with reconciled statement lines")
   /**
    * List of bank transactions associated with reconciled statement lines
    *

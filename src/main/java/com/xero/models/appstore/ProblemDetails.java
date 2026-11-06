@@ -13,7 +13,7 @@ package com.xero.models.appstore;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** ProblemDetails */
@@ -54,7 +54,7 @@ public class ProblemDetails {
    *
    * @return detail
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * detail
    *
@@ -89,7 +89,7 @@ public class ProblemDetails {
    *
    * @return extensions
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * extensions
    *
@@ -124,7 +124,7 @@ public class ProblemDetails {
    *
    * @return instance
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * instance
    *
@@ -159,7 +159,7 @@ public class ProblemDetails {
    *
    * @return status
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * status
    *
@@ -194,7 +194,7 @@ public class ProblemDetails {
    *
    * @return title
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * title
    *
@@ -229,7 +229,7 @@ public class ProblemDetails {
    *
    * @return type
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * type
    *

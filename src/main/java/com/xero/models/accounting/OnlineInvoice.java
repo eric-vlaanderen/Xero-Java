@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** OnlineInvoice */
@@ -39,7 +39,7 @@ public class OnlineInvoice {
    *
    * @return onlineInvoiceUrl
    */
-  @ApiModelProperty(value = "the URL to an online invoice")
+  @Schema(description = "the URL to an online invoice")
   /**
    * the URL to an online invoice
    *

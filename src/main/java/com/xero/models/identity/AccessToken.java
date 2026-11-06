@@ -13,7 +13,7 @@ package com.xero.models.identity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** AccessToken */
@@ -51,7 +51,7 @@ public class AccessToken {
    *
    * @return idToken
    */
-  @ApiModelProperty(value = "Xero unique identifier")
+  @Schema(description = "Xero unique identifier")
   /**
    * Xero unique identifier
    *
@@ -86,7 +86,7 @@ public class AccessToken {
    *
    * @return accessToken
    */
-  @ApiModelProperty(value = "access token provided during authentication flow")
+  @Schema(description = "access token provided during authentication flow")
   /**
    * access token provided during authentication flow
    *
@@ -121,7 +121,7 @@ public class AccessToken {
    *
    * @return expiresIn
    */
-  @ApiModelProperty(value = "time in seconds until access token expires.")
+  @Schema(description = "time in seconds until access token expires.")
   /**
    * time in seconds until access token expires.
    *
@@ -156,7 +156,7 @@ public class AccessToken {
    *
    * @return tokenType
    */
-  @ApiModelProperty(value = "type of token i.e. Bearer")
+  @Schema(description = "type of token i.e. Bearer")
   /**
    * type of token i.e. Bearer
    *
@@ -191,7 +191,7 @@ public class AccessToken {
    *
    * @return refreshToken
    */
-  @ApiModelProperty(value = "token used to refresh an expired access token")
+  @Schema(description = "token used to refresh an expired access token")
   /**
    * token used to refresh an expired access token
    *

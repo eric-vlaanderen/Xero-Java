@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -51,7 +51,7 @@ public class BankStatementAccountingResponse {
    *
    * @return bankAccountId
    */
-  @ApiModelProperty(value = "Xero Identifier of bank account")
+  @Schema(description = "Xero Identifier of bank account")
   /**
    * Xero Identifier of bank account
    *
@@ -86,7 +86,7 @@ public class BankStatementAccountingResponse {
    *
    * @return bankAccountName
    */
-  @ApiModelProperty(value = "Name of bank account")
+  @Schema(description = "Name of bank account")
   /**
    * Name of bank account
    *
@@ -121,7 +121,7 @@ public class BankStatementAccountingResponse {
    *
    * @return bankAccountCurrencyCode
    */
-  @ApiModelProperty(value = "Currency code of the bank account")
+  @Schema(description = "Currency code of the bank account")
   /**
    * Currency code of the bank account
    *
@@ -170,8 +170,8 @@ public class BankStatementAccountingResponse {
    *
    * @return statements
    */
-  @ApiModelProperty(
-      value = "List of bank statements and linked accounting data for the requested period")
+  @Schema(
+      description = "List of bank statements and linked accounting data for the requested period")
   /**
    * List of bank statements and linked accounting data for the requested period
    *

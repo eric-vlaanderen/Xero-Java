@@ -13,13 +13,13 @@ package com.xero.models.bankfeeds;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
-import org.threeten.bp.LocalDate;
 
 /** the lines details for a statement */
-@ApiModel(description = "the lines details for a statement")
+@Schema(description = "the lines details for a statement")
 public class StatementLine {
   StringUtil util = new StringUtil();
 
@@ -68,9 +68,9 @@ public class StatementLine {
    *
    * @return postedDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Sun Jun 10 00:00:00 UTC 2018",
-      value =
+      description =
           "The date that the transaction was processed or cleared as seen in internet banking"
               + " ISO-8601 YYYY-MM-DD")
   /**
@@ -109,7 +109,7 @@ public class StatementLine {
    *
    * @return description
    */
-  @ApiModelProperty(example = "Description for statement line 2", value = "Transaction description")
+  @Schema(example = "Description for statement line 2", description = "Transaction description")
   /**
    * Transaction description
    *
@@ -144,7 +144,7 @@ public class StatementLine {
    *
    * @return amount
    */
-  @ApiModelProperty(example = "5.00", value = "Transaction amount")
+  @Schema(example = "5.00", description = "Transaction amount")
   /**
    * Transaction amount
    *
@@ -179,7 +179,7 @@ public class StatementLine {
    *
    * @return creditDebitIndicator
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * creditDebitIndicator
    *
@@ -216,9 +216,9 @@ public class StatementLine {
    *
    * @return transactionId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "transaction-id-2",
-      value =
+      description =
           "Financial institute's internal transaction identifier. If provided this field is"
               + " factored into duplicate detection.")
   /**
@@ -257,9 +257,9 @@ public class StatementLine {
    *
    * @return payeeName
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Payee name for statement line 2",
-      value = "Typically the merchant or payee name")
+      description = "Typically the merchant or payee name")
   /**
    * Typically the merchant or payee name
    *
@@ -294,9 +294,9 @@ public class StatementLine {
    *
    * @return reference
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Reference for statement line 2",
-      value = "Optional field to enhance the Description")
+      description = "Optional field to enhance the Description")
   /**
    * Optional field to enhance the Description
    *
@@ -331,7 +331,7 @@ public class StatementLine {
    *
    * @return chequeNumber
    */
-  @ApiModelProperty(example = "021", value = "The cheque/check number")
+  @Schema(example = "021", description = "The cheque/check number")
   /**
    * The cheque/check number
    *
@@ -366,7 +366,7 @@ public class StatementLine {
    *
    * @return transactionType
    */
-  @ApiModelProperty(example = "Refund", value = "Descriptive transaction type")
+  @Schema(example = "Refund", description = "Descriptive transaction type")
   /**
    * Descriptive transaction type
    *

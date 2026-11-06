@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -155,7 +155,7 @@ public class LineItem {
    *
    * @return lineItemID
    */
-  @ApiModelProperty(example = "00000000-0000-0000-0000-000000000000", value = "LineItem unique ID")
+  @Schema(example = "00000000-0000-0000-0000-000000000000", description = "LineItem unique ID")
   /**
    * LineItem unique ID
    *
@@ -194,8 +194,8 @@ public class LineItem {
    *
    * @return description
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Description needs to be at least 1 char long. A line item with just a description (i.e"
               + " no unit amount or quantity) can be created by specifying just a <Description>"
               + " element that contains at least 1 character")
@@ -237,7 +237,7 @@ public class LineItem {
    *
    * @return quantity
    */
-  @ApiModelProperty(value = "LineItem Quantity")
+  @Schema(description = "LineItem Quantity")
   /**
    * LineItem Quantity
    *
@@ -272,7 +272,7 @@ public class LineItem {
    *
    * @return unitAmount
    */
-  @ApiModelProperty(value = "LineItem Unit Amount")
+  @Schema(description = "LineItem Unit Amount")
   /**
    * LineItem Unit Amount
    *
@@ -307,7 +307,7 @@ public class LineItem {
    *
    * @return itemCode
    */
-  @ApiModelProperty(value = "See Items")
+  @Schema(description = "See Items")
   /**
    * See Items
    *
@@ -342,7 +342,7 @@ public class LineItem {
    *
    * @return accountCode
    */
-  @ApiModelProperty(value = "See Accounts")
+  @Schema(description = "See Accounts")
   /**
    * See Accounts
    *
@@ -377,9 +377,9 @@ public class LineItem {
    *
    * @return accountID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      value = "The associated account ID related to this line item")
+      description = "The associated account ID related to this line item")
   /**
    * The associated account ID related to this line item
    *
@@ -414,7 +414,7 @@ public class LineItem {
    *
    * @return taxType
    */
-  @ApiModelProperty(value = "The tax type from TaxRates")
+  @Schema(description = "The tax type from TaxRates")
   /**
    * The tax type from TaxRates
    *
@@ -451,8 +451,8 @@ public class LineItem {
    *
    * @return taxAmount
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The tax amount is auto calculated as a percentage of the line amount (see below) based"
               + " on the tax rate. This value can be overriden if the calculated <TaxAmount> is not"
               + " correct.")
@@ -492,7 +492,7 @@ public class LineItem {
    *
    * @return item
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * item
    *
@@ -535,8 +535,8 @@ public class LineItem {
    *
    * @return lineAmount
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "If you wish to omit either the Quantity or UnitAmount you can provide a LineAmount and"
               + " Xero will calculate the missing amount for you. The line amount reflects the"
               + " discounted price if either a DiscountRate or DiscountAmount has been used i.e."
@@ -601,8 +601,8 @@ public class LineItem {
    *
    * @return tracking
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Optional Tracking Category – see Tracking.  Any LineItem can have a  maximum of 2"
               + " <TrackingCategory> elements.")
   /**
@@ -643,8 +643,8 @@ public class LineItem {
    *
    * @return discountRate
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Percentage discount being applied to a line item (only supported on  ACCREC invoices –"
               + " ACC PAY invoices and credit notes in Xero do not support discounts")
   /**
@@ -685,8 +685,8 @@ public class LineItem {
    *
    * @return discountAmount
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Discount amount being applied to a line item. Only supported on ACCREC invoices and"
               + " quotes. ACCPAY invoices and credit notes in Xero do not support discounts.")
   /**
@@ -725,9 +725,9 @@ public class LineItem {
    *
    * @return repeatingInvoiceID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      value = "The Xero identifier for a Repeating Invoice")
+      description = "The Xero identifier for a Repeating Invoice")
   /**
    * The Xero identifier for a Repeating Invoice
    *
@@ -762,7 +762,7 @@ public class LineItem {
    *
    * @return taxability
    */
-  @ApiModelProperty(value = "The type of taxability")
+  @Schema(description = "The type of taxability")
   /**
    * The type of taxability
    *
@@ -797,7 +797,7 @@ public class LineItem {
    *
    * @return salesTaxCodeId
    */
-  @ApiModelProperty(value = "The ID of the sales tax code")
+  @Schema(description = "The ID of the sales tax code")
   /**
    * The ID of the sales tax code
    *
@@ -846,7 +846,7 @@ public class LineItem {
    *
    * @return taxBreakdown
    */
-  @ApiModelProperty(value = "An array of tax components defined for this line item")
+  @Schema(description = "An array of tax components defined for this line item")
   /**
    * An array of tax components defined for this line item
    *

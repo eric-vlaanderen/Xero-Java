@@ -13,12 +13,11 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** A summary of the accounts changes */
-@ApiModel(description = "A summary of the accounts changes")
+@Schema(description = "A summary of the accounts changes")
 public class ImportSummaryAccounts {
   StringUtil util = new StringUtil();
 
@@ -65,7 +64,7 @@ public class ImportSummaryAccounts {
    *
    * @return total
    */
-  @ApiModelProperty(value = "The total number of accounts in the org")
+  @Schema(description = "The total number of accounts in the org")
   /**
    * The total number of accounts in the org
    *
@@ -100,7 +99,7 @@ public class ImportSummaryAccounts {
    *
    * @return _new
    */
-  @ApiModelProperty(value = "The number of new accounts created")
+  @Schema(description = "The number of new accounts created")
   /**
    * The number of new accounts created
    *
@@ -135,7 +134,7 @@ public class ImportSummaryAccounts {
    *
    * @return updated
    */
-  @ApiModelProperty(value = "The number of accounts updated")
+  @Schema(description = "The number of accounts updated")
   /**
    * The number of accounts updated
    *
@@ -170,7 +169,7 @@ public class ImportSummaryAccounts {
    *
    * @return deleted
    */
-  @ApiModelProperty(value = "The number of accounts deleted")
+  @Schema(description = "The number of accounts deleted")
   /**
    * The number of accounts deleted
    *
@@ -205,7 +204,7 @@ public class ImportSummaryAccounts {
    *
    * @return locked
    */
-  @ApiModelProperty(value = "The number of locked accounts")
+  @Schema(description = "The number of locked accounts")
   /**
    * The number of locked accounts
    *
@@ -240,7 +239,7 @@ public class ImportSummaryAccounts {
    *
    * @return system
    */
-  @ApiModelProperty(value = "The number of system accounts")
+  @Schema(description = "The number of system accounts")
   /**
    * The number of system accounts
    *
@@ -275,7 +274,7 @@ public class ImportSummaryAccounts {
    *
    * @return errored
    */
-  @ApiModelProperty(value = "The number of accounts that had an error")
+  @Schema(description = "The number of accounts that had an error")
   /**
    * The number of accounts that had an error
    *
@@ -310,7 +309,7 @@ public class ImportSummaryAccounts {
    *
    * @return present
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * present
    *
@@ -345,7 +344,7 @@ public class ImportSummaryAccounts {
    *
    * @return newOrUpdated
    */
-  @ApiModelProperty(value = "The number of new or updated accounts")
+  @Schema(description = "The number of new or updated accounts")
   /**
    * The number of new or updated accounts
    *

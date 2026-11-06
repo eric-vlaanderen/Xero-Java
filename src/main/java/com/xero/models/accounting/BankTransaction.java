@@ -15,16 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** BankTransaction */
 public class BankTransaction {
@@ -233,7 +234,7 @@ public class BankTransaction {
    *
    * @return type
    */
-  @ApiModelProperty(required = true, value = "See Bank Transaction Types")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "See Bank Transaction Types")
   /**
    * See Bank Transaction Types
    *
@@ -268,7 +269,7 @@ public class BankTransaction {
    *
    * @return contact
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * contact
    *
@@ -314,7 +315,7 @@ public class BankTransaction {
    *
    * @return lineItems
    */
-  @ApiModelProperty(required = true, value = "See LineItems")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "See LineItems")
   /**
    * See LineItems
    *
@@ -349,7 +350,7 @@ public class BankTransaction {
    *
    * @return bankAccount
    */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "")
   /**
    * bankAccount
    *
@@ -384,7 +385,7 @@ public class BankTransaction {
    *
    * @return isReconciled
    */
-  @ApiModelProperty(value = "Boolean to show if transaction is reconciled")
+  @Schema(description = "Boolean to show if transaction is reconciled")
   /**
    * Boolean to show if transaction is reconciled
    *
@@ -419,7 +420,7 @@ public class BankTransaction {
    *
    * @return date
    */
-  @ApiModelProperty(value = "Date of transaction – YYYY-MM-DD")
+  @Schema(description = "Date of transaction – YYYY-MM-DD")
   /**
    * Date of transaction – YYYY-MM-DD
    *
@@ -483,8 +484,8 @@ public class BankTransaction {
    *
    * @return reference
    */
-  @ApiModelProperty(
-      value = "Reference for the transaction. Only supported for SPEND and RECEIVE transactions.")
+  @Schema(
+      description = "Reference for the transaction. Only supported for SPEND and RECEIVE transactions.")
   /**
    * Reference for the transaction. Only supported for SPEND and RECEIVE transactions.
    *
@@ -519,7 +520,7 @@ public class BankTransaction {
    *
    * @return currencyCode
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * currencyCode
    *
@@ -560,8 +561,8 @@ public class BankTransaction {
    *
    * @return currencyRate
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Exchange rate to base currency when money is spent or received. e.g.0.7500 Only used for"
               + " bank transactions in non base currency. If this isn’t specified for non base"
               + " currency accounts then either the user-defined rate (preference) or the XE.com"
@@ -606,7 +607,7 @@ public class BankTransaction {
    *
    * @return url
    */
-  @ApiModelProperty(value = "URL link to a source document – shown as “Go to App Name”")
+  @Schema(description = "URL link to a source document – shown as “Go to App Name”")
   /**
    * URL link to a source document – shown as “Go to App Name”
    *
@@ -641,7 +642,7 @@ public class BankTransaction {
    *
    * @return status
    */
-  @ApiModelProperty(value = "See Bank Transaction Status Codes")
+  @Schema(description = "See Bank Transaction Status Codes")
   /**
    * See Bank Transaction Status Codes
    *
@@ -676,7 +677,7 @@ public class BankTransaction {
    *
    * @return lineAmountTypes
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * lineAmountTypes
    *
@@ -711,7 +712,7 @@ public class BankTransaction {
    *
    * @return subTotal
    */
-  @ApiModelProperty(value = "Total of bank transaction excluding taxes")
+  @Schema(description = "Total of bank transaction excluding taxes")
   /**
    * Total of bank transaction excluding taxes
    *
@@ -746,7 +747,7 @@ public class BankTransaction {
    *
    * @return totalTax
    */
-  @ApiModelProperty(value = "Total tax on bank transaction")
+  @Schema(description = "Total tax on bank transaction")
   /**
    * Total tax on bank transaction
    *
@@ -781,7 +782,7 @@ public class BankTransaction {
    *
    * @return total
    */
-  @ApiModelProperty(value = "Total of bank transaction tax inclusive")
+  @Schema(description = "Total of bank transaction tax inclusive")
   /**
    * Total of bank transaction tax inclusive
    *
@@ -816,9 +817,9 @@ public class BankTransaction {
    *
    * @return bankTransactionID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      value = "Xero generated unique identifier for bank transaction")
+      description = "Xero generated unique identifier for bank transaction")
   /**
    * Xero generated unique identifier for bank transaction
    *
@@ -843,9 +844,9 @@ public class BankTransaction {
    *
    * @return prepaymentID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      value =
+      description =
           "Xero generated unique identifier for a Prepayment. This will be returned on"
               + " BankTransactions with a Type of SPEND-PREPAYMENT or RECEIVE-PREPAYMENT")
   /**
@@ -864,9 +865,9 @@ public class BankTransaction {
    *
    * @return overpaymentID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      value =
+      description =
           "Xero generated unique identifier for an Overpayment. This will be returned on"
               + " BankTransactions with a Type of SPEND-OVERPAYMENT or RECEIVE-OVERPAYMENT")
   /**
@@ -884,7 +885,7 @@ public class BankTransaction {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1573755038314)/", value = "Last modified date UTC format")
+  @Schema(example = "/Date(1573755038314)/", description = "Last modified date UTC format")
   /**
    * Last modified date UTC format
    *
@@ -915,9 +916,9 @@ public class BankTransaction {
    *
    * @return hasAttachments
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "Boolean to indicate if a bank transaction has an attachment")
+      description = "Boolean to indicate if a bank transaction has an attachment")
   /**
    * Boolean to indicate if a bank transaction has an attachment
    *
@@ -943,7 +944,7 @@ public class BankTransaction {
    *
    * @return statusAttributeString
    */
-  @ApiModelProperty(value = "A string to indicate if a invoice status")
+  @Schema(description = "A string to indicate if a invoice status")
   /**
    * A string to indicate if a invoice status
    *
@@ -992,7 +993,7 @@ public class BankTransaction {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *

@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** TaxSettings */
@@ -106,7 +106,7 @@ public class TaxSettings {
    *
    * @return periodUnits
    */
-  @ApiModelProperty(value = "The number of units for the period type")
+  @Schema(description = "The number of units for the period type")
   /**
    * The number of units for the period type
    *
@@ -141,7 +141,7 @@ public class TaxSettings {
    *
    * @return periodType
    */
-  @ApiModelProperty(example = "weeks", value = "The type of period (\"weeks\" or \"months\")")
+  @Schema(example = "weeks", description = "The type of period (\"weeks\" or \"months\")")
   /**
    * The type of period (\&quot;weeks\&quot; or \&quot;months\&quot;)
    *
@@ -176,7 +176,7 @@ public class TaxSettings {
    *
    * @return taxCode
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * taxCode
    *
@@ -211,7 +211,7 @@ public class TaxSettings {
    *
    * @return specialTaxRate
    */
-  @ApiModelProperty(value = "Tax rate for STC and WT")
+  @Schema(description = "Tax rate for STC and WT")
   /**
    * Tax rate for STC and WT
    *
@@ -246,7 +246,7 @@ public class TaxSettings {
    *
    * @return lumpSumTaxCode
    */
-  @ApiModelProperty(value = "Tax code for a lump sum amount")
+  @Schema(description = "Tax code for a lump sum amount")
   /**
    * Tax code for a lump sum amount
    *
@@ -281,7 +281,7 @@ public class TaxSettings {
    *
    * @return lumpSumAmount
    */
-  @ApiModelProperty(value = "The total of the lump sum amount")
+  @Schema(description = "The total of the lump sum amount")
   /**
    * The total of the lump sum amount
    *

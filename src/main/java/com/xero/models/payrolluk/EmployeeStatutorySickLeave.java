@@ -15,12 +15,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** EmployeeStatutorySickLeave */
 public class EmployeeStatutorySickLeave {
@@ -153,7 +154,7 @@ public class EmployeeStatutorySickLeave {
    *
    * @return statutoryLeaveID
    */
-  @ApiModelProperty(value = "The unique identifier (guid) of a statutory leave")
+  @Schema(description = "The unique identifier (guid) of a statutory leave")
   /**
    * The unique identifier (guid) of a statutory leave
    *
@@ -188,7 +189,7 @@ public class EmployeeStatutorySickLeave {
    *
    * @return employeeID
    */
-  @ApiModelProperty(required = true, value = "The unique identifier (guid) of the employee")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The unique identifier (guid) of the employee")
   /**
    * The unique identifier (guid) of the employee
    *
@@ -225,9 +226,9 @@ public class EmployeeStatutorySickLeave {
    *
    * @return leaveTypeID
    */
-  @ApiModelProperty(
-      required = true,
-      value =
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description =
           "The unique identifier (guid) of the \"Statutory Sick Leave (non-pensionable)\" pay item")
   /**
    * The unique identifier (guid) of the \&quot;Statutory Sick Leave (non-pensionable)\&quot; pay
@@ -265,7 +266,7 @@ public class EmployeeStatutorySickLeave {
    *
    * @return startDate
    */
-  @ApiModelProperty(required = true, value = "The date when the leave starts")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The date when the leave starts")
   /**
    * The date when the leave starts
    *
@@ -300,7 +301,7 @@ public class EmployeeStatutorySickLeave {
    *
    * @return endDate
    */
-  @ApiModelProperty(required = true, value = "The date when the leave ends")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The date when the leave ends")
   /**
    * The date when the leave ends
    *
@@ -335,7 +336,7 @@ public class EmployeeStatutorySickLeave {
    *
    * @return type
    */
-  @ApiModelProperty(example = "Sick", value = "the type of statutory leave")
+  @Schema(example = "Sick", description = "the type of statutory leave")
   /**
    * the type of statutory leave
    *
@@ -370,7 +371,7 @@ public class EmployeeStatutorySickLeave {
    *
    * @return status
    */
-  @ApiModelProperty(example = "Pending", value = "the type of statutory leave")
+  @Schema(example = "Pending", description = "the type of statutory leave")
   /**
    * the type of statutory leave
    *
@@ -416,9 +417,9 @@ public class EmployeeStatutorySickLeave {
    *
    * @return workPattern
    */
-  @ApiModelProperty(
-      required = true,
-      value =
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description =
           "The days of the work week the employee is scheduled to work at the time the leave is"
               + " taken")
   /**
@@ -455,7 +456,7 @@ public class EmployeeStatutorySickLeave {
    *
    * @return isPregnancyRelated
    */
-  @ApiModelProperty(required = true, value = "Whether the sick leave was pregnancy related")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "Whether the sick leave was pregnancy related")
   /**
    * Whether the sick leave was pregnancy related
    *
@@ -492,9 +493,9 @@ public class EmployeeStatutorySickLeave {
    *
    * @return sufficientNotice
    */
-  @ApiModelProperty(
-      required = true,
-      value =
+  @Schema(
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description =
           "Whether the employee provided sufficient notice and documentation as required by the"
               + " employer supporting the sick leave request")
   /**
@@ -533,7 +534,7 @@ public class EmployeeStatutorySickLeave {
    *
    * @return isEntitled
    */
-  @ApiModelProperty(value = "Whether the leave was entitled to receive payment")
+  @Schema(description = "Whether the leave was entitled to receive payment")
   /**
    * Whether the leave was entitled to receive payment
    *
@@ -568,7 +569,7 @@ public class EmployeeStatutorySickLeave {
    *
    * @return entitlementWeeksRequested
    */
-  @ApiModelProperty(value = "The amount of requested time (in weeks)")
+  @Schema(description = "The amount of requested time (in weeks)")
   /**
    * The amount of requested time (in weeks)
    *
@@ -605,8 +606,8 @@ public class EmployeeStatutorySickLeave {
    *
    * @return entitlementWeeksQualified
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The amount of statutory sick leave time off (in weeks) that is available to take at the"
               + " time the leave was requested")
   /**
@@ -645,8 +646,8 @@ public class EmployeeStatutorySickLeave {
    *
    * @return entitlementWeeksRemaining
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "A calculated amount of time (in weeks) that remains for the statutory sick leave period")
   /**
    * A calculated amount of time (in weeks) that remains for the statutory sick leave period
@@ -684,8 +685,8 @@ public class EmployeeStatutorySickLeave {
    *
    * @return overlapsWithOtherLeave
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Whether another leave (Paternity, Shared Parental specifically) occurs during the"
               + " requested leave's period. While this is allowed it could affect payment amounts")
   /**
@@ -743,8 +744,8 @@ public class EmployeeStatutorySickLeave {
    *
    * @return entitlementFailureReasons
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "If the leave requested was considered \"not entitled\", the reasons why are listed"
               + " here.")
   /**

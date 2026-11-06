@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -473,7 +473,7 @@ public class TaxRate {
    *
    * @return name
    */
-  @ApiModelProperty(value = "Name of tax rate")
+  @Schema(description = "Name of tax rate")
   /**
    * Name of tax rate
    *
@@ -508,7 +508,7 @@ public class TaxRate {
    *
    * @return taxType
    */
-  @ApiModelProperty(value = "The tax type")
+  @Schema(description = "The tax type")
   /**
    * The tax type
    *
@@ -557,7 +557,7 @@ public class TaxRate {
    *
    * @return taxComponents
    */
-  @ApiModelProperty(value = "See TaxComponents")
+  @Schema(description = "See TaxComponents")
   /**
    * See TaxComponents
    *
@@ -592,7 +592,7 @@ public class TaxRate {
    *
    * @return status
    */
-  @ApiModelProperty(value = "See Status Codes")
+  @Schema(description = "See Status Codes")
   /**
    * See Status Codes
    *
@@ -627,7 +627,7 @@ public class TaxRate {
    *
    * @return reportTaxType
    */
-  @ApiModelProperty(value = "See ReportTaxTypes")
+  @Schema(description = "See ReportTaxTypes")
   /**
    * See ReportTaxTypes
    *
@@ -651,8 +651,8 @@ public class TaxRate {
    *
    * @return canApplyToAssets
    */
-  @ApiModelProperty(
-      value = "Boolean to describe if tax rate can be used for asset accounts i.e.  true,false")
+  @Schema(
+      description = "Boolean to describe if tax rate can be used for asset accounts i.e.  true,false")
   /**
    * Boolean to describe if tax rate can be used for asset accounts i.e. true,false
    *
@@ -667,8 +667,8 @@ public class TaxRate {
    *
    * @return canApplyToEquity
    */
-  @ApiModelProperty(
-      value = "Boolean to describe if tax rate can be used for equity accounts i.e true,false")
+  @Schema(
+      description = "Boolean to describe if tax rate can be used for equity accounts i.e true,false")
   /**
    * Boolean to describe if tax rate can be used for equity accounts i.e true,false
    *
@@ -683,8 +683,8 @@ public class TaxRate {
    *
    * @return canApplyToExpenses
    */
-  @ApiModelProperty(
-      value = "Boolean to describe if tax rate can be used for expense accounts  i.e. true,false")
+  @Schema(
+      description = "Boolean to describe if tax rate can be used for expense accounts  i.e. true,false")
   /**
    * Boolean to describe if tax rate can be used for expense accounts i.e. true,false
    *
@@ -699,8 +699,8 @@ public class TaxRate {
    *
    * @return canApplyToLiabilities
    */
-  @ApiModelProperty(
-      value = "Boolean to describe if tax rate can be used for liability accounts  i.e. true,false")
+  @Schema(
+      description = "Boolean to describe if tax rate can be used for liability accounts  i.e. true,false")
   /**
    * Boolean to describe if tax rate can be used for liability accounts i.e. true,false
    *
@@ -715,8 +715,8 @@ public class TaxRate {
    *
    * @return canApplyToRevenue
    */
-  @ApiModelProperty(
-      value = "Boolean to describe if tax rate can be used for revenue accounts i.e. true,false")
+  @Schema(
+      description = "Boolean to describe if tax rate can be used for revenue accounts i.e. true,false")
   /**
    * Boolean to describe if tax rate can be used for revenue accounts i.e. true,false
    *
@@ -731,7 +731,7 @@ public class TaxRate {
    *
    * @return displayTaxRate
    */
-  @ApiModelProperty(value = "Tax Rate (decimal to 4dp) e.g 12.5000")
+  @Schema(description = "Tax Rate (decimal to 4dp) e.g 12.5000")
   /**
    * Tax Rate (decimal to 4dp) e.g 12.5000
    *
@@ -746,7 +746,7 @@ public class TaxRate {
    *
    * @return effectiveRate
    */
-  @ApiModelProperty(value = "Effective Tax Rate (decimal to 4dp) e.g 12.5000")
+  @Schema(description = "Effective Tax Rate (decimal to 4dp) e.g 12.5000")
   /**
    * Effective Tax Rate (decimal to 4dp) e.g 12.5000
    *

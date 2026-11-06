@@ -15,10 +15,11 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
 
 /** EmployeeLeaveType */
 public class EmployeeLeaveType {
@@ -117,7 +118,7 @@ public class EmployeeLeaveType {
    *
    * @return leaveTypeID
    */
-  @ApiModelProperty(required = true, value = "The Xero identifier for leave type")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The Xero identifier for leave type")
   /**
    * The Xero identifier for leave type
    *
@@ -152,7 +153,7 @@ public class EmployeeLeaveType {
    *
    * @return scheduleOfAccrual
    */
-  @ApiModelProperty(required = true, value = "The schedule of accrual")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "The schedule of accrual")
   /**
    * The schedule of accrual
    *
@@ -189,8 +190,8 @@ public class EmployeeLeaveType {
    *
    * @return hoursAccruedAnnually
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The number of hours accrued for the leave annually. This is 0 when the scheduleOfAccrual"
               + " chosen is \"OnHourWorked\"")
   /**
@@ -229,7 +230,7 @@ public class EmployeeLeaveType {
    *
    * @return maximumToAccrue
    */
-  @ApiModelProperty(value = "The maximum number of hours that can be accrued for the leave")
+  @Schema(description = "The maximum number of hours that can be accrued for the leave")
   /**
    * The maximum number of hours that can be accrued for the leave
    *
@@ -264,8 +265,8 @@ public class EmployeeLeaveType {
    *
    * @return openingBalance
    */
-  @ApiModelProperty(
-      value = "The initial number of hours assigned when the leave was added to the employee")
+  @Schema(
+      description = "The initial number of hours assigned when the leave was added to the employee")
   /**
    * The initial number of hours assigned when the leave was added to the employee
    *
@@ -302,8 +303,8 @@ public class EmployeeLeaveType {
    *
    * @return rateAccruedHourly
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The number of hours added to the leave balance for every hour worked by the employee."
               + " This is normally 0, unless the scheduleOfAccrual chosen is \"OnHourWorked\"")
   /**
@@ -344,9 +345,9 @@ public class EmployeeLeaveType {
    *
    * @return scheduleOfAccrualDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Mon Apr 01 00:00:00 UTC 2024",
-      value =
+      description =
           "The date when an employee becomes entitled to their accrual. Only applicable when"
               + " scheduleOfAccrual is \"OnAnniversaryDate\"")
   /**

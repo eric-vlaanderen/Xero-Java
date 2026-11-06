@@ -1,18 +1,21 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrollnz.*;
+import com.xero.models.payrollnz.EmployeeOpeningBalance;
+import com.xero.models.payrollnz.EmployeeOpeningBalancesObject;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.time.LocalDate;
 
-import org.threeten.bp.*;
 import java.io.IOException;
-import java.util.UUID;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollNzApiEmployeeOpeningBalancesTest {
 
@@ -22,7 +25,7 @@ public class PayrollNzApiEmployeeOpeningBalancesTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -44,10 +47,10 @@ public class PayrollNzApiEmployeeOpeningBalancesTest {
         UUID employeeId = UUID.fromString("cdfb8371-0b21-4b8a-8903-1024df6c391e");
         EmployeeOpeningBalancesObject response = payrollNzApi.getEmployeeOpeningBalances(accessToken, xeroTenantId, employeeId);
         
-        assertThat(response.getOpeningBalances().get(0).getPeriodEndDate(), is(equalTo(LocalDate.of(2020, 10, 01))));
-        assertThat(response.getOpeningBalances().get(0).getDaysPaid(), is(equalTo(3)));
-        assertThat(response.getOpeningBalances().get(0).getUnpaidWeeks(), is(equalTo(2)));
-        assertThat(response.getOpeningBalances().get(0).getGrossEarnings(), is(equalTo(40.0)));
+        assertThat(response.getOpeningBalances().getFirst().getPeriodEndDate(), is(equalTo(LocalDate.of(2020, 10, 01))));
+        assertThat(response.getOpeningBalances().getFirst().getDaysPaid(), is(equalTo(3)));
+        assertThat(response.getOpeningBalances().getFirst().getUnpaidWeeks(), is(equalTo(2)));
+        assertThat(response.getOpeningBalances().getFirst().getGrossEarnings(), is(equalTo(40.0)));
         
         //System.out.println(response.toString());
     }
@@ -61,10 +64,10 @@ public class PayrollNzApiEmployeeOpeningBalancesTest {
       
         EmployeeOpeningBalancesObject response = payrollNzApi.createEmployeeOpeningBalances(accessToken, xeroTenantId, employeeId, employeeOpeningBalances, null);
       
-        assertThat(response.getOpeningBalances().get(0).getPeriodEndDate(), is(equalTo(LocalDate.of(2020, 10, 01))));
-        assertThat(response.getOpeningBalances().get(0).getDaysPaid(), is(equalTo(3)));
-        assertThat(response.getOpeningBalances().get(0).getUnpaidWeeks(), is(equalTo(2)));
-        assertThat(response.getOpeningBalances().get(0).getGrossEarnings(), is(equalTo(40.0)));
+        assertThat(response.getOpeningBalances().getFirst().getPeriodEndDate(), is(equalTo(LocalDate.of(2020, 10, 01))));
+        assertThat(response.getOpeningBalances().getFirst().getDaysPaid(), is(equalTo(3)));
+        assertThat(response.getOpeningBalances().getFirst().getUnpaidWeeks(), is(equalTo(2)));
+        assertThat(response.getOpeningBalances().getFirst().getGrossEarnings(), is(equalTo(40.0)));
 
         //System.out.println(response.toString());
     }

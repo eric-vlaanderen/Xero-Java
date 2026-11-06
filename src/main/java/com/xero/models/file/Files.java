@@ -13,7 +13,7 @@ package com.xero.models.file;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -50,7 +50,7 @@ public class Files {
    *
    * @return totalCount
    */
-  @ApiModelProperty(example = "2", value = "")
+  @Schema(example = "2", description = "")
   /**
    * totalCount
    *
@@ -85,7 +85,7 @@ public class Files {
    *
    * @return page
    */
-  @ApiModelProperty(example = "1", value = "")
+  @Schema(example = "1", description = "")
   /**
    * page
    *
@@ -120,7 +120,7 @@ public class Files {
    *
    * @return perPage
    */
-  @ApiModelProperty(example = "50", value = "")
+  @Schema(example = "50", description = "")
   /**
    * perPage
    *
@@ -169,7 +169,7 @@ public class Files {
    *
    * @return items
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * items
    *

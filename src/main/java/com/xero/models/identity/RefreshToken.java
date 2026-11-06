@@ -13,7 +13,7 @@ package com.xero.models.identity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** RefreshToken */
@@ -48,7 +48,7 @@ public class RefreshToken {
    *
    * @return grantType
    */
-  @ApiModelProperty(value = "Xero grant type")
+  @Schema(description = "Xero grant type")
   /**
    * Xero grant type
    *
@@ -83,7 +83,7 @@ public class RefreshToken {
    *
    * @return refreshToken
    */
-  @ApiModelProperty(value = "refresh token provided during authentication flow")
+  @Schema(description = "refresh token provided during authentication flow")
   /**
    * refresh token provided during authentication flow
    *
@@ -118,7 +118,7 @@ public class RefreshToken {
    *
    * @return clientId
    */
-  @ApiModelProperty(value = "client id for Xero app")
+  @Schema(description = "client id for Xero app")
   /**
    * client id for Xero app
    *
@@ -153,7 +153,7 @@ public class RefreshToken {
    *
    * @return clientSecret
    */
-  @ApiModelProperty(value = "client secret for Xero app 2")
+  @Schema(description = "client secret for Xero app 2")
   /**
    * client secret for Xero app 2
    *

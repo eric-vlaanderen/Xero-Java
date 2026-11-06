@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -52,7 +52,7 @@ public class BalanceSheetAccountDetail {
    *
    * @return code
    */
-  @ApiModelProperty(value = "Accounting code")
+  @Schema(description = "Accounting code")
   /**
    * Accounting code
    *
@@ -87,7 +87,7 @@ public class BalanceSheetAccountDetail {
    *
    * @return accountID
    */
-  @ApiModelProperty(value = "ID of the account")
+  @Schema(description = "ID of the account")
   /**
    * ID of the account
    *
@@ -122,7 +122,7 @@ public class BalanceSheetAccountDetail {
    *
    * @return name
    */
-  @ApiModelProperty(value = "Account name")
+  @Schema(description = "Account name")
   /**
    * Account name
    *
@@ -157,7 +157,7 @@ public class BalanceSheetAccountDetail {
    *
    * @return reportingCode
    */
-  @ApiModelProperty(value = "Reporting code")
+  @Schema(description = "Reporting code")
   /**
    * Reporting code
    *
@@ -192,7 +192,7 @@ public class BalanceSheetAccountDetail {
    *
    * @return total
    */
-  @ApiModelProperty(value = "Total movement on this account")
+  @Schema(description = "Total movement on this account")
   /**
    * Total movement on this account
    *

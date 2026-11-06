@@ -13,7 +13,7 @@ package com.xero.models.payrolluk;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** EmployeeStatutoryLeaveBalanceObject */
@@ -45,7 +45,7 @@ public class EmployeeStatutoryLeaveBalanceObject {
    *
    * @return pagination
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * pagination
    *
@@ -80,7 +80,7 @@ public class EmployeeStatutoryLeaveBalanceObject {
    *
    * @return problem
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * problem
    *
@@ -116,7 +116,7 @@ public class EmployeeStatutoryLeaveBalanceObject {
    *
    * @return leaveBalance
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * leaveBalance
    *

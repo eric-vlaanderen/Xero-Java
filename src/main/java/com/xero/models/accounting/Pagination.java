@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** Pagination */
@@ -48,7 +48,7 @@ public class Pagination {
    *
    * @return page
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * page
    *
@@ -83,7 +83,7 @@ public class Pagination {
    *
    * @return pageSize
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * pageSize
    *
@@ -118,7 +118,7 @@ public class Pagination {
    *
    * @return pageCount
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * pageCount
    *
@@ -153,7 +153,7 @@ public class Pagination {
    *
    * @return itemCount
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * itemCount
    *

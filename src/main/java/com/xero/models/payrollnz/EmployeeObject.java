@@ -13,7 +13,7 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** EmployeeObject */
@@ -45,7 +45,7 @@ public class EmployeeObject {
    *
    * @return pagination
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * pagination
    *
@@ -80,7 +80,7 @@ public class EmployeeObject {
    *
    * @return employee
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * employee
    *
@@ -115,7 +115,7 @@ public class EmployeeObject {
    *
    * @return problem
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * problem
    *

@@ -13,11 +13,12 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** LeaveType */
 public class LeaveType {
@@ -75,7 +76,7 @@ public class LeaveType {
    *
    * @return name
    */
-  @ApiModelProperty(example = "PTO", value = "Name of the earnings rate (max length = 100)")
+  @Schema(example = "PTO", description = "Name of the earnings rate (max length = 100)")
   /**
    * Name of the earnings rate (max length &#x3D; 100)
    *
@@ -112,9 +113,9 @@ public class LeaveType {
    *
    * @return typeOfUnits
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Hours",
-      value =
+      description =
           "The type of units by which leave entitlements are normally tracked. These are typically"
               + " the same as the type of units used for the employee’s ordinary earnings rate")
   /**
@@ -153,7 +154,7 @@ public class LeaveType {
    *
    * @return leaveTypeID
    */
-  @ApiModelProperty(example = "e0eb6747-7c17-4075-b804-989f8d4e5d39", value = "Xero identifier")
+  @Schema(example = "e0eb6747-7c17-4075-b804-989f8d4e5d39", description = "Xero identifier")
   /**
    * Xero identifier
    *
@@ -188,9 +189,9 @@ public class LeaveType {
    *
    * @return normalEntitlement
    */
-  @ApiModelProperty(
+  @Schema(
       example = "152.0",
-      value = "The number of units the employee is entitled to each year")
+      description = "The number of units the employee is entitled to each year")
   /**
    * The number of units the employee is entitled to each year
    *
@@ -227,9 +228,9 @@ public class LeaveType {
    *
    * @return leaveLoadingRate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "2.0",
-      value =
+      description =
           "Enter an amount here if your organisation pays an additional percentage on top of"
               + " ordinary earnings when your employees take leave (typically 17.5%)")
   /**
@@ -257,7 +258,7 @@ public class LeaveType {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1583967733054+0000)/", value = "Last modified timestamp")
+  @Schema(example = "/Date(1583967733054+0000)/", description = "Last modified timestamp")
   /**
    * Last modified timestamp
    *
@@ -299,9 +300,9 @@ public class LeaveType {
    *
    * @return isPaidLeave
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      value = "Set this to indicate that an employee will be paid when taking this type of leave")
+      description = "Set this to indicate that an employee will be paid when taking this type of leave")
   /**
    * Set this to indicate that an employee will be paid when taking this type of leave
    *
@@ -336,9 +337,9 @@ public class LeaveType {
    *
    * @return showOnPayslip
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      value =
+      description =
           "Set this if you want a balance for this leave type to be shown on your employee’s"
               + " payslips")
   /**
@@ -375,7 +376,7 @@ public class LeaveType {
    *
    * @return currentRecord
    */
-  @ApiModelProperty(example = "true", value = "Is the current record")
+  @Schema(example = "true", description = "Is the current record")
   /**
    * Is the current record
    *
@@ -410,7 +411,7 @@ public class LeaveType {
    *
    * @return leaveCategoryCode
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * leaveCategoryCode
    *
@@ -445,9 +446,9 @@ public class LeaveType {
    *
    * @return sgCExempt
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      value =
+      description =
           "Set this to indicate that the leave type is exempt from superannuation guarantee"
               + " contribution")
   /**
@@ -486,10 +487,10 @@ public class LeaveType {
    *
    * @return isQualifyingEarnings
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      required = true,
-      value =
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description =
           "Boolean to determine if the leave type is considered as qualifying earnings for"
               + " superannuation guarantee calculations")
   /**

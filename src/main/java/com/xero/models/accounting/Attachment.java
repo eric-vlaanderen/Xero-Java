@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -55,9 +55,9 @@ public class Attachment {
    *
    * @return attachmentID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "00000000-0000-0000-0000-000000000000",
-      value = "Unique ID for the file")
+      description = "Unique ID for the file")
   /**
    * Unique ID for the file
    *
@@ -92,7 +92,7 @@ public class Attachment {
    *
    * @return fileName
    */
-  @ApiModelProperty(example = "xero-dev.jpg", value = "Name of the file")
+  @Schema(example = "xero-dev.jpg", description = "Name of the file")
   /**
    * Name of the file
    *
@@ -127,10 +127,10 @@ public class Attachment {
    *
    * @return url
    */
-  @ApiModelProperty(
+  @Schema(
       example =
           "https://api.xero.com/api.xro/2.0/Accounts/da962997-a8bd-4dff-9616-01cdc199283f/Attachments/sample5.jpg",
-      value = "URL to the file on xero.com")
+      description = "URL to the file on xero.com")
   /**
    * URL to the file on xero.com
    *
@@ -165,7 +165,7 @@ public class Attachment {
    *
    * @return mimeType
    */
-  @ApiModelProperty(example = "image/jpg", value = "Type of file")
+  @Schema(example = "image/jpg", description = "Type of file")
   /**
    * Type of file
    *
@@ -200,7 +200,7 @@ public class Attachment {
    *
    * @return contentLength
    */
-  @ApiModelProperty(value = "Length of the file content")
+  @Schema(description = "Length of the file content")
   /**
    * Length of the file content
    *
@@ -235,7 +235,7 @@ public class Attachment {
    *
    * @return includeOnline
    */
-  @ApiModelProperty(value = "Include the file with the online invoice")
+  @Schema(description = "Include the file with the online invoice")
   /**
    * Include the file with the online invoice
    *

@@ -13,12 +13,12 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** The date when the organisation starts using Xero */
-@ApiModel(description = "The date when the organisation starts using Xero")
+@Schema(description = "The date when the organisation starts using Xero")
 public class ConversionDate {
   StringUtil util = new StringUtil();
 
@@ -44,9 +44,9 @@ public class ConversionDate {
    *
    * @return month
    */
-  @ApiModelProperty(
+  @Schema(
       example = "1",
-      value = "The month the organisation starts using Xero. Value is an integer between 1 and 12")
+      description = "The month the organisation starts using Xero. Value is an integer between 1 and 12")
   /**
    * The month the organisation starts using Xero. Value is an integer between 1 and 12
    *
@@ -81,9 +81,9 @@ public class ConversionDate {
    *
    * @return year
    */
-  @ApiModelProperty(
+  @Schema(
       example = "2020",
-      value = "The year the organisation starts using Xero. Value is an integer greater than 2006")
+      description = "The year the organisation starts using Xero. Value is an integer greater than 2006")
   /**
    * The year the organisation starts using Xero. Value is an integer greater than 2006
    *

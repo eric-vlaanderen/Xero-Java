@@ -15,11 +15,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.LocalDateTime;
 
 /** Employee */
 public class Employee {
@@ -142,9 +143,9 @@ public class Employee {
    *
    * @return employeeID
    */
-  @ApiModelProperty(
+  @Schema(
       example = "d90457c4-f1be-4f2e-b4e3-f766390a7e30",
-      value = "Xero unique identifier for the employee")
+      description = "Xero unique identifier for the employee")
   /**
    * Xero unique identifier for the employee
    *
@@ -179,7 +180,7 @@ public class Employee {
    *
    * @return title
    */
-  @ApiModelProperty(example = "Mrs", value = "Title of the employee")
+  @Schema(example = "Mrs", description = "Title of the employee")
   /**
    * Title of the employee
    *
@@ -214,7 +215,7 @@ public class Employee {
    *
    * @return firstName
    */
-  @ApiModelProperty(example = "Karen", required = true, value = "First name of employee")
+  @Schema(example = "Karen", requiredMode = Schema.RequiredMode.REQUIRED, description = "First name of employee")
   /**
    * First name of employee
    *
@@ -249,7 +250,7 @@ public class Employee {
    *
    * @return lastName
    */
-  @ApiModelProperty(example = "Jones", required = true, value = "Last name of employee")
+  @Schema(example = "Jones", requiredMode = Schema.RequiredMode.REQUIRED, description = "Last name of employee")
   /**
    * Last name of employee
    *
@@ -284,10 +285,10 @@ public class Employee {
    *
    * @return dateOfBirth
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Wed Jan 02 00:00:00 UTC 2019",
-      required = true,
-      value = "Date of birth of the employee (YYYY-MM-DD)")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "Date of birth of the employee (YYYY-MM-DD)")
   /**
    * Date of birth of the employee (YYYY-MM-DD)
    *
@@ -322,7 +323,7 @@ public class Employee {
    *
    * @return address
    */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "")
   /**
    * address
    *
@@ -357,7 +358,7 @@ public class Employee {
    *
    * @return email
    */
-  @ApiModelProperty(example = "developer@me.com", value = "The email address for the employee")
+  @Schema(example = "developer@me.com", description = "The email address for the employee")
   /**
    * The email address for the employee
    *
@@ -392,7 +393,7 @@ public class Employee {
    *
    * @return gender
    */
-  @ApiModelProperty(example = "F", value = "The employee’s gender")
+  @Schema(example = "F", description = "The employee’s gender")
   /**
    * The employee’s gender
    *
@@ -427,7 +428,7 @@ public class Employee {
    *
    * @return phoneNumber
    */
-  @ApiModelProperty(example = "415-555-1212", value = "Employee phone number")
+  @Schema(example = "415-555-1212", description = "Employee phone number")
   /**
    * Employee phone number
    *
@@ -462,9 +463,9 @@ public class Employee {
    *
    * @return startDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Sun Jan 19 00:00:00 UTC 2020",
-      value = "Employment start date of the employee at the time it was requested")
+      description = "Employment start date of the employee at the time it was requested")
   /**
    * Employment start date of the employee at the time it was requested
    *
@@ -499,9 +500,9 @@ public class Employee {
    *
    * @return endDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Sun Jan 19 00:00:00 UTC 2020",
-      value = "Employment end date of the employee at the time it was requested")
+      description = "Employment end date of the employee at the time it was requested")
   /**
    * Employment end date of the employee at the time it was requested
    *
@@ -536,7 +537,7 @@ public class Employee {
    *
    * @return payrollCalendarID
    */
-  @ApiModelProperty(value = "Xero unique identifier for the payroll calendar of the employee")
+  @Schema(description = "Xero unique identifier for the payroll calendar of the employee")
   /**
    * Xero unique identifier for the payroll calendar of the employee
    *
@@ -571,7 +572,7 @@ public class Employee {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(value = "UTC timestamp of last update to the employee")
+  @Schema(description = "UTC timestamp of last update to the employee")
   /**
    * UTC timestamp of last update to the employee
    *
@@ -606,7 +607,7 @@ public class Employee {
    *
    * @return createdDateUTC
    */
-  @ApiModelProperty(value = "UTC timestamp when the employee was created in Xero")
+  @Schema(description = "UTC timestamp when the employee was created in Xero")
   /**
    * UTC timestamp when the employee was created in Xero
    *
@@ -641,7 +642,7 @@ public class Employee {
    *
    * @return jobTitle
    */
-  @ApiModelProperty(example = "General Manager", value = "Employee's job title")
+  @Schema(example = "General Manager", description = "Employee's job title")
   /**
    * Employee&#39;s job title
    *
@@ -676,7 +677,7 @@ public class Employee {
    *
    * @return engagementType
    */
-  @ApiModelProperty(example = "Permanent", value = "Engagement type of the employee")
+  @Schema(example = "Permanent", description = "Engagement type of the employee")
   /**
    * Engagement type of the employee
    *
@@ -711,9 +712,9 @@ public class Employee {
    *
    * @return fixedTermEndDate
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Sun Jan 19 00:00:00 UTC 2020",
-      value = "End date for an employee with a fixed-term engagement type")
+      description = "End date for an employee with a fixed-term engagement type")
   /**
    * End date for an employee with a fixed-term engagement type
    *

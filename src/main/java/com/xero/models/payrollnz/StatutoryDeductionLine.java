@@ -13,7 +13,7 @@ package com.xero.models.payrollnz;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -49,7 +49,7 @@ public class StatutoryDeductionLine {
    *
    * @return statutoryDeductionTypeID
    */
-  @ApiModelProperty(value = "Xero identifier for payroll statutory deduction type")
+  @Schema(description = "Xero identifier for payroll statutory deduction type")
   /**
    * Xero identifier for payroll statutory deduction type
    *
@@ -84,7 +84,7 @@ public class StatutoryDeductionLine {
    *
    * @return amount
    */
-  @ApiModelProperty(value = "The amount of the statutory deduction line")
+  @Schema(description = "The amount of the statutory deduction line")
   /**
    * The amount of the statutory deduction line
    *
@@ -119,7 +119,7 @@ public class StatutoryDeductionLine {
    *
    * @return fixedAmount
    */
-  @ApiModelProperty(value = "Fixed Amount")
+  @Schema(description = "Fixed Amount")
   /**
    * Fixed Amount
    *
@@ -154,7 +154,7 @@ public class StatutoryDeductionLine {
    *
    * @return manualAdjustment
    */
-  @ApiModelProperty(value = "Identifies if the tax line is a manual adjustment")
+  @Schema(description = "Identifies if the tax line is a manual adjustment")
   /**
    * Identifies if the tax line is a manual adjustment
    *

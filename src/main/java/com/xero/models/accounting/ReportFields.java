@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** ReportFields */
@@ -45,7 +45,7 @@ public class ReportFields {
    *
    * @return fieldID
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * fieldID
    *
@@ -80,7 +80,7 @@ public class ReportFields {
    *
    * @return description
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * description
    *
@@ -115,7 +115,7 @@ public class ReportFields {
    *
    * @return value
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * value
    *

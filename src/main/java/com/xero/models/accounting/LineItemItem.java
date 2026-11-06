@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -46,7 +46,7 @@ public class LineItemItem {
    *
    * @return code
    */
-  @ApiModelProperty(value = "User defined item code (max length = 30)")
+  @Schema(description = "User defined item code (max length = 30)")
   /**
    * User defined item code (max length &#x3D; 30)
    *
@@ -81,7 +81,7 @@ public class LineItemItem {
    *
    * @return name
    */
-  @ApiModelProperty(value = "The name of the item (max length = 50)")
+  @Schema(description = "The name of the item (max length = 50)")
   /**
    * The name of the item (max length &#x3D; 50)
    *
@@ -116,7 +116,7 @@ public class LineItemItem {
    *
    * @return itemID
    */
-  @ApiModelProperty(value = "The Xero identifier for an Item")
+  @Schema(description = "The Xero identifier for an Item")
   /**
    * The Xero identifier for an Item
    *

@@ -1,16 +1,21 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.payrollnz.*;
+import com.xero.models.payrollnz.EmployeeLeaveType;
+import com.xero.models.payrollnz.EmployeeLeaveTypeObject;
+import com.xero.models.payrollnz.EmployeeLeaveTypes;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.time.LocalDate;
+import java.time.Month;
 
-import org.threeten.bp.*;
 import java.io.IOException;
 import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class PayrollNzApiEmployeeLeaveTypesTest {
 
@@ -20,7 +25,7 @@ public class PayrollNzApiEmployeeLeaveTypesTest {
 	String accessToken;
     String xeroTenantId; 
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -44,12 +49,12 @@ public class PayrollNzApiEmployeeLeaveTypesTest {
         LocalDate endDate = LocalDate.of(2020, Month.MARCH, 30);
         EmployeeLeaveTypes response = payrollNzApi.getEmployeeLeaveTypes(accessToken, xeroTenantId, employeeId);
 
-        assertThat(response.getLeaveTypes().get(0).getLeaveTypeID(), is(equalTo(UUID.fromString("0441497f-5dc7-4cd3-a90d-f2e07e21b2a6"))));
-        assertThat(response.getLeaveTypes().get(0).getScheduleOfAccrual(), is(equalTo(com.xero.models.payrollnz.EmployeeLeaveType.ScheduleOfAccrualEnum.PERCENTAGEOFGROSSEARNINGS)));
-        assertThat(response.getLeaveTypes().get(0).getMaximumToAccrue(), is(equalTo(0.0)));
-        assertThat(response.getLeaveTypes().get(0).getOpeningBalance(), is(equalTo(0.0)));
-        assertThat(response.getLeaveTypes().get(0).getPercentageOfGrossEarnings(), is(equalTo(8.0)));
-        assertThat(response.getLeaveTypes().get(0).getIncludeHolidayPayEveryPay(), is(equalTo(true)));
+        assertThat(response.getLeaveTypes().getFirst().getLeaveTypeID(), is(equalTo(UUID.fromString("0441497f-5dc7-4cd3-a90d-f2e07e21b2a6"))));
+        assertThat(response.getLeaveTypes().getFirst().getScheduleOfAccrual(), is(equalTo(com.xero.models.payrollnz.EmployeeLeaveType.ScheduleOfAccrualEnum.PERCENTAGEOFGROSSEARNINGS)));
+        assertThat(response.getLeaveTypes().getFirst().getMaximumToAccrue(), is(equalTo(0.0)));
+        assertThat(response.getLeaveTypes().getFirst().getOpeningBalance(), is(equalTo(0.0)));
+        assertThat(response.getLeaveTypes().getFirst().getPercentageOfGrossEarnings(), is(equalTo(8.0)));
+        assertThat(response.getLeaveTypes().getFirst().getIncludeHolidayPayEveryPay(), is(equalTo(true)));
 
         //System.out.println(response.toString());
     }

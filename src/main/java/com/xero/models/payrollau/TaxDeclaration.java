@@ -13,12 +13,13 @@ package com.xero.models.payrollau;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** TaxDeclaration */
 public class TaxDeclaration {
@@ -106,7 +107,7 @@ public class TaxDeclaration {
    *
    * @return employeeID
    */
-  @ApiModelProperty(value = "Address line 1 for employee home address")
+  @Schema(description = "Address line 1 for employee home address")
   /**
    * Address line 1 for employee home address
    *
@@ -141,7 +142,7 @@ public class TaxDeclaration {
    *
    * @return employmentBasis
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * employmentBasis
    *
@@ -176,7 +177,7 @@ public class TaxDeclaration {
    *
    * @return tfNExemptionType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * tfNExemptionType
    *
@@ -211,7 +212,7 @@ public class TaxDeclaration {
    *
    * @return taxFileNumber
    */
-  @ApiModelProperty(example = "123123123", value = "The tax file number e.g 123123123.")
+  @Schema(example = "123123123", description = "The tax file number e.g 123123123.")
   /**
    * The tax file number e.g 123123123.
    *
@@ -248,9 +249,9 @@ public class TaxDeclaration {
    *
    * @return ABN
    */
-  @ApiModelProperty(
+  @Schema(
       example = "21006819692",
-      value =
+      description =
           "11-digit Australian Business Number e.g 21006819692 or an empty string (\"\") to unset a"
               + " previously set value. Only applicable, and mandatory if income type is"
               + " NONEMPLOYEE.")
@@ -290,9 +291,9 @@ public class TaxDeclaration {
    *
    * @return australianResidentForTaxPurposes
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      value = "If the employee is Australian resident for tax purposes. e.g true or false")
+      description = "If the employee is Australian resident for tax purposes. e.g true or false")
   /**
    * If the employee is Australian resident for tax purposes. e.g true or false
    *
@@ -327,7 +328,7 @@ public class TaxDeclaration {
    *
    * @return residencyStatus
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * residencyStatus
    *
@@ -362,7 +363,7 @@ public class TaxDeclaration {
    *
    * @return taxScaleType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * taxScaleType
    *
@@ -397,7 +398,7 @@ public class TaxDeclaration {
    *
    * @return workCondition
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * workCondition
    *
@@ -432,7 +433,7 @@ public class TaxDeclaration {
    *
    * @return seniorMaritalStatus
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * seniorMaritalStatus
    *
@@ -467,7 +468,7 @@ public class TaxDeclaration {
    *
    * @return taxFreeThresholdClaimed
    */
-  @ApiModelProperty(example = "false", value = "If tax free threshold claimed. e.g true or false")
+  @Schema(example = "false", description = "If tax free threshold claimed. e.g true or false")
   /**
    * If tax free threshold claimed. e.g true or false
    *
@@ -502,9 +503,9 @@ public class TaxDeclaration {
    *
    * @return taxOffsetEstimatedAmount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "100",
-      value = "If has tax offset estimated then the tax offset estimated amount. e.g 100")
+      description = "If has tax offset estimated then the tax offset estimated amount. e.g 100")
   /**
    * If has tax offset estimated then the tax offset estimated amount. e.g 100
    *
@@ -539,9 +540,9 @@ public class TaxDeclaration {
    *
    * @return hasHELPDebt
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "If employee has HECS or HELP debt. e.g true or false")
+      description = "If employee has HECS or HELP debt. e.g true or false")
   /**
    * If employee has HECS or HELP debt. e.g true or false
    *
@@ -576,9 +577,9 @@ public class TaxDeclaration {
    *
    * @return hasSFSSDebt
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "If employee has financial supplement debt. e.g true or false")
+      description = "If employee has financial supplement debt. e.g true or false")
   /**
    * If employee has financial supplement debt. e.g true or false
    *
@@ -613,9 +614,9 @@ public class TaxDeclaration {
    *
    * @return hasTradeSupportLoanDebt
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "If employee has trade support loan. e.g true or false")
+      description = "If employee has trade support loan. e.g true or false")
   /**
    * If employee has trade support loan. e.g true or false
    *
@@ -651,9 +652,9 @@ public class TaxDeclaration {
    *
    * @return upwardVariationTaxWithholdingAmount
    */
-  @ApiModelProperty(
+  @Schema(
       example = "50",
-      value = "If the employee has requested that additional tax be withheld each pay run. e.g 50")
+      description = "If the employee has requested that additional tax be withheld each pay run. e.g 50")
   /**
    * If the employee has requested that additional tax be withheld each pay run. e.g 50
    *
@@ -691,9 +692,9 @@ public class TaxDeclaration {
    *
    * @return eligibleToReceiveLeaveLoading
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value =
+      description =
           "If the employee is eligible to receive an additional percentage on top of ordinary"
               + " earnings when they take leave (typically 17.5%). e.g true or false")
   /**
@@ -733,9 +734,9 @@ public class TaxDeclaration {
    *
    * @return approvedWithholdingVariationPercentage
    */
-  @ApiModelProperty(
+  @Schema(
       example = "75",
-      value = "If the employee has approved withholding variation. e.g (0 - 100)")
+      description = "If the employee has approved withholding variation. e.g (0 - 100)")
   /**
    * If the employee has approved withholding variation. e.g (0 - 100)
    *
@@ -771,9 +772,9 @@ public class TaxDeclaration {
    *
    * @return hasStudentStartupLoan
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      value = "If the employee is eligible for student startup loan rules")
+      description = "If the employee is eligible for student startup loan rules")
   /**
    * If the employee is eligible for student startup loan rules
    *
@@ -812,9 +813,9 @@ public class TaxDeclaration {
    *
    * @return hasLoanOrStudentDebt
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      value =
+      description =
           "If the employee has any of the following loans or debts: Higher Education Loan Program"
               + " (HELP/HECS), VET Student Loan (VSL), Financial Supplement (FS), Student Start-up"
               + " Loan (SSL), or Trade Support Loan (TSL)")
@@ -845,7 +846,7 @@ public class TaxDeclaration {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(example = "/Date(1583967733054+0000)/", value = "Last modified timestamp")
+  @Schema(example = "/Date(1583967733054+0000)/", description = "Last modified timestamp")
   /**
    * Last modified timestamp
    *
@@ -890,9 +891,9 @@ public class TaxDeclaration {
    *
    * @return includeLeaveLoadingInQualifyingEarnings
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      value =
+      description =
           "Boolean to determine if leave loading is considered as qualifying earnings for"
               + " superannuation guarantee calculations. Required when IncludeLeaveLoadingInSGC is"
               + " specified in the payload")

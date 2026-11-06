@@ -13,7 +13,7 @@ package com.xero.models.assets;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -58,9 +58,9 @@ public class AssetType {
    *
    * @return assetTypeId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "5da209c5-5e19-4a43-b925-71b776c49ced",
-      value = "Xero generated unique identifier for asset types")
+      description = "Xero generated unique identifier for asset types")
   /**
    * Xero generated unique identifier for asset types
    *
@@ -95,10 +95,10 @@ public class AssetType {
    *
    * @return assetTypeName
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Computer Equipment",
-      required = true,
-      value = "The name of the asset type")
+      requiredMode = Schema.RequiredMode.REQUIRED,
+      description = "The name of the asset type")
   /**
    * The name of the asset type
    *
@@ -133,9 +133,9 @@ public class AssetType {
    *
    * @return fixedAssetAccountId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "24e260f1-bfc4-4766-ad7f-8a8ce01de879",
-      value = "The asset account for fixed assets of this type")
+      description = "The asset account for fixed assets of this type")
   /**
    * The asset account for fixed assets of this type
    *
@@ -170,9 +170,9 @@ public class AssetType {
    *
    * @return depreciationExpenseAccountId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "b23fc79b-d66b-44b0-a240-e138e086fcbc",
-      value = "The expense account for the depreciation of fixed assets of this type")
+      description = "The expense account for the depreciation of fixed assets of this type")
   /**
    * The expense account for the depreciation of fixed assets of this type
    *
@@ -207,9 +207,9 @@ public class AssetType {
    *
    * @return accumulatedDepreciationAccountId
    */
-  @ApiModelProperty(
+  @Schema(
       example = "ca4c6b39-4f4f-43e8-98da-5e1f350a6694",
-      value = "The account for accumulated depreciation of fixed assets of this type")
+      description = "The account for accumulated depreciation of fixed assets of this type")
   /**
    * The account for accumulated depreciation of fixed assets of this type
    *
@@ -244,7 +244,7 @@ public class AssetType {
    *
    * @return bookDepreciationSetting
    */
-  @ApiModelProperty(required = true, value = "")
+  @Schema(requiredMode = Schema.RequiredMode.REQUIRED, description = "")
   /**
    * bookDepreciationSetting
    *
@@ -281,9 +281,9 @@ public class AssetType {
    *
    * @return locks
    */
-  @ApiModelProperty(
+  @Schema(
       example = "33",
-      value =
+      description =
           "All asset types that have accumulated depreciation for any assets that use them are"
               + " deemed ‘locked’ and cannot be removed.")
   /**

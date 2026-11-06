@@ -13,10 +13,11 @@ package com.xero.models.file;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.OffsetDateTime;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
 
 /** Association */
 public class Association {
@@ -69,9 +70,9 @@ public class Association {
    *
    * @return sendWithObject
    */
-  @ApiModelProperty(
+  @Schema(
       example = "true",
-      value =
+      description =
           "Boolean flag to determines whether the file is sent with the document it is attached to"
               + " on client facing communications. Note- The SendWithObject element is only"
               + " returned when using /Associations/{ObjectId} endpoint.")
@@ -115,9 +116,9 @@ public class Association {
    *
    * @return name
    */
-  @ApiModelProperty(
+  @Schema(
       example = "Test.pdf",
-      value =
+      description =
           "The name of the associated file. Note- The Name element is only returned when using"
               + " /Associations/{ObjectId} endpoint.")
   /**
@@ -158,9 +159,9 @@ public class Association {
    *
    * @return size
    */
-  @ApiModelProperty(
+  @Schema(
       example = "12357",
-      value =
+      description =
           "The size of the associated file in bytes. Note- The Size element is only returned when"
               + " using /Associations/{ObjectId} endpoint.")
   /**
@@ -201,8 +202,8 @@ public class Association {
    *
    * @return createdDateUtc
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The date the file was created (UTC). Note- The CreatedDateUtc element is only returned"
               + " when using /Associations/{ObjectId} endpoint.")
   /**
@@ -243,8 +244,8 @@ public class Association {
    *
    * @return associationDateUtc
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The date the file was associated with the object (UTC). Note- The AssociationDateUtc"
               + " element is only returned when using /Associations/{ObjectId} endpoint.")
   /**
@@ -283,7 +284,7 @@ public class Association {
    *
    * @return fileId
    */
-  @ApiModelProperty(value = "The unique identifier of the file")
+  @Schema(description = "The unique identifier of the file")
   /**
    * The unique identifier of the file
    *
@@ -320,8 +321,8 @@ public class Association {
    *
    * @return objectId
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The identifier of the object that the file is being associated with (e.g. InvoiceID,"
               + " BankTransactionID, ContactID)")
   /**
@@ -360,7 +361,7 @@ public class Association {
    *
    * @return objectGroup
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * objectGroup
    *
@@ -395,7 +396,7 @@ public class Association {
    *
    * @return objectType
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * objectType
    *

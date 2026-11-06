@@ -1,17 +1,21 @@
 package com.xero.api.client;
 
-import org.junit.*;
-
-import static org.hamcrest.MatcherAssert.*;
-import static org.hamcrest.Matchers.*;
 import com.xero.api.ApiClient;
 import com.xero.api.util.ConfigurationLoader;
-import com.xero.models.project.*;
+import com.xero.models.project.TimeEntries;
+import com.xero.models.project.TimeEntry;
+import com.xero.models.project.TimeEntryCreateOrUpdate;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.time.OffsetDateTime;
 
-import org.threeten.bp.*;
 import java.io.IOException;
-import java.util.*;
-import java.io.InputStream;
+import java.util.List;
+import java.util.UUID;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class ProjectsApiTimeEntriesTest {
 
@@ -22,7 +26,7 @@ public class ProjectsApiTimeEntriesTest {
    
     private static boolean setUpIsDone = false;
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		// Set Access Token and Tenant Id
         accessToken = "123";
@@ -71,14 +75,14 @@ public class ProjectsApiTimeEntriesTest {
         assertThat(response.getPagination().getItemCount(), is(equalTo(9)));
         assertThat(response.getPagination().getPageCount(), is(equalTo(1)));
         assertThat(response.getPagination().getPageSize(), is(equalTo(50)));
-        assertThat(response.getItems().get(0).getTimeEntryId(),is(equalTo(UUID.fromString("3cd35eca-704f-4bca-b258-236028ae8ed1"))));
-        assertThat(response.getItems().get(0).getUserId(), is(equalTo(UUID.fromString("740add2a-a703-4b8a-a670-1093919c2040"))));
-        assertThat(response.getItems().get(0).getProjectId(), is(equalTo(UUID.fromString("b021e7cb-1903-4292-b48b-5b27b4271e3e"))));
-        assertThat(response.getItems().get(0).getTaskId(), is(equalTo(UUID.fromString("7be77337-feec-4458-bb1b-dbaa5a4aafce"))));
-        assertThat(response.getItems().get(0).getDateUtc(), is(equalTo(OffsetDateTime.parse("2020-02-27T15:00Z"))));
-        assertThat(response.getItems().get(0).getDateEnteredUtc(), is(equalTo(OffsetDateTime.parse("2020-02-28T03:24:29.221564100Z"))));
-        assertThat(response.getItems().get(0).getDuration(), is(equalTo(45)));
-        assertThat(response.getItems().get(0).getStatus(),is(equalTo(com.xero.models.project.TimeEntry.StatusEnum.ACTIVE)));
+        assertThat(response.getItems().getFirst().getTimeEntryId(),is(equalTo(UUID.fromString("3cd35eca-704f-4bca-b258-236028ae8ed1"))));
+        assertThat(response.getItems().getFirst().getUserId(), is(equalTo(UUID.fromString("740add2a-a703-4b8a-a670-1093919c2040"))));
+        assertThat(response.getItems().getFirst().getProjectId(), is(equalTo(UUID.fromString("b021e7cb-1903-4292-b48b-5b27b4271e3e"))));
+        assertThat(response.getItems().getFirst().getTaskId(), is(equalTo(UUID.fromString("7be77337-feec-4458-bb1b-dbaa5a4aafce"))));
+        assertThat(response.getItems().getFirst().getDateUtc(), is(equalTo(OffsetDateTime.parse("2020-02-27T15:00Z"))));
+        assertThat(response.getItems().getFirst().getDateEnteredUtc(), is(equalTo(OffsetDateTime.parse("2020-02-28T03:24:29.221564100Z"))));
+        assertThat(response.getItems().getFirst().getDuration(), is(equalTo(45)));
+        assertThat(response.getItems().getFirst().getStatus(),is(equalTo(com.xero.models.project.TimeEntry.StatusEnum.ACTIVE)));
         //System.out.println(response.toString());
     }
 

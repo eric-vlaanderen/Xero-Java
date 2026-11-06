@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -179,7 +179,7 @@ public class TenNinetyNineContact {
    *
    * @return box1
    */
-  @ApiModelProperty(value = "Box 1 on 1099 Form")
+  @Schema(description = "Box 1 on 1099 Form")
   /**
    * Box 1 on 1099 Form
    *
@@ -214,7 +214,7 @@ public class TenNinetyNineContact {
    *
    * @return box2
    */
-  @ApiModelProperty(value = "Box 2 on 1099 Form")
+  @Schema(description = "Box 2 on 1099 Form")
   /**
    * Box 2 on 1099 Form
    *
@@ -249,7 +249,7 @@ public class TenNinetyNineContact {
    *
    * @return box3
    */
-  @ApiModelProperty(value = "Box 3 on 1099 Form")
+  @Schema(description = "Box 3 on 1099 Form")
   /**
    * Box 3 on 1099 Form
    *
@@ -284,7 +284,7 @@ public class TenNinetyNineContact {
    *
    * @return box4
    */
-  @ApiModelProperty(value = "Box 4 on 1099 Form")
+  @Schema(description = "Box 4 on 1099 Form")
   /**
    * Box 4 on 1099 Form
    *
@@ -319,7 +319,7 @@ public class TenNinetyNineContact {
    *
    * @return box5
    */
-  @ApiModelProperty(value = "Box 5 on 1099 Form")
+  @Schema(description = "Box 5 on 1099 Form")
   /**
    * Box 5 on 1099 Form
    *
@@ -354,7 +354,7 @@ public class TenNinetyNineContact {
    *
    * @return box6
    */
-  @ApiModelProperty(value = "Box 6 on 1099 Form")
+  @Schema(description = "Box 6 on 1099 Form")
   /**
    * Box 6 on 1099 Form
    *
@@ -389,7 +389,7 @@ public class TenNinetyNineContact {
    *
    * @return box7
    */
-  @ApiModelProperty(value = "Box 7 on 1099 Form")
+  @Schema(description = "Box 7 on 1099 Form")
   /**
    * Box 7 on 1099 Form
    *
@@ -424,7 +424,7 @@ public class TenNinetyNineContact {
    *
    * @return box8
    */
-  @ApiModelProperty(value = "Box 8 on 1099 Form")
+  @Schema(description = "Box 8 on 1099 Form")
   /**
    * Box 8 on 1099 Form
    *
@@ -459,7 +459,7 @@ public class TenNinetyNineContact {
    *
    * @return box9
    */
-  @ApiModelProperty(value = "Box 9 on 1099 Form")
+  @Schema(description = "Box 9 on 1099 Form")
   /**
    * Box 9 on 1099 Form
    *
@@ -494,7 +494,7 @@ public class TenNinetyNineContact {
    *
    * @return box10
    */
-  @ApiModelProperty(value = "Box 10 on 1099 Form")
+  @Schema(description = "Box 10 on 1099 Form")
   /**
    * Box 10 on 1099 Form
    *
@@ -529,7 +529,7 @@ public class TenNinetyNineContact {
    *
    * @return box11
    */
-  @ApiModelProperty(value = "Box 11 on 1099 Form")
+  @Schema(description = "Box 11 on 1099 Form")
   /**
    * Box 11 on 1099 Form
    *
@@ -564,7 +564,7 @@ public class TenNinetyNineContact {
    *
    * @return box13
    */
-  @ApiModelProperty(value = "Box 13 on 1099 Form")
+  @Schema(description = "Box 13 on 1099 Form")
   /**
    * Box 13 on 1099 Form
    *
@@ -599,7 +599,7 @@ public class TenNinetyNineContact {
    *
    * @return box14
    */
-  @ApiModelProperty(value = "Box 14 on 1099 Form")
+  @Schema(description = "Box 14 on 1099 Form")
   /**
    * Box 14 on 1099 Form
    *
@@ -634,7 +634,7 @@ public class TenNinetyNineContact {
    *
    * @return name
    */
-  @ApiModelProperty(value = "Contact name on 1099 Form")
+  @Schema(description = "Contact name on 1099 Form")
   /**
    * Contact name on 1099 Form
    *
@@ -669,7 +669,7 @@ public class TenNinetyNineContact {
    *
    * @return federalTaxIDType
    */
-  @ApiModelProperty(value = "Contact Fed Tax ID type")
+  @Schema(description = "Contact Fed Tax ID type")
   /**
    * Contact Fed Tax ID type
    *
@@ -704,7 +704,7 @@ public class TenNinetyNineContact {
    *
    * @return city
    */
-  @ApiModelProperty(value = "Contact city on 1099 Form")
+  @Schema(description = "Contact city on 1099 Form")
   /**
    * Contact city on 1099 Form
    *
@@ -739,7 +739,7 @@ public class TenNinetyNineContact {
    *
    * @return zip
    */
-  @ApiModelProperty(value = "Contact zip on 1099 Form")
+  @Schema(description = "Contact zip on 1099 Form")
   /**
    * Contact zip on 1099 Form
    *
@@ -774,7 +774,7 @@ public class TenNinetyNineContact {
    *
    * @return state
    */
-  @ApiModelProperty(value = "Contact State on 1099 Form")
+  @Schema(description = "Contact State on 1099 Form")
   /**
    * Contact State on 1099 Form
    *
@@ -809,7 +809,7 @@ public class TenNinetyNineContact {
    *
    * @return email
    */
-  @ApiModelProperty(value = "Contact email on 1099 Form")
+  @Schema(description = "Contact email on 1099 Form")
   /**
    * Contact email on 1099 Form
    *
@@ -844,7 +844,7 @@ public class TenNinetyNineContact {
    *
    * @return streetAddress
    */
-  @ApiModelProperty(value = "Contact address on 1099 Form")
+  @Schema(description = "Contact address on 1099 Form")
   /**
    * Contact address on 1099 Form
    *
@@ -879,7 +879,7 @@ public class TenNinetyNineContact {
    *
    * @return taxID
    */
-  @ApiModelProperty(value = "Contact tax id on 1099 Form")
+  @Schema(description = "Contact tax id on 1099 Form")
   /**
    * Contact tax id on 1099 Form
    *
@@ -914,7 +914,7 @@ public class TenNinetyNineContact {
    *
    * @return contactId
    */
-  @ApiModelProperty(value = "Contact contact id")
+  @Schema(description = "Contact contact id")
   /**
    * Contact contact id
    *
@@ -949,7 +949,7 @@ public class TenNinetyNineContact {
    *
    * @return legalName
    */
-  @ApiModelProperty(value = "Contact legal name")
+  @Schema(description = "Contact legal name")
   /**
    * Contact legal name
    *
@@ -984,7 +984,7 @@ public class TenNinetyNineContact {
    *
    * @return businessName
    */
-  @ApiModelProperty(value = "Contact business name")
+  @Schema(description = "Contact business name")
   /**
    * Contact business name
    *
@@ -1020,7 +1020,7 @@ public class TenNinetyNineContact {
    *
    * @return federalTaxClassification
    */
-  @ApiModelProperty(value = "Contact federal tax classification")
+  @Schema(description = "Contact federal tax classification")
   /**
    * Contact federal tax classification
    *

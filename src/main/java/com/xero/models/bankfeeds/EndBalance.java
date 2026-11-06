@@ -13,14 +13,14 @@ package com.xero.models.bankfeeds;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /**
  * The StartBalance plus all the Statement Line Amounts should be equal to the EndBalance Amount.
  */
-@ApiModel(
+@Schema(
     description =
         "The StartBalance plus all the Statement Line Amounts should be equal to the EndBalance"
             + " Amount.")
@@ -49,7 +49,7 @@ public class EndBalance {
    *
    * @return amount
    */
-  @ApiModelProperty(example = "10.1340", value = "")
+  @Schema(example = "10.1340", description = "")
   /**
    * amount
    *
@@ -84,7 +84,7 @@ public class EndBalance {
    *
    * @return creditDebitIndicator
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * creditDebitIndicator
    *

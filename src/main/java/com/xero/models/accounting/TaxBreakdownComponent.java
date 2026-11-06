@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.UUID;
@@ -129,7 +129,7 @@ public class TaxBreakdownComponent {
    *
    * @return taxComponentId
    */
-  @ApiModelProperty(value = "The unique ID number of this component")
+  @Schema(description = "The unique ID number of this component")
   /**
    * The unique ID number of this component
    *
@@ -164,7 +164,7 @@ public class TaxBreakdownComponent {
    *
    * @return type
    */
-  @ApiModelProperty(value = "The type of the jurisdiction")
+  @Schema(description = "The type of the jurisdiction")
   /**
    * The type of the jurisdiction
    *
@@ -199,7 +199,7 @@ public class TaxBreakdownComponent {
    *
    * @return name
    */
-  @ApiModelProperty(value = "The name of the jurisdiction")
+  @Schema(description = "The name of the jurisdiction")
   /**
    * The name of the jurisdiction
    *
@@ -234,7 +234,7 @@ public class TaxBreakdownComponent {
    *
    * @return taxPercentage
    */
-  @ApiModelProperty(value = "The percentage of the tax")
+  @Schema(description = "The percentage of the tax")
   /**
    * The percentage of the tax
    *
@@ -269,7 +269,7 @@ public class TaxBreakdownComponent {
    *
    * @return taxAmount
    */
-  @ApiModelProperty(value = "The amount of the tax")
+  @Schema(description = "The amount of the tax")
   /**
    * The amount of the tax
    *
@@ -304,7 +304,7 @@ public class TaxBreakdownComponent {
    *
    * @return taxableAmount
    */
-  @ApiModelProperty(value = "The amount that is taxable")
+  @Schema(description = "The amount that is taxable")
   /**
    * The amount that is taxable
    *
@@ -339,7 +339,7 @@ public class TaxBreakdownComponent {
    *
    * @return nonTaxableAmount
    */
-  @ApiModelProperty(value = "The amount that is not taxable")
+  @Schema(description = "The amount that is not taxable")
   /**
    * The amount that is not taxable
    *
@@ -374,7 +374,7 @@ public class TaxBreakdownComponent {
    *
    * @return exemptAmount
    */
-  @ApiModelProperty(value = "The amount that is exempt")
+  @Schema(description = "The amount that is exempt")
   /**
    * The amount that is exempt
    *
@@ -409,7 +409,7 @@ public class TaxBreakdownComponent {
    *
    * @return stateAssignedNo
    */
-  @ApiModelProperty(value = "The state assigned number of the jurisdiction")
+  @Schema(description = "The state assigned number of the jurisdiction")
   /**
    * The state assigned number of the jurisdiction
    *
@@ -444,7 +444,7 @@ public class TaxBreakdownComponent {
    *
    * @return jurisdictionRegion
    */
-  @ApiModelProperty(value = "Name identifying the region within the country")
+  @Schema(description = "Name identifying the region within the country")
   /**
    * Name identifying the region within the country
    *

@@ -13,7 +13,7 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -49,8 +49,8 @@ public class CashflowActivity {
    *
    * @return name
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Name of the cashflow activity type. It will be either Operating Activities, Investing"
               + " Activities or Financing Activities")
   /**
@@ -89,7 +89,7 @@ public class CashflowActivity {
    *
    * @return total
    */
-  @ApiModelProperty(value = "Total value of the activity type")
+  @Schema(description = "Total value of the activity type")
   /**
    * Total value of the activity type
    *
@@ -138,7 +138,7 @@ public class CashflowActivity {
    *
    * @return cashflowTypes
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * cashflowTypes
    *

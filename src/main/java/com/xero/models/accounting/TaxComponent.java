@@ -13,7 +13,7 @@ package com.xero.models.accounting;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Objects;
 
 /** TaxComponent */
@@ -48,7 +48,7 @@ public class TaxComponent {
    *
    * @return name
    */
-  @ApiModelProperty(value = "Name of Tax Component")
+  @Schema(description = "Name of Tax Component")
   /**
    * Name of Tax Component
    *
@@ -83,7 +83,7 @@ public class TaxComponent {
    *
    * @return rate
    */
-  @ApiModelProperty(value = "Tax Rate (up to 4dp)")
+  @Schema(description = "Tax Rate (up to 4dp)")
   /**
    * Tax Rate (up to 4dp)
    *
@@ -118,7 +118,7 @@ public class TaxComponent {
    *
    * @return isCompound
    */
-  @ApiModelProperty(value = "Boolean to describe if Tax rate is compounded.")
+  @Schema(description = "Boolean to describe if Tax rate is compounded.")
   /**
    * Boolean to describe if Tax rate is compounded.
    *
@@ -155,8 +155,8 @@ public class TaxComponent {
    *
    * @return isNonRecoverable
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Boolean to describe if tax rate is non-recoverable. Non-recoverable rates are only"
               + " applicable to Canadian organisations")
   /**

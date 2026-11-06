@@ -13,9 +13,10 @@ package com.xero.models.finance;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDate;
+
 import java.util.Objects;
-import org.threeten.bp.LocalDate;
 
 /** ProfitAndLossResponse */
 public class ProfitAndLossResponse {
@@ -52,7 +53,7 @@ public class ProfitAndLossResponse {
    *
    * @return startDate
    */
-  @ApiModelProperty(value = "Start date of the report")
+  @Schema(description = "Start date of the report")
   /**
    * Start date of the report
    *
@@ -87,7 +88,7 @@ public class ProfitAndLossResponse {
    *
    * @return endDate
    */
-  @ApiModelProperty(value = "End date of the report")
+  @Schema(description = "End date of the report")
   /**
    * End date of the report
    *
@@ -122,7 +123,7 @@ public class ProfitAndLossResponse {
    *
    * @return netProfitLoss
    */
-  @ApiModelProperty(value = "Net profit loss value")
+  @Schema(description = "Net profit loss value")
   /**
    * Net profit loss value
    *
@@ -157,7 +158,7 @@ public class ProfitAndLossResponse {
    *
    * @return revenue
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * revenue
    *
@@ -192,7 +193,7 @@ public class ProfitAndLossResponse {
    *
    * @return expense
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * expense
    *

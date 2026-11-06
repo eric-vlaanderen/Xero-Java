@@ -15,16 +15,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.Instant;
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.OffsetDateTime;
-import org.threeten.bp.ZoneId;
 
 /** Invoice */
 public class Invoice {
@@ -308,7 +309,7 @@ public class Invoice {
    *
    * @return type
    */
-  @ApiModelProperty(value = "See Invoice Types")
+  @Schema(description = "See Invoice Types")
   /**
    * See Invoice Types
    *
@@ -343,7 +344,7 @@ public class Invoice {
    *
    * @return contact
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * contact
    *
@@ -392,7 +393,7 @@ public class Invoice {
    *
    * @return lineItems
    */
-  @ApiModelProperty(value = "See LineItems")
+  @Schema(description = "See LineItems")
   /**
    * See LineItems
    *
@@ -429,8 +430,8 @@ public class Invoice {
    *
    * @return date
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Date invoice was issued – YYYY-MM-DD. If the Date element is not specified it will"
               + " default to the current date based on the timezone setting of the organisation")
   /**
@@ -500,7 +501,7 @@ public class Invoice {
    *
    * @return dueDate
    */
-  @ApiModelProperty(value = "Date invoice is due – YYYY-MM-DD")
+  @Schema(description = "Date invoice is due – YYYY-MM-DD")
   /**
    * Date invoice is due – YYYY-MM-DD
    *
@@ -564,7 +565,7 @@ public class Invoice {
    *
    * @return lineAmountTypes
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * lineAmountTypes
    *
@@ -601,8 +602,8 @@ public class Invoice {
    *
    * @return invoiceNumber
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "ACCREC – Unique alpha numeric code identifying invoice (when missing will auto-generate"
               + " from your Organisation Invoice Settings) (max length = 255)")
   /**
@@ -641,7 +642,7 @@ public class Invoice {
    *
    * @return reference
    */
-  @ApiModelProperty(value = "ACCREC only – additional reference number")
+  @Schema(description = "ACCREC only – additional reference number")
   /**
    * ACCREC only – additional reference number
    *
@@ -676,7 +677,7 @@ public class Invoice {
    *
    * @return brandingThemeID
    */
-  @ApiModelProperty(value = "See BrandingThemes")
+  @Schema(description = "See BrandingThemes")
   /**
    * See BrandingThemes
    *
@@ -711,8 +712,8 @@ public class Invoice {
    *
    * @return url
    */
-  @ApiModelProperty(
-      value = "URL link to a source document – shown as “Go to [appName]” in the Xero app")
+  @Schema(
+      description = "URL link to a source document – shown as “Go to [appName]” in the Xero app")
   /**
    * URL link to a source document – shown as “Go to [appName]” in the Xero app
    *
@@ -747,7 +748,7 @@ public class Invoice {
    *
    * @return currencyCode
    */
-  @ApiModelProperty(value = "")
+  @Schema(description = "")
   /**
    * currencyCode
    *
@@ -784,8 +785,8 @@ public class Invoice {
    *
    * @return currencyRate
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The currency rate for a multicurrency invoice. If no rate is specified, the XE.com day"
               + " rate is used. (max length = [18].[6])")
   /**
@@ -824,7 +825,7 @@ public class Invoice {
    *
    * @return status
    */
-  @ApiModelProperty(value = "See Invoice Status Codes")
+  @Schema(description = "See Invoice Status Codes")
   /**
    * See Invoice Status Codes
    *
@@ -861,8 +862,8 @@ public class Invoice {
    *
    * @return sentToContact
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Boolean to set whether the invoice in the Xero app should be marked as “sent”. This can"
               + " be set only on invoices that have been approved")
   /**
@@ -901,7 +902,7 @@ public class Invoice {
    *
    * @return expectedPaymentDate
    */
-  @ApiModelProperty(value = "Shown on sales invoices (Accounts Receivable) when this has been set")
+  @Schema(description = "Shown on sales invoices (Accounts Receivable) when this has been set")
   /**
    * Shown on sales invoices (Accounts Receivable) when this has been set
    *
@@ -965,7 +966,7 @@ public class Invoice {
    *
    * @return plannedPaymentDate
    */
-  @ApiModelProperty(value = "Shown on bills (Accounts Payable) when this has been set")
+  @Schema(description = "Shown on bills (Accounts Payable) when this has been set")
   /**
    * Shown on bills (Accounts Payable) when this has been set
    *
@@ -1018,7 +1019,7 @@ public class Invoice {
    *
    * @return ciSDeduction
    */
-  @ApiModelProperty(value = "CIS deduction for UK contractors")
+  @Schema(description = "CIS deduction for UK contractors")
   /**
    * CIS deduction for UK contractors
    *
@@ -1033,7 +1034,7 @@ public class Invoice {
    *
    * @return ciSRate
    */
-  @ApiModelProperty(value = "CIS Deduction rate for the organisation")
+  @Schema(description = "CIS Deduction rate for the organisation")
   /**
    * CIS Deduction rate for the organisation
    *
@@ -1071,8 +1072,8 @@ public class Invoice {
    *
    * @return subTotal
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Total of invoice excluding taxes. Calculated automatically by Xero from the invoice's"
               + " line items. Only for ACCPAY and ACCREC invoices, where this opt-in capability is"
               + " enabled for your organisation, can SubTotal be supplied on write – on a SUBMITTED"
@@ -1139,8 +1140,8 @@ public class Invoice {
    *
    * @return totalTax
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Total tax on invoice. Calculated automatically by Xero from the invoice's line items."
               + " Only for ACCPAY and ACCREC invoices, where this opt-in capability is enabled for"
               + " your organisation, can TotalTax be supplied on write – on a SUBMITTED or"
@@ -1209,8 +1210,8 @@ public class Invoice {
    *
    * @return total
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "Total of Invoice tax inclusive (i.e. SubTotal + TotalTax + RoundingAmount). Calculated"
               + " automatically by Xero from the invoice's line items. Only for ACCPAY and ACCREC"
               + " invoices, where this opt-in capability is enabled for your organisation, can"
@@ -1258,7 +1259,7 @@ public class Invoice {
    *
    * @return totalDiscount
    */
-  @ApiModelProperty(value = "Total of discounts applied on the invoice line items")
+  @Schema(description = "Total of discounts applied on the invoice line items")
   /**
    * Total of discounts applied on the invoice line items
    *
@@ -1300,8 +1301,8 @@ public class Invoice {
    *
    * @return roundingAmount
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "An optional rounding adjustment added to SubTotal + TotalTax to give Total (i.e. Total ="
               + " SubTotal + TotalTax + RoundingAmount). Only applies to ACCPAY and ACCREC"
               + " invoices, and only if this opt-in capability has been enabled for your"
@@ -1373,8 +1374,8 @@ public class Invoice {
    *
    * @return enteredTotal
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The total amount as originally entered for the invoice, before any RoundingAmount"
               + " adjustment is applied. Only applies to ACCPAY and ACCREC invoices, and only if"
               + " this opt-in capability has been enabled for your organisation. Can only be set"
@@ -1426,7 +1427,7 @@ public class Invoice {
    *
    * @return invoiceID
    */
-  @ApiModelProperty(value = "Xero generated unique identifier for invoice")
+  @Schema(description = "Xero generated unique identifier for invoice")
   /**
    * Xero generated unique identifier for invoice
    *
@@ -1461,7 +1462,7 @@ public class Invoice {
    *
    * @return repeatingInvoiceID
    */
-  @ApiModelProperty(value = "Xero generated unique identifier for repeating invoices")
+  @Schema(description = "Xero generated unique identifier for repeating invoices")
   /**
    * Xero generated unique identifier for repeating invoices
    *
@@ -1485,9 +1486,9 @@ public class Invoice {
    *
    * @return hasAttachments
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "boolean to indicate if an invoice has an attachment")
+      description = "boolean to indicate if an invoice has an attachment")
   /**
    * boolean to indicate if an invoice has an attachment
    *
@@ -1502,7 +1503,7 @@ public class Invoice {
    *
    * @return isDiscounted
    */
-  @ApiModelProperty(value = "boolean to indicate if an invoice has a discount")
+  @Schema(description = "boolean to indicate if an invoice has a discount")
   /**
    * boolean to indicate if an invoice has a discount
    *
@@ -1517,7 +1518,7 @@ public class Invoice {
    *
    * @return payments
    */
-  @ApiModelProperty(value = "See Payments")
+  @Schema(description = "See Payments")
   /**
    * See Payments
    *
@@ -1532,7 +1533,7 @@ public class Invoice {
    *
    * @return prepayments
    */
-  @ApiModelProperty(value = "See Prepayments")
+  @Schema(description = "See Prepayments")
   /**
    * See Prepayments
    *
@@ -1547,7 +1548,7 @@ public class Invoice {
    *
    * @return overpayments
    */
-  @ApiModelProperty(value = "See Overpayments")
+  @Schema(description = "See Overpayments")
   /**
    * See Overpayments
    *
@@ -1562,7 +1563,7 @@ public class Invoice {
    *
    * @return amountDue
    */
-  @ApiModelProperty(value = "Amount remaining to be paid on invoice")
+  @Schema(description = "Amount remaining to be paid on invoice")
   /**
    * Amount remaining to be paid on invoice
    *
@@ -1577,7 +1578,7 @@ public class Invoice {
    *
    * @return amountPaid
    */
-  @ApiModelProperty(value = "Sum of payments received for invoice")
+  @Schema(description = "Sum of payments received for invoice")
   /**
    * Sum of payments received for invoice
    *
@@ -1592,8 +1593,8 @@ public class Invoice {
    *
    * @return fullyPaidOnDate
    */
-  @ApiModelProperty(
-      value = "The date the invoice was fully paid. Only returned on fully paid invoices")
+  @Schema(
+      description = "The date the invoice was fully paid. Only returned on fully paid invoices")
   /**
    * The date the invoice was fully paid. Only returned on fully paid invoices
    *
@@ -1624,8 +1625,8 @@ public class Invoice {
    *
    * @return amountCredited
    */
-  @ApiModelProperty(
-      value = "Sum of all credit notes, over-payments and pre-payments applied to invoice")
+  @Schema(
+      description = "Sum of all credit notes, over-payments and pre-payments applied to invoice")
   /**
    * Sum of all credit notes, over-payments and pre-payments applied to invoice
    *
@@ -1640,9 +1641,9 @@ public class Invoice {
    *
    * @return updatedDateUTC
    */
-  @ApiModelProperty(
+  @Schema(
       example = "/Date(1573755038314)/",
-      value = "UTC timestamp of last update to the invoice")
+      description = "UTC timestamp of last update to the invoice")
   /**
    * UTC timestamp of last update to the invoice
    *
@@ -1673,9 +1674,9 @@ public class Invoice {
    *
    * @return updatedDateUTCString
    */
-  @ApiModelProperty(
+  @Schema(
       example = "2019-11-14T18:10:38Z",
-      value = "UTC ISO-8601 formatted timestamp of last update to the invoice")
+      description = "UTC ISO-8601 formatted timestamp of last update to the invoice")
   /**
    * UTC ISO-8601 formatted timestamp of last update to the invoice
    *
@@ -1690,7 +1691,7 @@ public class Invoice {
    *
    * @return creditNotes
    */
-  @ApiModelProperty(value = "Details of credit notes that have been applied to an invoice")
+  @Schema(description = "Details of credit notes that have been applied to an invoice")
   /**
    * Details of credit notes that have been applied to an invoice
    *
@@ -1730,7 +1731,7 @@ public class Invoice {
    *
    * @return attachments
    */
-  @ApiModelProperty(value = "Displays array of attachments from the API")
+  @Schema(description = "Displays array of attachments from the API")
   /**
    * Displays array of attachments from the API
    *
@@ -1765,9 +1766,9 @@ public class Invoice {
    *
    * @return hasErrors
    */
-  @ApiModelProperty(
+  @Schema(
       example = "false",
-      value = "A boolean to indicate if a invoice has an validation errors")
+      description = "A boolean to indicate if a invoice has an validation errors")
   /**
    * A boolean to indicate if a invoice has an validation errors
    *
@@ -1802,7 +1803,7 @@ public class Invoice {
    *
    * @return statusAttributeString
    */
-  @ApiModelProperty(value = "A string to indicate if a invoice status")
+  @Schema(description = "A string to indicate if a invoice status")
   /**
    * A string to indicate if a invoice status
    *
@@ -1851,7 +1852,7 @@ public class Invoice {
    *
    * @return validationErrors
    */
-  @ApiModelProperty(value = "Displays array of validation error messages from the API")
+  @Schema(description = "Displays array of validation error messages from the API")
   /**
    * Displays array of validation error messages from the API
    *
@@ -1900,7 +1901,7 @@ public class Invoice {
    *
    * @return warnings
    */
-  @ApiModelProperty(value = "Displays array of warning messages from the API")
+  @Schema(description = "Displays array of warning messages from the API")
   /**
    * Displays array of warning messages from the API
    *
@@ -1949,7 +1950,7 @@ public class Invoice {
    *
    * @return invoiceAddresses
    */
-  @ApiModelProperty(value = "An array of addresses used to auto calculate sales tax")
+  @Schema(description = "An array of addresses used to auto calculate sales tax")
   /**
    * An array of addresses used to auto calculate sales tax
    *

@@ -13,10 +13,11 @@ package com.xero.models.identity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xero.api.StringUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.time.LocalDateTime;
+
 import java.util.Objects;
 import java.util.UUID;
-import org.threeten.bp.LocalDateTime;
 
 /** Connection */
 public class Connection {
@@ -59,7 +60,7 @@ public class Connection {
    *
    * @return id
    */
-  @ApiModelProperty(value = "Xero identifier")
+  @Schema(description = "Xero identifier")
   /**
    * Xero identifier
    *
@@ -94,7 +95,7 @@ public class Connection {
    *
    * @return tenantId
    */
-  @ApiModelProperty(value = "Xero identifier of organisation")
+  @Schema(description = "Xero identifier of organisation")
   /**
    * Xero identifier of organisation
    *
@@ -129,7 +130,7 @@ public class Connection {
    *
    * @return authEventId
    */
-  @ApiModelProperty(value = "Identifier shared across connections authorised at the same time")
+  @Schema(description = "Identifier shared across connections authorised at the same time")
   /**
    * Identifier shared across connections authorised at the same time
    *
@@ -164,7 +165,7 @@ public class Connection {
    *
    * @return tenantType
    */
-  @ApiModelProperty(value = "Xero tenant type (i.e. ORGANISATION, PRACTICE)")
+  @Schema(description = "Xero tenant type (i.e. ORGANISATION, PRACTICE)")
   /**
    * Xero tenant type (i.e. ORGANISATION, PRACTICE)
    *
@@ -199,7 +200,7 @@ public class Connection {
    *
    * @return tenantName
    */
-  @ApiModelProperty(value = "Xero tenant name")
+  @Schema(description = "Xero tenant name")
   /**
    * Xero tenant name
    *
@@ -234,7 +235,7 @@ public class Connection {
    *
    * @return createdDateUtc
    */
-  @ApiModelProperty(value = "The date when the user connected this tenant to your app")
+  @Schema(description = "The date when the user connected this tenant to your app")
   /**
    * The date when the user connected this tenant to your app
    *
@@ -271,8 +272,8 @@ public class Connection {
    *
    * @return updatedDateUtc
    */
-  @ApiModelProperty(
-      value =
+  @Schema(
+      description =
           "The date when the user most recently connected this tenant to your app. May differ to"
               + " the created date if the user has disconnected and subsequently reconnected this"
               + " tenant to your app.")
