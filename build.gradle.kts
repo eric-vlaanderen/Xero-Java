@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.github.xeroapi"
-version = "18.3.0-local"
+version = "18.3.1"
 description = "This is the official Java SDK for Xero API"
 
 repositories {
