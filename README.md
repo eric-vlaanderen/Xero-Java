@@ -89,29 +89,29 @@ Lastly, you'll generate an authorization URL and redirect the user to Xero for a
 ```java
 package com.xero.example;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Random;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import com.google.api.client.auth.oauth2.AuthorizationCodeFlow;
-
 import com.google.api.client.auth.oauth2.BearerToken;
 import com.google.api.client.auth.oauth2.ClientParametersAuthentication;
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
-import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.client.util.store.DataStoreFactory;
 import com.google.api.client.util.store.MemoryDataStoreFactory;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+import java.io.Serial;
+import java.util.ArrayList;
+import java.util.Random;
 
 @WebServlet("/Authorization")
 public class Authorization extends HttpServlet {
+    @Serial
     private static final long serialVersionUID = 1L;
     final String clientId = "--CLIENT-ID--";
     final String clientSecret = "--CLIENT-SECRET--";
@@ -119,12 +119,9 @@ public class Authorization extends HttpServlet {
     final String TOKEN_SERVER_URL = "https://identity.xero.com/connect/token";
     final String AUTHORIZATION_SERVER_URL = "https://login.xero.com/identity/connect/authorize";
     final NetHttpTransport HTTP_TRANSPORT = new NetHttpTransport();
-    final JsonFactory JSON_FACTORY = new JacksonFactory();
+    final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
     final String secretState = "secret" + new Random().nextInt(999_999);
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public Authorization() {
         super();
     }
@@ -135,7 +132,7 @@ public class Authorization extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ArrayList<String> scopeList = new ArrayList<String>();
+        ArrayList<String> scopeList = new ArrayList<>();
         scopeList.add("openid");
         scopeList.add("email");
         scopeList.add("profile");
@@ -146,7 +143,7 @@ public class Authorization extends HttpServlet {
         scopeList.add("accounting.journals.read");
         scopeList.add("accounting.reports.read");
         scopeList.add("accounting.attachments");
-        
+
         // Save your secretState variable and compare in callback to prevent CSRF
         TokenStorage store = new TokenStorage();
         store.saveItem(response, "state", secretState);
@@ -176,14 +173,9 @@ Lastly, we save the access token, refresh token and Xero tenant id.  We've mocke
 package com.xero.example;
 
 import java.io.IOException;
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import com.auth0.jwt.interfaces.DecodedJWT;
 
@@ -194,15 +186,21 @@ import com.google.api.client.auth.oauth2.TokenResponse;
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
-import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.client.util.store.DataStoreFactory;
 import com.google.api.client.util.store.MemoryDataStoreFactory;
 import com.xero.api.ApiClient;
 import com.xero.api.client.IdentityApi;
 import com.xero.models.identity.Connection;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/Callback")
 public class Callback extends HttpServlet {
+    @Serial
     private static final long serialVersionUID = 1L;
     final String clientId = "--CLIENT-ID--";
     final String clientSecret = "--CLIENT-SECRET--";
@@ -210,7 +208,7 @@ public class Callback extends HttpServlet {
     final String TOKEN_SERVER_URL = "https://identity.xero.com/connect/token";
     final String AUTHORIZATION_SERVER_URL = "https://login.xero.com/identity/connect/authorize";
     final NetHttpTransport HTTP_TRANSPORT = new NetHttpTransport();
-    final JsonFactory JSON_FACTORY = new JacksonFactory();
+    final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
     final ApiClient defaultClient = new ApiClient();
 
     /**
@@ -231,10 +229,10 @@ public class Callback extends HttpServlet {
             code = request.getParameter("code");
         }
 
-        // Retrieve your stored secretState variable 
+        // Retrieve your stored secretState variable
         TokenStorage store = new TokenStorage();
         String secretState =store.get(request, "state");
- 
+
         // Compare to state prevent CSRF
         if (request.getParameter("state") != null && secretState.equals(request.getParameter("state").toString())) {
 
@@ -249,7 +247,7 @@ public class Callback extends HttpServlet {
             scopeList.add("accounting.journals.read");
             scopeList.add("accounting.reports.read");
             scopeList.add("accounting.attachments");
-            
+
             DataStoreFactory DATA_STORE_FACTORY = new MemoryDataStoreFactory();
 
             AuthorizationCodeFlow flow = new AuthorizationCodeFlow.Builder(BearerToken.authorizationHeaderAccessMethod(),
@@ -262,11 +260,11 @@ public class Callback extends HttpServlet {
 
             try {
                 DecodedJWT verifiedJWT = defaultClient.verify(tokenResponse.getAccessToken());
-                        
+
                 ApiClient defaultIdentityClient = new ApiClient("https://api.xero.com", null, null, null, null);
                 IdentityApi idApi = new IdentityApi(defaultIdentityClient);
                 List<Connection> connection = idApi.getConnections(tokenResponse.getAccessToken(),null);
-                           
+
                 store.saveItem(response, "token_set", tokenResponse.toPrettyString());
                 store.saveItem(response, "access_token", verifiedJWT.getToken());
                 store.saveItem(response, "refresh_token", tokenResponse.getRefreshToken());
@@ -281,7 +279,7 @@ public class Callback extends HttpServlet {
             System.out.println("Invalid state - possible CSFR");
         }
     }
-}	
+}
 ```
 
 TokenStorage class uses cookies to store your access token, refresh token and Xero tenant id.  Of course, you'd want to create your own implementation of Token Storage to store information in a database.  This class is merely for demo purposes so you can trying out the SDK.
@@ -290,15 +288,15 @@ TokenStorage class uses cookies to store your access token, refresh token and Xe
 ```java
 package com.xero.example;
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class TokenStorage {
 
@@ -320,9 +318,9 @@ public class TokenStorage {
     }
 
     public void clear(HttpServletResponse response) {
-        HashMap<String, String> map = new HashMap<String, String>();
+        HashMap<String, String> map = new HashMap<>();
         map.put("jwt_token", "");
-        map.put("id_token", "");        
+        map.put("id_token", "");
         map.put("access_token", "");
         map.put("refresh_token", "");
         map.put("expires_in_seconds", "");
@@ -358,13 +356,6 @@ TokenRefresh class is an example of how you can check if your access token is ex
 ```java
 package com.xero.example;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletResponse;
-
-import org.slf4j.LoggerFactory;
-import org.slf4j.Logger;
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.DecodedJWT;
@@ -374,12 +365,17 @@ import com.google.api.client.auth.oauth2.TokenResponseException;
 import com.google.api.client.http.BasicAuthentication;
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.javanet.NetHttpTransport;
-import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.client.json.gson.GsonFactory;
 import com.xero.api.ApiClient;
+import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
 
 public class TokenRefresh {
     final static Logger logger = LoggerFactory.getLogger(TokenRefresh.class);
-    
+
     final String clientId = "--CLIENT-ID--";
     final String clientSecret = "--CLIENT-SECRET--";
     final String TOKEN_SERVER_URL = "https://identity.xero.com/connect/token";
@@ -401,7 +397,7 @@ public class TokenRefresh {
             } else {
                 System.out.println("Refresh Token : BEGIN");
                 try {
-                    TokenResponse tokenResponse = new RefreshTokenRequest(new NetHttpTransport(), new JacksonFactory(),
+                    TokenResponse tokenResponse = new RefreshTokenRequest(new NetHttpTransport(), GsonFactory.getDefaultInstance(),
                             new GenericUrl(TOKEN_SERVER_URL), refreshToken)
                             .setClientAuthentication(new BasicAuthentication(this.clientId, this.clientSecret))
                             .execute();
@@ -409,7 +405,7 @@ public class TokenRefresh {
 
                     try {
                         DecodedJWT verifiedJWT = defaultClient.verify(tokenResponse.getAccessToken());
-                        
+
                         // DEMO PURPOSE ONLY - You'll need to implement your own token storage solution
                         TokenStorage store = new TokenStorage();
                         store.saveItem(response, "token_set", tokenResponse.toPrettyString());
@@ -420,16 +416,16 @@ public class TokenRefresh {
                         currToken = verifiedJWT.getToken();
                     } catch (Exception e) {
                         e.printStackTrace();
-                    }           
+                    }
                 } catch (TokenResponseException e) {
                     System.out.println("Refresh Token : EXCEPTION");
                     if (e.getDetails() != null) {
                         System.out.println("Error: " + e.getDetails().getError());
                         if (e.getDetails().getErrorDescription() != null) {
-                        	System.out.println(e.getDetails().getErrorDescription());
+                            System.out.println(e.getDetails().getErrorDescription());
                         }
                         if (e.getDetails().getErrorUri() != null) {
-							System.out.println(e.getDetails().getErrorUri());
+                            System.out.println(e.getDetails().getErrorUri());
                         }
                     } else {
                         System.out.println("Refresh Token : EXCEPTION");
